@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Art Src/900609-middle-removebg-preview (3).png" type="Texture" id=1]
+[ext_resource path="res://Sprite.cs" type="Script" id=2]
+[ext_resource path="res://Art Src/900609-middle-removebg-preview.png" type="Texture" id=3]
+[ext_resource path="res://Art Src/pixelman-removebg-preview.png" type="Texture" id=4]
+[ext_resource path="res://Art Src/900609-middle-removebg-preview (1).png" type="Texture" id=5]
+[ext_resource path="res://Art Src/900609-middle-removebg-preview (2).png" type="Texture" id=6]
+[ext_resource path="res://sword.cs" type="Script" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "attack",
+"speed": 5.0
+} ]
+
+[node name="Sprite" type="Sprite"]
+position = Vector2( 203.444, 457.434 )
+rotation = -0.011086
+scale = Vector2( 0.239374, 0.287897 )
+texture = ExtResource( 4 )
+script = ExtResource( 2 )
+
+[node name="Skill" type="Sprite" parent="."]
+
+[node name="FInter" type="Sprite" parent="."]
+
+[node name="RPortion" type="Sprite" parent="."]
+
+[node name="sword" type="AnimatedSprite" parent="."]
+position = Vector2( 328.792, -36.6647 )
+scale = Vector2( 1.05454, 0.934784 )
+frames = SubResource( 1 )
+animation = "attack"
+frame = 2
+speed_scale = 2.0
+script = ExtResource( 7 )
