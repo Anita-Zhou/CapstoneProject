@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=7]
 
 [node name="World" type="Node2D"]
+position = Vector2( -1, -1 )
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0

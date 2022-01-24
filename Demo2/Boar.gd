@@ -47,17 +47,20 @@ func _process(delta):
 func AnimationProcess():
 	anim_sprite.play("boar_run")
 	# need to do more
-	if(distance2hero < 2 and count == 0):
+	if(distance2hero < 200 and count == 0):
 		print("stop and charge")
 		should_stop = true
+		#anim_sprite.stop()
 		anim_sprite.play("boar_charge")
+		anim_sprite.connect("animation_finished", self, "handle_charge_stop")
 		print("boar_charge played")
-		anim_sprite.connect("animation_finished", anim_sprite, "handle_charge_stop")
+		
 
 func handle_charge_stop():
 	print("handle_charge_stop")
 	anim_sprite.disconnect("animation_finished", anim_sprite, "handle_charge_stop")
 	should_stop = false
+	print("should_stop", should_stop)
 	anim_sprite.play("boar_run")
 	print("replay run")
 	count = 20

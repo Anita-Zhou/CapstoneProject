@@ -36,7 +36,7 @@ func _input(ev):
 	var skill = get_node("WoodSkill")
 	sword.connect("animation_finished", sword, "stop")
 	if Input.is_key_pressed(KEY_SPACE):
-		self.position = self.position + move_direction * speed/5
+		self.position = self.position + move_direction * speed/4
 	if Input.is_mouse_button_pressed(BUTTON_LEFT):
 		sword.play("attack")
 	if Input.is_key_pressed(KEY_E):
