@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/zhurong.png-8da703b6913870b98c48a680ac1b8c14.stex"
+path="res://.import/zhurong.png-eada7fb9de93224144f2802dd0801361.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Src/zhurong.png"
-dest_files=[ "res://.import/zhurong.png-8da703b6913870b98c48a680ac1b8c14.stex" ]
+source_file="res://Art Src/BossArt/zhurong.png"
+dest_files=[ "res://.import/zhurong.png-eada7fb9de93224144f2802dd0801361.stex" ]
 
 [params]
 

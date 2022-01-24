@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/s1_shed.png-d16539dad168f710b5dcd2660a0b4df2.stex"
+path="res://.import/s1_shed.png-00c3a8bb8474654c32fbd52ea3c04703.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Src/s1_shed.png"
-dest_files=[ "res://.import/s1_shed.png-d16539dad168f710b5dcd2660a0b4df2.stex" ]
+source_file="res://Art Src/StaticObstacle/s1_shed.png"
+dest_files=[ "res://.import/s1_shed.png-00c3a8bb8474654c32fbd52ea3c04703.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/charge prep.png-a6debb861bfe74c796608f953687d4cc.stex"
+path="res://.import/charge prep.png-6a8fa57dc248b19b9eef59ab324f4718.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Src/charge prep.png"
-dest_files=[ "res://.import/charge prep.png-a6debb861bfe74c796608f953687d4cc.stex" ]
+source_file="res://Art Src/BossArt/charge prep.png"
+dest_files=[ "res://.import/charge prep.png-6a8fa57dc248b19b9eef59ab324f4718.stex" ]
 
 [params]
 

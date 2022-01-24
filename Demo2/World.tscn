@@ -1,20 +1,22 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Boar.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Art Src/s1_background.png" type="Texture" id=3]
-[ext_resource path="res://Art Src/s1_background_trees.png" type="Texture" id=4]
-[ext_resource path="res://Art Src/s1_skull2.png" type="Texture" id=5]
+[ext_resource path="res://Art Src/Background/s1_background.png" type="Texture" id=3]
+[ext_resource path="res://Art Src/Background/s1_background_trees.png" type="Texture" id=4]
+[ext_resource path="res://StaticScns/Bone1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://shed.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=7]
 
 [node name="World" type="Node2D"]
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 3.0
-margin_top = -10.0
-margin_right = 1028.0
-margin_bottom = 589.0
+margin_left = 4.0
+margin_top = -4.0
+margin_right = 1029.0
+margin_bottom = 595.0
 texture = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -30,20 +32,26 @@ scale = Vector2( 1.59531, 1.65278 )
 texture = ExtResource( 4 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="bgTrees"]
-polygon = PoolVector2Array( -524, 85, -401, -74, -286, -82, -145, -135, -51, -133, 17, -157, 126, -146, 142, -126, 217, -118, 271, -102, 347, -111, 490, -48, 500, -45, 502, -276, -527, -272 )
+polygon = PoolVector2Array( -523, 319, -8, 318, -512, 306, -509, 89, -401, -74, -286, -82, -145, -135, -51, -133, 17, -157, 126, -146, 142, -126, 217, -118, 271, -102, 347, -111, 481, -45, 489, 301, -5, 318, 498, 319, 502, -276, -527, -272, -525, 295 )
 
-[node name="Bones" type="StaticBody2D" parent="."]
+[node name="Shed2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 171, 200 )
+scale = Vector2( 1.0934, 0.858751 )
 
-[node name="Bones1" type="Sprite" parent="Bones"]
-position = Vector2( 855, 317 )
-scale = Vector2( 1.77273, 1.8125 )
-texture = ExtResource( 5 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bones/Bones1"]
-polygon = PoolVector2Array( -1.69238, 1.10345, -24.8206, -0.551712, -31.0257, 8.82759, -27.6411, 16.5517, 20.8717, 18.2069, 30.4615, 11.0345, 26.5128, 6.06897, 18.6153, 3.31035, 14.6666, 2.75862 )
-
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 275, 380 )
+[node name="Bone1" parent="." instance=ExtResource( 5 )]
+position = Vector2( 796, 402 )
+scale = Vector2( 0.923494, 1 )
 
 [node name="Boar" parent="." instance=ExtResource( 2 )]
 position = Vector2( 605, 211 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 275, 380 )
+scale = Vector2( 1, 1.01009 )
+
+[node name="GUI" parent="." instance=ExtResource( 7 )]
+margin_left = 34.0
+margin_top = 15.0
+margin_right = 1060.0
+margin_bottom = 108.0
+rect_scale = Vector2( 0.395944, 0.347644 )

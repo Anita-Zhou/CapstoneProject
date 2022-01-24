@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/warhog v2.png-7f550aee5bb0f8d44f748fa03763eff3.stex"
+path="res://.import/warhog v2.png-b970a33de79d2a75f511ecbad2942175.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Src/warhog v2.png"
-dest_files=[ "res://.import/warhog v2.png-7f550aee5bb0f8d44f748fa03763eff3.stex" ]
+source_file="res://Art Src/BossArt/warhog v2.png"
+dest_files=[ "res://.import/warhog v2.png-b970a33de79d2a75f511ecbad2942175.stex" ]
 
 [params]
 

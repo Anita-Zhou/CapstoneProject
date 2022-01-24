@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/middle flame.png-9103ba8058f0e428c41da9c9e5768fa3.stex"
+path="res://.import/middle flame.png-38fd51445daffbbff0279ab596101ac0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Src/middle flame.png"
-dest_files=[ "res://.import/middle flame.png-9103ba8058f0e428c41da9c9e5768fa3.stex" ]
+source_file="res://Art Src/Effect/middle flame.png"
+dest_files=[ "res://.import/middle flame.png-38fd51445daffbbff0279ab596101ac0.stex" ]
 
 [params]
 

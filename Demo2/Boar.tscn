@@ -1,19 +1,88 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://Art Src/charge prep.png" type="Texture" id=1]
+[ext_resource path="res://Art Src/BossArt/charge prep.png" type="Texture" id=1]
+[ext_resource path="res://Boar.gd" type="Script" id=2]
+[ext_resource path="res://Art Src/BossArt/warhog v2.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 432, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 864, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 432, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 432, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 864, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1296, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1728, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 2160, 0, 432, 432 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "boar_run",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "boar_charge",
+"speed": 5.0
+} ]
 
 [sub_resource type="CircleShape2D" id=1]
+radius = 7.32064
 
 [node name="Boar" type="KinematicBody2D"]
 position = Vector2( 113, 83 )
+script = ExtResource( 2 )
 
-[node name="ChargePrep" type="Sprite" parent="."]
-scale = Vector2( 0.466049, 0.494213 )
-texture = ExtResource( 1 )
-hframes = 6
+[node name="BoarAnimation" type="AnimatedSprite" parent="."]
+position = Vector2( 1, 8 )
+scale = Vector2( 0.4709, 0.454411 )
+frames = SubResource( 12 )
+animation = "boar_charge"
+frame = 1
 
 [node name="BoarCollision" type="CollisionShape2D" parent="."]
-position = Vector2( -4, 8 )
+position = Vector2( -1, 39 )
 scale = Vector2( 8, 7 )
 shape = SubResource( 1 )
 one_way_collision_margin = 1.6
