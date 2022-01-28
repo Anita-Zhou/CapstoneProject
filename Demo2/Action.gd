@@ -35,9 +35,11 @@ func _input(ev):
 	var player = get_node("player")
 	var skill = get_node("WoodSkill")
 	
-	if Input.is_key_pressed(KEY_SPACE):
+	if Input.is_key_pressed(KEY_D):
 		self.position = self.position + move_direction * speed/4
+		player.play("walk")	
 	if Input.is_mouse_button_pressed(BUTTON_LEFT):
+		player.connect("animation_finished", player, "stop")
 		player.play("attack")
 	if Input.is_key_pressed(KEY_E):
 		player.play("attack")
