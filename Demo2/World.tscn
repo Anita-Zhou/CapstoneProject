@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Boar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://GameScns/PlayerScns/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://GameScns/BossScns/Boar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Art Src/Background/s1_background.png" type="Texture" id=3]
 [ext_resource path="res://Art Src/Background/s1_background_trees.png" type="Texture" id=4]
-[ext_resource path="res://StaticScns/Bone1.tscn" type="PackedScene" id=5]
-[ext_resource path="res://shed.tscn" type="PackedScene" id=6]
+[ext_resource path="res://GameScns/StaticScns/Bone1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/shed.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=7]
 
 [node name="World" type="Node2D"]
@@ -33,7 +33,7 @@ scale = Vector2( 1.59531, 1.65278 )
 texture = ExtResource( 4 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="bgTrees"]
-polygon = PoolVector2Array( -523, 319, -8, 318, -512, 306, -509, 89, -401, -74, -286, -82, -145, -135, -51, -133, 17, -157, 126, -146, 142, -126, 217, -118, 271, -102, 347, -111, 481, -45, 489, 301, -5, 318, 498, 319, 502, -276, -527, -272, -525, 295 )
+polygon = PoolVector2Array( -524, 327, 53, 328, -506, 313, -509, 89, -401, -74, -286, -82, -145, -135, -51, -133, 17, -157, 126, -146, 142, -126, 217, -118, 271, -102, 347, -111, 481, -45, 496, 309, -103, 331, 505, 327, 502, -276, -527, -272, -538, 249 )
 
 [node name="Shed2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 171, 200 )

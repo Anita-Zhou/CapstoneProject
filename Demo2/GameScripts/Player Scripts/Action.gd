@@ -5,7 +5,7 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 
-var speed = 250
+var speed = 200
 var move_direction = Vector2(0,0)
 var animationPlayer = null
 
