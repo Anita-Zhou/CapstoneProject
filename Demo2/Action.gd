@@ -32,15 +32,15 @@ func _physics_process(delta):
 	move_and_collide(motion * delta)
 
 func _input(ev):
-	var sword = get_node("sword")
+	var player = get_node("player")
 	var skill = get_node("WoodSkill")
-	sword.connect("animation_finished", sword, "stop")
+	
 	if Input.is_key_pressed(KEY_SPACE):
 		self.position = self.position + move_direction * speed/4
 	if Input.is_mouse_button_pressed(BUTTON_LEFT):
-		sword.play("attack")
+		player.play("attack")
 	if Input.is_key_pressed(KEY_E):
-		print("pressed E")
+		player.play("attack")
 		skill.being_cast()
 		
 			#play attck animation
