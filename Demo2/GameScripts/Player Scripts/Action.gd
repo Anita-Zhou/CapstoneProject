@@ -5,7 +5,7 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 
-var speed = 200
+var speed = 100
 var move_direction = Vector2(0,0)
 var animationPlayer = null
 
@@ -42,7 +42,6 @@ func _input(ev):
 		player.connect("animation_finished", player, "stop")
 		player.play("attack")
 	if Input.is_key_pressed(KEY_E):
-		player.play("attack")
 		skill.being_cast()
 		
 			#play attck animation

@@ -1,4 +1,6 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="Theme" id=1]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -12,3 +14,4 @@ margin_left = 26.0
 margin_top = 23.0
 margin_right = 376.0
 margin_bottom = 51.0
+theme = SubResource( 1 )

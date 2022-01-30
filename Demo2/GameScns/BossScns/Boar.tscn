@@ -1,69 +1,69 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://Art Src/BossArt/charge prep.png" type="Texture" id=1]
+[ext_resource path="res://Art Src/BossArt/charge prep adjusted.png" type="Texture" id=1]
 [ext_resource path="res://GameScripts/Boss Scripts/Boar.gd" type="Script" id=2]
-[ext_resource path="res://Art Src/BossArt/warhog v2.png" type="Texture" id=3]
+[ext_resource path="res://Art Src/BossArt/walking v2 adjusted.png" type="Texture" id=3]
 
-[sub_resource type="AtlasTexture" id=2]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 432, 432 )
-
-[sub_resource type="AtlasTexture" id=3]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 432, 0, 432, 432 )
-
-[sub_resource type="AtlasTexture" id=4]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 864, 0, 432, 432 )
-
-[sub_resource type="AtlasTexture" id=5]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 432, 0, 432, 432 )
-
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=21]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 432, 432 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=22]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 432, 0, 432, 432 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=23]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 864, 0, 432, 432 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=24]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 1296, 0, 432, 432 )
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=25]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 1728, 0, 432, 432 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=26]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 2160, 0, 432, 432 )
 
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 864, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 1728, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 3024, 0, 432, 432 )
+
 [sub_resource type="SpriteFrames" id=12]
 animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
-"loop": true,
-"name": "boar_run",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ) ],
 "loop": true,
 "name": "boar_charge",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 13 ), SubResource( 15 ), SubResource( 17 ), SubResource( 20 ) ],
+"loop": true,
+"name": "boar_run",
 "speed": 5.0
 } ]
 
@@ -78,8 +78,7 @@ script = ExtResource( 2 )
 position = Vector2( 1, 8 )
 scale = Vector2( 0.4709, 0.454411 )
 frames = SubResource( 12 )
-animation = "boar_charge"
-frame = 1
+animation = "boar_run"
 
 [node name="BoarCollision" type="CollisionShape2D" parent="."]
 position = Vector2( -1, 39 )

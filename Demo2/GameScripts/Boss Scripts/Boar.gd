@@ -9,6 +9,7 @@ var count = 0
 # var rng = RandomNumberGenerator.new()
 var speed = 40
 var direction = Vector2(0, 0)
+
 var distance2hero = float("inf")
 var anim_sprite = null
 var player = null
@@ -45,9 +46,13 @@ func _process(delta):
 #func _process(delta):
 #	pass
 func AnimationProcess():
+	if(direction.x < 0):
+		anim_sprite.set_flip_h(false)
+	else:
+		anim_sprite.set_flip_h(true)
 	anim_sprite.play("boar_run")
 	# need to do more
-	if(distance2hero < 200 and count == 0):
+	if(distance2hero < 150 and count == 0):
 		print("stop and charge")
 		should_stop = true
 		#anim_sprite.stop()
