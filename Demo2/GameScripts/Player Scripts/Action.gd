@@ -8,12 +8,15 @@ extends KinematicBody2D
 var speed = 100
 var move_direction = Vector2(0,0)
 var animationPlayer = null
-
+var face_right = true
+var animation_in_process = false
+var animation_not_interruptable = false;
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print ("Hello World")
+	animationPlayer = $AnimationPlayer
 	
 
 	# pass # Replace with function body.
@@ -32,18 +35,29 @@ func _physics_process(delta):
 	move_and_collide(motion * delta)
 
 func _input(ev):
+	
 	var player = get_node("player")
 	var skill = get_node("WoodSkill")
 	
-	if Input.is_key_pressed(KEY_D):
-		self.position = self.position + move_direction * speed/4
-		player.play("walk")	
-	if Input.is_mouse_button_pressed(BUTTON_LEFT):
-		player.connect("animation_finished", player, "stop")
-		player.play("attack")
-	if Input.is_key_pressed(KEY_E):
+	
+	if Input.is_action_pressed("ui_right", false):
+		face_right = true;
+		animationPlayer.play("WalkRight")	
+	elif Input.is_action_pressed("ui_left", false):
+		face_right = false;
+		animationPlayer.play("WalkRight")	
+	elif Input.is_mouse_button_pressed(BUTTON_LEFT):
+		animationPlayer.play("Attack")	
+	elif Input.is_key_pressed(KEY_E):
 		skill.being_cast()
+	else:
+		animationPlayer.play("Idle")	
 		
+	if face_right == true:
+		player.set_flip_h(false)
+	else:
+		player.set_flip_h(true)
+
 			#play attck animation
 
 func get_player2enemy_dir():
