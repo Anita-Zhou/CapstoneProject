@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://GameScns/PlayerScns/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GameScns/BossScns/Boar.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://GameScns/StaticScns/Bone1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/shed.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://WoodSkill.gd" type="Script" id=8]
+[ext_resource path="res://Art Src/Attack/transparent-green-fireball-png-minecraft-orange-pixel-art-removebg-preview.png" type="Texture" id=9]
 
 [node name="World" type="YSort"]
 position = Vector2( -1, -1 )
@@ -54,5 +56,14 @@ margin_top = 15.0
 margin_right = 1060.0
 margin_bottom = 108.0
 rect_scale = Vector2( 0.395944, 0.347644 )
+
+[node name="WoodSkill" type="KinematicBody2D" parent="."]
+position = Vector2( 150, 279 )
+script = ExtResource( 8 )
+
+[node name="wood_sprite" type="Sprite" parent="WoodSkill"]
+position = Vector2( -2, 1 )
+scale = Vector2( 0.0617977, 0.0714285 )
+texture = ExtResource( 9 )
 
 [editable path="Background/bgTrees"]
