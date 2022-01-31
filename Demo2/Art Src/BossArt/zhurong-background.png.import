@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/walk-sprite.png-a795197ff474b7b3041dea348ef6e61b.stex"
+path="res://.import/zhurong-background.png-2e055bdf9de699ec0489302ee69fbee1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Src/walk-sprite.png"
-dest_files=[ "res://.import/walk-sprite.png-a795197ff474b7b3041dea348ef6e61b.stex" ]
+source_file="res://Art Src/BossArt/zhurong-background.png"
+dest_files=[ "res://.import/zhurong-background.png-2e055bdf9de699ec0489302ee69fbee1.stex" ]
 
 [params]
 
