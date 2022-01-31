@@ -1,14 +1,14 @@
-[gd_scene load_steps=84 format=2]
+[gd_scene load_steps=85 format=2]
 
 [ext_resource path="res://Art Src/BossArt/charge prep adjusted.png" type="Texture" id=1]
 [ext_resource path="res://GameScripts/Boss Scripts/Boar.gd" type="Script" id=2]
 [ext_resource path="res://Art Src/BossArt/walking v2 adjusted.png" type="Texture" id=3]
-[ext_resource path="res://Art Src/BossArt/WalkRight.png" type="Texture" id=4]
+[ext_resource path="res://GameScns/Hitboxes&Hurtboxes/HurtBox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Art Src/BossArt/ChargePrepRight.png" type="Texture" id=5]
 [ext_resource path="res://Art Src/BossArt/RunRight.png" type="Texture" id=6]
 [ext_resource path="res://Art Src/BossArt/charge adjusted.png" type="Texture" id=7]
 [ext_resource path="res://scripts/BoarWalk.gd" type="Script" id=8]
-[ext_resource path="res://GameScns/Hitboxes&Hurtboxes/HurtBox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Art Src/BossArt/WalkRight.png" type="Texture" id=9]
 
 [sub_resource type="AtlasTexture" id=13]
 flags = 4
@@ -82,22 +82,22 @@ region = Rect2( 1296, 0, 432, 432 )
 
 [sub_resource type="AtlasTexture" id=38]
 flags = 4
-atlas = ExtResource( 4 )
+atlas = ExtResource( 9 )
 region = Rect2( 2592, 0, 432, 432 )
 
 [sub_resource type="AtlasTexture" id=39]
 flags = 4
-atlas = ExtResource( 4 )
+atlas = ExtResource( 9 )
 region = Rect2( 1728, 0, 432, 432 )
 
 [sub_resource type="AtlasTexture" id=40]
 flags = 4
-atlas = ExtResource( 4 )
+atlas = ExtResource( 9 )
 region = Rect2( 864, 0, 432, 432 )
 
 [sub_resource type="AtlasTexture" id=41]
 flags = 4
-atlas = ExtResource( 4 )
+atlas = ExtResource( 9 )
 region = Rect2( 0, 0, 432, 432 )
 
 [sub_resource type="AtlasTexture" id=42]
@@ -475,12 +475,6 @@ transitions = [ "Walk", "ChargePrep", SubResource( 82 ), "ChargePrep", "Walk", S
 start_node = "Idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=66]
-[sub_resource type="CapsuleShape2D" id=28]
-radius = 4.0
-height = 16.5714
-
-[sub_resource type="RectangleShape2D" id=27]
-extents = Vector2( 70.5, 40.5 )
 
 [node name="Boar" type="KinematicBody2D"]
 position = Vector2( 1, 0 )
@@ -493,7 +487,7 @@ frames = SubResource( 12 )
 animation = "boar_Animation"
 
 [node name="BoarCollision" type="CollisionShape2D" parent="."]
-position = Vector2( 1, 19 )
+position = Vector2( -2, 29 )
 rotation = 1.5708
 scale = Vector2( 8, 7 )
 shape = SubResource( 27 )
@@ -520,11 +514,6 @@ parameters/Charge/blend_position = Vector2( -0.00742573, 0.62069 )
 parameters/ChargePrep/blend_position = Vector2( -0.30198, -0.0258621 )
 parameters/Idle/blend_position = Vector2( -0.220297, 0.206897 )
 parameters/Walk/blend_position = Vector2( -0.32797, 0.0172414 )
-position = Vector2( -9, 46 )
-rotation = 1.5708
-scale = Vector2( 8, 7 )
-shape = SubResource( 28 )
-one_way_collision_margin = 1.6
 
 [node name="Hurtbox" parent="." instance=ExtResource( 4 )]
 position = Vector2( -7, 7 )
