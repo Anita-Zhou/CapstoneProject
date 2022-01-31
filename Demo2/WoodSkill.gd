@@ -14,15 +14,20 @@ func _ready():
 func being_cast():
 	var player = $"../Player"
 	var boss = $"../Boar"
+	var stone = $"../Stone1"
 	var player_position = player.get_position()
 	var boss_position = boss.get_position()
+	var stone_position = stone.get_position()
 #	var direction = player.get_player2enemy_dir()
 #	print("distance", abs((player_position - boss_position).length()))
 #	self.position = position.move_toward(direction, -50)
 	if abs((player_position - boss_position).length()) < 200:
 		self.position = boss_position
 		boss.fix_position(true)
-		
+	
+	print("dist to stone", abs((player_position - stone_position).length()))
+	if abs((player_position - stone_position).length()) < 150:
+		stone.wood_interaction()
 
 	
 #func _process(delta):
