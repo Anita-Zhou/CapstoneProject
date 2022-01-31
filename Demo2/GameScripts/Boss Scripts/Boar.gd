@@ -87,14 +87,14 @@ func _physics_process(delta):
 		STOP:
 			motion = direction * 0
 			if timer < 100:
-				animationState.travel("Walk")
+				animationState.travel("Idle")
 				timer = timer + 1
 			else:
 				temp_direction = direction
 				animationTree.set("parameters/Charge/blend_position", direction)
 				state = WALK
 				timer = 0
-
+				should_stop = false
 	
 	move_and_slide(motion)
 	move_and_collide(motion * delta)
@@ -138,4 +138,5 @@ func handle_charge_stop():
 	
 func fix_position(check):
 	should_stop = check
+	print("fix position", self.position)
 	
