@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://Art Src/walk-sprite.png" type="Texture" id=1]
 [ext_resource path="res://GameScripts/Player Scripts/Action.gd" type="Script" id=2]
@@ -158,6 +158,7 @@ loop = true
 [sub_resource type="Animation" id=51]
 resource_name = "IdleDown"
 length = 0.1
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("player:frame")
 tracks/0/interp = 1
@@ -184,7 +185,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 6 ]
+"values": [ 16 ]
 }
 
 [sub_resource type="Animation" id=41]
@@ -253,6 +254,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=54]
 resource_name = "WalkLeft"
 length = 0.8
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("player:frame")
 tracks/0/interp = 1
@@ -311,6 +313,9 @@ animation = "IdleRight"
 [sub_resource type="AnimationNodeAnimation" id=60]
 animation = "IdleUp"
 
+[sub_resource type="AnimationNodeAnimation" id=68]
+animation = "IdleRight"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id=42]
 blend_point_0/node = SubResource( 57 )
 blend_point_0/pos = Vector2( -1, 0 )
@@ -320,6 +325,8 @@ blend_point_2/node = SubResource( 59 )
 blend_point_2/pos = Vector2( 1, 0 )
 blend_point_3/node = SubResource( 60 )
 blend_point_3/pos = Vector2( 0, -1.1 )
+blend_point_4/node = SubResource( 68 )
+blend_point_4/pos = Vector2( 0, 1.1 )
 min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
@@ -328,13 +335,13 @@ blend_mode = 1
 animation = "WalkLeft"
 
 [sub_resource type="AnimationNodeAnimation" id=62]
-animation = "WalkUp"
+animation = "WalkRight"
 
 [sub_resource type="AnimationNodeAnimation" id=63]
 animation = "WalkRight"
 
 [sub_resource type="AnimationNodeAnimation" id=64]
-animation = "WalkUp"
+animation = "WalkRight"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id=65]
 blend_point_0/node = SubResource( 61 )
@@ -386,7 +393,7 @@ position = Vector2( 4, -20 )
 scale = Vector2( 1.55556, 1.36806 )
 frames = SubResource( 13 )
 animation = "sprite"
-frame = 6
+frame = 16
 speed_scale = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -408,5 +415,5 @@ tree_root = SubResource( 40 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 31 )
-parameters/Idle/blend_position = Vector2( 0, 0 )
-parameters/Walk/blend_position = Vector2( 0, 0.0141631 )
+parameters/Idle/blend_position = Vector2( 0.00105155, -1.06207 )
+parameters/Walk/blend_position = Vector2( -0.00105155, 0 )

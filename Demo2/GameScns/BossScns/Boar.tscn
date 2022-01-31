@@ -81,7 +81,7 @@ frames = SubResource( 12 )
 animation = "boar_run"
 
 [node name="BoarCollision" type="CollisionShape2D" parent="."]
-position = Vector2( -1, 39 )
+position = Vector2( -2, 25 )
 scale = Vector2( 8, 7 )
 shape = SubResource( 1 )
 one_way_collision_margin = 1.6
