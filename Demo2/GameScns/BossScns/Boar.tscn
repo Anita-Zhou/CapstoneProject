@@ -1,38 +1,13 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=84 format=2]
 
 [ext_resource path="res://Art Src/BossArt/charge prep adjusted.png" type="Texture" id=1]
 [ext_resource path="res://GameScripts/Boss Scripts/Boar.gd" type="Script" id=2]
 [ext_resource path="res://Art Src/BossArt/walking v2 adjusted.png" type="Texture" id=3]
-
-[sub_resource type="AtlasTexture" id=21]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 432, 432 )
-
-[sub_resource type="AtlasTexture" id=22]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 432, 0, 432, 432 )
-
-[sub_resource type="AtlasTexture" id=23]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 864, 0, 432, 432 )
-
-[sub_resource type="AtlasTexture" id=24]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 1296, 0, 432, 432 )
-
-[sub_resource type="AtlasTexture" id=25]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 1728, 0, 432, 432 )
-
-[sub_resource type="AtlasTexture" id=26]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 2160, 0, 432, 432 )
+[ext_resource path="res://Art Src/BossArt/WalkRight.png" type="Texture" id=4]
+[ext_resource path="res://Art Src/BossArt/ChargePrepRight.png" type="Texture" id=5]
+[ext_resource path="res://Art Src/BossArt/RunRight.png" type="Texture" id=6]
+[ext_resource path="res://Art Src/BossArt/charge adjusted.png" type="Texture" id=7]
+[ext_resource path="res://scripts/BoarWalk.gd" type="Script" id=8]
 
 [sub_resource type="AtlasTexture" id=13]
 flags = 4
@@ -54,21 +29,451 @@ flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 3024, 0, 432, 432 )
 
+[sub_resource type="AtlasTexture" id=28]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 432, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 864, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=31]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1296, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=32]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1728, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=33]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 2160, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=34]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=35]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 432, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=36]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 864, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=37]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 1296, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=38]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 2592, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=39]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 1728, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=40]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 864, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=41]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=42]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 2160, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=43]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 1728, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=44]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 1296, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=45]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 864, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=46]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 432, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=47]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=48]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1296, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=49]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 864, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=50]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 432, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=51]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 432, 432 )
+
 [sub_resource type="SpriteFrames" id=12]
 animations = [ {
-"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ) ],
+"frames": [ SubResource( 13 ), SubResource( 15 ), SubResource( 17 ), SubResource( 20 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ) ],
 "loop": true,
-"name": "boar_charge",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 13 ), SubResource( 15 ), SubResource( 17 ), SubResource( 20 ) ],
-"loop": true,
-"name": "boar_run",
+"name": "boar_Animation",
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 7.32064
+[sub_resource type="CapsuleShape2D" id=27]
+radius = 4.75
+height = 12.5
+
+[sub_resource type="Animation" id=52]
+resource_name = "ChargeLeft"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../BoarAnimation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12, 13 ]
+}
+
+[sub_resource type="Animation" id=53]
+resource_name = "ChargePrepLeft"
+length = 0.9
+loop = true
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("../BoarAnimation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7, 8, 9 ]
+}
+
+[sub_resource type="Animation" id=54]
+resource_name = "ChargePrepRight"
+length = 0.9
+loop = true
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("../BoarAnimation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 18, 19, 20, 21, 22, 23 ]
+}
+
+[sub_resource type="Animation" id=55]
+resource_name = "ChargeRight"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../BoarAnimation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 24, 25, 26, 27 ]
+}
+
+[sub_resource type="Animation" id=92]
+resource_name = "IdleLeft"
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("../BoarAnimation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 8, 9 ]
+}
+
+[sub_resource type="Animation" id=96]
+resource_name = "IdleRight"
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("../BoarAnimation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 22, 23, 22, 23 ]
+}
+
+[sub_resource type="Animation" id=56]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../BoarAnimation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=57]
+resource_name = "WalkLeft"
+length = 0.8
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("../BoarAnimation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=58]
+resource_name = "WalkRight"
+length = 0.8
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("../BoarAnimation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 14, 15, 16, 17 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=86]
+animation = "ChargeLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=87]
+animation = "ChargeRight"
+
+[sub_resource type="AnimationNodeAnimation" id=88]
+animation = "ChargeLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=89]
+animation = "ChargeLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=90]
+animation = "ChargeRight"
+
+[sub_resource type="AnimationNodeAnimation" id=91]
+animation = "ChargeRight"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=74]
+blend_point_0/node = SubResource( 86 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 87 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 88 )
+blend_point_2/pos = Vector2( -0.1, -1 )
+blend_point_3/node = SubResource( 89 )
+blend_point_3/pos = Vector2( -0.1, 1 )
+blend_point_4/node = SubResource( 90 )
+blend_point_4/pos = Vector2( 0.1, 1 )
+blend_point_5/node = SubResource( 91 )
+blend_point_5/pos = Vector2( 0.1, -1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=75]
+animation = "ChargePrepLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=76]
+animation = "ChargePrepLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=77]
+animation = "ChargePrepLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=78]
+animation = "ChargePrepRight"
+
+[sub_resource type="AnimationNodeAnimation" id=79]
+animation = "ChargePrepRight"
+
+[sub_resource type="AnimationNodeAnimation" id=80]
+animation = "ChargePrepRight"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=81]
+blend_point_0/node = SubResource( 75 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 76 )
+blend_point_1/pos = Vector2( -0.1, 1 )
+blend_point_2/node = SubResource( 77 )
+blend_point_2/pos = Vector2( -0.1, -1 )
+blend_point_3/node = SubResource( 78 )
+blend_point_3/pos = Vector2( 0.1, -1 )
+blend_point_4/node = SubResource( 79 )
+blend_point_4/pos = Vector2( 0.1, 1 )
+blend_point_5/node = SubResource( 80 )
+blend_point_5/pos = Vector2( 1, 0 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=97]
+animation = "IdleLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=98]
+animation = "IdleLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=99]
+animation = "IdleLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=100]
+animation = "IdleRight"
+
+[sub_resource type="AnimationNodeAnimation" id=101]
+animation = "IdleRight"
+
+[sub_resource type="AnimationNodeAnimation" id=102]
+animation = "IdleRight"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=93]
+blend_point_0/node = SubResource( 97 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 98 )
+blend_point_1/pos = Vector2( -0.1, -1 )
+blend_point_2/node = SubResource( 99 )
+blend_point_2/pos = Vector2( -0.1, 1 )
+blend_point_3/node = SubResource( 100 )
+blend_point_3/pos = Vector2( 0.1, 1 )
+blend_point_4/node = SubResource( 101 )
+blend_point_4/pos = Vector2( 0.1, -1 )
+blend_point_5/node = SubResource( 102 )
+blend_point_5/pos = Vector2( 1, 0 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=59]
+animation = "WalkLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=60]
+animation = "WalkRight"
+
+[sub_resource type="AnimationNodeAnimation" id=70]
+animation = "WalkRight"
+
+[sub_resource type="AnimationNodeAnimation" id=71]
+animation = "WalkLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=72]
+animation = "WalkLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=73]
+animation = "WalkRight"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=61]
+blend_point_0/node = SubResource( 59 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 60 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 70 )
+blend_point_2/pos = Vector2( 0.1, -1 )
+blend_point_3/node = SubResource( 71 )
+blend_point_3/pos = Vector2( -0.1, 1 )
+blend_point_4/node = SubResource( 72 )
+blend_point_4/pos = Vector2( -0.1, -1 )
+blend_point_5/node = SubResource( 73 )
+blend_point_5/pos = Vector2( 0.1, 1 )
+blend_mode = 1
+script = ExtResource( 8 )
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=82]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=83]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=84]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=85]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=94]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=95]
+
+[sub_resource type="AnimationNodeStateMachine" id=62]
+states/Charge/node = SubResource( 74 )
+states/Charge/position = Vector2( 1099, 100 )
+states/ChargePrep/node = SubResource( 81 )
+states/ChargePrep/position = Vector2( 850, 100 )
+states/Idle/node = SubResource( 93 )
+states/Idle/position = Vector2( 350, 100 )
+states/Walk/node = SubResource( 61 )
+states/Walk/position = Vector2( 575, 100 )
+transitions = [ "Walk", "ChargePrep", SubResource( 82 ), "ChargePrep", "Walk", SubResource( 83 ), "ChargePrep", "Charge", SubResource( 84 ), "Charge", "ChargePrep", SubResource( 85 ), "Idle", "Walk", SubResource( 94 ), "Walk", "Idle", SubResource( 95 ) ]
+start_node = "Idle"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=66]
 
 [node name="Boar" type="KinematicBody2D"]
 position = Vector2( 113, 83 )
@@ -78,10 +483,33 @@ script = ExtResource( 2 )
 position = Vector2( 1, 8 )
 scale = Vector2( 0.4709, 0.454411 )
 frames = SubResource( 12 )
-animation = "boar_run"
+animation = "boar_Animation"
 
 [node name="BoarCollision" type="CollisionShape2D" parent="."]
-position = Vector2( -2, 25 )
+position = Vector2( 1, 19 )
+rotation = 1.5708
 scale = Vector2( 8, 7 )
-shape = SubResource( 1 )
+shape = SubResource( 27 )
 one_way_collision_margin = 1.6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../BoarCollision")
+anims/ChargeLeft = SubResource( 52 )
+anims/ChargePrepLeft = SubResource( 53 )
+anims/ChargePrepRight = SubResource( 54 )
+anims/ChargeRight = SubResource( 55 )
+anims/IdleLeft = SubResource( 92 )
+anims/IdleRight = SubResource( 96 )
+anims/RESET = SubResource( 56 )
+anims/WalkLeft = SubResource( 57 )
+anims/WalkRight = SubResource( 58 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 62 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 66 )
+parameters/Charge/blend_position = Vector2( -0.00742573, 0.62069 )
+parameters/ChargePrep/blend_position = Vector2( -0.30198, -0.0258621 )
+parameters/Idle/blend_position = Vector2( -0.220297, 0.206897 )
+parameters/Walk/blend_position = Vector2( -0.32797, 0.0172414 )
