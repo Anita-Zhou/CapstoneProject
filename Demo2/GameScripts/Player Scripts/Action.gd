@@ -7,18 +7,26 @@ extends KinematicBody2D
 
 var speed = 100
 var move_direction = Vector2(0,0)
-var animationPlayer = null
 var face_right = true
 var animation_in_process = false
 var animation_not_interruptable = false;
+
+onready var animationPlayer = $AnimationPlayer
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print ("Hello World")
-	animationPlayer = $AnimationPlayer
-	
 
+func _process(delta):
+	pass
+
+func AnimationLoop():
+	var face_direction = "E"
+	var anim_mode = "Idle"
+	
+	
+	pass
 	# pass # Replace with function body.
 func _physics_process(delta):
 	
