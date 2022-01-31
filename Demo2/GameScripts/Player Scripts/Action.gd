@@ -10,9 +10,16 @@ const MAX_SPEED = 80
 const ACCELERATION = 500
 const FRICTION = 500
 
+enum {
+	MOVE,
+	DASH,
+	ATTACK
+}
+var state = MOVE
+
 var speed = 100
 var velocity = Vector2(0,0)
-var face_right = true
+#var face_right = true
 var animation_in_process = false
 var animation_not_interruptable = false
 
@@ -25,6 +32,7 @@ onready var animationState = animationTree.get("parameters/playback")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print ("Hello World")
+	animationTree.active = true
 
 func _process(delta):
 	pass
@@ -37,25 +45,47 @@ func AnimationLoop():
 	pass
 	# pass # Replace with function body.
 func _physics_process(delta):
+	match state:
+		MOVE:
+			move_state(delta)
+		DASH:
+			pass
+		ATTACK:
+			attack_state(delta)
 	
 	# if(Input.get_action_strength("ui_right")):
 	# 	print("pressed d")
+func move_state(delta):
+	
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	input_vector = input_vector.normalized()
-	#Set blend_position for Idle
+	
+	#Set blend_position for Animations
 	if (input_vector != Vector2.ZERO):
 		animationTree.set("parameters/Idle/blend_position", input_vector)
 		animationTree.set("parameters/Walk/blend_position", input_vector)
+		animationTree.set("parameters/Attack/blend_position", input_vector)
 		animationState.travel("Walk")
 	else:
 		animationState.travel("Idle")
 	#debug
 	#print(move_direction)
+	
 	velocity = input_vector * speed
 	move_and_slide(velocity)
 	move_and_collide(velocity * delta)
+	
+	# Immediately change stop walking and commit to attack
+	if (Input.is_action_just_pressed("ui_attack")):
+		state = ATTACK
+
+func attack_state(delta):
+	animationState.travel("Attack")
+	
+func attack_animation_finished():
+	state = MOVE
 
 func _input(ev):
 	
@@ -69,9 +99,9 @@ func _input(ev):
 #	elif Input.is_action_pressed("ui_left", false):
 #		face_right = false;
 #		animationPlayer.play("WalkRight")	
-	if Input.is_mouse_button_pressed(BUTTON_LEFT):
-		animationPlayer.play("Attack")	
-	elif Input.is_key_pressed(KEY_E):
+	#if Input.is_mouse_button_pressed(BUTTON_LEFT):
+		#animationPlayer.play("Attack")	
+	if Input.is_key_pressed(KEY_E):
 		skill.being_cast()
 	#else:
 	#	animationPlayer.play("Idle")	
@@ -88,9 +118,7 @@ func get_player2enemy_dir():
 	var dir_vec = enemy.get_position() - self.position
 	dir_vec = dir_vec.normalized()
 	return dir_vec
-# func _process(delta):
-# 	pass
-# 	# _animationLoop()
+
 
 # func _movementLoop(delta):
 # 	move_direction.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
