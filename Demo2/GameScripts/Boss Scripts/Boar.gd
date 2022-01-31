@@ -7,7 +7,7 @@ extends KinematicBody2D
 
 var count = 0
 # var rng = RandomNumberGenerator.new()
-var speed = 40
+var speed = 0
 var direction = Vector2(0, 0)
 
 var distance2hero = float("inf")
