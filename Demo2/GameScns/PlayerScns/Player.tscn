@@ -315,3 +315,5 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 31 )
 parameters/BlendSpace2D/blend_position = Vector2( 0, 0.0179029 )
+
+[node name="WoodSkill2" type="KinematicBody2D" parent="."]

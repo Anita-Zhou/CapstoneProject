@@ -69,6 +69,3 @@ func handle_charge_stop():
 	anim_sprite.play("boar_run")
 	print("replay run")
 	count = 20
-
-
-	
