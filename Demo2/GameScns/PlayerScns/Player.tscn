@@ -4,8 +4,11 @@
 [ext_resource path="res://GameScripts/Player Scripts/Action.gd" type="Script" id=2]
 [ext_resource path="res://Art Src/PlayerArt/walk-sprite-left.png" type="Texture" id=3]
 [ext_resource path="res://Art Src/Attack/attack_sprite_left.png" type="Texture" id=4]
-[ext_resource path="res://GameScns/Hitboxes&Hurtboxes/HitBox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Art Src/Attack/attack_sprite.png" type="Texture" id=9]
+[ext_resource path="res://GameScns/Hitboxes&Hurtboxes/HitBox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://GameScripts/Player Scripts/SwordHitBox.gd" type="Script" id=6]
+[ext_resource path="res://GameScns/SkillScns/WoodSkill.tscn" type="PackedScene" id=7]
+[ext_resource path="res://GameScripts/SkillScripts/WoodSkill.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 8.5, 2.95 )
@@ -730,6 +733,7 @@ __meta__ = {
 position = Vector2( 32, 0 )
 collision_layer = 0
 collision_mask = 8
+script = ExtResource( 6 )
 
 [node name="CollisionShape2D" parent="HitboxPivot/SwordHitbox" index="0"]
 position = Vector2( 3, 3 )

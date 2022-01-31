@@ -27,7 +27,7 @@ var animation_not_interruptable = false
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
-
+onready var swordHitbox = $HitboxPivot/SwordHitbox
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,9 +40,8 @@ func _process(delta):
 func AnimationLoop():
 	var face_direction = "E"
 	var anim_mode = "Idle"
-	
-	
 	pass
+	
 	# pass # Replace with function body.
 func _physics_process(delta):
 	match state:
@@ -64,6 +63,8 @@ func move_state(delta):
 	
 	#Set blend_position for Animations
 	if (input_vector != Vector2.ZERO):
+		swordHitbox.knockback_vector = input_vector
+		
 		animationTree.set("parameters/Idle/blend_position", input_vector)
 		animationTree.set("parameters/Walk/blend_position", input_vector)
 		animationTree.set("parameters/Attack/blend_position", input_vector)

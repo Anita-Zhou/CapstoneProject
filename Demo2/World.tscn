@@ -55,10 +55,14 @@ __meta__ = {
 }
 
 [node name="bgTrees" parent="Background" instance=ExtResource( 4 )]
-position = Vector2( 520, 520 )
+position = Vector2( 522, 445 )
+
+[node name="Sprite" parent="Background/bgTrees" index="0"]
+position = Vector2( -10, -264 )
 
 [node name="CollisionPolygon2D" parent="Background/bgTrees" index="1"]
-polygon = PoolVector2Array( -545, 372, -17, 386, 14, 313, -516, 318, -509, 89, -401, -74, -286, -82, -145, -135, -51, -133, 17, -157, 126, -146, 142, -126, 217, -118, 271, -102, 347, -111, 481, -45, 484, 307, -32, 316, 22, 382, 581, 362, 567, -278, 502, -276, -573, -277, -580, 315 )
+position = Vector2( 1, -279 )
+polygon = PoolVector2Array( -572, 497, 2, 496, 112, 416, -510, 421, -515, 91, -401, -74, -286, -82, -145, -135, -51, -133, 17, -157, 126, -146, 142, -126, 217, -118, 271, -102, 347, -111, 481, -45, 487, 418, -31, 418, 28, 501, 580, 503, 567, -278, 502, -276, -573, -277, -580, 315 )
 
 [node name="Shed2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 171, 200 )
