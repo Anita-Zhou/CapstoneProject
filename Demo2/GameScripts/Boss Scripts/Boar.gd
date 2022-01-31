@@ -26,12 +26,13 @@ var state = WALK
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
+onready var stats = $Stats
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	anim_sprite = get_node("BoarAnimation")
-	player = $"../Player"
+	player = get_parent().get_node("Player")
 
 func _physics_process(delta):
 	direction = player.position - self.position
@@ -81,8 +82,6 @@ func _physics_process(delta):
 			else:
 				state = IDLE
 				timer = 0
-
-
 	
 	move_and_slide(motion)
 	move_and_collide(motion * delta)
@@ -125,4 +124,10 @@ func handle_charge_stop():
 	count = 20
 
 
-	
+func _on_Hurtbox_area_entered(area):
+	take_damage()
+	queue_free()
+	pass # Replace with function body.
+
+func take_damage():
+	pass
