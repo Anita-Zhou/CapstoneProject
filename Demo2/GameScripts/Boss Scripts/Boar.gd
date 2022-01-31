@@ -8,9 +8,9 @@ extends KinematicBody2D
 var count = 0
 var timer = 0
 # var rng = RandomNumberGenerator.new()
-var speed = 0
+var speed = 40
 var direction = Vector2(0, 0)
-
+var temp_direction = Vector2(0, 0)
 var distance2hero = float("inf")
 var anim_sprite = null
 var player = null
@@ -46,7 +46,6 @@ func _physics_process(delta):
 	# count -= 1
 	animationTree.set("parameters/Walk/blend_position", direction)
 	animationTree.set("parameters/ChargePrep/blend_position", direction)
-	animationTree.set("parameters/Charge/blend_position", direction)
 	animationTree.set("parameters/Idle/blend_position", direction)
 	
 	match state:
@@ -60,7 +59,7 @@ func _physics_process(delta):
 				timer = 0
 		WALK:
 			motion = direction * speed
-			if distance2hero > 200:
+			if distance2hero > 300:
 				animationState.travel("Walk")
 			else:
 				state = CHARGE_PREP
@@ -70,10 +69,12 @@ func _physics_process(delta):
 				animationState.travel("ChargePrep")
 				timer = timer + 1
 			else:
+				temp_direction = direction
+				animationTree.set("parameters/Charge/blend_position", direction)
 				state = CHARGE
 				timer = 0
 		CHARGE:
-			motion = direction * speed * 5
+			motion = temp_direction * speed * 6
 			if timer < 60:
 				animationState.travel("Charge")
 				timer = timer + 1
@@ -83,9 +84,8 @@ func _physics_process(delta):
 
 
 	
-	if(should_stop == false):
-		move_and_slide(motion)
-		move_and_collide(motion * delta)
+	move_and_slide(motion)
+	move_and_collide(motion * delta)
 	
 	
 		
