@@ -5,9 +5,10 @@
 [node name="bgTrees" type="StaticBody2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -10.5, 25.5 )
+position = Vector2( -6, -212 )
 scale = Vector2( 1.59531, 1.65278 )
 texture = ExtResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -523, 319, -8, 318, -512, 306, -509, 89, -401, -74, -286, -82, -145, -135, -51, -133, 17, -157, 126, -146, 142, -126, 217, -118, 271, -102, 347, -111, 481, -45, 489, 301, -5, 318, 498, 319, 502, -276, -527, -272, -525, 295 )
+position = Vector2( 6, -242 )
+polygon = PoolVector2Array( -545, 372, -17, 386, 14, 313, -507, 314, -509, 89, -401, -74, -286, -82, -145, -135, -51, -133, 17, -157, 126, -146, 142, -126, 217, -118, 271, -102, 347, -111, 481, -45, 475, 308, -32, 316, 22, 382, 581, 362, 567, -278, 502, -276, -573, -277, -580, 315 )

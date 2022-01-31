@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=2]
+[gd_scene load_steps=87 format=2]
 
 [ext_resource path="res://Art Src/BossArt/charge prep adjusted.png" type="Texture" id=1]
 [ext_resource path="res://GameScripts/Boss Scripts/Boar.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Art Src/BossArt/charge adjusted.png" type="Texture" id=7]
 [ext_resource path="res://scripts/BoarWalk.gd" type="Script" id=8]
 [ext_resource path="res://Art Src/BossArt/WalkRight.png" type="Texture" id=9]
+[ext_resource path="res://Stats.tscn" type="PackedScene" id=10]
 
 [sub_resource type="AtlasTexture" id=13]
 flags = 4
@@ -159,8 +160,8 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=27]
-radius = 4.75
-height = 12.5
+radius = 3.62497
+height = 15.0714
 
 [sub_resource type="Animation" id=52]
 resource_name = "ChargeLeft"
@@ -476,8 +477,12 @@ start_node = "Idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=66]
 
+[sub_resource type="RectangleShape2D" id=103]
+extents = Vector2( 30.75, 84.5 )
+
 [node name="Boar" type="KinematicBody2D"]
 position = Vector2( 1, 0 )
+collision_layer = 8
 script = ExtResource( 2 )
 
 [node name="BoarAnimation" type="AnimatedSprite" parent="."]
@@ -487,7 +492,7 @@ frames = SubResource( 12 )
 animation = "boar_Animation"
 
 [node name="BoarCollision" type="CollisionShape2D" parent="."]
-position = Vector2( -2, 29 )
+position = Vector2( -2, 85 )
 rotation = 1.5708
 scale = Vector2( 8, 7 )
 shape = SubResource( 27 )
@@ -516,10 +521,18 @@ parameters/Idle/blend_position = Vector2( -0.220297, 0.206897 )
 parameters/Walk/blend_position = Vector2( -0.32797, 0.0172414 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 4 )]
-position = Vector2( -7, 7 )
+position = Vector2( 150, 110 )
+collision_layer = 8
+collision_mask = 0
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2( -4.5, 18.5 )
-shape = SubResource( 27 )
+position = Vector2( -155, -79 )
+rotation = 1.5708
+shape = SubResource( 103 )
+
+[node name="Stats" parent="." instance=ExtResource( 10 )]
+max_health = 1000
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 
 [editable path="Hurtbox"]

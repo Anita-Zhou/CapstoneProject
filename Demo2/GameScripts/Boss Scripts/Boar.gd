@@ -19,19 +19,21 @@ enum{
 	IDLE,
 	WALK,
 	CHARGE_PREP,
-	CHARGE
+	CHARGE,
+	STOP
 }
 var state = WALK
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
+onready var stats = $Stats
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	anim_sprite = get_node("BoarAnimation")
-	player = $"../Player"
+	player = get_parent().get_node("Player")
 
 func _physics_process(delta):
 	direction = player.position - self.position
@@ -61,6 +63,8 @@ func _physics_process(delta):
 			motion = direction * speed
 			if distance2hero > 300:
 				animationState.travel("Walk")
+			elif should_stop:
+				state = STOP
 			else:
 				state = CHARGE_PREP
 		CHARGE_PREP:
@@ -81,8 +85,20 @@ func _physics_process(delta):
 			else:
 				state = IDLE
 				timer = 0
-
-
+<<<<<<< HEAD
+=======
+		STOP:
+			motion = direction * 0
+			if timer < 100:
+				animationState.travel("Idle")
+				timer = timer + 1
+			else:
+				temp_direction = direction
+				animationTree.set("parameters/Charge/blend_position", direction)
+				state = WALK
+				timer = 0
+				should_stop = false
+>>>>>>> c64a0585bee01b9981e6ffcbeac041018154f307
 	
 	move_and_slide(motion)
 	move_and_collide(motion * delta)
@@ -123,6 +139,20 @@ func handle_charge_stop():
 	anim_sprite.play("boar_run")
 	print("replay run")
 	count = 20
+<<<<<<< HEAD
 
 
+func _on_Hurtbox_area_entered(area):
+	take_damage()
+	queue_free()
+	pass # Replace with function body.
+
+func take_damage():
+	pass
+=======
 	
+func fix_position(check):
+	should_stop = check
+	print("fix position", self.position)
+	
+>>>>>>> c64a0585bee01b9981e6ffcbeac041018154f307

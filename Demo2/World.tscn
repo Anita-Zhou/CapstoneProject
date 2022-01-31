@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://GameScns/PlayerScns/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GameScns/BossScns/Boar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Art Src/Background/s1_background.png" type="Texture" id=3]
-[ext_resource path="res://Art Src/Background/s1_background_trees.png" type="Texture" id=4]
+[ext_resource path="res://GameScns/StaticScns/bgTrees.tscn" type="PackedScene" id=4]
 [ext_resource path="res://GameScns/StaticScns/Bone1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/shed.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://WoodSkill.gd" type="Script" id=8]
+[ext_resource path="res://Art Src/Attack/transparent-green-fireball-png-minecraft-orange-pixel-art-removebg-preview.png" type="Texture" id=9]
 
 [node name="World" type="YSort"]
 position = Vector2( -1, -1 )
@@ -14,27 +16,24 @@ position = Vector2( -1, -1 )
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = -4.0
-margin_right = 1029.0
-margin_bottom = 595.0
+margin_top = 1.0
+margin_right = 1025.0
+margin_bottom = 600.0
 texture = ExtResource( 3 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="bgTrees" type="StaticBody2D" parent="."]
-position = Vector2( 527, 269 )
+[node name="bgTrees" parent="Background" instance=ExtResource( 4 )]
+position = Vector2( 522, 445 )
 
-[node name="Sprite" type="Sprite" parent="bgTrees"]
-position = Vector2( -10.5, 25.5 )
-scale = Vector2( 1.59531, 1.65278 )
-texture = ExtResource( 4 )
+[node name="Sprite" parent="Background/bgTrees" index="0"]
+position = Vector2( -10, -264 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="bgTrees"]
-scale = Vector2( 0.978377, 0.988817 )
-polygon = PoolVector2Array( -538.647, 378.23, 8.17682, 386.32, 53, 328, -100.982, 323.868, -506, 313, -509, 89, -401, -74, -286, -82, -145, -135, -51, -133, 17, -157, 126, -146, 142, -126, 217, -118, 271, -102, 347, -111, 481, -45, 496, 309, -80.7459, 320.585, 50.0829, 379.241, 592.818, 373.173, 502, -276, -527, -272, -538, 249 )
+[node name="CollisionPolygon2D" parent="Background/bgTrees" index="1"]
+position = Vector2( 1, -279 )
+polygon = PoolVector2Array( -572, 497, 2, 496, 112, 416, -510, 421, -515, 91, -401, -74, -286, -82, -145, -135, -51, -133, 17, -157, 126, -146, 142, -126, 217, -118, 271, -102, 347, -111, 481, -45, 487, 418, -31, 418, 28, 501, 580, 503, 567, -278, 502, -276, -573, -277, -580, 315 )
 
 [node name="Shed2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 171, 200 )
@@ -57,3 +56,14 @@ margin_top = 15.0
 margin_right = 1060.0
 margin_bottom = 108.0
 rect_scale = Vector2( 0.395944, 0.347644 )
+
+[node name="WoodSkill" type="KinematicBody2D" parent="."]
+position = Vector2( 150, 279 )
+script = ExtResource( 8 )
+
+[node name="wood_sprite" type="Sprite" parent="WoodSkill"]
+position = Vector2( -2, 1 )
+scale = Vector2( 0.0617977, 0.0714285 )
+texture = ExtResource( 9 )
+
+[editable path="Background/bgTrees"]

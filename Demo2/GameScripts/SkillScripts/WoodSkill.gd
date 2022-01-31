@@ -1,27 +1,21 @@
 extends RigidBody2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-func being_cast():
-	print("skill being cast")
-	var player = get_owner()
-	var player_position = player.get_position()
-	var direction = player.get_player2enemy_dir()
-	print("prev cast position", position)
-	print("wanted position", player_position + direction * 60)
-	self.position = player_position + direction * 60
-	print("cast position", position)
-
-
+#func being_cast():
+	
+#	var player = get_owner()
+#	var boss = $"../../Boar"
+#	var player_position = player.get_position()
+#	var direction = player.get_player2enemy_dir()
+#	print("prev cast position", position)
+#	print("wanted position", player_position + direction * 60)
+#	self.position = position.move_toward(direction, -50)
+#
+#
+#
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
-#	pass
+#	var player = get_owner()
+#	var direction = player.get_player2enemy_dir()
+#	var speed = 1 # Change this to increase it to more units/second
+#	position = position.move_toward(direction, delta * speed)
