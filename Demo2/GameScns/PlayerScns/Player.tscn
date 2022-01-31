@@ -560,7 +560,7 @@ position = Vector2( 4, -20 )
 scale = Vector2( 1.55556, 1.36806 )
 frames = SubResource( 13 )
 animation = "sprite"
-frame = 22
+frame = 6
 speed_scale = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -588,4 +588,4 @@ active = true
 parameters/playback = SubResource( 31 )
 parameters/Attack/blend_position = Vector2( 0, 0 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
-parameters/Walk/blend_position = Vector2( 0, 0.0141631 )
+parameters/Walk/blend_position = Vector2( 0, 0 )
