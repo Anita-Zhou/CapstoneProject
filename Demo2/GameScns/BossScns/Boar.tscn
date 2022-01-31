@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Art Src/BossArt/charge prep adjusted.png" type="Texture" id=1]
 [ext_resource path="res://GameScripts/Boss Scripts/Boar.gd" type="Script" id=2]
 [ext_resource path="res://Art Src/BossArt/walking v2 adjusted.png" type="Texture" id=3]
+[ext_resource path="res://GameScns/Hitboxes&Hurtboxes/HurtBox.tscn" type="PackedScene" id=4]
 
 [sub_resource type="AtlasTexture" id=21]
 flags = 4
@@ -67,21 +68,35 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 7.32064
+[sub_resource type="CapsuleShape2D" id=28]
+radius = 4.0
+height = 16.5714
+
+[sub_resource type="RectangleShape2D" id=27]
+extents = Vector2( 70.5, 40.5 )
 
 [node name="Boar" type="KinematicBody2D"]
-position = Vector2( 113, 83 )
+position = Vector2( 1, 0 )
 script = ExtResource( 2 )
 
 [node name="BoarAnimation" type="AnimatedSprite" parent="."]
-position = Vector2( 1, 8 )
+position = Vector2( -2, 20 )
 scale = Vector2( 0.4709, 0.454411 )
 frames = SubResource( 12 )
 animation = "boar_run"
 
 [node name="BoarCollision" type="CollisionShape2D" parent="."]
-position = Vector2( -2, 25 )
+position = Vector2( -9, 46 )
+rotation = 1.5708
 scale = Vector2( 8, 7 )
-shape = SubResource( 1 )
+shape = SubResource( 28 )
 one_way_collision_margin = 1.6
+
+[node name="Hurtbox" parent="." instance=ExtResource( 4 )]
+position = Vector2( -7, 7 )
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( -4.5, 18.5 )
+shape = SubResource( 27 )
+
+[editable path="Hurtbox"]
