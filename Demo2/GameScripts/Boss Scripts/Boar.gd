@@ -19,7 +19,8 @@ enum{
 	IDLE,
 	WALK,
 	CHARGE_PREP,
-	CHARGE
+	CHARGE,
+	STOP
 }
 var state = WALK
 
@@ -61,6 +62,8 @@ func _physics_process(delta):
 			motion = direction * speed
 			if distance2hero > 300:
 				animationState.travel("Walk")
+			elif should_stop:
+				state = STOP
 			else:
 				state = CHARGE_PREP
 		CHARGE_PREP:
@@ -81,7 +84,16 @@ func _physics_process(delta):
 			else:
 				state = IDLE
 				timer = 0
-
+		STOP:
+			motion = direction * 0
+			if timer < 100:
+				animationState.travel("Walk")
+				timer = timer + 1
+			else:
+				temp_direction = direction
+				animationTree.set("parameters/Charge/blend_position", direction)
+				state = WALK
+				timer = 0
 
 	
 	move_and_slide(motion)
@@ -123,3 +135,7 @@ func handle_charge_stop():
 	anim_sprite.play("boar_run")
 	print("replay run")
 	count = 20
+	
+func fix_position(check):
+	should_stop = check
+	

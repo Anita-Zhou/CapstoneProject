@@ -1,15 +1,17 @@
 extends RigidBody2D
 
-func being_cast():
+#func being_cast():
 	
-	var player = get_owner()
-	var player_position = player.get_position()
-	var direction = player.get_player2enemy_dir()
-	print("prev cast position", position)
-	print("wanted position", player_position + direction * 60)
-	self.position = position.move_toward(direction, -10)
-
-	
+#	var player = get_owner()
+#	var boss = $"../../Boar"
+#	var player_position = player.get_position()
+#	var direction = player.get_player2enemy_dir()
+#	print("prev cast position", position)
+#	print("wanted position", player_position + direction * 60)
+#	self.position = position.move_toward(direction, -50)
+#
+#
+#
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
