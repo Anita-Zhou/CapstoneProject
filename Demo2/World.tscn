@@ -111,7 +111,7 @@ shape = SubResource( 2 )
 [node name="StoneAnimation" type="AnimationPlayer" parent="Stone1"]
 
 [node name="Break" type="AnimatedSprite" parent="Stone1/StoneAnimation"]
-position = Vector2( 98, 355 )
+position = Vector2( 101, 358 )
 frames = SubResource( 6 )
 animation = "break"
 frame = 1

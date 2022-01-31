@@ -21,12 +21,12 @@ func being_cast():
 #	var direction = player.get_player2enemy_dir()
 #	print("distance", abs((player_position - boss_position).length()))
 #	self.position = position.move_toward(direction, -50)
-	if abs((player_position - boss_position).length()) < 200:
+	if abs((player_position - boss_position).length()) < 400:
 		self.position = boss_position
 		boss.fix_position(true)
 	
 	print("dist to stone", abs((player_position - stone_position).length()))
-	if abs((player_position - stone_position).length()) < 150:
+	if abs((player_position - stone_position).length()) < 200:
 		stone.wood_interaction()
 
 	

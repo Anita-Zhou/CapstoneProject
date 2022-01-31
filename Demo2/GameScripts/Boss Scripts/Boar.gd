@@ -85,8 +85,6 @@ func _physics_process(delta):
 			else:
 				state = IDLE
 				timer = 0
-<<<<<<< HEAD
-=======
 		STOP:
 			motion = direction * 0
 			if timer < 100:
@@ -98,7 +96,7 @@ func _physics_process(delta):
 				state = WALK
 				timer = 0
 				should_stop = false
->>>>>>> c64a0585bee01b9981e6ffcbeac041018154f307
+
 	
 	move_and_slide(motion)
 	move_and_collide(motion * delta)
@@ -139,8 +137,6 @@ func handle_charge_stop():
 	anim_sprite.play("boar_run")
 	print("replay run")
 	count = 20
-<<<<<<< HEAD
-
 
 func _on_Hurtbox_area_entered(area):
 	take_damage()
@@ -149,10 +145,10 @@ func _on_Hurtbox_area_entered(area):
 
 func take_damage():
 	pass
-=======
+
 	
 func fix_position(check):
 	should_stop = check
 	print("fix position", self.position)
 	
->>>>>>> c64a0585bee01b9981e6ffcbeac041018154f307
+
