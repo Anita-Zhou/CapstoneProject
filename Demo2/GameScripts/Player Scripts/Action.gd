@@ -5,13 +5,20 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 
+# Useless constants
+const MAX_SPEED = 80
+const ACCELERATION = 500
+const FRICTION = 500
+
 var speed = 100
-var move_direction = Vector2(0,0)
+var velocity = Vector2(0,0)
 var face_right = true
 var animation_in_process = false
 var animation_not_interruptable = false;
 
 onready var animationPlayer = $AnimationPlayer
+onready var animationTree = $AnimationTree
+onready var animationState = animationTree.get("parameters/playback")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -32,15 +39,22 @@ func _physics_process(delta):
 	
 	# if(Input.get_action_strength("ui_right")):
 	# 	print("pressed d")
-
-	move_direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	move_direction.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
-	move_direction = move_direction.normalized()
+	var input_vector = Vector2.ZERO
+	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	input_vector = input_vector.normalized()
+	#Set blend_position for Idle
+	if (input_vector != Vector2.ZERO):
+		animationTree.set("parameters/Idle/blend_position", input_vector)
+		animationTree.set("parameters/Walk/blend_position", input_vector)
+		animationState.travel("Walk")
+	else:
+		animationState.travel("Idle")
 	#debug
 	#print(move_direction)
-	var motion = move_direction * speed
-	move_and_slide(motion)
-	move_and_collide(motion * delta)
+	velocity = input_vector * speed
+	move_and_slide(velocity)
+	move_and_collide(velocity * delta)
 
 func _input(ev):
 	
@@ -48,23 +62,23 @@ func _input(ev):
 	var skill = get_node("WoodSkill")
 	
 	
-	if Input.is_action_pressed("ui_right", false):
-		face_right = true;
-		animationPlayer.play("WalkRight")	
-	elif Input.is_action_pressed("ui_left", false):
-		face_right = false;
-		animationPlayer.play("WalkRight")	
-	elif Input.is_mouse_button_pressed(BUTTON_LEFT):
+#	if Input.is_action_pressed("ui_right", false):
+#		face_right = true;
+#		animationPlayer.play("WalkRight")	
+#	elif Input.is_action_pressed("ui_left", false):
+#		face_right = false;
+#		animationPlayer.play("WalkRight")	
+	if Input.is_mouse_button_pressed(BUTTON_LEFT):
 		animationPlayer.play("Attack")	
 	elif Input.is_key_pressed(KEY_E):
 		skill.being_cast()
-	else:
-		animationPlayer.play("Idle")	
+	#else:
+	#	animationPlayer.play("Idle")	
 		
-	if face_right == true:
-		player.set_flip_h(false)
-	else:
-		player.set_flip_h(true)
+	#if face_right == true:
+	#	player.set_flip_h(false)
+	#else:
+	#	player.set_flip_h(true)
 
 			#play attck animation
 
