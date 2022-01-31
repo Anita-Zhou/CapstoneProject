@@ -694,7 +694,7 @@ mode = 3
 script = ExtResource( 8 )
 
 [node name="player" type="AnimatedSprite" parent="."]
-position = Vector2( -4.76837e-07, -20 )
+position = Vector2( -1, -26 )
 scale = Vector2( 1.55556, 1.36806 )
 frames = SubResource( 13 )
 animation = "sprite"
