@@ -677,6 +677,7 @@ height = 32.0
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 0, -1 )
+collision_layer = 2
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -734,6 +735,8 @@ __meta__ = {
 
 [node name="SwordHitbox" parent="HitboxPivot" instance=ExtResource( 5 )]
 position = Vector2( 32, 0 )
+collision_layer = 0
+collision_mask = 8
 
 [node name="CollisionShape2D" parent="HitboxPivot/SwordHitbox" index="0"]
 position = Vector2( 3, 3 )
