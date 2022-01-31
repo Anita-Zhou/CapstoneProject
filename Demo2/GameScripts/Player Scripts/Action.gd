@@ -21,7 +21,8 @@ var speed = 100
 var velocity = Vector2(0,0)
 #var face_right = true
 var animation_in_process = false
-var animation_not_interruptable = false;
+var animation_not_interruptable = false
+
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
