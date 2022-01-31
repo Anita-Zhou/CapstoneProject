@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/zhurong-background.png-9a1f1ad768b185e3f16bdd263608a008.stex"
+path="res://.import/attack_sprite_left.png-294fff49a8cde7225f9abf3a380e67c5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Src/zhurong-background.png"
-dest_files=[ "res://.import/zhurong-background.png-9a1f1ad768b185e3f16bdd263608a008.stex" ]
+source_file="res://Art Src/Attack/attack_sprite_left.png"
+dest_files=[ "res://.import/attack_sprite_left.png-294fff49a8cde7225f9abf3a380e67c5.stex" ]
 
 [params]
 
