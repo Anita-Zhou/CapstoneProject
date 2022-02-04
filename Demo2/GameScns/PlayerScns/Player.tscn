@@ -697,7 +697,7 @@ position = Vector2( -1, -26 )
 scale = Vector2( 1.55556, 1.36806 )
 frames = SubResource( 13 )
 animation = "sprite"
-frame = 6
+frame = 23
 speed_scale = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -728,6 +728,7 @@ parameters/Walk/blend_position = Vector2( 0, 0 )
 
 [node name="HitboxPivot" type="Position2D" parent="."]
 position = Vector2( 0, -15 )
+rotation = 3.14159
 __meta__ = {
 "_gizmo_extents_": 20.0
 }
