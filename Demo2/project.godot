@@ -52,6 +52,12 @@ ui_attack={
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Playerhurtbox"
 2d_physics/layer_4="EnemyHurtbox"
+2d_physics/layer_5="WoodSkill"
+2d_physics/layer_6="WaterSkill"
+2d_physics/layer_7="FireSkill"
+2d_physics/layer_8="EarthSkill"
+2d_physics/layer_9="MetalSkill"
+2d_physics/layer_10="PreWoodSkill"
 
 [physics]
 

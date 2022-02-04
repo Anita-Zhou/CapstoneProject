@@ -22,6 +22,8 @@ var velocity = Vector2(0,0)
 #var face_right = true
 var animation_in_process = false
 var animation_not_interruptable = false
+var wood_cd = 0
+var water_cd = 0
 
 
 onready var animationPlayer = $AnimationPlayer
@@ -35,7 +37,12 @@ func _ready():
 	animationTree.active = true
 
 func _process(delta):
-	pass
+	if(wood_cd > 0):
+		wood_cd -= 1
+		#print("wood_cd:", wood_cd)
+	if(water_cd > 0):
+		water_cd -= 1
+		#print("water_cd:", water_cd)
 
 func AnimationLoop():
 	var face_direction = "E"
@@ -104,9 +111,14 @@ func _input(ev):
 	#if Input.is_mouse_button_pressed(BUTTON_LEFT):
 		#animationPlayer.play("Attack")	
 	if Input.is_key_pressed(KEY_U):
-		woodskill.being_cast()
+		if(wood_cd == 0):
+			woodskill.being_cast()
+			wood_cd = 60
+		
 	if Input.is_key_pressed(KEY_I):
-		waterskill.being_cast()
+		if(water_cd == 0):
+			waterskill.being_cast()
+			water_cd = 60
 	#else:
 	#	animationPlayer.play("Idle")	
 		

@@ -483,7 +483,7 @@ extents = Vector2( 30.75, 84.5 )
 [node name="Boar" type="KinematicBody2D"]
 position = Vector2( 1, 0 )
 collision_layer = 8
-collision_mask = 3
+collision_mask = 499
 script = ExtResource( 2 )
 
 [node name="BoarAnimation" type="AnimatedSprite" parent="."]
@@ -524,7 +524,7 @@ parameters/Walk/blend_position = Vector2( -0.32797, 0.0172414 )
 [node name="Hurtbox" parent="." instance=ExtResource( 4 )]
 position = Vector2( 150, 110 )
 collision_layer = 8
-collision_mask = 0
+collision_mask = 498
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( -155, -79 )

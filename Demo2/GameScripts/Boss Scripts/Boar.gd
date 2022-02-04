@@ -7,6 +7,7 @@ extends KinematicBody2D
 
 var count = 0
 var timer = 0
+var stop_timer = 0
 # var rng = RandomNumberGenerator.new()
 var speed = 40
 var direction = Vector2(0, 0)
@@ -63,8 +64,6 @@ func _physics_process(delta):
 			motion = direction * speed
 			if distance2hero > 300:
 				animationState.travel("Walk")
-			elif should_stop:
-				state = STOP
 			else:
 				state = CHARGE_PREP
 		CHARGE_PREP:
@@ -87,15 +86,14 @@ func _physics_process(delta):
 				timer = 0
 		STOP:
 			motion = direction * 0
-			if timer < 200:
+			if stop_timer < 180:
 				animationState.travel("Idle")
-				timer = timer + 1
+				stop_timer = stop_timer + 1
 			else:
 				temp_direction = direction
 				animationTree.set("parameters/Charge/blend_position", direction)
 				state = WALK
 				timer = 0
-				should_stop = false
 
 	
 	move_and_slide(motion)
@@ -138,17 +136,29 @@ func handle_charge_stop():
 	print("replay run")
 	count = 20
 
+
+
 func _on_Hurtbox_area_entered(area):
+	print(area.get_parent().get_name() + " entered")
+	if("WoodIdle" in area.get_parent().get_name()):
+		fix_position(false)
+	elif("WoodSkill" in area.get_parent().get_name()):
+		fix_position(true)
+	else:
+		take_damage()
 	#print("hit boar area's parent: ", str(area.get_parent()))
-	take_damage()
-	queue_free()
+	#queue_free()
 	pass # Replace with function body.
 
 func take_damage():
 	pass
 
 func fix_position(check):
-	should_stop = check
-	print("fix position", self.position)
+	if(!check):
+		stop_timer = 90
+		if(state != CHARGE):
+			state = STOP
+	else:
+		stop_timer = stop_timer - 90
 	
 

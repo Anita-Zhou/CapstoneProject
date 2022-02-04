@@ -1,15 +1,18 @@
 extends Node2D
 
 onready var animatedSprite = $AnimatedSprite
-
+onready var growPlayer = $GrowPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	animatedSprite.play("Animate")
-
+	pass
+	
 func being_cast():
-	animatedSprite.play("Animate")
+	growPlayer.play("Animate")
 
+func upgrade():
+	growPlayer.play("partial")
 
-func _on_AnimatedSprite_animation_finished():
+func _on_animation_finished():
 	queue_free()
+	
