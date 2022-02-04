@@ -138,17 +138,25 @@ func handle_charge_stop():
 	print("replay run")
 	count = 20
 
+
+
 func _on_Hurtbox_area_entered(area):
+	print(area.get_parent().get_name())
+	if("WoodSkill" in area.get_parent().get_name()):
+		print("woodskill entered")
+		fix_position(true)
+	else:
+		take_damage()
 	#print("hit boar area's parent: ", str(area.get_parent()))
-	take_damage()
-	queue_free()
+	#queue_free()
 	pass # Replace with function body.
 
 func take_damage():
 	pass
 
 func fix_position(check):
-	should_stop = check
+	timer = 0
+	state = STOP
 	print("fix position", self.position)
 	
 

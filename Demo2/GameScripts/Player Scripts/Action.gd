@@ -39,10 +39,10 @@ func _ready():
 func _process(delta):
 	if(wood_cd > 0):
 		wood_cd -= 1
-		print("wood_cd:", wood_cd)
+		#print("wood_cd:", wood_cd)
 	if(water_cd > 0):
 		water_cd -= 1
-		print("water_cd:", water_cd)
+		#print("water_cd:", water_cd)
 
 func AnimationLoop():
 	var face_direction = "E"
