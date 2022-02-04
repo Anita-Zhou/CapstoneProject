@@ -25,6 +25,7 @@ enum{
 }
 var state = WALK
 
+onready var stoneSkill = get_node("stoneIdle")
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
@@ -94,7 +95,18 @@ func _physics_process(delta):
 				animationTree.set("parameters/Charge/blend_position", direction)
 				state = WALK
 				timer = 0
+<<<<<<< Updated upstream
 
+=======
+	
+	if(second_phase):
+		if(stone_timer < 10):
+			stone_timer = stone_timer + 1
+		else:
+			
+			stone_timer = 0
+		
+>>>>>>> Stashed changes
 	
 	move_and_slide(motion)
 	move_and_collide(motion * delta)
