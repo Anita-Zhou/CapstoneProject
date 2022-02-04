@@ -22,6 +22,7 @@ func _on_animation_finished():
 	queue_free()
 	
 func _on_Hurtbox_area_entered(area):
+	print("water", water)
 	#area != boar and 
 	#print(str(area.get_parent()))
 	#if area == water:	# call wood skill
