@@ -1,21 +1,14 @@
-extends RigidBody2D
+extends KinematicBody2D
 
-#func being_cast():
-	
-#	var player = get_owner()
-#	var boss = $"../../Boar"
-#	var player_position = player.get_position()
-#	var direction = player.get_player2enemy_dir()
-#	print("prev cast position", position)
-#	print("wanted position", player_position + direction * 60)
-#	self.position = position.move_toward(direction, -50)
-#
-#
-#
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	var player = get_owner()
-#	var direction = player.get_player2enemy_dir()
-#	var speed = 1 # Change this to increase it to more units/second
-#	position = position.move_toward(direction, delta * speed)
+func being_cast():
+	var WoodSkill = load("res://GameScns/SkillScns/WoodSkill.tscn")
+	var woodSkill = WoodSkill.instance()
+	var world = get_tree().current_scene
+	world.add_child(woodSkill)
+	woodSkill.global_position = global_position
+	queue_free()
+

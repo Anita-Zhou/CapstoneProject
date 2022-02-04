@@ -91,7 +91,7 @@ func attack_animation_finished():
 func _input(ev):
 	
 	var player = get_node("player")
-	var skill = $"../WoodSkill"
+	var skill = get_node("WoodSkill")
 	
 	
 #	if Input.is_action_pressed("ui_right", false):

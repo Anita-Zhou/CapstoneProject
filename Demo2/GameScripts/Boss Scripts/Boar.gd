@@ -87,7 +87,7 @@ func _physics_process(delta):
 				timer = 0
 		STOP:
 			motion = direction * 0
-			if timer < 100:
+			if timer < 200:
 				animationState.travel("Idle")
 				timer = timer + 1
 			else:
@@ -146,7 +146,6 @@ func _on_Hurtbox_area_entered(area):
 func take_damage():
 	pass
 
-	
 func fix_position(check):
 	should_stop = check
 	print("fix position", self.position)

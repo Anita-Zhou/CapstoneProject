@@ -1,10 +1,13 @@
 extends StaticBody2D
 
-var animationPlayer = null
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	animationPlayer = get_node("StoneAnimation")
-	
+func create_stone_effect():
+	pass
+	var StoneEffect = load("res://Effects/GrassEffect.tscn")
+	var stoneEffect = StoneEffect.instance()
+	var world = get_tree().current_scene
+	world.add_child(stoneEffect)
+	stoneEffect.global_position = global_position
 
-func wood_interaction():
-	animationPlayer.play("Break")	
+func _on_Hurtbox_area_entered(area):
+	create_stone_effect()
+	queue_free()
