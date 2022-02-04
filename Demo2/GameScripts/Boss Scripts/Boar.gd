@@ -139,6 +139,7 @@ func handle_charge_stop():
 	count = 20
 
 func _on_Hurtbox_area_entered(area):
+	print("hit boar area's parent: ", str(area.get_parent()))
 	take_damage()
 	queue_free()
 	pass # Replace with function body.
