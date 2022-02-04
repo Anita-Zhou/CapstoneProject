@@ -24,6 +24,8 @@ enum{
 	STOP
 }
 var state = WALK
+var second_phase = true
+var stone_timer = 0
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
@@ -94,7 +96,11 @@ func _physics_process(delta):
 				animationTree.set("parameters/Charge/blend_position", direction)
 				state = WALK
 				timer = 0
-
+	
+	if(second_phase):
+		if(stone_timer < 10)
+		stone_timer = stone_timer + 1
+		
 	
 	move_and_slide(motion)
 	move_and_collide(motion * delta)
