@@ -483,6 +483,7 @@ extents = Vector2( 30.75, 84.5 )
 [node name="Boar" type="KinematicBody2D"]
 position = Vector2( 1, 0 )
 collision_layer = 8
+collision_mask = 3
 script = ExtResource( 2 )
 
 [node name="BoarAnimation" type="AnimatedSprite" parent="."]

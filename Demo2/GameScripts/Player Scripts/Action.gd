@@ -91,7 +91,8 @@ func attack_animation_finished():
 func _input(ev):
 	
 	var player = get_node("player")
-	var skill = get_node("WoodSkill")
+	var woodskill = get_node("WoodSkill")
+	var waterskill = get_node("WaterSkill")
 	
 	
 #	if Input.is_action_pressed("ui_right", false):
@@ -102,8 +103,10 @@ func _input(ev):
 #		animationPlayer.play("WalkRight")	
 	#if Input.is_mouse_button_pressed(BUTTON_LEFT):
 		#animationPlayer.play("Attack")	
-	if Input.is_key_pressed(KEY_E):
-		skill.being_cast()
+	if Input.is_key_pressed(KEY_U):
+		woodskill.being_cast()
+	if Input.is_key_pressed(KEY_I):
+		waterskill.being_cast()
 	#else:
 	#	animationPlayer.play("Idle")	
 		
