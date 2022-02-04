@@ -58,6 +58,7 @@ ui_attack={
 2d_physics/layer_8="EarthSkill"
 2d_physics/layer_9="MetalSkill"
 2d_physics/layer_10="PreWoodSkill"
+2d_physics/layer_11="Enemy"
 
 [physics]
 
