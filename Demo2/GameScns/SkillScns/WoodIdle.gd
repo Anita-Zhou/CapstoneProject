@@ -6,9 +6,9 @@ extends Node2D
 # var b = "text"
 
 
-
-onready var water = get_node("WaterSkill")
+onready var water = get_tree().get_root()
 func _on_Hurtbox_area_entered(area):
+	print("water", water)
 	#area != boar and 
 	print(str(area.get_parent()))
 	if area == water:	# call wood skill
