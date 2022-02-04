@@ -151,6 +151,8 @@ func _on_Hurtbox_area_entered(area):
 	pass # Replace with function body.
 
 func take_damage():
+	stats.health -= 10
+	print("boar health: ", stats.health)
 	pass
 
 func fix_position(check):
