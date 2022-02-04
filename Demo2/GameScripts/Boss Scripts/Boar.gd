@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
+
 var count = 0
 var timer = 0
 var stop_timer = 0
@@ -24,7 +26,7 @@ onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 onready var stats = $Stats
-
+onready var hurtbox = $Hurtbox
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -143,9 +145,9 @@ func _on_Hurtbox_area_entered(area):
 		fix_position(true)
 	else:
 		take_damage()
+		hurtbox.create_hit_effect()
 	#print("hit boar area's parent: ", str(area.get_parent()))
 	#queue_free()
-	pass # Replace with function body.
 
 func take_damage():
 	pass
@@ -160,3 +162,7 @@ func fix_position(check):
 	
 func _on_Stats_no_health():
 	queue_free()
+	var enemyDeathEffect = EnemyDeathEffect.instance()
+	get_parent().add_child(enemyDeathEffect)
+	enemyDeathEffect.global_position = global_position
+	
