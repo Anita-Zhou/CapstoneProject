@@ -95,8 +95,8 @@ height = 182.0
 script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -6, 0 )
-scale = Vector2( 1.68924, 0.930556 )
+position = Vector2( 7.62939e-06, -1 )
+scale = Vector2( 1.93073, 1.05417 )
 frames = SubResource( 3 )
 animation = "water_circle"
 
@@ -105,10 +105,10 @@ anims/RESET = SubResource( 4 )
 anims/water_circle = SubResource( 5 )
 
 [node name="Hitbox" parent="." instance=ExtResource( 2 )]
-collision_layer = 2
+collision_layer = 32
+collision_mask = 192
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2( 0, -3 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
