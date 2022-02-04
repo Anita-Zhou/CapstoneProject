@@ -482,8 +482,8 @@ start_node = "Idle"
 extents = Vector2( 30.75, 84.5 )
 
 [sub_resource type="CapsuleShape2D" id=104]
-radius = 35.0
-height = 52.0
+radius = 53.0
+height = 66.0
 
 [node name="Boar" type="KinematicBody2D"]
 position = Vector2( 1, 0 )
@@ -544,10 +544,12 @@ collision_layer = 1024
 collision_mask = 0
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2( -51, 38 )
+position = Vector2( -6, 36 )
+rotation = 1.5708
 shape = SubResource( 104 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 
 [editable path="Hurtbox"]
 [editable path="Hitbox"]

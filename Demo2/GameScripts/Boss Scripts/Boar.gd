@@ -151,7 +151,8 @@ func _on_Hurtbox_area_entered(area):
 	pass # Replace with function body.
 
 func take_damage():
-	pass
+	stats.health -= 10
+
 
 func fix_position(check):
 	if(!check):
@@ -161,4 +162,5 @@ func fix_position(check):
 	else:
 		stop_timer = stop_timer - 90
 	
-
+func _on_Stats_no_health():
+	queue_free()

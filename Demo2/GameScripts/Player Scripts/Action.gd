@@ -24,16 +24,18 @@ var animation_in_process = false
 var animation_not_interruptable = false
 var wood_cd = 0
 var water_cd = 0
-
+var stats = PlayerStats
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 onready var swordHitbox = $HitboxPivot/SwordHitbox
+onready var hurtbox = $Hurtbox
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print ("Hello World")
+	stats.connect("no_health", self, "queue_free")
 	animationTree.active = true
 
 func _process(delta):
@@ -146,3 +148,9 @@ func get_player2enemy_dir():
 # func _animationLoop():
 # 	pass
 
+
+
+func _on_Hurtbox_area_entered(area):
+	stats.health -= 10
+#	hurtbox.create_hit_effect()
+	print("player health ", stats.health)
