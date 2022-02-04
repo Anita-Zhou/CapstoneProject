@@ -6,7 +6,7 @@
 [ext_resource path="res://GameScns/StaticScns/bgTrees.tscn" type="PackedScene" id=4]
 [ext_resource path="res://GameScns/StaticScns/Bone1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/shed.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://HealthUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Art Src/StaticObstacle/s1_stone1.png" type="Texture" id=10]
 [ext_resource path="res://Stone1.gd" type="Script" id=11]
 [ext_resource path="res://GameScns/Hitboxes&Hurtboxes/HurtBox.tscn" type="PackedScene" id=12]
@@ -40,10 +40,11 @@ position = Vector2( -10, -264 )
 
 [node name="CollisionPolygon2D" parent="Background/bgTrees" index="1"]
 position = Vector2( 1, -279 )
-polygon = PoolVector2Array( -572, 497, 2, 496, 112, 416, -510, 421, -515, 91, -401, -74, -286, -82, -145, -135, -51, -133, 17, -157, 126, -146, 142, -126, 217, -118, 271, -102, 347, -111, 481, -45, 487, 418, -31, 418, 28, 501, 580, 503, 567, -278, 502, -276, -573, -277, -580, 315 )
+polygon = PoolVector2Array( -572, 497, 2, 496, 112, 416, -510, 421, -515, 91, -401, -74, -392, -76, -286, -82, -145, -135, -51, -133, 17, -157, 126, -146, 142, -126, 217, -118, 271, -102, 347, -111, 481, -45, 487, 418, -31, 418, 28, 501, 580, 503, 567, -278, 502, -276, -573, -277, -580, 315 )
 
 [node name="Shed2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 128, 95 )
+visible = false
+position = Vector2( 190, 165 )
 scale = Vector2( 1.0934, 0.858751 )
 
 [node name="Bone1" parent="." instance=ExtResource( 5 )]
@@ -56,13 +57,6 @@ position = Vector2( 605, 211 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 275, 380 )
 scale = Vector2( 1, 1.01009 )
-
-[node name="GUI" parent="." instance=ExtResource( 7 )]
-margin_left = 34.0
-margin_top = 15.0
-margin_right = 1060.0
-margin_bottom = 108.0
-rect_scale = Vector2( 0.395944, 0.347644 )
 
 [node name="Stone1" type="StaticBody2D" parent="."]
 position = Vector2( 102, 357 )
@@ -81,7 +75,22 @@ shape = SubResource( 16 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stone1"]
 shape = SubResource( 17 )
 
+[node name="HealthUI" parent="." instance=ExtResource( 7 )]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 342.0
+margin_bottom = 91.0
+
+[node name="Label" parent="HealthUI" index="0"]
+anchor_top = -1.108
+anchor_bottom = -1.108
+margin_left = 41.0
+margin_top = 107.612
+margin_right = 279.0
+margin_bottom = 201.612
+
 [connection signal="area_entered" from="Stone1/Hurtbox" to="Stone1" method="_on_Hurtbox_area_entered"]
 
 [editable path="Background/bgTrees"]
 [editable path="Stone1/Hurtbox"]
+[editable path="HealthUI"]
