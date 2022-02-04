@@ -752,5 +752,7 @@ position = Vector2( -5, 80 )
 position = Vector2( 5, -79 )
 shape = SubResource( 87 )
 
+[connection signal="area_entered" from="WoodSkill/Hitbox" to="WoodSkill" method="_on_Hitbox_area_entered"]
+
 [editable path="HitboxPivot/SwordHitbox"]
 [editable path="WoodSkill/Hitbox"]

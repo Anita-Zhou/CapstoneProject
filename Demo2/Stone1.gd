@@ -9,4 +9,5 @@ func create_stone_effect():
 
 func _on_Hurtbox_area_entered(area):
 	create_stone_effect()
+	queue_free()
 	
