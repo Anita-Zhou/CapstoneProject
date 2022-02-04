@@ -1,10 +1,5 @@
 extends KinematicBody2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 var count = 0
 var timer = 0
 var stop_timer = 0
@@ -139,6 +134,8 @@ func handle_charge_stop():
 
 
 func _on_Hurtbox_area_entered(area):
+	stats.health -= area.damage
+	print(stats.health)
 	print(area.get_parent().get_name() + " entered")
 	if("WoodIdle" in area.get_parent().get_name()):
 		fix_position(false)
@@ -161,4 +158,5 @@ func fix_position(check):
 	else:
 		stop_timer = stop_timer - 90
 	
-
+func _on_Stats_no_health():
+	queue_free()
