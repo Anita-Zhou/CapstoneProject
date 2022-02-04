@@ -7,10 +7,10 @@ func _ready():
 func being_cast():
 	var enemy = $"../../Boar"
 	var pos = enemy.get_position() 
-	var WoodSkill = load("res://GameScns/SkillScns/Wood.tscn")
-	var woodSkill = WoodSkill.instance()
+	var Skill = load("res://GameScns/SkillScns/WoodIdle.tscn")
+	var woodSkill = Skill.instance()
 	var world = get_tree().current_scene
-	world.add_child(woodSkill)
 	woodSkill.global_position = pos
+	world.add_child(woodSkill)
 	
 
