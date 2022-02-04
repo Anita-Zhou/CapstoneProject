@@ -110,6 +110,9 @@ func _input(ev):
 #		animationPlayer.play("WalkRight")	
 	#if Input.is_mouse_button_pressed(BUTTON_LEFT):
 		#animationPlayer.play("Attack")	
+		
+	if Input.is_key_pressed(KEY_SPACE):
+		self.position = self.position + velocity/3
 	if Input.is_key_pressed(KEY_U):
 		if(wood_cd == 0):
 			woodskill.being_cast()
@@ -136,13 +139,6 @@ func get_player2enemy_dir():
 	return dir_vec
 
 
-# func _movementLoop(delta):
-# 	move_direction.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
-# 	move_direction.y = (int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))) / float(2)
-	
-# 	var motion = move_direction.normalized() * speed
-# 	move_and_slide(motion)
-
-# func _animationLoop():
-# 	pass
-
+func _on_Hurtbox_area_entered(area):
+	#PlayerStats.set_health(value)
+	pass # Replace with function body.
