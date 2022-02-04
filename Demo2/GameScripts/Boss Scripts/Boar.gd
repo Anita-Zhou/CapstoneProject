@@ -95,8 +95,8 @@ func _physics_process(delta):
 				timer = 0
 	
 	if(second_phase):
-		if(stone_timer < 10)
-		stone_timer = stone_timer + 1
+		if(stone_timer < 10):
+			stone_timer = stone_timer + 1
 		
 	
 	move_and_slide(motion)
