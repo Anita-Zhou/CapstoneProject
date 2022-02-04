@@ -7,11 +7,10 @@ extends Node2D
 
 
 
-onready var water = $"../WaterSkill" #".." represents the parent Node.
-onready var wood = self
-
+onready var water = get_node("WaterSkill")
 func _on_Hurtbox_area_entered(area):
 	#area != boar and 
+	print(str(area.get_parent()))
 	if area == water:	# call wood skill
 		var WoodSkill = load("res://GameScns/SkillScns/WoodSkill.tscn")
 		var woodSkill = WoodSkill.instance()
