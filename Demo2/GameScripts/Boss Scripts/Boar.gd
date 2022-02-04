@@ -27,7 +27,7 @@ var state = WALK
 var second_phase = true
 var stone_timer = 0
 
-onready var stoneSkill = get_node("stoneIdle")
+onready var stoneSkill = get_node("fallingStone")
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
