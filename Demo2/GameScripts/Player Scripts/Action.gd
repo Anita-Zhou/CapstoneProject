@@ -153,4 +153,4 @@ func get_player2enemy_dir():
 func _on_Hurtbox_area_entered(area):
 	stats.health -= 10
 #	hurtbox.create_hit_effect()
-	print("player health ", stats.health)
+	print("player health: ", stats.health)
