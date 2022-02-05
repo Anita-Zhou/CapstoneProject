@@ -8,7 +8,7 @@ extends KinematicBody2D
 var count = 0
 var timer = 0
 var stop_timer = 0
-# var rng = RandomNumberGenerator.new()
+var rng = RandomNumberGenerator.new()
 var speed = 40
 var direction = Vector2(0, 0)
 var temp_direction = Vector2(0, 0)
@@ -28,6 +28,7 @@ var second_phase = true
 var stone_timer = 0
 
 onready var stoneSkill = get_node("fallingStone")
+onready var screenSize = get_viewport().get_visible_rect().size
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
@@ -97,12 +98,13 @@ func _physics_process(delta):
 				animationTree.set("parameters/Charge/blend_position", direction)
 				state = WALK
 				timer = 0
-	
+
 	if(second_phase):
-		if(stone_timer < 10):
+		if(stone_timer < 60):
 			stone_timer = stone_timer + 1
 		else:
-			
+			var fall_position = Vector2(rng.randi_range(0,screenSize.x), rng.randi_range(100,screenSize.y))
+			stoneSkill.being_cast(fall_position)
 			stone_timer = 0
 			
 	move_and_slide(motion)
