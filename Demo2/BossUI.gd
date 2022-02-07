@@ -16,12 +16,13 @@ onready var boss = $"../Boar"
 
 func set_health(value):
 	health = clamp(value, 0, max_health)
-	print("boss set_health called")
+	print("boss set_health called. boss health: ", health)
 	#emit_signal("health_updated")
 	#update progress bar
 	#_assign_color(health)
+	## TODO: here is hard coded, need to hange health value altered 
 	update_tween.interpolate_property(healthBar, "value", healthBar.value, \
-	health/max_health * 100, 0.4, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	health/10, 0.4, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 	update_tween.start()
 	
 	#update label
@@ -40,7 +41,7 @@ func _ready():
 	var boss_stats = boss.get_stats()
 	self.max_health = boss_stats.max_health
 	self.health = boss_stats.health
-	PlayerStats.connect("health_changed", self, "set_health")
+	boss_stats.connect("health_changed", self, "set_health")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
