@@ -117,6 +117,33 @@ value = 50.0
 
 [node name="UpdateTween" type="Tween" parent="BossUI"]
 
+[node name="Label" type="Label" parent="BossUI"]
+margin_left = 62.0
+margin_top = 19.0
+margin_right = 132.0
+margin_bottom = 33.0
+text = "Canniaboar"
+
+[node name="WoodcdLbl" type="Label" parent="."]
+margin_left = 849.0
+margin_top = 491.0
+margin_right = 894.0
+margin_bottom = 505.0
+text = "Wood Cooldown: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WatercdLbl" type="Label" parent="."]
+margin_left = 849.0
+margin_top = 508.0
+margin_right = 956.0
+margin_bottom = 522.0
+text = "Water cooldown: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="area_entered" from="Stone1/Hurtbox" to="Stone1" method="_on_Hurtbox_area_entered"]
 
 [editable path="Background/bgTrees"]

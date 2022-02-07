@@ -32,6 +32,9 @@ onready var animationState = animationTree.get("parameters/playback")
 onready var swordHitbox = $HitboxPivot/SwordHitbox
 onready var hurtbox = $Hurtbox
 
+onready var woodcdlbl = $"../WoodcdLbl"
+onready var watercdlbl = $"../WatercdLbl"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print ("Hello World")
@@ -41,9 +44,13 @@ func _ready():
 func _process(delta):
 	if(wood_cd > 0):
 		wood_cd -= 1
+		if(wood_cd%60 == 0):
+			woodcdlbl.text = "Wood Cooldown: " + str(wood_cd/60)
 		#print("wood_cd:", wood_cd)
 	if(water_cd > 0):
 		water_cd -= 1
+		if(water_cd%60 == 0):
+			watercdlbl.text = "Water Cooldown: " + str(water_cd/60)
 		#print("water_cd:", water_cd)
 
 func AnimationLoop():
@@ -115,12 +122,14 @@ func _input(ev):
 	if Input.is_key_pressed(KEY_U):
 		if(wood_cd == 0):
 			woodskill.being_cast()
-			wood_cd = 60
+			wood_cd = 180
+			woodcdlbl.text = "Wood Cooldown: " + str(180/60)
 		
 	if Input.is_key_pressed(KEY_I):
 		if(water_cd == 0):
 			waterskill.being_cast()
-			water_cd = 60
+			water_cd = 300
+			watercdlbl.text = "Water Cooldown: " + str(300/60)
 	#else:
 	#	animationPlayer.play("Idle")	
 		
