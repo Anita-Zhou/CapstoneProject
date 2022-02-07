@@ -177,6 +177,9 @@ func fix_position(check):
 			state = STOP
 	else:
 		stop_timer = stop_timer - 90
-	
+		
+func get_stats():
+	return stats
+
 func _on_Stats_no_health():
 	queue_free()
