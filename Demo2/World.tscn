@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://GameScns/PlayerScns/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GameScns/BossScns/Boar.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://GameScns/StaticScns/Bone1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/shed.tscn" type="PackedScene" id=6]
 [ext_resource path="res://HealthUI.tscn" type="PackedScene" id=7]
-[ext_resource path="res://HealthUI.gd" type="Script" id=8]
 [ext_resource path="res://Art Src/StaticObstacle/s1_stone1.png" type="Texture" id=10]
 [ext_resource path="res://Stone1.gd" type="Script" id=11]
 [ext_resource path="res://GameScns/Hitboxes&Hurtboxes/HurtBox.tscn" type="PackedScene" id=12]
@@ -76,11 +75,10 @@ shape = SubResource( 16 )
 shape = SubResource( 17 )
 
 [node name="HealthUI" parent="." instance=ExtResource( 7 )]
-margin_left = 39.0
-margin_top = 12.0
-margin_right = 184.0
-margin_bottom = 61.0
-script = ExtResource( 8 )
+margin_left = 29.0
+margin_top = 29.0
+margin_right = 549.0
+margin_bottom = 100.0
 
 [connection signal="area_entered" from="Stone1/Hurtbox" to="Stone1" method="_on_Hurtbox_area_entered"]
 
