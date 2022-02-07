@@ -164,8 +164,8 @@ anims/break = SubResource( 11 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]
 position = Vector2( -1, -113 )
-collision_layer = 512
-collision_mask = 96
+collision_layer = 1024
+collision_mask = 48
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( -2, 111 )

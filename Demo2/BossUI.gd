@@ -1,9 +1,8 @@
 extends Control
 
-var health = 100 setget set_health
-var max_health = 100 setget set_max_health
+var health = 1000 setget set_health
+var max_health = 1000 setget set_max_health
 
-onready var label = $Label
 onready var healthBar = $ProgressBar
 onready var update_tween = $UpdateTween
 
@@ -16,12 +15,12 @@ onready var update_tween = $UpdateTween
 
 func set_health(value):
 	health = clamp(value, 0, max_health)
-	print("player set_health called")
+	print("boss set_health called")
 	#emit_signal("health_updated")
 	#update progress bar
 	#_assign_color(health)
 	update_tween.interpolate_property(healthBar, "value", healthBar.value, \
-	health, 0.4, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	health/max_health * 100, 0.4, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 	update_tween.start()
 	
 	#update label

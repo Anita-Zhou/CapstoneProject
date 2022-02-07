@@ -160,13 +160,14 @@ func _on_Hurtbox_area_entered(area):
 	elif("WoodSkill" in area.get_parent().get_name()):
 		fix_position(true)
 	else:
-		take_damage()
+		take_damage(area)
 	#print("hit boar area's parent: ", str(area.get_parent()))
 	#queue_free()
 	pass # Replace with function body.
 
-func take_damage():
-	stats.health -= 10
+func take_damage(area):
+	stats.health -= 53
+	emit_signal("boss_damage")
 
 
 func fix_position(check):
