@@ -41,9 +41,11 @@ func _ready():
 	player = get_parent().get_node("Player")
 
 func _physics_process(delta):
-	direction = player.position - self.position
+	if(is_instance_valid(player)):
+		direction = player.position - self.position
+		distance2hero = self.position.distance_to(player.position)
 	direction = direction.normalized()
-	distance2hero = self.position.distance_to(player.position)
+
 	var motion = direction * speed
 	#print("direction", direction)
 	# if(count == 0):
@@ -114,7 +116,9 @@ func _physics_process(delta):
 		
 
 func _process(delta):
-	distance2hero = self.position.distance_to(player.position)
+	if(is_instance_valid(player)):
+		distance2hero = self.position.distance_to(player.position)
+
 	
 #	AnimationProcess()
 #	if(count > 0):
@@ -150,7 +154,7 @@ func handle_charge_stop():
 
 
 func _on_Hurtbox_area_entered(area):
-	print(area.get_parent().get_name() + " entered")
+	print(area.get_parent().get_name() + " entered boss")
 	if("WoodIdle" in area.get_parent().get_name()):
 		fix_position(false)
 	elif("WoodSkill" in area.get_parent().get_name()):

@@ -713,7 +713,8 @@ height = 32.0
 radius = 98.3107
 
 [sub_resource type="CapsuleShape2D" id=88]
-radius = 15.0
+radius = 18.0
+height = 42.0
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 0, -1 )
@@ -794,9 +795,10 @@ script = ExtResource( 8 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 10 )]
 collision_layer = 4
+collision_mask = 1024
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2( 12, -1 )
+position = Vector2( -3, -14 )
 shape = SubResource( 88 )
 
 [connection signal="area_entered" from="WoodSkill/Hitbox" to="WoodSkill" method="_on_Hitbox_area_entered"]

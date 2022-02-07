@@ -480,7 +480,7 @@ start_node = "Idle"
 [sub_resource type="AnimationNodeStateMachinePlayback" id=66]
 
 [sub_resource type="RectangleShape2D" id=103]
-extents = Vector2( 30.75, 84.5 )
+extents = Vector2( 49.3751, 81.2499 )
 
 [sub_resource type="CapsuleShape2D" id=104]
 radius = 53.0
@@ -529,11 +529,11 @@ parameters/Walk/blend_position = Vector2( -0.32797, 0.0172414 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 4 )]
 position = Vector2( 150, 110 )
-collision_layer = 8
+collision_layer = 1032
 collision_mask = 498
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2( -155, -79 )
+position = Vector2( -152, -73 )
 rotation = 1.5708
 shape = SubResource( 103 )
 
@@ -545,7 +545,7 @@ collision_layer = 1024
 collision_mask = 0
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2( -6, 36 )
+position = Vector2( -8, 44 )
 rotation = 1.5708
 shape = SubResource( 104 )
 

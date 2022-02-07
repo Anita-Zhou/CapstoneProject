@@ -148,9 +148,11 @@ func get_player2enemy_dir():
 # func _animationLoop():
 # 	pass
 
-
+func take_damage(area):
+	stats.health -= 10
+	print("what hurt player:", area.get_parent().get_name())
 
 func _on_Hurtbox_area_entered(area):
-	stats.health -= 10
+	self.take_damage(area)
 #	hurtbox.create_hit_effect()
 	print("player health: ", stats.health)
