@@ -168,6 +168,7 @@ func _on_Hurtbox_area_entered(area):
 func take_damage(area):
 	stats.health -= 53
 	emit_signal("boss_damage")
+	animationPlayer.play("Hurt")
 
 
 func fix_position(check):
