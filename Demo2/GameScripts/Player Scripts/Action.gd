@@ -64,7 +64,7 @@ func _physics_process(delta):
 		MOVE:
 			move_state(delta)
 		DASH:
-			pass
+			dash_state(delta)
 		ATTACK:
 			attack_state(delta)
 	
@@ -84,6 +84,7 @@ func move_state(delta):
 		animationTree.set("parameters/Idle/blend_position", input_vector)
 		animationTree.set("parameters/Walk/blend_position", input_vector)
 		animationTree.set("parameters/Attack/blend_position", input_vector)
+		animationTree.set("parameters/Dash/blend_position", input_vector)
 		animationState.travel("Walk")
 	else:
 		animationState.travel("Idle")
@@ -97,9 +98,16 @@ func move_state(delta):
 	# Immediately change stop walking and commit to attack
 	if (Input.is_action_just_pressed("ui_attack")):
 		state = ATTACK
+	if (Input.is_action_just_pressed("ui_dash")):
+		state = DASH
 
 func attack_state(delta):
 	animationState.travel("Attack")
+	
+func dash_state(delta):
+	animationState.travel("Dash")
+	move_and_slide(velocity * 3)
+	move_and_collide(velocity * 3  *delta)
 	
 func attack_animation_finished():
 	state = MOVE
@@ -159,10 +167,11 @@ func get_player2enemy_dir():
 
 func take_damage(area):
 	stats.health -= 10
-	print("what hurt player:", area.get_parent().get_name())
+	print("what hurt player:", area.get_name())
 	animationPlayer.play("Hurt")
 
 func _on_Hurtbox_area_entered(area):
-	self.take_damage(area)
+	if(state != DASH):
+		self.take_damage(area)
 #	hurtbox.create_hit_effect()
 	print("player health: ", stats.health)

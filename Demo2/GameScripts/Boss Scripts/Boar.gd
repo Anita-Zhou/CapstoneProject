@@ -24,7 +24,7 @@ enum{
 	STOP
 }
 var state = WALK
-var second_phase = true
+var second_phase = false
 var stone_timer = 0
 
 onready var stoneSkill = get_node("fallingStone")
@@ -161,6 +161,8 @@ func _on_Hurtbox_area_entered(area):
 		fix_position(true)
 	else:
 		take_damage(area)
+	if stats.health < stats.max_health/2:
+		second_phase = true
 	#print("hit boar area's parent: ", str(area.get_parent()))
 	#queue_free()
 	pass # Replace with function body.

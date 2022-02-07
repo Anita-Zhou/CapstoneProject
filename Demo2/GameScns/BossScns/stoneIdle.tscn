@@ -62,6 +62,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=10]
 length = 0.001
@@ -152,6 +164,8 @@ radius = 63.0
 radius = 68.0294
 
 [node name="stoneIdle" type="KinematicBody2D"]
+collision_layer = 1024
+collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -164,16 +178,15 @@ anims/break = SubResource( 11 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]
 position = Vector2( -1, -113 )
-collision_layer = 1024
-collision_mask = 48
+collision_mask = 0
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( -2, 111 )
 shape = SubResource( 19 )
 
 [node name="Hitbox" parent="." instance=ExtResource( 4 )]
-collision_layer = 16
-collision_mask = 8
+collision_layer = 1024
+collision_mask = 0
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( -4, -2 )
