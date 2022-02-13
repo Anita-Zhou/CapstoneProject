@@ -9,7 +9,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var anim_player = $AnimationPlayer
-	anim_player.play("water_circle")
+	anim_player.play("water_aura")
 
 func water_finished():
 	queue_free()
