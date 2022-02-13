@@ -80,7 +80,7 @@ func move_state(delta):
 	#Set blend_position for Animations
 	if (input_vector != Vector2.ZERO):
 		swordHitbox.knockback_vector = input_vector
-		
+		print("input vector", input_vector)
 		animationTree.set("parameters/Idle/blend_position", input_vector)
 		animationTree.set("parameters/Walk/blend_position", input_vector)
 		animationTree.set("parameters/Attack/blend_position", input_vector)
