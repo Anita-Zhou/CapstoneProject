@@ -37,7 +37,6 @@ onready var watercdlbl = $"../WatercdLbl"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.set_z_index(0)
 	print ("Hello World")
 	stats.connect("no_health", self, "queue_free")
 	animationTree.active = true
@@ -81,7 +80,7 @@ func move_state(delta):
 	#Set blend_position for Animations
 	if (input_vector != Vector2.ZERO):
 		swordHitbox.knockback_vector = input_vector
-		print("input vector", input_vector)
+		
 		animationTree.set("parameters/Idle/blend_position", input_vector)
 		animationTree.set("parameters/Walk/blend_position", input_vector)
 		animationTree.set("parameters/Attack/blend_position", input_vector)
