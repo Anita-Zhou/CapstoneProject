@@ -846,24 +846,24 @@ blend_mode = 1
 [sub_resource type="AnimationNodeAnimation" id=61]
 animation = "WalkLeft"
 
-[sub_resource type="AnimationNodeAnimation" id=62]
-animation = "WalkUp"
-
 [sub_resource type="AnimationNodeAnimation" id=63]
 animation = "WalkRight"
 
-[sub_resource type="AnimationNodeAnimation" id=64]
+[sub_resource type="AnimationNodeAnimation" id=158]
+animation = "WalkDown"
+
+[sub_resource type="AnimationNodeAnimation" id=159]
 animation = "WalkUp"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id=65]
 blend_point_0/node = SubResource( 61 )
 blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 62 )
-blend_point_1/pos = Vector2( 0, 1.1 )
-blend_point_2/node = SubResource( 63 )
-blend_point_2/pos = Vector2( 1, 0 )
-blend_point_3/node = SubResource( 64 )
-blend_point_3/pos = Vector2( 0, -1.1 )
+blend_point_1/node = SubResource( 63 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 158 )
+blend_point_2/pos = Vector2( 0, 1 )
+blend_point_3/node = SubResource( 159 )
+blend_point_3/pos = Vector2( 0, -1 )
 min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
@@ -957,7 +957,7 @@ parameters/playback = SubResource( 31 )
 parameters/Attack/blend_position = Vector2( 0, 0 )
 parameters/Dash/blend_position = Vector2( -0.997487, -0.0257511 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
-parameters/Walk/blend_position = Vector2( 0, 0 )
+parameters/Walk/blend_position = Vector2( 0.00277781, 1.1 )
 
 [node name="HitboxPivot" type="Position2D" parent="."]
 position = Vector2( 0, -15 )
