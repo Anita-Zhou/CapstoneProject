@@ -26,8 +26,10 @@ enum{
 var state = WALK
 var second_phase = false
 var stone_timer = 0
+var spike_timer = 0
 
 onready var stoneSkill = get_node("fallingStone")
+onready var spikeSkill = get_node("EarthSpike")
 onready var screenSize = get_viewport().get_visible_rect().size
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
@@ -108,6 +110,14 @@ func _physics_process(delta):
 			var fall_position = Vector2(rng.randi_range(0,screenSize.x), rng.randi_range(100,screenSize.y))
 			stoneSkill.being_cast(fall_position)
 			stone_timer = 0
+			
+	if(spike_timer < 600):
+		spike_timer = spike_timer + 1
+	else:
+		if(state == WALK):
+			spikeSkill.being_cast()
+			state = IDLE
+			spike_timer = 0
 			
 	move_and_slide(motion)
 	move_and_collide(motion * delta)
