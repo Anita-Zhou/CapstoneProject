@@ -111,7 +111,7 @@ func _physics_process(delta):
 			stoneSkill.being_cast(fall_position)
 			stone_timer = 0
 			
-	if(spike_timer < 600):
+	if(spike_timer < 480):
 		spike_timer = spike_timer + 1
 	else:
 		if(state == WALK):

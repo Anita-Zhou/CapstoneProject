@@ -37,6 +37,7 @@ onready var watercdlbl = $"../WatercdLbl"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	self.set_z_index(0)
 	print ("Hello World")
 	stats.connect("no_health", self, "queue_free")
 	animationTree.active = true

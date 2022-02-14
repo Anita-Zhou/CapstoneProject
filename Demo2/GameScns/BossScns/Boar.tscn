@@ -590,6 +590,7 @@ height = 66.0
 
 [node name="Boar" type="KinematicBody2D"]
 position = Vector2( 1, 0 )
+z_as_relative = false
 collision_layer = 8
 collision_mask = 498
 script = ExtResource( 2 )

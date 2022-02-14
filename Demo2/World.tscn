@@ -31,6 +31,8 @@ border_color = Color( 0, 0, 0, 1 )
 
 [node name="World" type="YSort"]
 position = Vector2( -1, -1 )
+z_index = -10
+z_as_relative = false
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0

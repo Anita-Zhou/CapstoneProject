@@ -16,7 +16,8 @@ func _ready():
 
 func being_cast():
 	var enemy = $"../../Player"
-	final_pos = enemy.get_position()
+	if(enemy != null):
+		final_pos = enemy.get_position()
 	var boar = $"../../Boar"
 	start_pos = boar.get_position()
 	inc = (final_pos - start_pos)
@@ -32,7 +33,7 @@ func _process(delta):
 			var Skill = load("res://GameScns/BossScns/spike.tscn")
 			var spike = Skill.instance()
 			var world = get_tree().current_scene
-			spike.global_position = start_pos + (spike_num + 1) * inc
+			spike.global_position = start_pos + (spike_num + 2) * inc
 			world.add_child(spike)
 			spike_num = spike_num + 1
 			spike_timer = 0

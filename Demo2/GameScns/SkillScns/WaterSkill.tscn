@@ -127,13 +127,16 @@ radius = 58.9991
 height = 490.001
 
 [node name="WaterSkill" type="Node2D"]
+z_index = -9
+z_as_relative = false
 script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 7.62939e-06, -1 )
+position = Vector2( 0, -90 )
 scale = Vector2( 1.93073, 1.05417 )
 frames = SubResource( 3 )
 animation = "water"
+frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 4 )
@@ -146,7 +149,7 @@ collision_layer = 32
 collision_mask = 192
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2( -9, 73 )
+position = Vector2( -2, -2 )
 rotation = 1.5708
 shape = SubResource( 1 )
 

@@ -875,6 +875,7 @@ height = 42.0
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 0, -1 )
+z_as_relative = false
 collision_layer = 2
 script = ExtResource( 2 )
 
@@ -891,7 +892,7 @@ position = Vector2( -1, -26 )
 scale = Vector2( 1.55556, 1.36806 )
 frames = SubResource( 13 )
 animation = "sprite"
-frame = 23
+frame = 6
 speed_scale = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
