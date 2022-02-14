@@ -127,13 +127,13 @@ func _input(ev):
 #		animationPlayer.play("WalkRight")	
 	#if Input.is_mouse_button_pressed(BUTTON_LEFT):
 		#animationPlayer.play("Attack")	
-	if Input.is_key_pressed(KEY_U):
+	if Input.is_key_pressed(KEY_K):
 		if(wood_cd == 0):
 			woodskill.being_cast()
 			wood_cd = 180
 			woodcdlbl.text = "Wood Cooldown: " + str(180/60)
 		
-	if Input.is_key_pressed(KEY_I):
+	if Input.is_key_pressed(KEY_L):
 		if(water_cd == 0):
 			waterskill.being_cast()
 			water_cd = 300

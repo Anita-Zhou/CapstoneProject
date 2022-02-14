@@ -59,10 +59,14 @@ polygon = PoolVector2Array( -572, 497, 2, 496, 112, 416, -510, 421, -515, 91, -4
 [node name="Shed2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 868, 87 )
 scale = Vector2( 1.0934, 0.858751 )
+z_index = 1
+z_as_relative = false
 
 [node name="Bone1" parent="." instance=ExtResource( 7 )]
 position = Vector2( 796, 402 )
 scale = Vector2( 0.923494, 1 )
+z_index = 1
+z_as_relative = false
 
 [node name="Boar" parent="." instance=ExtResource( 2 )]
 position = Vector2( 605, 211 )
@@ -73,6 +77,8 @@ scale = Vector2( 1, 1.01009 )
 
 [node name="Stone1" type="StaticBody2D" parent="."]
 position = Vector2( 102, 357 )
+z_index = 1
+z_as_relative = false
 script = ExtResource( 3 )
 
 [node name="S1Stone1" type="Sprite" parent="Stone1"]
@@ -88,13 +94,17 @@ shape = SubResource( 16 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stone1"]
 shape = SubResource( 17 )
 
-[node name="HealthUI" parent="." instance=ExtResource( 10 )]
-margin_left = 12.0
-margin_top = 6.0
-margin_right = 445.0
-margin_bottom = 71.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_priority = 11
+layer = 11
 
-[node name="ProgressBar" parent="HealthUI" index="3"]
+[node name="HealthUI" parent="CanvasLayer" instance=ExtResource( 10 )]
+margin_left = 11.0
+margin_top = 5.0
+margin_right = 444.0
+margin_bottom = 70.0
+
+[node name="ProgressBar" parent="CanvasLayer/HealthUI" index="3"]
 margin_right = 343.0
 margin_bottom = 49.0
 
@@ -150,4 +160,4 @@ __meta__ = {
 
 [editable path="Background/bgTrees"]
 [editable path="Stone1/Hurtbox"]
-[editable path="HealthUI"]
+[editable path="CanvasLayer/HealthUI"]

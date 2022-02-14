@@ -40,6 +40,7 @@ animations = [ {
 [sub_resource type="Animation" id=4]
 resource_name = "water_aura"
 length = 5.0
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:frame")
 tracks/0/interp = 1
@@ -136,7 +137,7 @@ position = Vector2( 0, -70 )
 scale = Vector2( 1.93073, 1.05417 )
 frames = SubResource( 3 )
 animation = "water"
-frame = 3
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 4 )

@@ -15,19 +15,21 @@ func _ready():
 	pass
 
 func being_cast():
-	var enemy = $"../../Player"
-	if(enemy != null):
-		final_pos = enemy.get_position()
-	var boar = $"../../Boar"
-	start_pos = boar.get_position()
-	inc = (final_pos - start_pos)
-	inc = inc.normalized() * 60
-	spike_num = 0
+	var player = $"../../Player"
+	if(is_instance_valid(player)):
+		final_pos = player.get_position()
+		var boar = $"../../Boar"
+		start_pos = boar.get_position()
+		inc = (final_pos - start_pos)
+		inc = inc.normalized() * 60
+		spike_num = 0
+	else:
+		final_pos = null
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(final_pos != null):
-		if(spike_timer < 20):
+		if(spike_timer < 10):
 			spike_timer = spike_timer + 1
 		elif(spike_num < 15):
 			var Skill = load("res://GameScns/BossScns/spike.tscn")
