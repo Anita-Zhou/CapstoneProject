@@ -16,6 +16,19 @@ func _ready():
 func on_player_died():
 	self.paused = true
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+func _on_MainBtn_button_up():
+	print("=====pressed main menu button")
+	get_tree().change_scene("res://GameScns/UIScns/SplashScreen.tscn")
+
+
+
+func _on_RestartBtn_button_up():
+	print("=========== restart button pressed")
+	PlayerStats.set_health(PlayerStats.max_health)
+	self.set_paused(false)
+	print("get_tree().paused = false")
+	#get_tree().reload_current_scene()
+	#print("get_tree().reload_current_scene()")
+	get_tree().change_scene("res://World1.tscn")
+	print("get_tree().change_scene()")
