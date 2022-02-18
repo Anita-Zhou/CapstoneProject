@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="DemoGD"
-run/main_scene="res://World1.tscn"
+run/main_scene="res://GameScns/UIScns/SplashScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
