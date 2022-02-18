@@ -707,6 +707,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=55]
 resource_name = "WalkDown"
 length = 0.8
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("player:frame")
 tracks/0/interp = 1
@@ -756,6 +757,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=56]
 resource_name = "WalkUp"
 length = 0.8
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("player:frame")
 tracks/0/interp = 1
@@ -925,7 +927,7 @@ position = Vector2( -1, -26 )
 scale = Vector2( 1.55556, 1.36806 )
 frames = SubResource( 13 )
 animation = "sprite"
-frame = 43
+frame = 37
 speed_scale = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

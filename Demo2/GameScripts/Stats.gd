@@ -9,6 +9,9 @@ signal health_changed(value)
 func _ready():
 	pass 
 
+func reset():
+	health = max_health
+	
 func set_health(value):
 	health = value
 	emit_signal("health_changed", health)

@@ -106,5 +106,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="button_up" from="DeathOverlay/Menu/MainBtn" to="." method="_on_MainBtn_button_up"]
-[connection signal="button_up" from="DeathOverlay/Menu/RestartBtn" to="." method="_on_RestartBtn_button_up"]
+[connection signal="button_up" from="DeathOverlay/Menu/MainBtn" to="DeathOverlay/Menu/MainBtn" method="_on_MainBtn_button_up"]
+[connection signal="button_up" from="DeathOverlay/Menu/RestartBtn" to="DeathOverlay/Menu/RestartBtn" method="_on_RestartBtn_button_up"]
