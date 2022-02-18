@@ -105,3 +105,4 @@ __meta__ = {
 }
 
 [connection signal="button_up" from="DeathOverlay/Menu/RestartBtn" to="DeathOverlay/Menu/RestartBtn" method="_on__button_up"]
+[connection signal="pressed" from="DeathOverlay/Menu/RestartBtn" to="DeathOverlay/Menu/RestartBtn" method="_on_RestartBtn_pressed"]
