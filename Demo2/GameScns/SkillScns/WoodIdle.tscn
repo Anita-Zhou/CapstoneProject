@@ -1,38 +1,48 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://GameScns/Hitboxes&Hurtboxes/HurtBox.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Art Src/Attack/vine-sprite sheet.png" type="Texture" id=2]
+[ext_resource path="res://Art Src/Attack/wood spell-vine.png" type="Texture" id=2]
 [ext_resource path="res://GameScns/SkillScns/WoodIdle.gd" type="Script" id=3]
 [ext_resource path="res://GameScns/Hitboxes&Hurtboxes/HitBox.tscn" type="PackedScene" id=4]
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=11]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 432, 432 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=12]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 432, 0, 432, 432 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=13]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 864, 0, 432, 432 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=14]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 1296, 0, 432, 432 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=15]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 1728, 0, 432, 432 )
 
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 2160, 0, 432, 432 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 2592, 0, 432, 432 )
+
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
