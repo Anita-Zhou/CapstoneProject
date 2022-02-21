@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://GameScns/StaticScns/bgTrees.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GameScns/BossScns/Boar.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://BossUI.gd" type="Script" id=11]
 [ext_resource path="res://GameScns/UIScns/DeathScreen.tscn" type="PackedScene" id=12]
 [ext_resource path="res://World1.gd" type="Script" id=13]
+[ext_resource path="res://GameScns/UIScns/SkillUI.tscn" type="PackedScene" id=14]
 
 [sub_resource type="CircleShape2D" id=16]
 radius = 45.2769
@@ -140,6 +141,7 @@ margin_bottom = 33.0
 text = "Canniaboar"
 
 [node name="WoodcdLbl" type="Label" parent="."]
+visible = false
 margin_left = 849.0
 margin_top = 491.0
 margin_right = 968.0
@@ -150,6 +152,7 @@ __meta__ = {
 }
 
 [node name="WatercdLbl" type="Label" parent="."]
+visible = false
 margin_left = 849.0
 margin_top = 508.0
 margin_right = 968.0
@@ -162,6 +165,15 @@ __meta__ = {
 [node name="DeathLayer" type="CanvasLayer" parent="."]
 
 [node name="DeathScreen" parent="DeathLayer" instance=ExtResource( 12 )]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SkillUI" parent="CanvasLayer" instance=ExtResource( 14 )]
+margin_left = 792.0
+margin_top = 383.0
+margin_right = 633.0
+margin_bottom = 296.0
+rect_scale = Vector2( 0.399065, 0.399065 )
 
 [connection signal="area_entered" from="Stone1/Hurtbox" to="Stone1" method="_on_Hurtbox_area_entered"]
 
