@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/water_pending-removebg-preview.png-b5010fb4ebde8d89f674cd929224439d.stex"
+path="res://.import/warhog v2.png-21351bdc32d92b801839386b21de9f1d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Src/Attack/water_pending-removebg-preview.png"
-dest_files=[ "res://.import/water_pending-removebg-preview.png-b5010fb4ebde8d89f674cd929224439d.stex" ]
+source_file="res://Art Src/BossArt/Boar/warhog v2.png"
+dest_files=[ "res://.import/warhog v2.png-21351bdc32d92b801839386b21de9f1d.stex" ]
 
 [params]
 

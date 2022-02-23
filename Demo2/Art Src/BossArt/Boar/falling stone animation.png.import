@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/transparent-green-fireball-png-minecraft-orange-pixel-art.png-3220c399525f2679e82cbd5da3c337fe.stex"
+path="res://.import/falling stone animation.png-26fa3f804f823e6fbe1c4138a5c4daff.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Src/Attack/transparent-green-fireball-png-minecraft-orange-pixel-art.png"
-dest_files=[ "res://.import/transparent-green-fireball-png-minecraft-orange-pixel-art.png-3220c399525f2679e82cbd5da3c337fe.stex" ]
+source_file="res://Art Src/BossArt/Boar/falling stone animation.png"
+dest_files=[ "res://.import/falling stone animation.png-26fa3f804f823e6fbe1c4138a5c4daff.stex" ]
 
 [params]
 

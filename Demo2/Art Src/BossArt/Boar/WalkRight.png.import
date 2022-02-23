@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/charge adjusted.png-d486752c16ae23767bd32f11e6dcaa66.stex"
+path="res://.import/WalkRight.png-420863ceb91bf2c43383c279a1a0923c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Src/BossArt/charge adjusted.png"
-dest_files=[ "res://.import/charge adjusted.png-d486752c16ae23767bd32f11e6dcaa66.stex" ]
+source_file="res://Art Src/BossArt/Boar/WalkRight.png"
+dest_files=[ "res://.import/WalkRight.png-420863ceb91bf2c43383c279a1a0923c.stex" ]
 
 [params]
 

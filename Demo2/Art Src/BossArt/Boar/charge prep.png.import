@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/900609-middle-removebg-preview (1).png-0299977a57e40f5cda32e62e23778857.stex"
+path="res://.import/charge prep.png-55a2e5354f2c5991c3c13aa000ed27a0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Src/Attack/900609-middle-removebg-preview (1).png"
-dest_files=[ "res://.import/900609-middle-removebg-preview (1).png-0299977a57e40f5cda32e62e23778857.stex" ]
+source_file="res://Art Src/BossArt/Boar/charge prep.png"
+dest_files=[ "res://.import/charge prep.png-55a2e5354f2c5991c3c13aa000ed27a0.stex" ]
 
 [params]
 

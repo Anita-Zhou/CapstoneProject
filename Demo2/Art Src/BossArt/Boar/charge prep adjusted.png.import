@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/f8b6f7006d3d020.png-5cf8401941463b723f5e4c284b273b0a.stex"
+path="res://.import/charge prep adjusted.png-bcfe65b7c52d4eba5f40022ad08d7566.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Src/StaticObstacle/f8b6f7006d3d020.png"
-dest_files=[ "res://.import/f8b6f7006d3d020.png-5cf8401941463b723f5e4c284b273b0a.stex" ]
+source_file="res://Art Src/BossArt/Boar/charge prep adjusted.png"
+dest_files=[ "res://.import/charge prep adjusted.png-bcfe65b7c52d4eba5f40022ad08d7566.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/f8b6f7006d3d020-removebg-preview.png-f208f9310d132477f5bfb0fc72f15fbf.stex"
+path="res://.import/RunRight.png-4924a39348b0a5af86d5735f7485cea6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Src/StaticObstacle/f8b6f7006d3d020-removebg-preview.png"
-dest_files=[ "res://.import/f8b6f7006d3d020-removebg-preview.png-f208f9310d132477f5bfb0fc72f15fbf.stex" ]
+source_file="res://Art Src/BossArt/Boar/RunRight.png"
+dest_files=[ "res://.import/RunRight.png-4924a39348b0a5af86d5735f7485cea6.stex" ]
 
 [params]
 

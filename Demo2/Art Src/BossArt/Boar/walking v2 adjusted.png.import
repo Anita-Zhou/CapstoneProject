@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spike.png-ae514d67b389743f336b7fd9846124f5.stex"
+path="res://.import/walking v2 adjusted.png-6682311cbfde9fb5915e2d957cdaee36.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Src/BossArt/spike.png"
-dest_files=[ "res://.import/spike.png-ae514d67b389743f336b7fd9846124f5.stex" ]
+source_file="res://Art Src/BossArt/Boar/walking v2 adjusted.png"
+dest_files=[ "res://.import/walking v2 adjusted.png-6682311cbfde9fb5915e2d957cdaee36.stex" ]
 
 [params]
 
