@@ -1,4 +1,4 @@
-extends Button
+extends TextureButton
 
 onready var deathscn = get_tree().get_root().get_node("DeathScreen")
 
@@ -9,9 +9,9 @@ func _get_configuration_warning()->String:
 	return "cannot load World1 scene"
 
 
-func _on_RestartBtn_button_up():
+func _on_ReTxtBtn_button_up():
 	print("=========== restart button pressed")
-	PlayerStats.set_health(PlayerStats.max_health)
+	PlayerStats.reser()
 #	self.set_paused(false)
 	print("get_tree().paused = false")
 	#get_tree().reload_current_scene()

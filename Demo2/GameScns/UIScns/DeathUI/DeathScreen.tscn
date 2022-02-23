@@ -4,7 +4,8 @@
 [ext_resource path="res://Fonts/PolandCannedIntoFuture-OxE3.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://GameScripts/UIScripts/Death/RestartBtn.gd" type="Script" id=3]
 [ext_resource path="res://GameScripts/UIScripts/Death/DeathScreen.gd" type="Script" id=4]
-[ext_resource path="res://GameScripts/UIScripts/Death/MainBtn.gd" type="Script" id=5]
+[ext_resource path="res://Art Src/GUIArt/output-onlinepngtools.png" type="Texture" id=6]
+[ext_resource path="res://GameScns/UIScns/DeathUI/MainTxtBtn.gd" type="Script" id=7]
 
 [sub_resource type="Theme" id=1]
 
@@ -13,12 +14,8 @@ size = 100
 outline_color = Color( 0.337255, 0.176471, 0.176471, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=4]
-size = 24
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 24
+[sub_resource type="DynamicFont" id=5]
+size = 30
 font_data = ExtResource( 2 )
 
 [node name="DeathScreen" type="Control"]
@@ -32,6 +29,7 @@ __meta__ = {
 }
 
 [node name="DeathOverlay" type="ColorRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1.0
@@ -46,24 +44,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -420.0
-margin_top = -113.5
-margin_right = 418.0
-margin_bottom = 113.5
+margin_left = -410.0
+margin_top = -131.0
+margin_right = 428.0
+margin_bottom = 96.0
 texture = ExtResource( 1 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="DeathOverlay"]
+[node name="Label" type="Label" parent="DeathOverlay/TextureRect"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -192.0
+margin_left = -191.0
 margin_top = -55.0
-margin_right = 190.0
+margin_right = 191.0
 margin_bottom = 55.0
 theme = SubResource( 1 )
 custom_colors/font_color = Color( 0.890196, 0.0509804, 0.0509804, 1 )
@@ -76,37 +74,51 @@ __meta__ = {
 }
 
 [node name="Menu" type="VBoxContainer" parent="DeathOverlay"]
-margin_left = 429.0
-margin_top = 409.0
-margin_right = 1254.0
-margin_bottom = 781.0
-rect_scale = Vector2( 0.247991, 0.341218 )
+margin_left = 388.0
+margin_top = 393.0
+margin_right = 1213.0
+margin_bottom = 836.0
+rect_scale = Vector2( 0.56561, 0.89803 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MainBtn" type="Button" parent="DeathOverlay/Menu"]
+[node name="MainTxtBtn" type="TextureButton" parent="DeathOverlay/Menu"]
 margin_right = 825.0
-margin_bottom = 184.0
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 4 )
-text = "Main Menu"
-script = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_bottom = 86.0
+texture_normal = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="RestartBtn" type="Button" parent="DeathOverlay/Menu"]
-margin_top = 188.0
+[node name="ReTxtBtn" type="TextureButton" parent="DeathOverlay/Menu"]
+anchor_top = 0.00251374
+anchor_bottom = 0.00251374
+margin_top = 90.0
 margin_right = 825.0
-margin_bottom = 372.0
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 3 )
-text = "Restart"
+margin_bottom = 176.0
+texture_normal = ExtResource( 6 )
 script = ExtResource( 3 )
+
+[node name="MainLbl" type="Label" parent="DeathOverlay"]
+margin_left = 456.0
+margin_top = 417.0
+margin_right = 656.0
+margin_bottom = 457.0
+custom_fonts/font = SubResource( 5 )
+text = "Main Menu"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="button_up" from="DeathOverlay/Menu/MainBtn" to="DeathOverlay/Menu/MainBtn" method="_on_MainBtn_button_up"]
-[connection signal="button_up" from="DeathOverlay/Menu/RestartBtn" to="DeathOverlay/Menu/RestartBtn" method="_on_RestartBtn_button_up"]
+[node name="ReLbl" type="Label" parent="DeathOverlay"]
+margin_left = 466.0
+margin_top = 496.0
+margin_right = 703.0
+margin_bottom = 536.0
+custom_fonts/font = SubResource( 5 )
+text = "Restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_up" from="DeathOverlay/Menu/MainTxtBtn" to="DeathOverlay/Menu/MainTxtBtn" method="_on_MainTxtBtn_button_up"]
+[connection signal="button_up" from="DeathOverlay/Menu/ReTxtBtn" to="DeathOverlay/Menu/ReTxtBtn" method="_on_ReTxtBtn_button_up"]
