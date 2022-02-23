@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="Tutorial" type="Node2D"]
+
+[node name="Layer1" type="CanvasLayer" parent="."]
+
+[node name="Layer2" type="CanvasLayer" parent="."]

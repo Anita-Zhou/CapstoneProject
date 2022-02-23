@@ -1,14 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://MomcakeBold-WyonA.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://HealthUI.gd" type="Script" id=2]
-[ext_resource path="res://assets/GUI/lifebar_fill.png" type="Texture" id=3]
-[ext_resource path="res://assets/GUI/label_HP.png" type="Texture" id=4]
-[ext_resource path="res://assets/GUI/lifebar_bg.png" type="Texture" id=5]
-
-[sub_resource type="DynamicFont" id=1]
-size = 28
-font_data = ExtResource( 1 )
+[ext_resource path="res://Art Src/GUIArt/label_HP.png" type="Texture" id=4]
+[ext_resource path="res://Art Src/GUIArt/lifebar_bg.png" type="Texture" id=5]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.298039, 0.733333, 0, 1 )
@@ -26,8 +20,8 @@ border_blend = true
 [node name="HealthUI" type="Control"]
 margin_left = -6.0
 margin_top = -9.0
-margin_right = 476.0
-margin_bottom = 63.0
+margin_right = 462.0
+margin_bottom = 69.0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -45,7 +39,7 @@ margin_right = 608.834
 margin_bottom = 9.176
 value = 80.0
 texture_under = ExtResource( 5 )
-texture_progress = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -59,20 +53,10 @@ texture = ExtResource( 4 )
 
 [node name="UpdateTween" type="Tween" parent="."]
 
-[node name="Label" type="Label" parent="."]
-visible = false
-margin_right = 129.0
-margin_bottom = 32.0
-custom_fonts/font = SubResource( 1 )
-text = "HP = 100"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="ProgressBar" type="ProgressBar" parent="."]
 margin_left = 46.0
 margin_top = 29.0
-margin_right = 346.0
+margin_right = 354.0
 margin_bottom = 55.0
 custom_styles/fg = SubResource( 2 )
 custom_styles/bg = SubResource( 3 )

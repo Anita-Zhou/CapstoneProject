@@ -1,0 +1,182 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://GameScns/StaticScns/bgTrees.tscn" type="PackedScene" id=1]
+[ext_resource path="res://GameScns/StaticScns/Bone1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://GameScns/UIScns/DeathUI/DeathScreen.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GameScripts/ObjectScripts/Stone1.gd" type="Script" id=4]
+[ext_resource path="res://Art Src/Background/s1_background.png" type="Texture" id=5]
+[ext_resource path="res://Art Src/StaticObstacle/s1_stone1.png" type="Texture" id=6]
+[ext_resource path="res://LevelScripts/World1.gd" type="Script" id=7]
+[ext_resource path="res://GameScns/UIScns/SkillUI/SkillUI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://GameScns/StaticScns/shed.tscn" type="PackedScene" id=9]
+[ext_resource path="res://HealthUI.tscn" type="PackedScene" id=10]
+[ext_resource path="res://GameScns/Hitboxes&Hurtboxes/HurtBox.tscn" type="PackedScene" id=11]
+[ext_resource path="res://BossUI.gd" type="Script" id=12]
+[ext_resource path="res://GameScns/PlayerScns/Player.tscn" type="PackedScene" id=13]
+[ext_resource path="res://GameScns/BossScns/Boar.tscn" type="PackedScene" id=14]
+
+[sub_resource type="CircleShape2D" id=16]
+radius = 45.2769
+
+[sub_resource type="CircleShape2D" id=17]
+radius = 19.6469
+
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0.533333, 0.117647, 0.117647, 1 )
+
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 0.211765, 0.160784, 0.160784, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[node name="World1" type="YSort"]
+position = Vector2( -1, -1 )
+z_index = -10
+z_as_relative = false
+script = ExtResource( 7 )
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.0
+margin_right = 1025.0
+margin_bottom = 600.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bgTrees" parent="Background" instance=ExtResource( 1 )]
+position = Vector2( 522, 445 )
+
+[node name="Sprite" parent="Background/bgTrees" index="0"]
+position = Vector2( -10, -264 )
+
+[node name="CollisionPolygon2D" parent="Background/bgTrees" index="1"]
+position = Vector2( 1, -279 )
+polygon = PoolVector2Array( -572, 497, 2, 496, 112, 416, -510, 421, -515, 91, -401, -74, -286, -82, -145, -135, -51, -133, 17, -157, 126, -146, 142, -126, 217, -118, 271, -102, 347, -111, 481, -45, 487, 418, -31, 418, 28, 501, 580, 503, 567, -278, 502, -276, -573, -277, -580, 315 )
+
+[node name="Shed2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 868, 87 )
+scale = Vector2( 1.0934, 0.858751 )
+z_index = 1
+z_as_relative = false
+
+[node name="Bone1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 796, 402 )
+scale = Vector2( 0.923494, 1 )
+z_index = 1
+z_as_relative = false
+
+[node name="Boar" parent="." instance=ExtResource( 14 )]
+position = Vector2( 605, 211 )
+
+[node name="Player" parent="." instance=ExtResource( 13 )]
+position = Vector2( 275, 380 )
+scale = Vector2( 1, 1.01009 )
+
+[node name="Stone1" type="StaticBody2D" parent="."]
+position = Vector2( 102, 357 )
+z_index = 1
+z_as_relative = false
+script = ExtResource( 4 )
+
+[node name="S1Stone1" type="Sprite" parent="Stone1"]
+position = Vector2( -1, 5 )
+scale = Vector2( 1.00685, 1 )
+texture = ExtResource( 6 )
+
+[node name="Hurtbox" parent="Stone1" instance=ExtResource( 11 )]
+
+[node name="CollisionShape2D" parent="Stone1/Hurtbox" index="0"]
+shape = SubResource( 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone1"]
+shape = SubResource( 17 )
+
+[node name="HealthLayer" type="CanvasLayer" parent="."]
+process_priority = 11
+layer = 50
+
+[node name="HealthUI" parent="HealthLayer" instance=ExtResource( 10 )]
+margin_left = 11.0
+margin_top = 5.0
+margin_right = 444.0
+margin_bottom = 70.0
+
+[node name="ProgressBar" parent="HealthLayer/HealthUI" index="2"]
+margin_right = 343.0
+margin_bottom = 49.0
+
+[node name="BossUI" type="Control" parent="."]
+margin_left = 250.0
+margin_top = 504.0
+margin_right = 783.0
+margin_bottom = 584.0
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="BossUI"]
+margin_left = 59.0
+margin_top = 35.0
+margin_right = 522.0
+margin_bottom = 50.0
+custom_styles/fg = SubResource( 18 )
+custom_styles/bg = SubResource( 19 )
+value = 50.0
+
+[node name="UpdateTween" type="Tween" parent="BossUI"]
+
+[node name="Label" type="Label" parent="BossUI"]
+margin_left = 62.0
+margin_top = 19.0
+margin_right = 132.0
+margin_bottom = 33.0
+text = "Canniaboar"
+
+[node name="WoodcdLbl" type="Label" parent="."]
+visible = false
+margin_left = 849.0
+margin_top = 491.0
+margin_right = 968.0
+margin_bottom = 505.0
+text = "Wood Cooldown: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WatercdLbl" type="Label" parent="."]
+visible = false
+margin_left = 849.0
+margin_top = 508.0
+margin_right = 968.0
+margin_bottom = 522.0
+text = "Water cooldown: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DeathLayer" type="CanvasLayer" parent="."]
+
+[node name="DeathScreen" parent="DeathLayer" instance=ExtResource( 3 )]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SkillUI" parent="CanvasLayer" instance=ExtResource( 8 )]
+margin_left = 792.0
+margin_top = 383.0
+margin_right = 633.0
+margin_bottom = 296.0
+rect_scale = Vector2( 0.399065, 0.399065 )
+
+[connection signal="area_entered" from="Stone1/Hurtbox" to="Stone1" method="_on_Hurtbox_area_entered"]
+
+[editable path="Background/bgTrees"]
+[editable path="Stone1/Hurtbox"]
+[editable path="HealthLayer/HealthUI"]

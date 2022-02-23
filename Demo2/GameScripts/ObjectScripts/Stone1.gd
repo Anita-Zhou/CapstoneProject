@@ -1,18 +1,13 @@
-extends Node2D
+extends StaticBody2D
 
+func create_stone_effect():
+	var StoneEffect = load("res://GameScns/StaticScns/Stone1.tscn")
+	var stoneEffect = StoneEffect.instance()
+	var world = get_tree().current_scene
+	world.add_child(stoneEffect)
+	stoneEffect.global_position = global_position
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-onready var animatedSprite = $AnimatedSprite
-
-func _ready():
-	animatedSprite.play("Animate")
-
-func _process(delta):
-	pass
-
-
-func _on_AnimatedSprite_animation_finished():
+func _on_Hurtbox_area_entered(area):
+	create_stone_effect()
 	queue_free()
+	
