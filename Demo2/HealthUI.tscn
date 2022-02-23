@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://HealthUI.gd" type="Script" id=2]
-[ext_resource path="res://Art Src/GUIArt/label_HP.png" type="Texture" id=4]
-[ext_resource path="res://Art Src/GUIArt/lifebar_bg.png" type="Texture" id=5]
+[ext_resource path="res://Art Src/GUIArt/PlayerUI/label_HP.png" type="Texture" id=4]
+[ext_resource path="res://Art Src/GUIArt/PlayerUI/lifebar_bg.png" type="Texture" id=5]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.298039, 0.733333, 0, 1 )

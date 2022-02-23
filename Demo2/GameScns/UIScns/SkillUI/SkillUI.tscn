@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Art Src/GUIArt/SKILL UI background.png" type="Texture" id=1]
-[ext_resource path="res://Art Src/GUIArt/SKILL UI icon.png" type="Texture" id=2]
+[ext_resource path="res://Art Src/GUIArt/SkillUI/SKILL UI background.png" type="Texture" id=1]
+[ext_resource path="res://Art Src/GUIArt/SkillUI/SKILL UI icon.png" type="Texture" id=2]
 
 [node name="SkillUI" type="Control"]
 anchor_right = 1.0

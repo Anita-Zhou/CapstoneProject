@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Player HP Bar UI.png-6692bdddf68fc60ac94595f7e9198581.stex"
+path="res://.import/SKILL UI icon.png-1fda567bdee0c8c3ac2801c62489ef70.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Src/GUIArt/Player HP Bar UI.png"
-dest_files=[ "res://.import/Player HP Bar UI.png-6692bdddf68fc60ac94595f7e9198581.stex" ]
+source_file="res://Art Src/GUIArt/SkillUI/SKILL UI icon.png"
+dest_files=[ "res://.import/SKILL UI icon.png-1fda567bdee0c8c3ac2801c62489ef70.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/label_HP.png-e2d6e95433deeb448acd7f6b875034e0.stex"
+path="res://.import/pngfind.com-black-rectangle-png-471928.png-cf04cb6c20d4d24aa526f2e820e806f9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Src/GUIArt/label_HP.png"
-dest_files=[ "res://.import/label_HP.png-e2d6e95433deeb448acd7f6b875034e0.stex" ]
+source_file="res://Art Src/GUIArt/ButtonUI/pngfind.com-black-rectangle-png-471928.png"
+dest_files=[ "res://.import/pngfind.com-black-rectangle-png-471928.png-cf04cb6c20d4d24aa526f2e820e806f9.stex" ]
 
 [params]
 

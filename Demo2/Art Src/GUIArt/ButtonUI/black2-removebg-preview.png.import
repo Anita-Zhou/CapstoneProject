@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SKILL UI icon.png-2e6324d28ef6a6ab4c93d67fe85c15cf.stex"
+path="res://.import/black2-removebg-preview.png-47cd160584f037d15e34bfa48516e31b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Src/GUIArt/SKILL UI icon.png"
-dest_files=[ "res://.import/SKILL UI icon.png-2e6324d28ef6a6ab4c93d67fe85c15cf.stex" ]
+source_file="res://Art Src/GUIArt/ButtonUI/black2-removebg-preview.png"
+dest_files=[ "res://.import/black2-removebg-preview.png-47cd160584f037d15e34bfa48516e31b.stex" ]
 
 [params]
 

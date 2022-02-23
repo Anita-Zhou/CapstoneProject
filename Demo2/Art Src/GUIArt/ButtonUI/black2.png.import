@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/boss HP bar.png-e8431a41d88a79b01db4a593ad248428.stex"
+path="res://.import/black2.png-7691b21628d4adfe5a32d627bda64fe5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Src/GUIArt/boss HP bar.png"
-dest_files=[ "res://.import/boss HP bar.png-e8431a41d88a79b01db4a593ad248428.stex" ]
+source_file="res://Art Src/GUIArt/ButtonUI/black2.png"
+dest_files=[ "res://.import/black2.png-7691b21628d4adfe5a32d627bda64fe5.stex" ]
 
 [params]
 

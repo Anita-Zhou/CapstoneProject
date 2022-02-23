@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pngfind.com-black-rectangle-png-471928.png-470f85360193379a00dcf9b9833e0255.stex"
+path="res://.import/lifebar_fill.png-1f082c19aaedf8da380f3e56d8f1906a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Src/GUIArt/pngfind.com-black-rectangle-png-471928.png"
-dest_files=[ "res://.import/pngfind.com-black-rectangle-png-471928.png-470f85360193379a00dcf9b9833e0255.stex" ]
+source_file="res://Art Src/GUIArt/PlayerUI/lifebar_fill.png"
+dest_files=[ "res://.import/lifebar_fill.png-1f082c19aaedf8da380f3e56d8f1906a.stex" ]
 
 [params]
 

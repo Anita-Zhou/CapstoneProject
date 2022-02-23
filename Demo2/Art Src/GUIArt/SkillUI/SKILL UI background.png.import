@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SKILL UI background.png-d772adc86e148949389721cee0448f85.stex"
+path="res://.import/SKILL UI background.png-1424a4566454386ae8ecb2c331bf1162.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Src/GUIArt/SKILL UI background.png"
-dest_files=[ "res://.import/SKILL UI background.png-d772adc86e148949389721cee0448f85.stex" ]
+source_file="res://Art Src/GUIArt/SkillUI/SKILL UI background.png"
+dest_files=[ "res://.import/SKILL UI background.png-1424a4566454386ae8ecb2c331bf1162.stex" ]
 
 [params]
 

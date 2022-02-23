@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/black2.png-ce82e4e1ac29cc3a037f1984a341cdc6.stex"
+path="res://.import/Player HP Bar UI.png-f9e9f7fa8e792bcda11d2fd95282882d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Src/GUIArt/black2.png"
-dest_files=[ "res://.import/black2.png-ce82e4e1ac29cc3a037f1984a341cdc6.stex" ]
+source_file="res://Art Src/GUIArt/PlayerUI/Player HP Bar UI.png"
+dest_files=[ "res://.import/Player HP Bar UI.png-f9e9f7fa8e792bcda11d2fd95282882d.stex" ]
 
 [params]
 
