@@ -1,12 +1,24 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Art Src/GUIArt/pixil-frame-0 (1).png" type="Texture" id=1]
+[ext_resource path="res://Art Src/splash_updated.png" type="Texture" id=2]
 
 [node name="LevelSelect" type="Control"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuBg" type="TextureRect" parent="."]
+margin_left = -510.0
+margin_top = -302.0
+margin_right = 515.0
+margin_bottom = 297.0
+texture = ExtResource( 2 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
