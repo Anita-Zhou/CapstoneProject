@@ -90,8 +90,6 @@ texture_normal = ExtResource( 6 )
 script = ExtResource( 7 )
 
 [node name="ReTxtBtn" type="TextureButton" parent="DeathOverlay/Menu"]
-anchor_top = 0.00251374
-anchor_bottom = 0.00251374
 margin_top = 90.0
 margin_right = 825.0
 margin_bottom = 176.0
