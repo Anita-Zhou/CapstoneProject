@@ -1,0 +1,98 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://LevelScripts/PauseScreen.gd" type="Script" id=1]
+[ext_resource path="res://Art Src/GUIArt/output-onlinepngtools.png" type="Texture" id=2]
+[ext_resource path="res://LevelScripts/PauseReTxtBtn.gd" type="Script" id=3]
+[ext_resource path="res://GameScns/UIScns/DeathUI/MainTxtBtn.gd" type="Script" id=4]
+[ext_resource path="res://LevelScripts/QuitBtn.gd" type="Script" id=5]
+[ext_resource path="res://Fonts/PolandCannedIntoFuture-OxE3.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 6 )
+
+[node name="PauseScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_right = 1055.0
+margin_bottom = 613.0
+rect_pivot_offset = Vector2( -398, 99 )
+color = Color( 0, 0, 0, 0.313726 )
+
+[node name="Menu" type="VBoxContainer" parent="ColorRect"]
+margin_left = 407.0
+margin_top = 211.0
+margin_right = 1232.0
+margin_bottom = 654.0
+rect_scale = Vector2( 0.56561, 0.89803 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainTxtBtn" type="TextureButton" parent="ColorRect/Menu"]
+margin_right = 825.0
+margin_bottom = 86.0
+texture_normal = ExtResource( 2 )
+script = ExtResource( 4 )
+
+[node name="ReTxtBtn" type="TextureButton" parent="ColorRect/Menu"]
+margin_top = 90.0
+margin_right = 825.0
+margin_bottom = 176.0
+texture_normal = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="QuitBtn" type="TextureButton" parent="ColorRect/Menu"]
+margin_top = 180.0
+margin_right = 825.0
+margin_bottom = 266.0
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="MainLbl" type="Label" parent="ColorRect"]
+margin_left = 475.0
+margin_top = 236.0
+margin_right = 675.0
+margin_bottom = 276.0
+custom_fonts/font = SubResource( 1 )
+text = "Main Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReLbl" type="Label" parent="ColorRect"]
+margin_left = 485.0
+margin_top = 315.0
+margin_right = 722.0
+margin_bottom = 355.0
+custom_fonts/font = SubResource( 2 )
+text = "Restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quitlbl" type="Label" parent="ColorRect"]
+margin_left = 509.0
+margin_top = 394.0
+margin_right = 746.0
+margin_bottom = 434.0
+custom_fonts/font = SubResource( 2 )
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_up" from="ColorRect/Menu/MainTxtBtn" to="ColorRect/Menu/MainTxtBtn" method="_on_MainTxtBtn_button_up"]
+[connection signal="button_up" from="ColorRect/Menu/ReTxtBtn" to="ColorRect/Menu/ReTxtBtn" method="_on_ReTxtBtn_button_up"]
+[connection signal="button_up" from="ColorRect/Menu/QuitBtn" to="ColorRect/Menu/QuitBtn" method="_on_QuitBtn_button_up"]

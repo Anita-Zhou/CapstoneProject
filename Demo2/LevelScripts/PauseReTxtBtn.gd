@@ -1,6 +1,6 @@
 extends TextureButton
 
-onready var deathscn = get_tree().get_root().get_node("DeathScreen")
+onready var deathscn = get_tree().get_root().get_node("World1/PauseLayer/PauseScreen")
 
 func _ready():
 	pass # Replace with function body.
@@ -16,5 +16,5 @@ func _on_ReTxtBtn_button_up():
 	print("get_tree().paused = false")
 	#get_tree().reload_current_scene()
 	#print("get_tree().reload_current_scene()")
-	get_tree().change_scene("res://World1.tscn")
+	get_tree().change_scene("res://Levels/World1.tscn")
 	print("get_tree().change_scene()")
