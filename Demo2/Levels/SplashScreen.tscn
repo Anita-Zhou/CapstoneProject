@@ -33,6 +33,7 @@ __meta__ = {
 [node name="SplashUpdated" type="TextureRect" parent="NewSplash"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_scale = Vector2( 1.00559, 1.01313 )
 texture = ExtResource( 7 )
 expand = true
 __meta__ = {
