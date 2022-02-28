@@ -89,7 +89,7 @@ tracks/0/keys = {
 radius = 29.0
 height = 72.0
 
-[node name="Dummy" type="Node2D"]
+[node name="Dummy" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
