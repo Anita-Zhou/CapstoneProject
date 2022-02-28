@@ -6,29 +6,43 @@ onready var stats = $Stats
 
 var direction = Vector2(0, 0)
 var temp_direction = Vector2(0, 0)
+var rng = RandomNumberGenerator.new()
 #var direction = Vector2(0, 0)
 var distance2hero = Vector2(0, 0)
 var speed = 15
 var timer = 0
+var move = true
 
 onready var player = null
 
 func _ready():
 	print("=====dummy ready")
-#	rng.randomize()
+	rng.randomize()
 	player = get_parent().get_node("Player")
 	print("=====dummy got player")
+	timer = rng.randf_range(180.0, 360.0)
 	
 func _physics_process(delta):
+	if(move == true):
+		speed = 20
+	else:
+		speed = 0
+		
 	var motion = direction * speed
 	if(is_instance_valid(player)):
 		direction = player.position - self.position
 		distance2hero = self.position.distance_to(player.position)
 	direction = direction.normalized()
 	#print("current dummy direction:", direction)
-
 	move_and_slide(motion)
 	move_and_collide(motion * delta)
+	
+	if(timer > 0):
+		timer -= 1
+	else:
+		move = !move
+		timer = rng.randf_range(180.0, 360.0)
+		
 
 #func _physics_process(delta):
 #	var motion = direction * speed
