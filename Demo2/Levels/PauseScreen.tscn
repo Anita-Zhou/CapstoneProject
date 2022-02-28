@@ -52,6 +52,7 @@ margin_right = 825.0
 margin_bottom = 176.0
 texture_normal = ExtResource( 2 )
 script = ExtResource( 3 )
+replayscn = "res://Levels/World1.tscn"
 
 [node name="QuitBtn" type="TextureButton" parent="ColorRect/Menu"]
 margin_top = 180.0
