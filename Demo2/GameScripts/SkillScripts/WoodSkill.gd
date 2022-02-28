@@ -4,8 +4,7 @@ extends KinematicBody2D
 func _ready():
 	pass # Replace with function body.
 
-func being_cast():
-	var enemy = $"../../Boar"
+func being_cast(enemy):
 	var pos = enemy.get_position() 
 	var Skill = load("res://GameScns/SkillScns/WoodIdle.tscn")
 	var woodSkill = Skill.instance()

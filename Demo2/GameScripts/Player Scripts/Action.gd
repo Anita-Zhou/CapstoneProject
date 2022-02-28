@@ -25,6 +25,7 @@ var animation_not_interruptable = false
 var wood_cd = 0
 var water_cd = 0
 var stats = PlayerStats
+var enemy;
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
@@ -40,6 +41,11 @@ func _ready():
 	print ("Hello World")
 	stats.connect("no_health", self, "queue_free")
 	animationTree.active = true
+	var SceneName = get_tree().current_scene.get_name()
+	if(SceneName == "World1"):
+		enemy = $"../Boar"
+	elif (SceneName == "Tutorial"):
+		enemy = $"../Dummy"
 
 func _process(delta):
 	if(wood_cd > 0):
@@ -129,7 +135,7 @@ func _input(ev):
 		#animationPlayer.play("Attack")	
 	if Input.is_key_pressed(KEY_K):
 		if(wood_cd == 0):
-			woodskill.being_cast()
+			woodskill.being_cast(enemy)
 			wood_cd = 180
 			woodcdlbl.text = "Wood Cooldown: " + str(180/60)
 		
