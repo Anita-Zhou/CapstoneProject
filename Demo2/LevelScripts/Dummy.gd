@@ -10,8 +10,8 @@ var rng = RandomNumberGenerator.new()
 #var direction = Vector2(0, 0)
 var distance2hero = Vector2(0, 0)
 var speed = 15
-var timer = 0
-var move = true
+var timer = 420
+var move = false
 
 onready var player = null
 

@@ -51,12 +51,14 @@ func _process(delta):
 	if(wood_cd > 0):
 		wood_cd -= 1
 		if(wood_cd%60 == 0):
-			woodcdlbl.text = "Wood Cooldown: " + str(wood_cd/60)
+#			woodcdlbl.text = "Wood Cooldown: " + str(wood_cd/60)
+			pass
 		#print("wood_cd:", wood_cd)
 	if(water_cd > 0):
 		water_cd -= 1
 		if(water_cd%60 == 0):
-			watercdlbl.text = "Water Cooldown: " + str(water_cd/60)
+#			watercdlbl.text = "Water Cooldown: " + str(water_cd/60)
+			pass
 		#print("water_cd:", water_cd)
 
 func AnimationLoop():
@@ -137,13 +139,13 @@ func _input(ev):
 		if(wood_cd == 0):
 			woodskill.being_cast(enemy)
 			wood_cd = 180
-			woodcdlbl.text = "Wood Cooldown: " + str(180/60)
+#			woodcdlbl.text = "Wood Cooldown: " + str(180/60)
 		
 	if Input.is_key_pressed(KEY_L):
 		if(water_cd == 0):
 			waterskill.being_cast()
 			water_cd = 300
-			watercdlbl.text = "Water Cooldown: " + str(300/60)
+#			watercdlbl.text = "Water Cooldown: " + str(300/60)
 	#else:
 	#	animationPlayer.play("Idle")	
 		
