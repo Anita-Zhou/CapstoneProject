@@ -17,4 +17,4 @@ func _ready():
 
 
 func _on_PlayBtn_button_up():
-	get_tree().change_scene("res://Levels/World1.tscn")
+	get_tree().change_scene("res://Levels/Tutorial.tscn")
