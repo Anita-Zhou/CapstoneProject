@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Art Src/GUIArt/pixil-frame-0 (1).png" type="Texture" id=1]
 [ext_resource path="res://Art Src/splash_updated.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Art Src/GUIArt/output-onlinepngtools.png" type="Texture" id=7]
 [ext_resource path="res://GameScns/UIScns/DeathUI/MainTxtBtn.gd" type="Script" id=8]
 [ext_resource path="res://Fonts/PolandCannedIntoFuture-OxE3.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Art Src/GUIArt/map.png" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 26
@@ -35,7 +36,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Map" type="TextureRect" parent="."]
+margin_left = -505.0
+margin_top = -287.0
+margin_right = 519.0
+margin_bottom = 289.0
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -52,9 +64,9 @@ __meta__ = {
 
 [node name="DummyButton" type="TextureButton" parent="."]
 margin_left = -276.0
-margin_top = -26.0
-margin_right = -184.0
-margin_bottom = 68.0
+margin_top = 107.0
+margin_right = -212.0
+margin_bottom = 163.0
 texture_normal = ExtResource( 4 )
 expand = true
 script = ExtResource( 3 )
@@ -63,10 +75,10 @@ __meta__ = {
 }
 
 [node name="BoarButton" type="TextureButton" parent="."]
-margin_left = -101.0
-margin_top = -82.0
-margin_right = 15.0
-margin_bottom = 20.0
+margin_left = -160.0
+margin_top = -75.0
+margin_right = -78.0
+margin_bottom = -6.0
 texture_normal = ExtResource( 5 )
 expand = true
 script = ExtResource( 6 )
