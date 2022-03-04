@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Art Src/Tutorial/gate.png" type="Texture" id=1]
 [ext_resource path="res://Art Src/GUIArt/WASD.png" type="Texture" id=2]
 [ext_resource path="res://Art Src/GUIArt/Space.png" type="Texture" id=3]
-[ext_resource path="res://Art Src/GUIArt/JKLUIO.png" type="Texture" id=4]
+[ext_resource path="res://Art Src/GUIArt/JKLIOP-export.png" type="Texture" id=4]
 [ext_resource path="res://GameScns/BossScns/Dummy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://GameScns/PlayerScns/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Levels/PauseScreen.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Art Src/Tutorial/tutorial_background.png" type="Texture" id=8]
+[ext_resource path="res://Art Src/Tutorial/bush.png" type="Texture" id=9]
 
 [node name="Tutorial" type="Node2D"]
 
@@ -16,6 +18,17 @@ margin_top = -160.0
 margin_right = 1634.0
 margin_bottom = 870.0
 color = Color( 0.12549, 0.12549, 0.137255, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TutorialBackground" type="TextureRect" parent="."]
+margin_left = -19.0
+margin_top = -19.0
+margin_right = 1099.0
+margin_bottom = 610.0
+texture = ExtResource( 8 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -41,13 +54,66 @@ position = Vector2( 495.243, 405.724 )
 scale = Vector2( 0.67305, 0.628351 )
 texture = ExtResource( 3 )
 
-[node name="JKLUIO" type="Sprite" parent="."]
-position = Vector2( 823, 330 )
-scale = Vector2( 0.598099, 0.550286 )
+[node name="Jkliop-export" type="TextureRect" parent="."]
+margin_left = 656.0
+margin_top = 197.0
+margin_right = 1232.0
+margin_bottom = 629.0
+rect_scale = Vector2( 0.536461, 0.528909 )
 texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bush3" type="StaticBody2D" parent="."]
+
+[node name="Bush" type="TextureRect" parent="bush3"]
+margin_left = 62.0
+margin_top = -25.0
+margin_right = 325.0
+margin_bottom = 168.0
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="bush3"]
+polygon = PoolVector2Array( 171, 50, 143, 69, 148, 101, 223, 114, 241, 77, 219, 43 )
+
+[node name="bush2" type="StaticBody2D" parent="."]
+
+[node name="Bush" type="TextureRect" parent="bush2"]
+margin_left = 638.0
+margin_top = 372.0
+margin_right = 901.0
+margin_bottom = 565.0
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="bush2"]
+position = Vector2( 576, 399 )
+polygon = PoolVector2Array( 171, 50, 143, 69, 148, 101, 223, 114, 241, 77, 219, 43 )
+
+[node name="bush" type="StaticBody2D" parent="."]
+
+[node name="Bush" type="TextureRect" parent="bush"]
+margin_left = 771.0
+margin_top = -24.0
+margin_right = 1034.0
+margin_bottom = 169.0
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="bush"]
+position = Vector2( 712, 2 )
+polygon = PoolVector2Array( 171, 50, 143, 69, 148, 101, 223, 114, 241, 77, 219, 43 )
 
 [node name="Dummy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 764, 149 )
+position = Vector2( 634, 180 )
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 397, 303 )

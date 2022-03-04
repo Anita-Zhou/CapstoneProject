@@ -15,7 +15,8 @@ func _ready():
 	pass
 
 func being_cast():
-	var player = $"../../Player"
+#	var player = $"../../Player"
+	var player = $"../Player"
 	if(is_instance_valid(player)):
 		final_pos = player.get_position()
 		var boar = $"../../Boar"
