@@ -2,7 +2,7 @@ extends TextureButton
 
 #var currScene = get_parent().get_parent().get_name()
 
-onready var deathscn = get_tree().get_root().get_node("World1/PauseLayer/PauseScreen")
+#onready var deathscn = get_tree().get_root().get_node("World1/PauseLayer/PauseScreen")
 export(String, FILE) var replayscn: = ""
 
 

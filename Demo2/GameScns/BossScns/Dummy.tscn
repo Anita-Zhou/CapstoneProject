@@ -93,6 +93,7 @@ height = 72.0
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -1, 39 )
 frames = SubResource( 1 )
 animation = "anim"
 playing = true
@@ -109,7 +110,7 @@ collision_layer = 8
 collision_mask = 18
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2( 1, -16 )
+position = Vector2( 2, 17 )
 shape = SubResource( 10 )
 
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]

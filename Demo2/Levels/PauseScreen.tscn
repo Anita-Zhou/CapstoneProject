@@ -24,7 +24,6 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 margin_right = 1055.0
 margin_bottom = 613.0
 rect_pivot_offset = Vector2( -398, 99 )

@@ -37,6 +37,7 @@ __meta__ = {
 [node name="Layer1" type="CanvasLayer" parent="."]
 
 [node name="PauseScreen" parent="Layer1" instance=ExtResource( 7 )]
+visible = false
 
 [node name="Layer2" type="CanvasLayer" parent="."]
 
