@@ -104,28 +104,6 @@ margin_bottom = 49.0
 
 [node name="BossUI" parent="." instance=ExtResource( 12 )]
 
-[node name="WoodcdLbl" type="Label" parent="."]
-visible = false
-margin_left = 849.0
-margin_top = 491.0
-margin_right = 968.0
-margin_bottom = 505.0
-text = "Wood Cooldown: 0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="WatercdLbl" type="Label" parent="."]
-visible = false
-margin_left = 849.0
-margin_top = 508.0
-margin_right = 968.0
-margin_bottom = 522.0
-text = "Water cooldown: 0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="DeathLayer" type="CanvasLayer" parent="."]
 
 [node name="DeathScreen" parent="DeathLayer" instance=ExtResource( 3 )]

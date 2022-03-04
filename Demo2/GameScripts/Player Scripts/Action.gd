@@ -33,9 +33,6 @@ onready var animationState = animationTree.get("parameters/playback")
 onready var swordHitbox = $HitboxPivot/SwordHitbox
 onready var hurtbox = $Hurtbox
 
-onready var woodcdlbl = $"../WoodcdLbl"
-onready var watercdlbl = $"../WatercdLbl"
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print ("Hello World")
