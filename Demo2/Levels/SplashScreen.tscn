@@ -69,19 +69,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QuitBtn" type="TextureButton" parent="Menu"]
+[node name="LevelBtn" type="TextureButton" parent="Menu"]
 margin_top = 90.0
 margin_right = 825.0
 margin_bottom = 176.0
 texture_normal = ExtResource( 10 )
-script = ExtResource( 11 )
+script = ExtResource( 9 )
 
-[node name="LevelBtn" type="TextureButton" parent="Menu"]
+[node name="QuitBtn" type="TextureButton" parent="Menu"]
 margin_top = 180.0
 margin_right = 825.0
 margin_bottom = 266.0
 texture_normal = ExtResource( 10 )
-script = ExtResource( 9 )
+script = ExtResource( 11 )
 
 [node name="Playlbl" type="Label" parent="."]
 margin_left = 491.0
@@ -94,28 +94,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Quitlbl" type="Label" parent="."]
-margin_left = 491.0
-margin_top = 417.0
-margin_right = 541.0
-margin_bottom = 446.0
-custom_fonts/font = SubResource( 1 )
-text = "Quit"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Levlbl" type="Label" parent="."]
-margin_left = 483.0
-margin_top = 483.0
-margin_right = 547.0
-margin_bottom = 512.0
+margin_left = 484.0
+margin_top = 414.0
+margin_right = 548.0
+margin_bottom = 443.0
 custom_fonts/font = SubResource( 1 )
 text = "Level"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Quitlbl" type="Label" parent="."]
+margin_left = 496.0
+margin_top = 486.0
+margin_right = 546.0
+margin_bottom = 515.0
+custom_fonts/font = SubResource( 1 )
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="button_up" from="Menu/PlayBtn" to="Menu/PlayBtn" method="_on_PlayBtn_button_up"]
-[connection signal="button_up" from="Menu/QuitBtn" to="Menu/QuitBtn" method="_on_QuitBtn_button_up"]
 [connection signal="button_up" from="Menu/LevelBtn" to="Menu/LevelBtn" method="_on_LevelBtn_button_up"]
+[connection signal="button_up" from="Menu/QuitBtn" to="Menu/QuitBtn" method="_on_QuitBtn_button_up"]

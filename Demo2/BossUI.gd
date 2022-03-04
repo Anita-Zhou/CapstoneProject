@@ -3,7 +3,7 @@ extends Control
 var health = 1000 setget set_health
 var max_health = 1000 setget set_max_health
 
-onready var healthBar = $ProgressBar
+onready var healthBar = $TextureProgress
 onready var update_tween = $UpdateTween
 onready var boss = $"../Boar"
 

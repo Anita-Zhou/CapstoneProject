@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://GameScns/StaticScns/bgTrees.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GameScns/StaticScns/Bone1.tscn" type="PackedScene" id=2]
@@ -11,7 +11,7 @@
 [ext_resource path="res://GameScns/StaticScns/shed.tscn" type="PackedScene" id=9]
 [ext_resource path="res://HealthUI.tscn" type="PackedScene" id=10]
 [ext_resource path="res://GameScns/Hitboxes&Hurtboxes/HurtBox.tscn" type="PackedScene" id=11]
-[ext_resource path="res://BossUI.gd" type="Script" id=12]
+[ext_resource path="res://GameScns/UIScns/BossUI/BossUI.tscn" type="PackedScene" id=12]
 [ext_resource path="res://GameScns/PlayerScns/Player.tscn" type="PackedScene" id=13]
 [ext_resource path="res://GameScns/BossScns/Boar.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Levels/PauseScreen.tscn" type="PackedScene" id=15]
@@ -21,17 +21,6 @@ radius = 45.2769
 
 [sub_resource type="CircleShape2D" id=17]
 radius = 19.6469
-
-[sub_resource type="StyleBoxFlat" id=18]
-bg_color = Color( 0.533333, 0.117647, 0.117647, 1 )
-
-[sub_resource type="StyleBoxFlat" id=19]
-bg_color = Color( 0.211765, 0.160784, 0.160784, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color( 0, 0, 0, 1 )
 
 [node name="World1" type="YSort"]
 position = Vector2( -1, -1 )
@@ -113,33 +102,7 @@ margin_bottom = 70.0
 margin_right = 343.0
 margin_bottom = 49.0
 
-[node name="BossUI" type="Control" parent="."]
-margin_left = 250.0
-margin_top = 504.0
-margin_right = 783.0
-margin_bottom = 584.0
-script = ExtResource( 12 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ProgressBar" type="ProgressBar" parent="BossUI"]
-margin_left = 59.0
-margin_top = 35.0
-margin_right = 522.0
-margin_bottom = 50.0
-custom_styles/fg = SubResource( 18 )
-custom_styles/bg = SubResource( 19 )
-value = 50.0
-
-[node name="UpdateTween" type="Tween" parent="BossUI"]
-
-[node name="Label" type="Label" parent="BossUI"]
-margin_left = 62.0
-margin_top = 19.0
-margin_right = 132.0
-margin_bottom = 33.0
-text = "Canniaboar"
+[node name="BossUI" parent="." instance=ExtResource( 12 )]
 
 [node name="WoodcdLbl" type="Label" parent="."]
 visible = false

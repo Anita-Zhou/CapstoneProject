@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://BossUI.gd" type="Script" id=1]
+[ext_resource path="res://Art Src/GUIArt/split icons/Boss HP bar split1.png" type="Texture" id=2]
+[ext_resource path="res://Art Src/GUIArt/split icons/Boss HP bar split2.png" type="Texture" id=3]
+[ext_resource path="res://Art Src/GUIArt/split icons/Boss HP bar split3.png" type="Texture" id=4]
+
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0.533333, 0.117647, 0.117647, 1 )
+
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 0.211765, 0.160784, 0.160784, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[node name="BossUI" type="Control"]
+margin_left = 250.0
+margin_top = 504.0
+margin_right = 783.0
+margin_bottom = 584.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+margin_left = 59.0
+margin_top = 35.0
+margin_right = 522.0
+margin_bottom = 50.0
+custom_styles/fg = SubResource( 18 )
+custom_styles/bg = SubResource( 19 )
+value = 50.0
+
+[node name="UpdateTween" type="Tween" parent="."]
+
+[node name="Label" type="Label" parent="."]
+margin_left = -49.0
+margin_top = 33.0
+margin_right = 36.0
+margin_bottom = 49.0
+text = "Canniaboar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="."]
+margin_left = -81.0
+margin_top = -169.0
+margin_right = 551.0
+margin_bottom = 263.0
+value = 50.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 225, 54 )
+texture = ExtResource( 4 )

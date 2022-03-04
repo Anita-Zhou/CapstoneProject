@@ -7,7 +7,8 @@ signal no_health
 signal health_changed(value)
 
 func _ready():
-	health = 40
+#	health = 40
+	pass
 
 func reset():
 	health = max_health

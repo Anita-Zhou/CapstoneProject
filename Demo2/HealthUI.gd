@@ -4,7 +4,7 @@ var health = 100 setget set_health
 var max_health = 100 setget set_max_health
 
 onready var label = $Label
-onready var healthBar = $ProgressBar
+onready var healthBar = $TextureProgress
 onready var update_tween = $UpdateTween
 
 #export(Color) var healthy_color = Color.green
