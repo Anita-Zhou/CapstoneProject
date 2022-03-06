@@ -2,7 +2,7 @@
 
 [ext_resource path="res://GameScripts/DialogueScripts/TutorialDialogue.gd" type="Script" id=1]
 [ext_resource path="res://Art Src/GUIArt/dialogue_box2.png" type="Texture" id=2]
-[ext_resource path="res://Fonts/PolandCannedIntoFuture-OxE3.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Fonts/Perfect DOS VGA 437.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 3 )
@@ -51,10 +51,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="NinePatchRect"]
-margin_left = 416.0
-margin_top = 99.0
-margin_right = 547.0
-margin_bottom = 116.0
+margin_left = 329.0
+margin_top = 100.0
+margin_right = 536.0
+margin_bottom = 117.0
 custom_fonts/font = SubResource( 3 )
 text = "Click to continue . . ."
 __meta__ = {
