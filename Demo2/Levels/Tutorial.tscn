@@ -6,66 +6,50 @@
 [ext_resource path="res://Art Src/GUIArt/JKLIOP-export.png" type="Texture" id=4]
 [ext_resource path="res://GameScns/BossScns/Dummy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://GameScns/PlayerScns/Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://GameScns/UIScns/PauseUI/PauseScreen.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Levels/Tutorial.gd" type="Script" id=7]
 [ext_resource path="res://Art Src/Tutorial/tutorial_background.png" type="Texture" id=8]
 [ext_resource path="res://Art Src/Tutorial/bush.png" type="Texture" id=9]
 [ext_resource path="res://GameScns/UIScns/SkillUI/SkillUI.tscn" type="PackedScene" id=10]
 
 [node name="Tutorial" type="Node2D"]
-
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -93.0
-margin_top = -160.0
-margin_right = 1634.0
-margin_bottom = 870.0
-color = Color( 0.12549, 0.12549, 0.137255, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource( 7 )
 
 [node name="TutorialBackground" type="TextureRect" parent="."]
-margin_left = -19.0
-margin_top = -19.0
+margin_left = -76.0
+margin_top = -84.0
 margin_right = 1099.0
-margin_bottom = 610.0
+margin_bottom = 609.0
 texture = ExtResource( 8 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Layer1" type="CanvasLayer" parent="."]
-
-[node name="PauseScreen" parent="Layer1" instance=ExtResource( 7 )]
-visible = false
-
-[node name="Layer2" type="CanvasLayer" parent="."]
-
-[node name="Gate" type="Sprite" parent="."]
-position = Vector2( 497, 24 )
-scale = Vector2( 1.01417, 0.859167 )
-texture = ExtResource( 1 )
-
-[node name="WASD" type="Sprite" parent="."]
-position = Vector2( 176, 326 )
-scale = Vector2( 0.562569, 0.480995 )
-texture = ExtResource( 2 )
-
-[node name="SPACE" type="Sprite" parent="."]
-position = Vector2( 495.243, 405.724 )
-scale = Vector2( 0.67305, 0.628351 )
-texture = ExtResource( 3 )
-
-[node name="Jkliop-export" type="TextureRect" parent="."]
-margin_left = 656.0
-margin_top = 197.0
-margin_right = 1232.0
-margin_bottom = 629.0
+[node name="Jkliop-export" type="TextureRect" parent="TutorialBackground"]
+margin_left = 675.0
+margin_top = 216.0
+margin_right = 1251.0
+margin_bottom = 648.0
 rect_scale = Vector2( 0.536461, 0.528909 )
 texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SPACE" type="Sprite" parent="TutorialBackground"]
+position = Vector2( 514.243, 424.724 )
+scale = Vector2( 0.67305, 0.628351 )
+texture = ExtResource( 3 )
+
+[node name="WASD" type="Sprite" parent="TutorialBackground"]
+position = Vector2( 195, 345 )
+scale = Vector2( 0.562569, 0.480995 )
+texture = ExtResource( 2 )
+
+[node name="Gate" type="Sprite" parent="."]
+position = Vector2( 505, -20 )
+scale = Vector2( 0.907085, 0.769583 )
+texture = ExtResource( 1 )
 
 [node name="bush3" type="StaticBody2D" parent="."]
 

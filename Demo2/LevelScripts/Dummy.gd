@@ -61,4 +61,5 @@ func take_damage(area):
 
 
 func _on_Stats_no_health():
-	get_tree().change_scene("res://Levels/World1.tscn")
+#	get_tree().change_scene("res://Levels/World1.tscn")
+	queue_free()
