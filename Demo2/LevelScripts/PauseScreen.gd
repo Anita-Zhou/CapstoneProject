@@ -2,7 +2,6 @@ extends CanvasLayer
 
 var paused := false setget set_paused
 
-onready var scene_tree := get_tree()
 onready var pauseOverlay: ColorRect = get_node("ColorRect")
 
 export(String, FILE) var replayscn: = ""
@@ -10,7 +9,8 @@ export(String, FILE) var replayscn: = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+#	get_tree().paused = true
+	pass
 
 func set_paused(value: bool) -> void:
 	#scene_tree.paused = value
@@ -27,7 +27,7 @@ func _input(ev):
 # This is main button section
 #
 func _on_MainTxtBtn_pressed():
-	scene_tree.paused = false
+#	get_tree().paused = false
 	print("=====Pause screen pressed main menu button")
 	PlayerStats.reset()
 	get_tree().change_scene("res://Levels/SplashScreen.tscn")
@@ -40,7 +40,7 @@ func _get_configuration_warning()->String:
 	return "cannot load restart scene"
 
 func _on_ReTxtBtn_pressed():
-	scene_tree.paused = false
+#	get_tree().paused = false
 	print("=========== restart button pressed")
 	PlayerStats.reset()
 	get_tree().change_scene(replayscn)

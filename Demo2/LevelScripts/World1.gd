@@ -1,18 +1,30 @@
 extends YSort
 
+const DeathScn = preload("res://GameScns/UIScns/DeathUI/DeathScreen.tscn")
+const PauseScn = preload("res://GameScns/UIScns/PauseUI/PauseScreen.tscn")
+const WinScn = preload("res://GameScns/UIScns/WinUI/WinScreen.tscn")
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-#onready var deathscn = get_node("DeathLayer/DeathScreen")
-#onready var deathoverlay = deathscn.get_node("DeathOverlay")
+var is_paused = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-#	deathoverlay.visible = false
-	pass # Replace with function body.
+	PlayerStats.connect("no_health", self, "_handle_death")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _unhandled_input(event):
+	if(event.is_action_pressed("pause")):
+		if(is_paused == false):
+			var pause_menu = PauseScn.instance()
+			add_child(pause_menu)
+			is_paused = true
+		else:
+			is_paused = false
+
+		
+func _handle_death():
+	var death_menu = DeathScn.instance()
+	add_child(death_menu)
+	
+func _handle_win():
+	var win_menu = WinScn.instance()
+	add_child(win_menu)

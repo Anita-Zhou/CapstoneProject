@@ -13,6 +13,7 @@ size = 30
 font_data = ExtResource( 6 )
 
 [node name="PauseScreen" type="CanvasLayer"]
+layer = 2
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
