@@ -5,7 +5,6 @@ onready var scene_tree := get_tree()
 
 
 func _on_ContTxtBtn_button_up():
-	winOver.visible = false
 	queue_free()
 	
 	

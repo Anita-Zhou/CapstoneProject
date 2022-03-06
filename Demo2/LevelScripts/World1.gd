@@ -5,11 +5,12 @@ const PauseScn = preload("res://GameScns/UIScns/PauseUI/PauseScreen.tscn")
 const WinScn = preload("res://GameScns/UIScns/WinUI/WinScreen.tscn")
 
 var is_paused = false
+onready var enemy = $Boar
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	PlayerStats.connect("no_health", self, "_handle_death")
-
+	enemy.stats.connect("no_health", self, "_handle_win")
 
 func _unhandled_input(event):
 	if(event.is_action_pressed("pause")):
