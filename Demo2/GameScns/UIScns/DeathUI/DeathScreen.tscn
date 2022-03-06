@@ -1,11 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Art Src/GUIArt/ButtonUI/pngfind.com-black-rectangle-png-471928.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/PolandCannedIntoFuture-OxE3.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://GameScripts/UIScripts/Death/RestartBtn.gd" type="Script" id=3]
 [ext_resource path="res://GameScripts/UIScripts/Death/DeathScreen.gd" type="Script" id=4]
 [ext_resource path="res://Art Src/GUIArt/output-onlinepngtools.png" type="Texture" id=6]
-[ext_resource path="res://GameScns/UIScns/DeathUI/MainTxtBtn.gd" type="Script" id=7]
 
 [sub_resource type="Theme" id=1]
 
@@ -18,15 +16,8 @@ font_data = ExtResource( 2 )
 size = 30
 font_data = ExtResource( 2 )
 
-[node name="DeathScreen" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 1.0
-margin_bottom = 1.0
+[node name="DeathScreen" type="CanvasLayer"]
 script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="DeathOverlay" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -86,14 +77,12 @@ __meta__ = {
 margin_right = 825.0
 margin_bottom = 86.0
 texture_normal = ExtResource( 6 )
-script = ExtResource( 7 )
 
 [node name="ReTxtBtn" type="TextureButton" parent="DeathOverlay/Menu"]
 margin_top = 90.0
 margin_right = 825.0
 margin_bottom = 176.0
 texture_normal = ExtResource( 6 )
-script = ExtResource( 3 )
 
 [node name="MainLbl" type="Label" parent="DeathOverlay"]
 margin_left = 456.0
@@ -117,5 +106,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="button_up" from="DeathOverlay/Menu/MainTxtBtn" to="DeathOverlay/Menu/MainTxtBtn" method="_on_MainTxtBtn_button_up"]
-[connection signal="button_up" from="DeathOverlay/Menu/ReTxtBtn" to="DeathOverlay/Menu/ReTxtBtn" method="_on_ReTxtBtn_button_up"]
+[connection signal="button_up" from="DeathOverlay/Menu/MainTxtBtn" to="." method="_on_MainTxtBtn_button_up"]
+[connection signal="button_up" from="DeathOverlay/Menu/ReTxtBtn" to="." method="_on_ReTxtBtn_button_up"]
