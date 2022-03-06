@@ -1,9 +1,13 @@
 extends CanvasLayer
 
-onready var winOver = $ColorRect
+onready var winOver: ColorRect = $ColorRect
+onready var scene_tree := get_tree()
+
 
 func _on_ContTxtBtn_button_up():
 	winOver.visible = false
+	queue_free()
+	
 	
 func _on_MainTxtBtn_button_up():
 	print("=====pressed main menu button")

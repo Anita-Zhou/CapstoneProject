@@ -2,7 +2,7 @@ extends CanvasLayer
 
 var paused := false setget set_paused
 onready var scene_tree := get_tree()
-onready var death_overlay: ColorRect = get_node("DeathOverlay")
+onready var death_overlay: ColorRect = $DeathOverlay
 
 export var curr_scene_path := "" 
 

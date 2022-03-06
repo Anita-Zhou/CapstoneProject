@@ -84,6 +84,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="button_up" from="ColorRect/Menu/MainTxtBtn" to="." method="_on_MainTxtBtn_button_up"]
-[connection signal="button_up" from="ColorRect/Menu/ReTxtBtn" to="." method="_on_ReTxtBtn_button_up"]
-[connection signal="button_up" from="ColorRect/Menu/QuitBtn" to="." method="_on_QuitBtn_button_up"]
+[connection signal="pressed" from="ColorRect/Menu/MainTxtBtn" to="." method="_on_MainTxtBtn_pressed"]
+[connection signal="pressed" from="ColorRect/Menu/ReTxtBtn" to="." method="_on_ReTxtBtn_pressed"]
+[connection signal="pressed" from="ColorRect/Menu/QuitBtn" to="." method="_on_QuitBtn_pressed"]
