@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://GameScripts/DialogueScripts/TutorialDialogue.gd" type="Script" id=1]
+[ext_resource path="res://Art Src/GUIArt/dialogue_box2.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/PolandCannedIntoFuture-OxE3.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 3 )
+
+[node name="DialogueScene" type="CanvasLayer"]
+script = ExtResource( 1 )
+dialogue_file = "res://GameScripts/DialogueScripts/tutorial.json"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_left = 425.0
+margin_top = 20.0
+margin_right = 981.0
+margin_bottom = 157.0
+texture = ExtResource( 2 )
+region_rect = Rect2( 19.7, 119.427, 988.3, 313.386 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+margin_left = 26.0
+margin_top = 22.0
+margin_right = 94.0
+margin_bottom = 40.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Message" type="RichTextLabel" parent="NinePatchRect"]
+margin_left = 26.0
+margin_top = 45.0
+margin_right = 531.0
+margin_bottom = 97.0
+custom_fonts/normal_font = SubResource( 2 )
+text = "Message"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+margin_left = 416.0
+margin_top = 99.0
+margin_right = 547.0
+margin_bottom = 116.0
+custom_fonts/font = SubResource( 3 )
+text = "Click to continue . . ."
+__meta__ = {
+"_edit_use_anchors_": false
+}
