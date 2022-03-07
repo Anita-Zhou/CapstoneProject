@@ -71,6 +71,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 0 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Hurtbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=12]
 resource_name = "active"
@@ -87,9 +99,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Hurtbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 81, 110.5 )
+extents = Vector2( 83.5, 44.5 )
 
 [node name="Portal" type="Node2D"]
 script = ExtResource( 3 )
@@ -109,8 +133,9 @@ anims/active = SubResource( 12 )
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2( 2, -4.5 )
+position = Vector2( 4.5, -70.5 )
 shape = SubResource( 13 )
+disabled = true
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 

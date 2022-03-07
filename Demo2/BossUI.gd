@@ -18,9 +18,9 @@ var boss;
 func _ready():
 	var SceneName = get_tree().current_scene.get_name()
 	if(SceneName == "World1"):
-		boss = $"../Boar"
+		boss = $"../../Boar"
 	elif (SceneName == "Tutorial"):
-		boss = $"../Dummy"
+		boss = $"../../Dummy"
 		label.text = "Dummy"
 		
 	print("boss:", boss)
