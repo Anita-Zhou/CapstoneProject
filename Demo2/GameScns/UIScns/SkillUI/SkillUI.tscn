@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Art Src/GUIArt/SkillUI/SKILL_ARROW.png" type="Texture" id=1]
 [ext_resource path="res://Art Src/GUIArt/SkillUI/SKILL UI icon.png" type="Texture" id=2]
-[ext_resource path="res://Fonts/MomcakeBold-WyonA.otf" type="DynamicFontData" id=3]
 [ext_resource path="res://Art Src/GUIArt/split icons/skill icons4.png" type="Texture" id=4]
 [ext_resource path="res://Art Src/GUIArt/split icons/skill icons2.png" type="Texture" id=5]
 [ext_resource path="res://Art Src/GUIArt/split icons/skill icons1.png" type="Texture" id=6]
@@ -11,10 +10,6 @@
 [ext_resource path="res://Art Src/GUIArt/split icons/skill icons7.png" type="Texture" id=9]
 [ext_resource path="res://Art Src/GUIArt/split icons/skill icons6.png" type="Texture" id=10]
 [ext_resource path="res://Art Src/GUIArt/split icons/skill icons8.png" type="Texture" id=11]
-
-[sub_resource type="DynamicFont" id=1]
-size = 38
-font_data = ExtResource( 3 )
 
 [node name="SkillUI" type="Control"]
 anchor_right = 1.0
@@ -45,66 +40,6 @@ visible = false
 margin_right = 576.0
 margin_bottom = 576.0
 texture = ExtResource( 2 )
-
-[node name="Label5" type="Label" parent="."]
-visible = false
-margin_left = 372.0
-margin_top = 248.0
-margin_right = 412.0
-margin_bottom = 287.0
-custom_fonts/font = SubResource( 1 )
-text = "P"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label4" type="Label" parent="."]
-visible = false
-margin_left = 281.0
-margin_top = 190.0
-margin_right = 321.0
-margin_bottom = 229.0
-custom_fonts/font = SubResource( 1 )
-text = "O"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label3" type="Label" parent="."]
-visible = false
-margin_left = 201.0
-margin_top = 251.0
-margin_right = 241.0
-margin_bottom = 290.0
-custom_fonts/font = SubResource( 1 )
-text = "I"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="."]
-visible = false
-margin_left = 344.0
-margin_top = 334.0
-margin_right = 384.0
-margin_bottom = 373.0
-custom_fonts/font = SubResource( 1 )
-text = "L"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="."]
-visible = false
-margin_left = 215.0
-margin_top = 339.0
-margin_right = 255.0
-margin_bottom = 378.0
-custom_fonts/font = SubResource( 1 )
-text = "K"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Wood" type="Sprite" parent="."]
 position = Vector2( 165, 409 )
