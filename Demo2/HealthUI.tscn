@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Art Src/GUIArt/split icons/player HP Bar split1.png" type="Texture" id=1]
+[ext_resource path="res://Art Src/GUIArt/PlayerUI/player HP Bar split3.png" type="Texture" id=1]
 [ext_resource path="res://HealthUI.gd" type="Script" id=2]
-[ext_resource path="res://Art Src/GUIArt/split icons/player HP Bar split2.png" type="Texture" id=3]
+[ext_resource path="res://Art Src/GUIArt/PlayerUI/player HP Bar split1.png" type="Texture" id=3]
 [ext_resource path="res://Art Src/GUIArt/PlayerUI/label_HP.png" type="Texture" id=4]
+[ext_resource path="res://Art Src/GUIArt/PlayerUI/player HP Bar split2.png" type="Texture" id=5]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.298039, 0.733333, 0, 1 )
@@ -30,16 +31,20 @@ __meta__ = {
 }
 
 [node name="TextureProgress" type="TextureProgress" parent="."]
-margin_left = -46.0
-margin_top = -37.0
-margin_right = 386.0
-margin_bottom = 107.0
+margin_left = 21.7922
+margin_top = -25.1273
+margin_right = 453.792
+margin_bottom = 118.873
 value = 50.0
-texture_under = ExtResource( 1 )
-texture_progress = ExtResource( 3 )
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Sprite" type="Sprite" parent="TextureProgress"]
+position = Vector2( 164.652, 67.447 )
+texture = ExtResource( 5 )
 
 [node name="UpdateTween" type="Tween" parent="."]
 

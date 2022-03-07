@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Art Src/GUIArt/SkillUI/SKILL_ARROW.png" type="Texture" id=1]
 [ext_resource path="res://Art Src/GUIArt/SkillUI/SKILL UI icon.png" type="Texture" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://Art Src/GUIArt/split icons/skill icons7.png" type="Texture" id=9]
 [ext_resource path="res://Art Src/GUIArt/split icons/skill icons6.png" type="Texture" id=10]
 [ext_resource path="res://Art Src/GUIArt/split icons/skill icons8.png" type="Texture" id=11]
+[ext_resource path="res://Art Src/GUIArt/SkillUI/whiteCover.png" type="Texture" id=12]
+[ext_resource path="res://GameScripts/UIScripts/Skill/Wood.gd" type="Script" id=13]
 
 [node name="SkillUI" type="Control"]
 anchor_right = 1.0
@@ -46,13 +48,29 @@ texture = ExtResource( 2 )
 position = Vector2( 165, 409 )
 scale = Vector2( 2, 1.94097 )
 texture = ExtResource( 8 )
+script = ExtResource( 13 )
 
 [node name="Sprite" type="Sprite" parent="Wood"]
 texture = ExtResource( 9 )
 
-[node name="Cover" type="Node2D" parent="Wood"]
-position = Vector2( 1, 6.69768 )
+[node name="Cover" type="Sprite" parent="Wood"]
+position = Vector2( 167.5, -171.049 )
+scale = Vector2( 3.3, 3.28972 )
+texture = ExtResource( 12 )
 script = ExtResource( 3 )
+
+[node name="SkillCD" type="TextureProgress" parent="Wood"]
+margin_left = -34.0
+margin_top = -28.8515
+margin_right = -12.0
+margin_bottom = -3.85153
+rect_scale = Vector2( 3.32201, 3.20017 )
+value = 100.0
+texture_progress = ExtResource( 12 )
+fill_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Water" type="Sprite" parent="."]
 position = Vector2( 397, 405 )

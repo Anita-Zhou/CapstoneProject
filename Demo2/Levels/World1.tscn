@@ -62,7 +62,7 @@ z_as_relative = false
 
 [node name="Stone1" type="StaticBody2D" parent="."]
 position = Vector2( 102, 357 )
-z_index = 1
+z_index = -1
 z_as_relative = false
 script = ExtResource( 4 )
 
