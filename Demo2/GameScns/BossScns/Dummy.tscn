@@ -57,6 +57,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=7]
 resource_name = "Jump"
 length = 0.5
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:frame")
 tracks/0/interp = 1
@@ -96,9 +97,9 @@ script = ExtResource( 2 )
 position = Vector2( -1, 39 )
 frames = SubResource( 1 )
 animation = "anim"
-playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 0.55
 anims/Hurt = SubResource( 9 )
 anims/Jump = SubResource( 7 )
 anims/RESET = SubResource( 8 )
@@ -110,7 +111,7 @@ max_health = 1000
 
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]
 collision_layer = 8
-collision_mask = 18
+collision_mask = 50
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 2, 17 )
