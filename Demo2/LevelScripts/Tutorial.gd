@@ -6,12 +6,14 @@ const WinScn = preload("res://GameScns/UIScns/WinUI/WinScreen.tscn")
 
 var is_paused = false
 onready var enemy = $Dummy
+onready var portal = $Portal
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	PlayerStats.connect("no_health", self, "_handle_death")
 	enemy.stats.connect("no_health", self, "_handle_win")
+	enemy.stats.connect("no_health", portal, "_on_enemy_died")
 
 func _unhandled_input(event):
 	if(event.is_action_pressed("pause")):
