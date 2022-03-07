@@ -31,8 +31,8 @@ func _physics_process(delta):
 	cd.value = stats._get_cd(skill_name) / cd_unit
 #	pass
 	
-#func _draw():
-#	pass
-#
-#func _erase():
-#	pass
+func _draw():
+	pass
+
+func _erase():
+	pass
