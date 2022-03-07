@@ -50,3 +50,13 @@ func _on_water_cast():
 	water_cd = 420
 	emit_signal("water_block")
 	
+##
+# get the cool down of indicated skill
+# name is a String
+func _get_cd(skill):
+	match skill:
+		"Wood":
+			return wood_cd
+		"Water":
+			return water_cd
+	
