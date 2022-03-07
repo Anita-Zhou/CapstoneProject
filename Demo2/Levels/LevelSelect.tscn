@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Art Src/GUIArt/pixil-frame-0 (1).png" type="Texture" id=1]
 [ext_resource path="res://Art Src/splash_updated.png" type="Texture" id=2]
@@ -10,10 +10,15 @@
 [ext_resource path="res://GameScns/UIScns/DeathUI/MainTxtBtn.gd" type="Script" id=8]
 [ext_resource path="res://Fonts/PolandCannedIntoFuture-OxE3.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://Art Src/GUIArt/map.png" type="Texture" id=10]
+[ext_resource path="res://Fonts/Perfect DOS VGA 437.ttf" type="DynamicFontData" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 26
 font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 21
+font_data = ExtResource( 11 )
 
 [node name="LevelSelect" type="Control"]
 anchor_left = 0.5
@@ -63,10 +68,10 @@ __meta__ = {
 }
 
 [node name="DummyButton" type="TextureButton" parent="."]
-margin_left = -276.0
-margin_top = 107.0
-margin_right = -212.0
-margin_bottom = 163.0
+margin_left = -308.0
+margin_top = 106.0
+margin_right = -244.0
+margin_bottom = 162.0
 texture_normal = ExtResource( 4 )
 expand = true
 script = ExtResource( 3 )
@@ -75,10 +80,10 @@ __meta__ = {
 }
 
 [node name="BoarButton" type="TextureButton" parent="."]
-margin_left = -160.0
-margin_top = -75.0
-margin_right = -78.0
-margin_bottom = -6.0
+margin_left = -64.0
+margin_top = 88.0
+margin_right = 18.0
+margin_bottom = 157.0
 texture_normal = ExtResource( 5 )
 expand = true
 script = ExtResource( 6 )
@@ -105,6 +110,19 @@ margin_right = 455.0
 margin_bottom = 278.0
 custom_fonts/font = SubResource( 1 )
 text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = -361.0
+margin_top = -154.0
+margin_right = -28.0
+margin_bottom = -45.0
+custom_colors/font_color = Color( 0.709804, 0.482353, 0.156863, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Click on the boss icons
+to start playing!"
 __meta__ = {
 "_edit_use_anchors_": false
 }

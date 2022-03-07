@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Art Src/Tutorial/dummy1.png" type="Texture" id=1]
 [ext_resource path="res://LevelScripts/Creatures/Dummy.gd" type="Script" id=2]
@@ -57,6 +57,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=7]
 resource_name = "Jump"
 length = 0.5
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:frame")
 tracks/0/interp = 1
@@ -85,6 +86,38 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
+[sub_resource type="Animation" id=11]
+resource_name = "Jump"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
 [sub_resource type="CapsuleShape2D" id=10]
 radius = 29.0
 height = 72.0
@@ -96,21 +129,25 @@ script = ExtResource( 2 )
 position = Vector2( -1, 39 )
 frames = SubResource( 1 )
 animation = "anim"
-playing = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite"]
+root_node = NodePath("../..")
+playback_speed = 0.55
 anims/Hurt = SubResource( 9 )
 anims/Jump = SubResource( 7 )
 anims/RESET = SubResource( 8 )
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="AnimatedSprite"]
+playback_speed = 0.55
+anims/Jump = SubResource( 11 )
+anims/RESET = SubResource( 12 )
 
 [node name="Stats" parent="." instance=ExtResource( 4 )]
 max_health = 1000
 
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]
 collision_layer = 8
-collision_mask = 18
+collision_mask = 50
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 2, 17 )

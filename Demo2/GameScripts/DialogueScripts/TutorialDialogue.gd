@@ -37,7 +37,7 @@ func next_line():
 	if current_dialogue_id >= dialogue_len:
 		$Nuwa.visible = false
 		$Instructions.visible = false
-		print("end")
+		emit_signal("end_dialogue")
 		return 
 	if current_dialogue:
 		# Nuwa
@@ -52,8 +52,6 @@ func next_line():
 		$Nuwa.visible = false
 		$Instructions/Message.text = instructions_dialogues[current_dialogue_id]['text']
 		current_dialogue = true
-	if current_dialogue_id == dialogue_len:
-		emit_signal("end_dialogue")
 		
 func load_nuwa_dialogue():
 	var file = File.new()
@@ -66,5 +64,4 @@ func load_instructions_dialogue():
 	if file.file_exists(instruction_file):
 		file.open(instruction_file, file.READ)
 		return parse_json(file.get_as_text())
-		
 		
