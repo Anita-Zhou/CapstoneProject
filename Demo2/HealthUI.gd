@@ -3,7 +3,7 @@ extends Control
 var health = 100 setget set_health
 var max_health = 100 setget set_max_health
 
-onready var label = $Label
+#onready var label = $Label
 onready var healthBar = $TextureProgress
 onready var update_tween = $UpdateTween
 

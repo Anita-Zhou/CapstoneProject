@@ -59,6 +59,8 @@ func take_damage(area):
 	#print("dummy hurt: ", stats.health)
 	animationPlayer.play("Hurt")
 
+func get_stats():
+	return self.stats
 
 func _on_Stats_no_health():
 #	get_tree().change_scene("res://Levels/World1.tscn")

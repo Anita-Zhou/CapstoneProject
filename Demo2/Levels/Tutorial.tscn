@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Art Src/Tutorial/gate.png" type="Texture" id=1]
 [ext_resource path="res://Art Src/GUIArt/WASD.png" type="Texture" id=2]
@@ -10,14 +10,17 @@
 [ext_resource path="res://Art Src/Tutorial/tutorial_background.png" type="Texture" id=8]
 [ext_resource path="res://Art Src/Tutorial/bush.png" type="Texture" id=9]
 [ext_resource path="res://GameScns/UIScns/SkillUI/SkillUI.tscn" type="PackedScene" id=10]
+[ext_resource path="res://HealthUI.tscn" type="PackedScene" id=11]
+[ext_resource path="res://GameScns/StaticScns/Portal.tscn" type="PackedScene" id=12]
+[ext_resource path="res://GameScns/UIScns/BossUI/BossUI.tscn" type="PackedScene" id=13]
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource( 7 )
 
 [node name="TutorialBackground" type="TextureRect" parent="."]
-margin_left = -76.0
+margin_left = -78.0
 margin_top = -84.0
-margin_right = 1099.0
+margin_right = 1097.0
 margin_bottom = 609.0
 texture = ExtResource( 8 )
 expand = true
@@ -26,10 +29,10 @@ __meta__ = {
 }
 
 [node name="Jkliop-export" type="TextureRect" parent="TutorialBackground"]
-margin_left = 675.0
-margin_top = 216.0
-margin_right = 1251.0
-margin_bottom = 648.0
+margin_left = 816.0
+margin_top = 287.0
+margin_right = 1392.0
+margin_bottom = 719.0
 rect_scale = Vector2( 0.536461, 0.528909 )
 texture = ExtResource( 4 )
 __meta__ = {
@@ -37,12 +40,12 @@ __meta__ = {
 }
 
 [node name="SPACE" type="Sprite" parent="TutorialBackground"]
-position = Vector2( 514.243, 424.724 )
+position = Vector2( 572, 505 )
 scale = Vector2( 0.67305, 0.628351 )
 texture = ExtResource( 3 )
 
 [node name="WASD" type="Sprite" parent="TutorialBackground"]
-position = Vector2( 195, 345 )
+position = Vector2( 208, 407 )
 scale = Vector2( 0.562569, 0.480995 )
 texture = ExtResource( 2 )
 
@@ -104,6 +107,14 @@ position = Vector2( 634, 180 )
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 397, 303 )
 
+[node name="HealthUI" parent="." instance=ExtResource( 11 )]
+
+[node name="BossUI" parent="." instance=ExtResource( 13 )]
+margin_left = 243.0
+margin_top = 481.0
+margin_right = 776.0
+margin_bottom = 561.0
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="SkillUI" parent="CanvasLayer" instance=ExtResource( 10 )]
@@ -112,3 +123,8 @@ margin_top = 383.0
 margin_right = 633.0
 margin_bottom = 296.0
 rect_scale = Vector2( 0.399065, 0.399065 )
+
+[node name="Portal" parent="." instance=ExtResource( 12 )]
+visible = false
+position = Vector2( 504, -6 )
+scale = Vector2( 0.424065, 0.460933 )
