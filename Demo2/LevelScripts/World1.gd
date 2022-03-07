@@ -6,6 +6,7 @@ const WinScn = preload("res://GameScns/UIScns/WinUI/WinScreen.tscn")
 
 var is_paused = false
 onready var enemy = $Boar
+onready var skillUI = $CanvasLayer3/SkillUI
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,3 +30,5 @@ func _handle_death():
 func _handle_win():
 	var win_menu = WinScn.instance()
 	add_child(win_menu)
+	skillUI.get_node("Earth/Sprite").visible = true
+	

@@ -101,6 +101,7 @@ scale = Vector2( 1.85417, 1.92361 )
 texture = ExtResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="Earth"]
+visible = false
 texture = ExtResource( 11 )
 
 [node name="Gold" type="Sprite" parent="."]
