@@ -104,6 +104,7 @@ anims/Jump = SubResource( 7 )
 anims/RESET = SubResource( 8 )
 
 [node name="Stats" parent="." instance=ExtResource( 4 )]
+max_health = 1000
 
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]
 collision_layer = 8
