@@ -42,13 +42,18 @@ func _get_configuration_warning()->String:
 func _on_ReTxtBtn_pressed():
 #	get_tree().paused = false
 	print("=========== restart button pressed")
+	
 	PlayerStats.reset()
-	get_tree().change_scene(replayscn)
-	print("get_tree().change_scene()")
+	#get_tree().change_scene(replayscn)
+#	print("get_parent ", self.get_parent().get_parent())
 	# Since changed scene no need to queue_free
 	
+	var SceneName = get_tree().current_scene.get_name()
+	if(SceneName == "World1"):
+		get_tree().change_scene("res://Levels/World1.tscn")
+	elif (SceneName == "Tutorial"):
+			get_tree().change_scene("res://Levels/Tutorial.tscn")
 
-##
 # This is quit button section
 #
 func _on_QuitBtn_pressed():
