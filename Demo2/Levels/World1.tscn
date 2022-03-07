@@ -105,10 +105,10 @@ margin_bottom = 49.0
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="BossUI" parent="CanvasLayer2" instance=ExtResource( 12 )]
-margin_left = 303.0
-margin_top = 508.0
-margin_right = 836.0
-margin_bottom = 588.0
+margin_left = 302.0
+margin_top = 530.0
+margin_right = 835.0
+margin_bottom = 610.0
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 

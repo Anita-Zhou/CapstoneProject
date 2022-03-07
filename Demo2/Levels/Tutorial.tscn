@@ -214,10 +214,10 @@ rect_scale = Vector2( 0.399065, 0.399065 )
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 
 [node name="BossUI" parent="CanvasLayer3" instance=ExtResource( 13 )]
-margin_left = 242.0
-margin_top = 513.0
-margin_right = 775.0
-margin_bottom = 593.0
+margin_left = 249.0
+margin_top = 545.0
+margin_right = 782.0
+margin_bottom = 625.0
 
 [node name="Portal" parent="." instance=ExtResource( 12 )]
 visible = false
