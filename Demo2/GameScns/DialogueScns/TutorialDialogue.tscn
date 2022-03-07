@@ -60,13 +60,13 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Nuwa"]
-margin_left = 329.0
+margin_left = 313.0
 margin_top = 100.0
-margin_right = 536.0
+margin_right = 538.0
 margin_bottom = 117.0
 custom_colors/font_color = Color( 0.419608, 0.407843, 0.443137, 1 )
 custom_fonts/font = SubResource( 3 )
-text = "Click to continue . . ."
+text = "Press F to continue . . ."
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -95,13 +95,13 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Instructions"]
-margin_left = 329.0
+margin_left = 314.0
 margin_top = 100.0
-margin_right = 536.0
+margin_right = 539.0
 margin_bottom = 117.0
 custom_colors/font_color = Color( 0.419608, 0.407843, 0.443137, 1 )
 custom_fonts/font = SubResource( 6 )
-text = "Click to continue . . ."
+text = "Press F to continue . . ."
 __meta__ = {
 "_edit_use_anchors_": false
 }
