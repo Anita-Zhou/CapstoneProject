@@ -1,19 +1,28 @@
 extends KinematicBody2D
 
 onready var screenSize = get_viewport().get_visible_rect().size
-onready var animationPlayer = $AnimationPlayer
 onready var stats = $Stats
+onready var player = null
 
+var rng = RandomNumberGenerator.new()
 var direction = Vector2(0, 0)
 var temp_direction = Vector2(0, 0)
-var rng = RandomNumberGenerator.new()
-#var direction = Vector2(0, 0)
 var distance2hero = Vector2(0, 0)
+
+var move = false
 var speed = 15
 var timer = 420
-var move = false
+var stop_timer = 0
 
-onready var player = null
+onready var animationPlayer = $AnimationPlayer
+onready var animationTree = $AnimationTree
+onready var animationState = animationTree.get("parameters/playback")
+
+enum{
+	STOP,
+	JUMP
+}
+var state = STOP
 
 func _ready():
 	print("=====dummy ready")
@@ -23,17 +32,12 @@ func _ready():
 	timer = rng.randf_range(180.0, 360.0)
 	
 func _physics_process(delta):
-	if(move == true):
-		speed = 20
-	else:
-		speed = 0
-		
-	var motion = direction * speed
 	if(is_instance_valid(player)):
 		direction = player.position - self.position
 		distance2hero = self.position.distance_to(player.position)
 	direction = direction.normalized()
-	#print("current dummy direction:", direction)
+	
+	var motion = direction * speed
 	move_and_slide(motion)
 	move_and_collide(motion * delta)
 	
@@ -42,22 +46,40 @@ func _physics_process(delta):
 	else:
 		move = !move
 		timer = rng.randf_range(180.0, 360.0)
+	
+	match state:
+		STOP:
+			motion = direction * 0
+			if stop_timer < 180:
+				animationState.travel("Idle")
+				stop_timer = stop_timer + 1
 		
-
-#func _physics_process(delta):
-#	var motion = direction * speed
-#
-#		JUMP:
-#			motion = direction * speed
-#			animationState.travel("Jump")
+			
 
 func _on_Hurtbox_area_entered(area):
-	take_damage(area)
+	print(area.get_parent().get_name() + " entered boss")
+	if("WoodIdle" in area.get_parent().get_name()):
+		fix_position(false)
+	elif("WoodSkill" in area.get_parent().get_name()):
+		fix_position(true)
+	else:
+		take_damage(area)
+		
+#func _on_Hurtbox_area_entered(area):
+#	take_damage(area)
 	
 func take_damage(area):
 	stats.health -= 150
 	#print("dummy hurt: ", stats.health)
 	animationPlayer.play("Hurt")
+
+func fix_position(check):
+	if(!check):
+		stop_timer = 90
+		if(state != CHARGE):
+			state = STOP
+	else:
+		stop_timer = stop_timer - 90
 
 func get_stats():
 	return self.stats

@@ -17,55 +17,56 @@
 [node name="Tutorial" type="YSort"]
 script = ExtResource( 7 )
 
-[node name="TutorialBackground" type="TextureRect" parent="."]
-margin_left = -78.0
-margin_top = -84.0
-margin_right = 856.0
-margin_bottom = 460.0
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( -78, -84 )
+z_index = -20
+
+[node name="TutorialBackground" type="TextureRect" parent="Node2D"]
+margin_right = 934.0
+margin_bottom = 544.0
 texture = ExtResource( 8 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TutorialBackground2" type="TextureRect" parent="."]
-margin_left = -77.0
-margin_top = 457.0
-margin_right = 857.0
-margin_bottom = 1001.0
+[node name="TutorialBackground2" type="TextureRect" parent="Node2D"]
+margin_left = 1.0
+margin_top = 541.0
+margin_right = 935.0
+margin_bottom = 1085.0
 texture = ExtResource( 8 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TutorialBackground3" type="TextureRect" parent="."]
-margin_left = 856.0
-margin_top = -84.0
-margin_right = 1790.0
-margin_bottom = 460.0
+[node name="TutorialBackground3" type="TextureRect" parent="Node2D"]
+margin_left = 934.0
+margin_right = 1868.0
+margin_bottom = 544.0
 texture = ExtResource( 8 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TutorialBackground4" type="TextureRect" parent="."]
-margin_left = 858.0
-margin_top = 451.0
-margin_right = 1792.0
-margin_bottom = 995.0
+[node name="TutorialBackground4" type="TextureRect" parent="Node2D"]
+margin_left = 936.0
+margin_top = 535.0
+margin_right = 1870.0
+margin_bottom = 1079.0
 texture = ExtResource( 8 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TutorialBackground5" type="TextureRect" parent="."]
-margin_left = -979.0
-margin_top = -89.0
-margin_right = -45.0
-margin_bottom = 455.0
+[node name="TutorialBackground5" type="TextureRect" parent="Node2D"]
+margin_left = -901.0
+margin_top = -5.0
+margin_right = 33.0
+margin_bottom = 539.0
 rect_pivot_offset = Vector2( -191, -77 )
 texture = ExtResource( 8 )
 expand = true
@@ -73,11 +74,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TutorialBackground6" type="TextureRect" parent="."]
-margin_left = -989.0
-margin_top = 443.0
-margin_right = -55.0
-margin_bottom = 987.0
+[node name="TutorialBackground6" type="TextureRect" parent="Node2D"]
+margin_left = -911.0
+margin_top = 527.0
+margin_right = 23.0
+margin_bottom = 1071.0
 rect_pivot_offset = Vector2( 623, -164 )
 texture = ExtResource( 8 )
 expand = true
@@ -85,11 +86,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TutorialBackground7" type="TextureRect" parent="."]
-margin_left = -499.0
-margin_top = -591.0
-margin_right = 435.0
-margin_bottom = -47.0
+[node name="TutorialBackground7" type="TextureRect" parent="Node2D"]
+margin_left = -421.0
+margin_top = -507.0
+margin_right = 513.0
+margin_bottom = 37.0
 rect_pivot_offset = Vector2( 623, -164 )
 texture = ExtResource( 8 )
 expand = true
@@ -97,11 +98,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TutorialBackground8" type="TextureRect" parent="."]
-margin_left = 389.0
-margin_top = -492.0
-margin_right = 1323.0
-margin_bottom = 52.0
+[node name="TutorialBackground8" type="TextureRect" parent="Node2D"]
+margin_left = 467.0
+margin_top = -408.0
+margin_right = 1401.0
+margin_bottom = 136.0
 rect_pivot_offset = Vector2( 623, -164 )
 texture = ExtResource( 8 )
 expand = true
@@ -109,26 +110,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Jkliop-export" type="TextureRect" parent="."]
-margin_left = 633.0
-margin_top = 278.0
-margin_right = 1209.0
-margin_bottom = 710.0
+[node name="WASD" type="Sprite" parent="Node2D"]
+position = Vector2( 220, 503 )
+scale = Vector2( 0.562569, 0.480995 )
+texture = ExtResource( 2 )
+
+[node name="Jkliop-export" type="TextureRect" parent="Node2D"]
+margin_left = 711.0
+margin_top = 362.0
+margin_right = 1287.0
+margin_bottom = 794.0
 rect_scale = Vector2( 0.536461, 0.528909 )
 texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SPACE" type="Sprite" parent="."]
-position = Vector2( 443, 453 )
+[node name="SPACE" type="Sprite" parent="Node2D"]
+position = Vector2( 521, 537 )
 scale = Vector2( 0.67305, 0.628351 )
 texture = ExtResource( 3 )
-
-[node name="WASD" type="Sprite" parent="."]
-position = Vector2( 142, 419 )
-scale = Vector2( 0.562569, 0.480995 )
-texture = ExtResource( 2 )
 
 [node name="Gate" type="Node2D" parent="."]
 position = Vector2( 487, 81 )

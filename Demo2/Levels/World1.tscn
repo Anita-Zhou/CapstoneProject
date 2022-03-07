@@ -64,7 +64,7 @@ z_as_relative = false
 position = Vector2( 605, 211 )
 
 [node name="Player" parent="." instance=ExtResource( 13 )]
-position = Vector2( 275, 380 )
+position = Vector2( 182, 574 )
 scale = Vector2( 1, 1.01009 )
 
 [node name="Camera2D2" type="Camera2D" parent="Player"]

@@ -1,21 +1,23 @@
 extends KinematicBody2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 var count = 0
 var timer = 0
 var stop_timer = 0
 var rng = RandomNumberGenerator.new()
+
 var speed = 40
 var direction = Vector2(0, 0)
 var temp_direction = Vector2(0, 0)
 var distance2hero = float("inf")
+
 var anim_sprite = null
 var player = null
 var should_stop = false
+var second_phase = false
+var stone_timer = 0
+var spike_timer = 0
+
 enum{
 	IDLE,
 	WALK,
@@ -24,9 +26,6 @@ enum{
 	STOP
 }
 var state = WALK
-var second_phase = false
-var stone_timer = 0
-var spike_timer = 0
 
 onready var stoneSkill = get_node("fallingStone")
 onready var spikeSkill = get_node("EarthSpike")
@@ -49,12 +48,6 @@ func _physics_process(delta):
 	direction = direction.normalized()
 
 	var motion = direction * speed
-	#print("direction", direction)
-	# if(count == 0):
-	# 	direction.x = rng.randf_range(-2, 2)
-	# 	direction.y = rng.randf_range(-2, 2)
-	# 	count = 40
-	# count -= 1
 	animationTree.set("parameters/Walk/blend_position", direction)
 	animationTree.set("parameters/ChargePrep/blend_position", direction)
 	animationTree.set("parameters/Idle/blend_position", direction)
@@ -161,8 +154,6 @@ func handle_charge_stop():
 	print("replay run")
 	count = 20
 
-
-
 func _on_Hurtbox_area_entered(area):
 	print(area.get_parent().get_name() + " entered boss")
 	if("WoodIdle" in area.get_parent().get_name()):
@@ -173,9 +164,7 @@ func _on_Hurtbox_area_entered(area):
 		take_damage(area)
 	if stats.health < stats.max_health/2:
 		second_phase = true
-	#print("hit boar area's parent: ", str(area.get_parent()))
-	#queue_free()
-	pass # Replace with function body.
+
 
 func take_damage(area):
 	stats.health -= 53
