@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://GameScripts/DialogueScripts/TutorialDialogue.gd" type="Script" id=1]
 [ext_resource path="res://Art Src/GUIArt/dialogue_box2.png" type="Texture" id=2]
@@ -8,16 +8,24 @@
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
+outline_color = Color( 0.321569, 0.321569, 0.321569, 1 )
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
 font_data = ExtResource( 3 )
 
-[node name="DialogueScene" type="CanvasLayer"]
-script = ExtResource( 1 )
-dialogue_file = "res://GameScripts/DialogueScripts/tutorial.json"
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 3 )
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 3 )
+
+[node name="TutorialDialogue" type="CanvasLayer"]
+script = ExtResource( 1 )
+nuwa_file = "res://GameScripts/DialogueScripts/tutorial.json"
+instruction_file = "res://GameScripts/DialogueScripts/skills.json"
+
+[node name="Nuwa" type="NinePatchRect" parent="."]
 margin_left = 425.0
 margin_top = 20.0
 margin_right = 981.0
@@ -28,10 +36,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+[node name="Name" type="RichTextLabel" parent="Nuwa"]
 margin_left = 26.0
 margin_top = 22.0
-margin_right = 94.0
+margin_right = 513.0
 margin_bottom = 40.0
 custom_fonts/normal_font = SubResource( 1 )
 text = "Name"
@@ -39,23 +47,60 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Message" type="RichTextLabel" parent="NinePatchRect"]
+[node name="Message" type="RichTextLabel" parent="Nuwa"]
 margin_left = 26.0
 margin_top = 45.0
 margin_right = 531.0
 margin_bottom = 97.0
+custom_colors/default_color = Color( 0.729412, 0.690196, 0.784314, 1 )
 custom_fonts/normal_font = SubResource( 2 )
 text = "Message"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="NinePatchRect"]
+[node name="Label" type="Label" parent="Nuwa"]
 margin_left = 329.0
 margin_top = 100.0
 margin_right = 536.0
 margin_bottom = 117.0
+custom_colors/font_color = Color( 0.419608, 0.407843, 0.443137, 1 )
 custom_fonts/font = SubResource( 3 )
+text = "Click to continue . . ."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instructions" type="NinePatchRect" parent="."]
+margin_left = 219.0
+margin_top = 427.0
+margin_right = 775.0
+margin_bottom = 564.0
+texture = ExtResource( 2 )
+region_rect = Rect2( 19.7, 119.427, 988.3, 313.386 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Message" type="RichTextLabel" parent="Instructions"]
+margin_left = 48.0
+margin_top = 45.0
+margin_right = 505.0
+margin_bottom = 97.0
+custom_colors/default_color = Color( 0.729412, 0.690196, 0.784314, 1 )
+custom_fonts/normal_font = SubResource( 5 )
+text = "Message"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Instructions"]
+margin_left = 329.0
+margin_top = 100.0
+margin_right = 536.0
+margin_bottom = 117.0
+custom_colors/font_color = Color( 0.419608, 0.407843, 0.443137, 1 )
+custom_fonts/font = SubResource( 6 )
 text = "Click to continue . . ."
 __meta__ = {
 "_edit_use_anchors_": false

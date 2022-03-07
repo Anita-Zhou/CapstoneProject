@@ -1,5 +1,16 @@
 [
-    {"name": "Nuwa", "text": "Greetings! You're the 74354th 'Yong' I've made."},
-    {"name":"Nuwa", "text": "You're the son of nature, so I endowed you with the power of Five Elements."},
-    {"name": "Nuwa", "text": "You can now try to cast Wood Skill."}
+    {"name": "Nuwa - the Mother Goddess", "text": "Greetings!\nYou're the 31415926th 'Yong' I've made."},
+    {"name": "Nuwa - the Mother Goddess", "text": "The world is in great danger right now, so I need your help to collect the Five Gemstones, with which I can patch up the sky."},
+    {"name": "Nuwa - the Mother Goddess", "text": "You're the son of nature, so I endowed you with the power of Five Elements: \n    Metal, Wood, Water, Fire, Earth."},
+    {"name": "Nuwa - the Mother Goddess", "text": "Now, let me show you how to navigate and protect yourself in this world."},
+    
+    {"name": "Nuwa - the Mother Goddess", "text": "You can move around."},
+    {"name": "Nuwa - the Mother Goddess", "text": "You can also dash."},
+    {"name": "Nuwa - the Mother Goddess", "text": "The beasts you're going to face are very dangerous, so you need to protect yourself with your weapon."},
+    {"name": "Nuwa - the Mother Goddess", "text": "Right now, you only have two Elemental Skills: Wood and Water."},
+    {"name": "Nuwa - the Mother Goddess", "text": "Wood Skill allows you to entangle your enemy with vines."},
+    {"name": "Nuwa - the Mother Goddess", "text": "You can use Water Skill to create an Area of Effect."},
+    {"name": "Nuwa - the Mother Goddess", "text": "Most importantly, you can cast Wood Skill and Water Skill consecutively to enhance your Wood Skill."},
+    {"name": "Nuwa - the Mother Goddess", "text": "This is the rule of Five Elements. As you acquire more skills, you can explore more powerful skill combinations!"},
+    {"name": "Nuwa - the Mother Goddess", "text": "Now, you're ready to start your journey.\nGood luck!"}
 ]
