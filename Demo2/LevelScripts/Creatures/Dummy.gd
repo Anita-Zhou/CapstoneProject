@@ -15,9 +15,10 @@ var timer = 420
 var stop_timer = 0
 var start_moving = false
 
-onready var animationPlayer = $AnimationPlayer
-onready var animationTree = $AnimationTree
-onready var animationState = animationTree.get("parameters/playback")
+onready var animationPlayer = $AnimatedSprite/AnimationPlayer
+onready var animationPlayer2 = $AnimatedSprite/AnimationPlayer2
+#onready var animationTree = $AnimationTree
+#onready var animationState = animationTree.get("parameters/playback")
 
 func _ready():
 	print("=====dummy ready")
@@ -91,4 +92,4 @@ func _on_Stats_no_health():
 func _on_dialogue_ended():
 	start_moving = true
 	speed = 15
-	animationPlayer.play("Jump")
+	animationPlayer2.play("Jump")
