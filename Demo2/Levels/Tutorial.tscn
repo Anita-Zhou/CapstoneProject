@@ -55,10 +55,10 @@ __meta__ = {
 }
 
 [node name="TutorialBackground4" type="TextureRect" parent="Node2D"]
-margin_left = 936.0
-margin_top = 535.0
-margin_right = 1870.0
-margin_bottom = 1079.0
+margin_left = 924.0
+margin_top = 539.0
+margin_right = 1858.0
+margin_bottom = 1083.0
 texture = ExtResource( 8 )
 expand = true
 __meta__ = {
