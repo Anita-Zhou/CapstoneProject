@@ -60,15 +60,6 @@ scale = Vector2( 0.923494, 1 )
 z_index = 1
 z_as_relative = false
 
-[node name="Boar" parent="." instance=ExtResource( 14 )]
-position = Vector2( 605, 211 )
-
-[node name="Player" parent="." instance=ExtResource( 13 )]
-position = Vector2( 182, 574 )
-scale = Vector2( 1, 1.01009 )
-
-[node name="Camera2D2" type="Camera2D" parent="Player"]
-
 [node name="Stone1" type="StaticBody2D" parent="."]
 position = Vector2( 102, 357 )
 z_index = 1
@@ -87,6 +78,15 @@ shape = SubResource( 16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stone1"]
 shape = SubResource( 17 )
+
+[node name="Boar" parent="." instance=ExtResource( 14 )]
+position = Vector2( 605, 211 )
+
+[node name="Player" parent="." instance=ExtResource( 13 )]
+position = Vector2( 182, 574 )
+scale = Vector2( 1, 1.01009 )
+
+[node name="Camera2D2" type="Camera2D" parent="Player"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_priority = 11
