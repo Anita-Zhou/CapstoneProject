@@ -49,7 +49,7 @@ position = Vector2( 1, -279 )
 polygon = PoolVector2Array( -572, 497, 2, 496, 87, 356, -507, 354, -515, 91, -401, -74, -286, -82, -145, -135, -51, -133, 17, -157, 126, -146, 142, -126, 217, -118, 271, -102, 347, -111, 481, -45, 488, 345, 31, 354, 28, 501, 580, 503, 567, -278, 502, -276, -573, -277, -580, 315 )
 
 [node name="Shed2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 863, 116 )
+position = Vector2( 856, 154 )
 scale = Vector2( 1.0934, 0.858751 )
 z_index = 1
 z_as_relative = false
