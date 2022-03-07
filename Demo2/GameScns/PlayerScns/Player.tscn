@@ -887,7 +887,7 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachine" id=40]
 states/Attack/node = SubResource( 83 )
-states/Attack/position = Vector2( -1272.25, -152.5 )
+states/Attack/position = Vector2( -1272.75, -152.5 )
 states/Dash/node = SubResource( 134 )
 states/Dash/position = Vector2( -1476.65, -250.453 )
 states/Idle/node = SubResource( 42 )
@@ -930,7 +930,7 @@ position = Vector2( -1, -26 )
 scale = Vector2( 1.55556, 1.36806 )
 frames = SubResource( 13 )
 animation = "sprite"
-frame = 52
+frame = 23
 speed_scale = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -959,14 +959,14 @@ tree_root = SubResource( 40 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 31 )
-parameters/Attack/blend_position = Vector2( 0, 0 )
+parameters/Attack/blend_position = Vector2( -0.00123763, 0 )
 parameters/Dash/blend_position = Vector2( -0.997487, -0.0257511 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/Walk/blend_position = Vector2( 0.00277781, 1.1 )
 
 [node name="HitboxPivot" type="Position2D" parent="."]
 position = Vector2( 0, -15 )
-rotation = 3.14159
+rotation = 1.57274
 __meta__ = {
 "_gizmo_extents_": 20.0
 }

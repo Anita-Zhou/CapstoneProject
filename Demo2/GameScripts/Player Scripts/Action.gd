@@ -18,7 +18,8 @@ var velocity = Vector2(0,0)
 var animation_in_process = false
 var animation_not_interruptable = false
 var stats = PlayerStats
-var enemy;
+var enemy
+var invincibleCounter = 0
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
@@ -51,6 +52,8 @@ func AnimationLoop():
 	
 	# pass # Replace with function body.
 func _physics_process(delta):
+	if (invincibleCounter > 0):
+		invincibleCounter -= 1
 	match state:
 		MOVE:
 			move_state(delta)
@@ -132,12 +135,13 @@ func get_player2enemy_dir():
 	return dir_vec
 
 func take_damage(area):
+	invincibleCounter = 30
 	stats.health -= 10
 	print("what hurt player:", area.get_name())
 	animationPlayer.play("Hurt")
 
 func _on_Hurtbox_area_entered(area):
-	if(state != DASH):
+	if(state != DASH && invincibleCounter == 0):
 		self.take_damage(area)
 #	hurtbox.create_hit_effect()
 	print("player health: ", stats.health)
