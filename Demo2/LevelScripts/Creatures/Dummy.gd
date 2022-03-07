@@ -47,12 +47,12 @@ func _physics_process(delta):
 		move = !move
 		timer = rng.randf_range(180.0, 360.0)
 	
-	match state:
-		STOP:
-			motion = direction * 0
-			if stop_timer < 180:
-				animationState.travel("Idle")
-				stop_timer = stop_timer + 1
+#	match state:
+#		STOP:
+#			motion = direction * 0
+#			if stop_timer < 180:
+#				animationState.travel("Idle")
+#				stop_timer = stop_timer + 1
 		
 			
 
@@ -74,12 +74,13 @@ func take_damage(area):
 	animationPlayer.play("Hurt")
 
 func fix_position(check):
-	if(!check):
-		stop_timer = 90
-		if(state != CHARGE):
-			state = STOP
-	else:
-		stop_timer = stop_timer - 90
+#	if(!check):
+#		stop_timer = 90
+##		if(state != CHARGE):
+#			state = STOP
+#	else:
+#		stop_timer = stop_timer - 90
+	pass
 
 func get_stats():
 	return self.stats

@@ -19,10 +19,11 @@ border_color = Color( 0, 0, 0, 1 )
 border_blend = true
 
 [node name="HealthUI" type="Control"]
-margin_left = -6.0
-margin_top = -9.0
-margin_right = 462.0
-margin_bottom = 69.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = 356.0
+margin_bottom = 72.0
+rect_scale = Vector2( 0.825983, 0.756149 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
