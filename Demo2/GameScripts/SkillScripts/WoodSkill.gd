@@ -5,11 +5,12 @@ func _ready():
 	pass # Replace with function body.
 
 func being_cast(enemy):
-	var pos = enemy.get_position() 
-	var Skill = load("res://GameScns/SkillScns/WoodIdle.tscn")
-	var woodSkill = Skill.instance()
-	var world = get_tree().current_scene
-	woodSkill.global_position = pos
-	world.add_child(woodSkill)
+	if(is_instance_valid(enemy)):
+		var pos = enemy.get_position() 
+		var Skill = load("res://GameScns/SkillScns/WoodIdle.tscn")
+		var woodSkill = Skill.instance()
+		var world = get_tree().current_scene
+		woodSkill.global_position = pos
+		world.add_child(woodSkill)
 	
 

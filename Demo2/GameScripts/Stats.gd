@@ -13,9 +13,13 @@ signal wood_unblock
 signal water_block
 signal water_unblock
 
+signal earth_block
+signal earth_unblock
+
 #Elemental skill cd
 var wood_cd = 0
 var water_cd = 0
+var earth_cd = 0
 
 func _ready():
 #	health = 40
