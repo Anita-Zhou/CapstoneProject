@@ -69,8 +69,10 @@ func _on_earth_cast():
 	emit_signal("earth_block")
 	
 ##
-# get the cool down of indicated skill
+# Get the cool down of indicated skill
 # name is a String
+# Called by individual cool down overlay when the signal 
+# skill_cast is being emitted
 func _get_cd(skill):
 	match skill:
 		"Wood":
