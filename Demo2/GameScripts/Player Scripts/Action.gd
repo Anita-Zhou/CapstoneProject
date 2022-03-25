@@ -125,6 +125,7 @@ func _input(ev):
 	
 	if Input.is_key_pressed(KEY_K):
 		if(stats.wood_cd == 0):
+			$WoodSound.play()
 			woodskill.being_cast(enemy)
 			emit_signal("cast_wood")
 		
