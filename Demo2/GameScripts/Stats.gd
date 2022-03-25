@@ -7,6 +7,8 @@ var crit_t = 0.2
 var crit_atk = 1.2
 var dec_dmg = 0.5
 
+var num_skills = 2
+
 signal no_health
 signal health_changed(value)
 
@@ -27,7 +29,7 @@ var earth_cd = 0
 
 func _ready():
 #	health = 40
-	pass
+	num_skills = 2
 
 func reset():
 	health = max_health

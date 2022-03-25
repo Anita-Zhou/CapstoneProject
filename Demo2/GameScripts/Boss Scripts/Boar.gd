@@ -184,4 +184,5 @@ func get_stats():
 	return stats
 
 func _on_Stats_no_health():
+	PlayerStats.num_skills += 1
 	queue_free()

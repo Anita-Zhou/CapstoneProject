@@ -31,6 +31,7 @@ signal cast_wood
 signal cast_water
 signal cast_earth
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print ("Hello World")
@@ -131,7 +132,7 @@ func _input(ev):
 			emit_signal("cast_water")
 			
 	if Input.is_key_pressed(KEY_I):
-		if(stats.earth_cd == 0):
+		if(stats.earth_cd == 0 && stats.num_skills > 2):
 			earthskill.being_cast()
 			emit_signal("cast_earth")
 
