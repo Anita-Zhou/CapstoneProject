@@ -29,6 +29,7 @@ onready var hurtbox = $Hurtbox
 
 signal cast_wood
 signal cast_water
+signal cast_earth
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,6 +38,7 @@ func _ready():
 	stats.connect("no_health", self, "queue_free")
 	self.connect("cast_wood", stats, "_on_wood_cast")
 	self.connect("cast_water", stats, "_on_water_cast")
+	self.connect("cast_earth", stats, "_on_earth_cast")
 	
 	animationTree.active = true
 	var SceneName = get_tree().current_scene.get_name()
@@ -116,6 +118,7 @@ func _input(ev):
 #	var player = get_node("player")
 	var woodskill = get_node("WoodSkill")
 	var waterskill = get_node("WaterSkill")
+	var earthskill = get_node("EarthSkill")
 	
 	if Input.is_key_pressed(KEY_K):
 		if(stats.wood_cd == 0):
@@ -126,7 +129,14 @@ func _input(ev):
 		if(stats.water_cd == 0):
 			waterskill.being_cast()
 			emit_signal("cast_water")
+			
+	if Input.is_key_pressed(KEY_I):
+		if(stats.earth_cd == 0):
+			earthskill.being_cast()
+			emit_signal("cast_earth")
 
+####################################################
+####################################################
 
 func get_player2enemy_dir():
 	var enemy = $"../Boar"
