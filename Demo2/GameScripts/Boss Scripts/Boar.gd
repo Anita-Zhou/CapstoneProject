@@ -76,6 +76,7 @@ func _physics_process(delta):
 				temp_direction = direction
 				animationTree.set("parameters/Charge/blend_position", direction)
 				state = CHARGE
+				$ChargeSound.play()
 				timer = 0
 		CHARGE:
 			motion = temp_direction * speed * 6

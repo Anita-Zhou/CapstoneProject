@@ -98,11 +98,13 @@ func move_state(delta):
 	# Immediately change stop walking and commit to attack
 	if (Input.is_action_just_pressed("ui_attack")):
 		state = ATTACK
+		$AttackSound.play()
 	if (Input.is_action_just_pressed("ui_dash")):
 		state = DASH
 
 func attack_state(delta):
 	animationState.travel("Attack")
+	
 	
 func dash_state(delta):
 	animationState.travel("Dash")
@@ -128,6 +130,7 @@ func _input(ev):
 		
 	if Input.is_key_pressed(KEY_L):
 		if(stats.water_cd == 0):
+			$WaterSound.play()
 			waterskill.being_cast()
 			emit_signal("cast_water")
 			
