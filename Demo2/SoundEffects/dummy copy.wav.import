@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dummy copy.wav-7f224285f49efa2500d5af213638dd9c.sample"
+
+[deps]
+
+source_file="res://SoundEffects/dummy copy.wav"
+dest_files=[ "res://.import/dummy copy.wav-7f224285f49efa2500d5af213638dd9c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
