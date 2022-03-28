@@ -30,6 +30,6 @@ func being_cast():
 #	var pos = player.get_position() 
 	var EarthSkill = load("res://GameScns/SkillScns/EarthSkill.tscn")
 	var earthSkill = EarthSkill.instance()
-	var world = get_tree().current_scene
-	world.add_child(earthSkill)
-	earthSkill.global_position = pos
+	var player = get_tree().current_scene.get_node("Player")
+	player.add_child(earthSkill)
+#	earthSkill.global_position = pos

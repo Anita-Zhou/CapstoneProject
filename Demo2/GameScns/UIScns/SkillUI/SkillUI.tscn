@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Art Src/GUIArt/SkillUI/SKILL_ARROW.png" type="Texture" id=1]
 [ext_resource path="res://Art Src/GUIArt/SkillUI/SKILL UI icon.png" type="Texture" id=2]
+[ext_resource path="res://GameScripts/UIScripts/Skill/Earth.gd" type="Script" id=3]
 [ext_resource path="res://Art Src/GUIArt/split icons/skill icons4.png" type="Texture" id=4]
 [ext_resource path="res://Art Src/GUIArt/split icons/skill icons2.png" type="Texture" id=5]
 [ext_resource path="res://Art Src/GUIArt/split icons/skill icons1.png" type="Texture" id=6]
@@ -99,10 +100,23 @@ texture = ExtResource( 4 )
 position = Vector2( 293, 126 )
 scale = Vector2( 1.85417, 1.92361 )
 texture = ExtResource( 7 )
+script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Earth"]
-visible = false
 texture = ExtResource( 11 )
+
+[node name="SkillCD" type="TextureProgress" parent="Earth"]
+margin_left = -39.3707
+margin_top = -34.8303
+margin_right = -17.3707
+margin_bottom = -9.83032
+rect_scale = Vector2( 3.63686, 3.40877 )
+value = 100.0
+texture_progress = ExtResource( 12 )
+fill_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Gold" type="Sprite" parent="."]
 position = Vector2( 453, 252 )

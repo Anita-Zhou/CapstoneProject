@@ -29,7 +29,7 @@ var earth_cd = 0
 
 func _ready():
 #	health = 40
-	num_skills = 2
+	num_skills = 3
 
 func reset():
 	health = max_health
