@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=2]
+[gd_scene load_steps=134 format=2]
 
 [ext_resource path="res://Art Src/PlayerArt/walk_left.png" type="Texture" id=1]
 [ext_resource path="res://GameScripts/Player Scripts/Action.gd" type="Script" id=2]
@@ -17,9 +17,10 @@
 [ext_resource path="res://Art Src/PlayerArt/idle_left.png" type="Texture" id=15]
 [ext_resource path="res://Art Src/PlayerArt/idle_up.png" type="Texture" id=16]
 [ext_resource path="res://GameScripts/SkillScripts/EarthSkill.gd" type="Script" id=17]
-[ext_resource path="res://SoundEffects/sword.wav" type="AudioStream" id=18]
+[ext_resource path="res://SoundEffects/sword_new.wav" type="AudioStream" id=18]
 [ext_resource path="res://SoundEffects/water.wav" type="AudioStream" id=19]
 [ext_resource path="res://SoundEffects/wood.wav" type="AudioStream" id=20]
+[ext_resource path="res://Art Src/Attack/attack_down.png" type="Texture" id=21]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 8.5, 2.95 )
@@ -284,9 +285,39 @@ flags = 4
 atlas = ExtResource( 14 )
 region = Rect2( 700, 0, 100, 100 )
 
+[sub_resource type="AtlasTexture" id=160]
+flags = 4
+atlas = ExtResource( 21 )
+region = Rect2( 0, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=161]
+flags = 4
+atlas = ExtResource( 21 )
+region = Rect2( 100, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=162]
+flags = 4
+atlas = ExtResource( 21 )
+region = Rect2( 200, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=163]
+flags = 4
+atlas = ExtResource( 21 )
+region = Rect2( 300, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=164]
+flags = 4
+atlas = ExtResource( 21 )
+region = Rect2( 400, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=165]
+flags = 4
+atlas = ExtResource( 21 )
+region = Rect2( 500, 0, 100, 100 )
+
 [sub_resource type="SpriteFrames" id=13]
 animations = [ {
-"frames": [ SubResource( 89 ), SubResource( 90 ), SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ), SubResource( 95 ), SubResource( 96 ), SubResource( 97 ), SubResource( 98 ), SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ), SubResource( 108 ), SubResource( 109 ), SubResource( 110 ), SubResource( 111 ), SubResource( 112 ), SubResource( 113 ), SubResource( 114 ), SubResource( 115 ), SubResource( 116 ), SubResource( 117 ), SubResource( 118 ), SubResource( 119 ), SubResource( 120 ), SubResource( 121 ), SubResource( 122 ), SubResource( 123 ), SubResource( 124 ), SubResource( 138 ), SubResource( 139 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 150 ), SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ), SubResource( 155 ), SubResource( 156 ), SubResource( 157 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"frames": [ SubResource( 89 ), SubResource( 90 ), SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ), SubResource( 95 ), SubResource( 96 ), SubResource( 97 ), SubResource( 98 ), SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ), SubResource( 108 ), SubResource( 109 ), SubResource( 110 ), SubResource( 111 ), SubResource( 112 ), SubResource( 113 ), SubResource( 114 ), SubResource( 115 ), SubResource( 116 ), SubResource( 117 ), SubResource( 118 ), SubResource( 119 ), SubResource( 120 ), SubResource( 121 ), SubResource( 122 ), SubResource( 123 ), SubResource( 124 ), SubResource( 138 ), SubResource( 139 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 150 ), SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ), SubResource( 155 ), SubResource( 156 ), SubResource( 157 ), ExtResource( 15 ), ExtResource( 16 ), SubResource( 160 ), SubResource( 161 ), SubResource( 162 ), SubResource( 163 ), SubResource( 164 ), SubResource( 165 ) ],
 "loop": true,
 "name": "sprite",
 "speed": 5.0
@@ -296,41 +327,17 @@ animations = [ {
 resource_name = "Attack"
 length = 0.7
 loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("player:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6 ]
-}
 
 [sub_resource type="Animation" id=78]
 resource_name = "AttackDown"
 length = 0.8
-tracks/0/type = "value"
-tracks/0/path = NodePath("player:frame")
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6 ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 0.8 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -338,29 +345,41 @@ tracks/1/keys = {
 "method": "attack_animation_finished"
 } ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("HitboxPivot:rotation_degrees")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
+tracks/1/type = "value"
+tracks/1/path = NodePath("HitboxPivot:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0.0 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("HitboxPivot/SwordHitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 tracks/3/type = "value"
-tracks/3/path = NodePath("HitboxPivot/SwordHitbox/CollisionShape2D:disabled")
+tracks/3/path = NodePath("player:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false, true ]
+"values": [ 54, 55, 56, 57, 58, 59 ]
 }
 
 [sub_resource type="Animation" id=76]
@@ -790,6 +809,15 @@ animation = "AttackRight"
 [sub_resource type="AnimationNodeAnimation" id=82]
 animation = "AttackUp"
 
+[sub_resource type="AnimationNodeAnimation" id=166]
+animation = "AttackDown"
+
+[sub_resource type="AnimationNodeAnimation" id=167]
+animation = "AttackDown"
+
+[sub_resource type="AnimationNodeAnimation" id=168]
+animation = "AttackUp"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id=83]
 blend_point_0/node = SubResource( 79 )
 blend_point_0/pos = Vector2( -1, 0 )
@@ -799,6 +827,12 @@ blend_point_2/node = SubResource( 81 )
 blend_point_2/pos = Vector2( 1, 0 )
 blend_point_3/node = SubResource( 82 )
 blend_point_3/pos = Vector2( 0, -1.1 )
+blend_point_4/node = SubResource( 166 )
+blend_point_4/pos = Vector2( 0, 1.1 )
+blend_point_5/node = SubResource( 167 )
+blend_point_5/pos = Vector2( 0, -1.1 )
+blend_point_6/node = SubResource( 168 )
+blend_point_6/pos = Vector2( 0, -1.1 )
 min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 
@@ -963,14 +997,13 @@ tree_root = SubResource( 40 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 31 )
-parameters/Attack/blend_position = Vector2( -0.00123763, 0 )
+parameters/Attack/blend_position = Vector2( -0.00241548, 1.09056 )
 parameters/Dash/blend_position = Vector2( -0.997487, -0.0257511 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/Walk/blend_position = Vector2( 0.00277781, 1.1 )
 
 [node name="HitboxPivot" type="Position2D" parent="."]
 position = Vector2( 0, -15 )
-rotation = 1.57274
 __meta__ = {
 "_gizmo_extents_": 20.0
 }

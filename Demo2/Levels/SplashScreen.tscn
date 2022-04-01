@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Fonts/PolandCannedIntoFuture-OxE3.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://SoundEffects/EldenRing.mp3" type="AudioStream" id=2]
 [ext_resource path="res://Art Src/new_splash.png" type="Texture" id=3]
+[ext_resource path="res://LevelScripts/SplashScreen.gd" type="Script" id=4]
 [ext_resource path="res://Art Src/new_title.png" type="Texture" id=6]
 [ext_resource path="res://Art Src/splash_updated.png" type="Texture" id=7]
 [ext_resource path="res://LevelScripts/PlayBtn.gd" type="Script" id=8]
@@ -17,6 +19,7 @@ font_data = ExtResource( 1 )
 margin_right = 1017.0
 margin_bottom = 591.0
 rect_pivot_offset = Vector2( -314, 240 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -115,6 +118,11 @@ text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = 1.0
+autoplay = true
 
 [connection signal="button_up" from="Menu/PlayBtn" to="Menu/PlayBtn" method="_on_PlayBtn_button_up"]
 [connection signal="button_up" from="Menu/LevelBtn" to="Menu/LevelBtn" method="_on_LevelBtn_button_up"]

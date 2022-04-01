@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/EldenRing.mp3-61973f0230ceb9ef147776d5de4cf175.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/EldenRing.mp3"
+dest_files=[ "res://.import/EldenRing.mp3-61973f0230ceb9ef147776d5de4cf175.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
