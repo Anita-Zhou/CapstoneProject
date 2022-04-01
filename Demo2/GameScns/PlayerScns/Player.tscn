@@ -1,4 +1,4 @@
-[gd_scene load_steps=146 format=2]
+[gd_scene load_steps=166 format=2]
 
 [ext_resource path="res://Art Src/PlayerArt/walk_left.png" type="Texture" id=1]
 [ext_resource path="res://GameScripts/Player Scripts/Action.gd" type="Script" id=2]
@@ -26,6 +26,9 @@
 [ext_resource path="res://Art Src/NewPlayerArt/idle_up.png" type="Texture" id=24]
 [ext_resource path="res://Art Src/NewPlayerArt/idle_down.png" type="Texture" id=25]
 [ext_resource path="res://Art Src/NewPlayerArt/attack_left.png" type="Texture" id=26]
+[ext_resource path="res://Art Src/NewPlayerArt/attack_up.png" type="Texture" id=27]
+[ext_resource path="res://Art Src/NewPlayerArt/dash_down.png" type="Texture" id=28]
+[ext_resource path="res://Art Src/NewPlayerArt/dash_up.png" type="Texture" id=29]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 8.5, 2.95 )
@@ -355,9 +358,69 @@ flags = 4
 atlas = ExtResource( 26 )
 region = Rect2( 900, 0, 150, 150 )
 
+[sub_resource type="AtlasTexture" id=176]
+flags = 4
+atlas = ExtResource( 27 )
+region = Rect2( 0, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=177]
+flags = 4
+atlas = ExtResource( 27 )
+region = Rect2( 150, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=178]
+flags = 4
+atlas = ExtResource( 27 )
+region = Rect2( 300, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=179]
+flags = 4
+atlas = ExtResource( 27 )
+region = Rect2( 450, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=180]
+flags = 4
+atlas = ExtResource( 27 )
+region = Rect2( 600, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=181]
+flags = 4
+atlas = ExtResource( 27 )
+region = Rect2( 750, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=182]
+flags = 4
+atlas = ExtResource( 28 )
+region = Rect2( 0, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=183]
+flags = 4
+atlas = ExtResource( 28 )
+region = Rect2( 150, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=184]
+flags = 4
+atlas = ExtResource( 28 )
+region = Rect2( 300, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=187]
+flags = 4
+atlas = ExtResource( 29 )
+region = Rect2( 0, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=188]
+flags = 4
+atlas = ExtResource( 29 )
+region = Rect2( 150, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=189]
+flags = 4
+atlas = ExtResource( 29 )
+region = Rect2( 300, 0, 150, 150 )
+
 [sub_resource type="SpriteFrames" id=13]
 animations = [ {
-"frames": [ SubResource( 89 ), SubResource( 90 ), SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ), SubResource( 95 ), SubResource( 96 ), SubResource( 97 ), SubResource( 98 ), SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ), SubResource( 108 ), SubResource( 109 ), SubResource( 110 ), SubResource( 111 ), SubResource( 112 ), SubResource( 113 ), SubResource( 114 ), SubResource( 115 ), SubResource( 116 ), SubResource( 117 ), SubResource( 118 ), SubResource( 119 ), SubResource( 120 ), SubResource( 121 ), SubResource( 122 ), SubResource( 123 ), SubResource( 124 ), SubResource( 138 ), SubResource( 139 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 150 ), SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ), SubResource( 155 ), SubResource( 156 ), SubResource( 157 ), ExtResource( 15 ), ExtResource( 16 ), SubResource( 160 ), SubResource( 161 ), SubResource( 162 ), SubResource( 163 ), SubResource( 164 ), SubResource( 165 ), ExtResource( 25 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), SubResource( 169 ), SubResource( 170 ), SubResource( 171 ), SubResource( 172 ), SubResource( 173 ), SubResource( 174 ), SubResource( 175 ) ],
+"frames": [ SubResource( 89 ), SubResource( 90 ), SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ), SubResource( 95 ), SubResource( 96 ), SubResource( 97 ), SubResource( 98 ), SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ), SubResource( 108 ), SubResource( 109 ), SubResource( 110 ), SubResource( 111 ), SubResource( 112 ), SubResource( 113 ), SubResource( 114 ), SubResource( 115 ), SubResource( 116 ), SubResource( 117 ), SubResource( 118 ), SubResource( 119 ), SubResource( 120 ), SubResource( 121 ), SubResource( 122 ), SubResource( 123 ), SubResource( 124 ), SubResource( 138 ), SubResource( 139 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 150 ), SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ), SubResource( 155 ), SubResource( 156 ), SubResource( 157 ), ExtResource( 15 ), ExtResource( 16 ), SubResource( 160 ), SubResource( 161 ), SubResource( 162 ), SubResource( 163 ), SubResource( 164 ), SubResource( 165 ), ExtResource( 25 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), SubResource( 169 ), SubResource( 170 ), SubResource( 171 ), SubResource( 172 ), SubResource( 173 ), SubResource( 174 ), SubResource( 175 ), SubResource( 176 ), SubResource( 177 ), SubResource( 178 ), SubResource( 179 ), SubResource( 180 ), SubResource( 181 ), SubResource( 182 ), SubResource( 183 ), SubResource( 184 ), SubResource( 187 ), SubResource( 188 ), SubResource( 189 ) ],
 "loop": true,
 "name": "sprite",
 "speed": 5.0
@@ -533,25 +596,13 @@ tracks/3/keys = {
 [sub_resource type="Animation" id=77]
 resource_name = "AttackUp"
 length = 0.8
-tracks/0/type = "value"
-tracks/0/path = NodePath("player:frame")
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 29, 28, 27, 26, 25, 24, 23 ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 0.8 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -559,29 +610,56 @@ tracks/1/keys = {
 "method": "attack_animation_finished"
 } ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("HitboxPivot:rotation_degrees")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
+tracks/1/type = "value"
+tracks/1/path = NodePath("HitboxPivot:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 180.0 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("HitboxPivot/SwordHitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 tracks/3/type = "value"
-tracks/3/path = NodePath("HitboxPivot/SwordHitbox/CollisionShape2D:disabled")
+tracks/3/path = NodePath("player:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false, true ]
+"values": [ 71, 72, 73, 74, 75, 76 ]
+}
+
+[sub_resource type="Animation" id=185]
+resource_name = "DashDown"
+tracks/0/type = "value"
+tracks/0/path = NodePath("player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 77, 78, 79 ]
 }
 
 [sub_resource type="Animation" id=126]
@@ -643,6 +721,21 @@ tracks/1/keys = {
 "args": [  ],
 "method": "attack_animation_finished"
 } ]
+}
+
+[sub_resource type="Animation" id=190]
+resource_name = "DashUp"
+tracks/0/type = "value"
+tracks/0/path = NodePath("player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 80, 81, 82 ]
 }
 
 [sub_resource type="Animation" id=125]
@@ -887,6 +980,15 @@ animation = "DashRight"
 [sub_resource type="AnimationNodeAnimation" id=149]
 animation = "DashRight"
 
+[sub_resource type="AnimationNodeAnimation" id=186]
+animation = "DashDown"
+
+[sub_resource type="AnimationNodeAnimation" id=191]
+animation = "DashUp"
+
+[sub_resource type="AnimationNodeAnimation" id=192]
+animation = "DashDown"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id=134]
 blend_point_0/node = SubResource( 146 )
 blend_point_0/pos = Vector2( -1, 0 )
@@ -896,6 +998,12 @@ blend_point_2/node = SubResource( 148 )
 blend_point_2/pos = Vector2( 1, 0 )
 blend_point_3/node = SubResource( 149 )
 blend_point_3/pos = Vector2( 0, -1.2 )
+blend_point_4/node = SubResource( 186 )
+blend_point_4/pos = Vector2( 0, 1.2 )
+blend_point_5/node = SubResource( 191 )
+blend_point_5/pos = Vector2( 0, -1.2 )
+blend_point_6/node = SubResource( 192 )
+blend_point_6/pos = Vector2( 0, 1.2 )
 min_space = Vector2( -1, -1.2 )
 max_space = Vector2( 1, 1.2 )
 blend_mode = 1
@@ -1017,8 +1125,10 @@ anims/AttackDown = SubResource( 78 )
 anims/AttackLeft = SubResource( 76 )
 anims/AttackRight = SubResource( 75 )
 anims/AttackUp = SubResource( 77 )
+anims/DashDown = SubResource( 185 )
 anims/DashLeft = SubResource( 126 )
 anims/DashRight = SubResource( 127 )
+anims/DashUp = SubResource( 190 )
 anims/Hurt = SubResource( 125 )
 anims/Idle = SubResource( 25 )
 anims/IdleDown = SubResource( 51 )
@@ -1037,7 +1147,7 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 31 )
 parameters/Attack/blend_position = Vector2( -0.00241548, 1.09056 )
-parameters/Dash/blend_position = Vector2( -0.997487, -0.0257511 )
+parameters/Dash/blend_position = Vector2( 0.00241542, -1.19485 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/Walk/blend_position = Vector2( 0.00277781, 1.1 )
 
