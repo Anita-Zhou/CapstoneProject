@@ -593,7 +593,7 @@ height = 66.0
 position = Vector2( 1, 0 )
 z_as_relative = false
 collision_layer = 8
-collision_mask = 498
+collision_mask = 499
 script = ExtResource( 2 )
 
 [node name="BoarAnimation" type="AnimatedSprite" parent="."]

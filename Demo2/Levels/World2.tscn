@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://GameScns/UIScns/SkillUI/SkillUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Art Src/Background/scene2_sky.png" type="Texture" id=2]
 [ext_resource path="res://Art Src/Background/scene2_ground.png" type="Texture" id=3]
 [ext_resource path="res://GameScns/PlayerScns/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://GameScns/BossScns/ZhuRong.tscn" type="PackedScene" id=5]
+[ext_resource path="res://GameScns/UIScns/BossUI/BossUI.tscn" type="PackedScene" id=6]
 
 [node name="World2" type="YSort"]
 
@@ -19,20 +20,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="gdbg" type="TextureRect" parent="."]
-margin_left = -19.0
-margin_top = 50.0
-margin_right = 1005.0
-margin_bottom = 626.0
-rect_scale = Vector2( 1.06668, 1.06668 )
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 497, 331 )
+scale = Vector2( 1.06668, 1.06668 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+position = Vector2( 13.1248, -3.74997 )
+scale = Vector2( 0.957916, 0.957916 )
 texture = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 159.373, -74.0617 )
+
+[node name="Sprite2" type="Sprite" parent="StaticBody2D"]
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 213, 468 )
 z_index = 2
+
+[node name="ZhuRong" parent="." instance=ExtResource( 5 )]
+position = Vector2( 541, 123 )
+scale = Vector2( 0.575432, 0.575432 )
 
 [node name="CanvasLayer1" type="CanvasLayer" parent="."]
 
@@ -43,6 +51,10 @@ margin_right = 792.0
 margin_bottom = 383.0
 rect_scale = Vector2( 0.399065, 0.399065 )
 
-[node name="ZhuRong" parent="." instance=ExtResource( 5 )]
-position = Vector2( 539, 130 )
-scale = Vector2( 0.684715, 0.684715 )
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BossUI" parent="CanvasLayer" instance=ExtResource( 6 )]
+margin_left = 299.0
+margin_top = 547.0
+margin_right = 832.0
+margin_bottom = 627.0

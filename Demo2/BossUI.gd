@@ -22,6 +22,10 @@ func _ready():
 	elif (SceneName == "Tutorial"):
 		boss = $"../../Dummy"
 		label.text = "Dummy"
+	elif (SceneName == "World2"):
+		boss = $"../../ZhuRong"
+		label.text = "Pyrodude, the God of Fire"
+		
 		
 	print("boss:", boss)
 	var boss_stats = boss.get_stats()

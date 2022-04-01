@@ -109,4 +109,6 @@ shape = SubResource( 17 )
 
 [node name="Hitbox" parent="." instance=ExtResource( 5 )]
 
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+
 [editable path="Hurtbox"]
