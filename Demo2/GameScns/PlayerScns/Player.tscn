@@ -1,4 +1,4 @@
-[gd_scene load_steps=134 format=2]
+[gd_scene load_steps=146 format=2]
 
 [ext_resource path="res://Art Src/PlayerArt/walk_left.png" type="Texture" id=1]
 [ext_resource path="res://GameScripts/Player Scripts/Action.gd" type="Script" id=2]
@@ -21,6 +21,11 @@
 [ext_resource path="res://SoundEffects/water.wav" type="AudioStream" id=19]
 [ext_resource path="res://SoundEffects/wood.wav" type="AudioStream" id=20]
 [ext_resource path="res://Art Src/Attack/attack_down.png" type="Texture" id=21]
+[ext_resource path="res://Art Src/NewPlayerArt/idle_left.png" type="Texture" id=22]
+[ext_resource path="res://Art Src/NewPlayerArt/idle_right.png" type="Texture" id=23]
+[ext_resource path="res://Art Src/NewPlayerArt/idle_up.png" type="Texture" id=24]
+[ext_resource path="res://Art Src/NewPlayerArt/idle_down.png" type="Texture" id=25]
+[ext_resource path="res://Art Src/NewPlayerArt/attack_left.png" type="Texture" id=26]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 8.5, 2.95 )
@@ -315,9 +320,44 @@ flags = 4
 atlas = ExtResource( 21 )
 region = Rect2( 500, 0, 100, 100 )
 
+[sub_resource type="AtlasTexture" id=169]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 0, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=170]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 150, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=171]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 300, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=172]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 450, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=173]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 600, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=174]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 750, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=175]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 900, 0, 150, 150 )
+
 [sub_resource type="SpriteFrames" id=13]
 animations = [ {
-"frames": [ SubResource( 89 ), SubResource( 90 ), SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ), SubResource( 95 ), SubResource( 96 ), SubResource( 97 ), SubResource( 98 ), SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ), SubResource( 108 ), SubResource( 109 ), SubResource( 110 ), SubResource( 111 ), SubResource( 112 ), SubResource( 113 ), SubResource( 114 ), SubResource( 115 ), SubResource( 116 ), SubResource( 117 ), SubResource( 118 ), SubResource( 119 ), SubResource( 120 ), SubResource( 121 ), SubResource( 122 ), SubResource( 123 ), SubResource( 124 ), SubResource( 138 ), SubResource( 139 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 150 ), SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ), SubResource( 155 ), SubResource( 156 ), SubResource( 157 ), ExtResource( 15 ), ExtResource( 16 ), SubResource( 160 ), SubResource( 161 ), SubResource( 162 ), SubResource( 163 ), SubResource( 164 ), SubResource( 165 ) ],
+"frames": [ SubResource( 89 ), SubResource( 90 ), SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ), SubResource( 95 ), SubResource( 96 ), SubResource( 97 ), SubResource( 98 ), SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ), SubResource( 108 ), SubResource( 109 ), SubResource( 110 ), SubResource( 111 ), SubResource( 112 ), SubResource( 113 ), SubResource( 114 ), SubResource( 115 ), SubResource( 116 ), SubResource( 117 ), SubResource( 118 ), SubResource( 119 ), SubResource( 120 ), SubResource( 121 ), SubResource( 122 ), SubResource( 123 ), SubResource( 124 ), SubResource( 138 ), SubResource( 139 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 150 ), SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ), SubResource( 155 ), SubResource( 156 ), SubResource( 157 ), ExtResource( 15 ), ExtResource( 16 ), SubResource( 160 ), SubResource( 161 ), SubResource( 162 ), SubResource( 163 ), SubResource( 164 ), SubResource( 165 ), ExtResource( 25 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), SubResource( 169 ), SubResource( 170 ), SubResource( 171 ), SubResource( 172 ), SubResource( 173 ), SubResource( 174 ), SubResource( 175 ) ],
 "loop": true,
 "name": "sprite",
 "speed": 5.0
@@ -385,26 +425,13 @@ tracks/3/keys = {
 [sub_resource type="Animation" id=76]
 resource_name = "AttackLeft"
 length = 0.8
-step = 0.01
-tracks/0/type = "value"
-tracks/0/path = NodePath("player:frame")
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.08, 0.15, 0.22, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 29, 28, 27, 26, 25, 24, 23 ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 0.56 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -412,29 +439,41 @@ tracks/1/keys = {
 "method": "attack_animation_finished"
 } ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("HitboxPivot:rotation_degrees")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
+tracks/1/type = "value"
+tracks/1/path = NodePath("HitboxPivot:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 180.0 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("HitboxPivot/SwordHitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.31, 0.56 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 tracks/3/type = "value"
-tracks/3/path = NodePath("HitboxPivot/SwordHitbox/CollisionShape2D:disabled")
+tracks/3/path = NodePath("player:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.31, 0.56 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false, true ]
+"values": [ 64, 65, 66, 67, 68, 69, 70 ]
 }
 
 [sub_resource type="Animation" id=75]
@@ -640,7 +679,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 6 ]
+"values": [ 60 ]
 }
 
 [sub_resource type="Animation" id=52]
@@ -653,10 +692,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 0.1 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 52 ]
+"values": [ 61 ]
 }
 
 [sub_resource type="Animation" id=41]
@@ -669,10 +708,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 0.1 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 6 ]
+"values": [ 62 ]
 }
 
 [sub_resource type="Animation" id=53]
@@ -685,10 +724,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 0.1 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 53 ]
+"values": [ 63 ]
 }
 
 [sub_resource type="Animation" id=22]
@@ -968,7 +1007,7 @@ position = Vector2( -1, -26 )
 scale = Vector2( 1.55556, 1.36806 )
 frames = SubResource( 13 )
 animation = "sprite"
-frame = 52
+frame = 61
 speed_scale = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -1004,6 +1043,7 @@ parameters/Walk/blend_position = Vector2( 0.00277781, 1.1 )
 
 [node name="HitboxPivot" type="Position2D" parent="."]
 position = Vector2( 0, -15 )
+rotation = 3.14159
 __meta__ = {
 "_gizmo_extents_": 20.0
 }
