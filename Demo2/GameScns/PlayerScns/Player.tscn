@@ -1,4 +1,4 @@
-[gd_scene load_steps=166 format=2]
+[gd_scene load_steps=165 format=2]
 
 [ext_resource path="res://Art Src/PlayerArt/walk_left.png" type="Texture" id=1]
 [ext_resource path="res://GameScripts/Player Scripts/Action.gd" type="Script" id=2]
@@ -661,6 +661,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 77, 78, 79 ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "attack_animation_finished"
+} ]
+}
 
 [sub_resource type="Animation" id=126]
 resource_name = "DashLeft"
@@ -736,6 +750,20 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 80, 81, 82 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "attack_animation_finished"
+} ]
 }
 
 [sub_resource type="Animation" id=125]
@@ -971,39 +999,34 @@ max_space = Vector2( 1, 1.1 )
 [sub_resource type="AnimationNodeAnimation" id=146]
 animation = "DashLeft"
 
-[sub_resource type="AnimationNodeAnimation" id=147]
-animation = "DashLeft"
-
 [sub_resource type="AnimationNodeAnimation" id=148]
 animation = "DashRight"
 
-[sub_resource type="AnimationNodeAnimation" id=149]
+[sub_resource type="AnimationNodeAnimation" id=196]
+animation = "DashDown"
+
+[sub_resource type="AnimationNodeAnimation" id=198]
 animation = "DashRight"
 
-[sub_resource type="AnimationNodeAnimation" id=186]
-animation = "DashDown"
-
-[sub_resource type="AnimationNodeAnimation" id=191]
+[sub_resource type="AnimationNodeAnimation" id=202]
 animation = "DashUp"
 
-[sub_resource type="AnimationNodeAnimation" id=192]
-animation = "DashDown"
+[sub_resource type="AnimationNodeAnimation" id=203]
+animation = "DashUp"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id=134]
 blend_point_0/node = SubResource( 146 )
 blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 147 )
-blend_point_1/pos = Vector2( 0, 1.2 )
-blend_point_2/node = SubResource( 148 )
-blend_point_2/pos = Vector2( 1, 0 )
-blend_point_3/node = SubResource( 149 )
-blend_point_3/pos = Vector2( 0, -1.2 )
-blend_point_4/node = SubResource( 186 )
-blend_point_4/pos = Vector2( 0, 1.2 )
-blend_point_5/node = SubResource( 191 )
+blend_point_1/node = SubResource( 148 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 196 )
+blend_point_2/pos = Vector2( 0, 1.2 )
+blend_point_3/node = SubResource( 198 )
+blend_point_3/pos = Vector2( 0, 1.2 )
+blend_point_4/node = SubResource( 202 )
+blend_point_4/pos = Vector2( 0, -1.2 )
+blend_point_5/node = SubResource( 203 )
 blend_point_5/pos = Vector2( 0, -1.2 )
-blend_point_6/node = SubResource( 192 )
-blend_point_6/pos = Vector2( 0, 1.2 )
 min_space = Vector2( -1, -1.2 )
 max_space = Vector2( 1, 1.2 )
 blend_mode = 1
@@ -1147,7 +1170,7 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 31 )
 parameters/Attack/blend_position = Vector2( -0.00241548, 1.09056 )
-parameters/Dash/blend_position = Vector2( 0.00241542, -1.19485 )
+parameters/Dash/blend_position = Vector2( 0, 1.1897 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/Walk/blend_position = Vector2( 0.00277781, 1.1 )
 
