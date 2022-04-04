@@ -8,6 +8,7 @@
 [ext_resource path="res://GameScns/UIScns/BossUI/BossUI.tscn" type="PackedScene" id=6]
 
 [node name="World2" type="YSort"]
+z_index = -10
 
 [node name="skybg" type="TextureRect" parent="."]
 margin_left = -19.0
@@ -20,7 +21,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="bgGround" parent="." instance=ExtResource( 3 )]
+[node name="bgGround" parent="skybg" instance=ExtResource( 3 )]
+position = Vector2( 484.466, 323.916 )
+scale = Vector2( 1.00149, 1.00149 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 213, 468 )
