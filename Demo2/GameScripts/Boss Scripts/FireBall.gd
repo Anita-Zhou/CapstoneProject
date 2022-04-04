@@ -38,6 +38,7 @@ func _process(delta):
 			var spike = Skill.instance()
 			var world = get_tree().current_scene
 			spike.global_position = start_pos + (spike_num + 2) * inc
+			spike.set_rotation(inc.angle())
 			world.add_child(spike)
 			spike_num = spike_num + 1
 			spike_timer = 0
