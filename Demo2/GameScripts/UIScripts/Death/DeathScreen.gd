@@ -28,8 +28,12 @@ func _on_MainTxtBtn_button_up():
 
 func _on_ReTxtBtn_button_up():
 	print("=========== death restart button pressed")
+#	print(self.get_parent().get_name() == "World2")
 	PlayerStats.reset()
 #	self.set_paused(false)
 	print("get_tree().paused = false")
-	get_tree().change_scene("res://Levels/World1.tscn")
+	if self.get_parent().get_name() == "World1":
+		get_tree().change_scene("res://Levels/World1.tscn")
+	elif self.get_parent().get_name() == "World2":
+		get_tree().change_scene("res://Levels/World2.tscn")
 	print("get_tree().change_scene()")
