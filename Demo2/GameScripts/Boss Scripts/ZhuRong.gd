@@ -64,6 +64,7 @@ func _physics_process(delta):
 		IDLE:
 			motion = direction2hero * 0
 			animationPlayer.play("Idle")
+		
 			
 
 func get_stats():
