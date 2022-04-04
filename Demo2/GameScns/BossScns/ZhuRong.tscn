@@ -423,6 +423,7 @@ parameters/Move/blend_position = Vector2( 0, 0 )
 parameters/MoveStaff/blend_position = Vector2( 0, 0 )
 
 [node name="Stats" parent="." instance=ExtResource( 3 )]
+max_health = 1000
 
 [node name="Hurtbox" parent="." instance=ExtResource( 4 )]
 
