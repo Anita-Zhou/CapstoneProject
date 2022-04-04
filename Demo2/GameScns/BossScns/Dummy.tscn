@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Art Src/Tutorial/dummy1.png" type="Texture" id=1]
 [ext_resource path="res://LevelScripts/Creatures/Dummy.gd" type="Script" id=2]
 [ext_resource path="res://GameScns/Hitboxes&Hurtboxes/HurtBox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Stats.tscn" type="PackedScene" id=4]
+[ext_resource path="res://SoundEffects/dummy.wav" type="AudioStream" id=5]
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
@@ -70,6 +71,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 4 ]
 }
+tracks/1/type = "audio"
+tracks/1/path = NodePath("JumpSound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+} ],
+"times": PoolRealArray( 0.2 )
+}
 
 [sub_resource type="Animation" id=8]
 length = 0.001
@@ -101,6 +116,20 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4 ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("../JumpSound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 0.1 )
 }
 
 [sub_resource type="Animation" id=12]
@@ -146,12 +175,14 @@ anims/RESET = SubResource( 12 )
 max_health = 1000
 
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]
-collision_layer = 8
 collision_mask = 50
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 2, 17 )
 shape = SubResource( 10 )
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
 
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

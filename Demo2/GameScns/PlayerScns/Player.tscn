@@ -1,4 +1,4 @@
-[gd_scene load_steps=165 format=2]
+[gd_scene load_steps=162 format=2]
 
 [ext_resource path="res://Art Src/PlayerArt/walk_left.png" type="Texture" id=1]
 [ext_resource path="res://GameScripts/Player Scripts/Action.gd" type="Script" id=2]
@@ -433,7 +433,8 @@ loop = true
 
 [sub_resource type="Animation" id=78]
 resource_name = "AttackDown"
-length = 0.8
+length = 0.55
+step = 0.05
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -441,7 +442,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.8 ),
+"times": PoolRealArray( 0.55 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -467,7 +468,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.4, 0.6 ),
+"times": PoolRealArray( 0.2, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -479,7 +480,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.2, 0.3, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 54, 55, 56, 57, 58, 59 ]
@@ -487,7 +488,8 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=76]
 resource_name = "AttackLeft"
-length = 0.8
+length = 0.55
+step = 0.05
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -495,7 +497,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.56 ),
+"times": PoolRealArray( 0.55 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -521,7 +523,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.31, 0.56 ),
+"times": PoolRealArray( 0.25, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -533,7 +535,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.25, 0.35, 0.45 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 64, 65, 66, 67, 68, 69, 70 ]
@@ -541,7 +543,8 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=75]
 resource_name = "AttackRight"
-length = 0.8
+length = 0.55
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("player:frame")
 tracks/0/interp = 1
@@ -549,7 +552,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.25, 0.35, 0.45 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
@@ -561,7 +564,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.8 ),
+"times": PoolRealArray( 0.55 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -587,7 +590,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.4, 0.6 ),
+"times": PoolRealArray( 0.3, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -595,7 +598,8 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=77]
 resource_name = "AttackUp"
-length = 0.8
+length = 0.55
+step = 0.05
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -603,7 +607,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.8 ),
+"times": PoolRealArray( 0.55 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -629,7 +633,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.4, 0.6 ),
+"times": PoolRealArray( 0.2, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -641,7 +645,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.2, 0.3, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 71, 72, 73, 74, 75, 76 ]
@@ -957,44 +961,30 @@ tracks/0/keys = {
 "values": [ 44, 45, 46, 47, 48, 49, 50, 51 ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=79]
+[sub_resource type="AnimationNodeAnimation" id=204]
 animation = "AttackLeft"
 
-[sub_resource type="AnimationNodeAnimation" id=80]
+[sub_resource type="AnimationNodeAnimation" id=205]
 animation = "AttackDown"
 
-[sub_resource type="AnimationNodeAnimation" id=81]
+[sub_resource type="AnimationNodeAnimation" id=206]
 animation = "AttackRight"
 
-[sub_resource type="AnimationNodeAnimation" id=82]
-animation = "AttackUp"
-
-[sub_resource type="AnimationNodeAnimation" id=166]
-animation = "AttackDown"
-
-[sub_resource type="AnimationNodeAnimation" id=167]
-animation = "AttackDown"
-
-[sub_resource type="AnimationNodeAnimation" id=168]
+[sub_resource type="AnimationNodeAnimation" id=207]
 animation = "AttackUp"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id=83]
-blend_point_0/node = SubResource( 79 )
+blend_point_0/node = SubResource( 204 )
 blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 80 )
-blend_point_1/pos = Vector2( 0, 1.1 )
-blend_point_2/node = SubResource( 81 )
+blend_point_1/node = SubResource( 205 )
+blend_point_1/pos = Vector2( 0, 1.2 )
+blend_point_2/node = SubResource( 206 )
 blend_point_2/pos = Vector2( 1, 0 )
-blend_point_3/node = SubResource( 82 )
-blend_point_3/pos = Vector2( 0, -1.1 )
-blend_point_4/node = SubResource( 166 )
-blend_point_4/pos = Vector2( 0, 1.1 )
-blend_point_5/node = SubResource( 167 )
-blend_point_5/pos = Vector2( 0, -1.1 )
-blend_point_6/node = SubResource( 168 )
-blend_point_6/pos = Vector2( 0, -1.1 )
-min_space = Vector2( -1, -1.1 )
-max_space = Vector2( 1, 1.1 )
+blend_point_3/node = SubResource( 207 )
+blend_point_3/pos = Vector2( 0, -1.2 )
+min_space = Vector2( -1, -1.2 )
+max_space = Vector2( 1, 1.2 )
+blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id=146]
 animation = "DashLeft"
@@ -1169,7 +1159,7 @@ tree_root = SubResource( 40 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 31 )
-parameters/Attack/blend_position = Vector2( -0.00241548, 1.09056 )
+parameters/Attack/blend_position = Vector2( 0.10628, 0.885837 )
 parameters/Dash/blend_position = Vector2( 0, 1.1897 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/Walk/blend_position = Vector2( 0.00277781, 1.1 )
