@@ -6,7 +6,7 @@ extends KinematicBody2D
 # var b = "text"
 
 var speed = 40
-var direction = Vector2(0, 0)
+var direction2hero = Vector2(0, 0)
 var temp_direction = Vector2(0, 0)
 var distance2hero = float("inf")
 
@@ -16,7 +16,13 @@ var second_phase = false
 var stop_timer = 0
 
 enum{
-	IDLE
+	IDLE,
+	MOVE,
+	FIRE_CHARGE,
+	MOVE_SOWRD,
+	MOVE_STAFF, 
+	MELEE_ATK,
+	STOP
 }
 var state = IDLE
 
@@ -26,22 +32,37 @@ onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 onready var stats = $Stats
 
+#fixed point
+onready var mid_scrn = Vector2.ZERO
+onready var player_pos = Vector2.ZERO
+onready var left_edge = Vector2.ZERO
+onready var right_edge = Vector2.ZERO
+
+
+#skills
+onready var stoneSkill = get_node("fireBall")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	anim_sprite = get_node("AnimatedSprite")
+	player = get_parent().get_node("Player")
+	# Can only be set once by this, indicating the center of the screen
+	#  where all casting os spells happneing 
+	mid_scrn = self.global_position
+	player_pos = player.global_position
 	
 
 func _physics_process(delta):
 	if(is_instance_valid(player)):
-		direction = player.position - self.position
+		direction2hero = player.position - self.position
 		distance2hero = self.position.distance_to(player.position)
-	direction = direction.normalized()
+	direction2hero = direction2hero.normalized()
 
-	var motion = direction * speed
+	var motion = direction2hero * speed
 	
 	match state:
 		IDLE:
-			motion = direction * 0
+			motion = direction2hero * 0
 			animationPlayer.play("Idle")
 			
 
