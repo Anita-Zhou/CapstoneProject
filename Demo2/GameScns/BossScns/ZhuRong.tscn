@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=73 format=2]
 
 [ext_resource path="res://Art Src/BossArt/ZhuRong/zhurong_idle_no_fire.png" type="Texture" id=1]
 [ext_resource path="res://GameScripts/Boss Scripts/ZhuRong.gd" type="Script" id=2]
@@ -174,7 +174,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=32]
 resource_name = "MeleeAttack"
 length = 1.25
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:frame")
 tracks/0/interp = 1
@@ -208,7 +207,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=33]
 resource_name = "MoveStaff"
 length = 1.2
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:frame")
 tracks/0/interp = 1
@@ -333,24 +331,59 @@ min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id=69]
+animation = "MoveStaff"
+
+[sub_resource type="AnimationNodeAnimation" id=70]
+animation = "MoveStaff"
+
+[sub_resource type="AnimationNodeAnimation" id=71]
+animation = "MoveStaff"
+
+[sub_resource type="AnimationNodeAnimation" id=72]
+animation = "MoveStaff"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=73]
+blend_point_0/node = SubResource( 69 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 70 )
+blend_point_1/pos = Vector2( 0, 1.1 )
+blend_point_2/node = SubResource( 71 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 72 )
+blend_point_3/pos = Vector2( 0, -1.1 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=64]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=65]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=66]
+[sub_resource type="AnimationNodeStateMachineTransition" id=74]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=67]
+[sub_resource type="AnimationNodeStateMachineTransition" id=75]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=76]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=77]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=78]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=79]
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachine" id=47]
 states/Idle/node = SubResource( 53 )
 states/Idle/position = Vector2( 172.5, 75 )
 states/MeleeAttack/node = SubResource( 54 )
-states/MeleeAttack/position = Vector2( 269.75, 186.062 )
+states/MeleeAttack/position = Vector2( 377.875, 185.062 )
 states/Move/node = SubResource( 55 )
 states/Move/position = Vector2( 376, 75.75 )
-transitions = [ "Idle", "Move", SubResource( 64 ), "Move", "Idle", SubResource( 65 ), "Idle", "MeleeAttack", SubResource( 66 ), "MeleeAttack", "Idle", SubResource( 67 ) ]
+states/MoveStaff/node = SubResource( 73 )
+states/MoveStaff/position = Vector2( 268.75, -31.9688 )
+transitions = [ "Idle", "Move", SubResource( 64 ), "Move", "Idle", SubResource( 65 ), "MoveStaff", "Idle", SubResource( 74 ), "Idle", "MoveStaff", SubResource( 75 ), "Move", "MeleeAttack", SubResource( 76 ), "MeleeAttack", "Move", SubResource( 77 ), "Move", "MoveStaff", SubResource( 78 ), "MoveStaff", "Move", SubResource( 79 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -65.25, 27.5625 )
+graph_offset = Vector2( -91.3502, -110.25 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=48]
 
@@ -387,6 +420,7 @@ parameters/playback = SubResource( 48 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/MeleeAttack/blend_position = Vector2( 0, 0 )
 parameters/Move/blend_position = Vector2( 0, 0 )
+parameters/MoveStaff/blend_position = Vector2( 0, 0 )
 
 [node name="Stats" parent="." instance=ExtResource( 3 )]
 
