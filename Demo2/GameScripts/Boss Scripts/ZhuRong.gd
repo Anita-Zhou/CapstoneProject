@@ -7,6 +7,7 @@ extends KinematicBody2D
 
 var speed = 40
 var direction2hero = Vector2(0, 0)
+var horizontal_dirc2hero = Vector2(0, 0)
 var temp_direction = Vector2(0, 0)
 var distance2hero = float("inf")
 
@@ -57,13 +58,22 @@ func _physics_process(delta):
 		direction2hero = player.position - self.position
 		distance2hero = self.position.distance_to(player.position)
 	direction2hero = direction2hero.normalized()
+	if(direction2hero.x > 0) :
+		horizontal_dirc2hero = Vector2(1, 0)
+	else:
+		horizontal_dirc2hero = Vector2(-1, 0)
 
 	var motion = direction2hero * speed
+	animationTree.set("parameters/Idle/blend_position", direction2hero)
+	animationTree.set("parameters/Move/blend_position", direction2hero)
+	animationTree.set("parameters/MeleeAttack/blend_position", direction2hero)
 	
 	match state:
 		IDLE:
-			motion = direction2hero * 0
-			animationPlayer.play("Idle")
+			motion = horizontal_dirc2hero * 20
+			print("horizontal_dirc2hero:", horizontal_dirc2hero)
+			animationState.travel("Idle")
+			move_and_slide(motion)
 		
 			
 
