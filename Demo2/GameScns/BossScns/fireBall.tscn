@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://GameScns/BossScns/fireBall.gd" type="Script" id=1]
 [ext_resource path="res://Art Src/Attack/fire-skill/fireball-flying.png" type="Texture" id=2]
@@ -115,12 +115,12 @@ region = Rect2( 4320, 0, 432, 432 )
 [sub_resource type="SpriteFrames" id=23]
 animations = [ {
 "frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ) ],
-"loop": true,
+"loop": false,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=45]
+[sub_resource type="Animation" id=49]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:frame")
@@ -132,7 +132,37 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 4 ]
+"values": [ 10 ]
+}
+
+[sub_resource type="Animation" id=50]
+resource_name = "fireball_explosion"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "animation_finished"
+} ]
 }
 
 [sub_resource type="Animation" id=46]
@@ -178,13 +208,16 @@ script = ExtResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -1 )
 frames = SubResource( 23 )
-frame = 4
+frame = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 45 )
+anims/RESET = SubResource( 49 )
+anims/fireball_explosion = SubResource( 50 )
 anims/fireball_flying = SubResource( 46 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 6 )]
+collision_layer = 1024
+collision_mask = 4
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2( -29, 8 )
@@ -192,8 +225,12 @@ rotation = 1.5708
 shape = SubResource( 47 )
 
 [node name="Hitbox" parent="." instance=ExtResource( 5 )]
+collision_layer = 1024
+collision_mask = 0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2( -28, 9 )
 rotation = 1.5708
 shape = SubResource( 48 )
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

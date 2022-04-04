@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://Art Src/BossArt/ZhuRong/zhurong_idle_no_fire.png" type="Texture" id=1]
 [ext_resource path="res://GameScripts/Boss Scripts/ZhuRong.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://GameScns/Hitboxes&Hurtboxes/HitBox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Art Src/BossArt/ZhuRong/zhurong_raise_staff_no_Fire.png" type="Texture" id=6]
 [ext_resource path="res://Art Src/BossArt/ZhuRong/zhurong_sword_fire.png" type="Texture" id=7]
+[ext_resource path="res://GameScripts/Boss Scripts/FireBall.gd" type="Script" id=8]
 
 [sub_resource type="AtlasTexture" id=18]
 flags = 4
@@ -135,6 +136,22 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="Animation" id=68]
+resource_name = "Hurt"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=16]
 resource_name = "Idle"
@@ -341,6 +358,8 @@ graph_offset = Vector2( -65.25, 27.5625 )
 extents = Vector2( 140, 163.75 )
 
 [node name="ZhuRong" type="KinematicBody2D"]
+collision_layer = 8
+collision_mask = 499
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -351,6 +370,7 @@ frames = SubResource( 7 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
 playback_speed = 0.7
+anims/Hurt = SubResource( 68 )
 anims/Idle = SubResource( 16 )
 anims/MeleeAttack = SubResource( 32 )
 anims/Move = SubResource( 45 )
@@ -377,6 +397,9 @@ position = Vector2( -8, 24 )
 shape = SubResource( 17 )
 
 [node name="Hitbox" parent="." instance=ExtResource( 5 )]
+
+[node name="FireBall" type="KinematicBody2D" parent="."]
+script = ExtResource( 8 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 

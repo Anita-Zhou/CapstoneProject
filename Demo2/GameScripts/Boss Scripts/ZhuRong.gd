@@ -15,7 +15,7 @@ var anim_sprite = null
 var player = null
 var second_phase = false
 var stop_timer = 0
-
+var fireball_timer = 0
 enum{
 	IDLE,
 	MOVE,
@@ -41,7 +41,7 @@ onready var right_edge = Vector2.ZERO
 
 
 #skills
-onready var stoneSkill = get_node("fireBall")
+onready var fireBall = get_node("FireBall")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -62,6 +62,12 @@ func _physics_process(delta):
 		horizontal_dirc2hero = Vector2(1, 0)
 	else:
 		horizontal_dirc2hero = Vector2(-1, 0)
+	
+	if fireball_timer >0:
+		fireball_timer -= 1
+	if distance2hero < 300 and fireball_timer ==0:
+		fireBall.being_cast(direction2hero)
+		fireball_timer = 300
 
 	var motion = direction2hero * speed
 	animationTree.set("parameters/Idle/blend_position", direction2hero)
@@ -71,12 +77,10 @@ func _physics_process(delta):
 	match state:
 		IDLE:
 			motion = horizontal_dirc2hero * 20
-			print("horizontal_dirc2hero:", horizontal_dirc2hero)
+#			print("horizontal_dirc2hero:", horizontal_dirc2hero)
 			animationState.travel("Idle")
 			move_and_slide(motion)
 		
-			
-
 func get_stats():
 	return self.stats
 
@@ -107,6 +111,7 @@ func fix_position(check):
 		stop_timer = stop_timer - 90
 		
 func take_damage(area):
-	stats.health -= 53
+	stats.health -= 5
 #	emit_signal("boss_damage")
 	animationPlayer.play("Hurt")
+	print("zhu rong health", stats.health)
