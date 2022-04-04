@@ -80,7 +80,6 @@ func _physics_process(delta):
 	if horizontal_dist2hero > 40:
 		state = MOVE
 	
-
 	var motion = direction2hero * speed
 	animationTree.set("parameters/Idle/blend_position", direction2hero)
 	animationTree.set("parameters/Move/blend_position", direction2hero)

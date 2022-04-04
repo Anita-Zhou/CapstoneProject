@@ -33,13 +33,15 @@ func _process(delta):
 	if(final_pos != null):
 		if(spike_timer < 10):
 			spike_timer = spike_timer + 1
-		elif(spike_num < 15):
+		elif(spike_num < 1):
 			var Skill = load("res://GameScns/BossScns/fireBall.tscn")
 			var spike = Skill.instance()
 			var world = get_tree().current_scene
 			spike.global_position = start_pos + (spike_num + 2) * inc
 			spike.set_rotation(inc.angle())
 			world.add_child(spike)
+			
+			print("ball position", spike.global_position)
 			spike_num = spike_num + 1
 			spike_timer = 0
 		else:
