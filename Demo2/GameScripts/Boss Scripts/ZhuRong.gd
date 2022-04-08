@@ -48,6 +48,7 @@ var playerAway_timer = 0
 var meleeAtk_timer = 0
 var meleeAtk = false
 var arrived = false
+var lava_timer = 0
 
 #skills
 onready var fireBall = get_node("FireBall")
