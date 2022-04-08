@@ -1,30 +1,27 @@
 extends KinematicBody2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+# Sppeds
 var speed = 40
+# Directions
 var direction2hero = Vector2(0, 0)
 var horizontal_dirc2hero = Vector2(0, 0)
+var direction_to_mid = Vector2(0, 0)
 var temp_direction = Vector2(0, 0)
+# Distances
 var distance2hero = float("inf")
 var horizontal_dist2hero = float("inf")
 
 var anim_sprite = null
 var player = null
 var second_phase = false
-var stop_timer = 0
-var fireball_timer = 0
-var lava_timer = 0
 enum{
 	IDLE,
 	MOVE,
-	FIRE_CHARGE,
 	MOVE_SOWRD,
 	MOVE_STAFF, 
 	MELEE_ATK,
+	TRANSFER,
 	STOP
 }
 var state = IDLE
@@ -42,6 +39,15 @@ onready var player_pos = Vector2.ZERO
 onready var left_edge = Vector2.ZERO
 onready var right_edge = Vector2.ZERO
 
+#timers for scripts
+var timer = 0
+var stop_timer = 0 # timer for wood skill
+var fireball_timer = 0
+var firebeam_timer = 0
+var playerAway_timer = 0
+var meleeAtk_timer = 0
+var meleeAtk = false
+var arrived = false
 
 #skills
 onready var fireBall = get_node("FireBall")
@@ -64,6 +70,8 @@ func _physics_process(delta):
 		distance2hero = self.position.distance_to(player.position)
 		horizontal_dist2hero = abs(self.position.x - player.position.x)
 	direction2hero = direction2hero.normalized()
+	
+	direction_to_mid = (mid_scrn - self.position).normalized()
 	
 	# Decide horizontal moving direction
 	if(direction2hero.x > 0) :
@@ -89,12 +97,28 @@ func _physics_process(delta):
 			lava_timer = 0
 
 	# Decide states
-	if horizontal_dist2hero > 40:
-		state = MOVE
-	
+	if(state == IDLE):
+		if (horizontal_dist2hero > 40):
+			state = MOVE
+		elif (fireball_timer == 0 or firebeam_timer == 0):
+			state = MOVE_STAFF
+			#TODO: move staff emits a signal such that it tells 
+			# the boss to choose between skills to cast
+		elif (playerAway_timer == 0 or meleeAtk_timer == 0):
+			state = TRANSFER
+	if(state == MOVE):
+		if (fireball_timer == 0 or firebeam_timer == 0):
+			state = IDLE
+		elif (playerAway_timer == 0 or meleeAtk_timer == 0):
+			state = TRANSFER
+	if(state == TRANSFER):
+		if(arrived && !meleeAtk):
+			state = MELEE_ATK
+
 	var motion = direction2hero * speed
 	animationTree.set("parameters/Idle/blend_position", direction2hero)
 	animationTree.set("parameters/Move/blend_position", direction2hero)
+	animationTree.set("parameters/MoveStaff/blend_position", direction2hero)
 	animationTree.set("parameters/MeleeAttack/blend_position", direction2hero)
 	
 	match state:
@@ -108,8 +132,24 @@ func _physics_process(delta):
 		MOVE_STAFF:
 			motion = horizontal_dirc2hero * 0
 			animationState.travel("MoveStaff")
-				
-	
+		MELEE_ATK:
+			animationState.travel("MeleeAttack")
+		TRANSFER: 
+			if(meleeAtk == true):
+				motion = direction_to_mid * 40
+			else:
+				motion = direction2hero * 40
+			animationState.travel("Move")
+		STOP:
+			motion = horizontal_dirc2hero * 0
+			if stop_timer < 180:
+				animationState.travel("Idle")
+				stop_timer = stop_timer + 1
+			else:
+				temp_direction = horizontal_dirc2hero
+				state = MOVE
+				timer = 0
+			
 	move_and_slide(motion)
 	move_and_collide(motion * delta)
 			
@@ -124,6 +164,10 @@ func get_direction2hero():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+func back_to_normal():
+	# move to the mid screen position
+	# move state to idle
+	state = IDLE
 
 
 func _on_Hurtbox_area_entered(area):
