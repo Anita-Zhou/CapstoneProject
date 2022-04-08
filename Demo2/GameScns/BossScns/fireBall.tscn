@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://GameScns/BossScns/fireBall.gd" type="Script" id=1]
 [ext_resource path="res://Art Src/Attack/fire-skill/fireball-flying.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://GameScns/Hitboxes&Hurtboxes/HitBox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://GameScns/Hitboxes&Hurtboxes/HurtBox.tscn" type="PackedScene" id=6]
 [ext_resource path="res://SoundEffects/fireball-explosion.wav" type="AudioStream" id=7]
+[ext_resource path="res://SoundEffects/fireball_flying.wav" type="AudioStream" id=8]
 
 [sub_resource type="AtlasTexture" id=24]
 flags = 4
@@ -194,6 +195,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 5, 6, 7, 8, 9 ]
 }
+tracks/1/type = "audio"
+tracks/1/path = NodePath("FlyingSound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+} ],
+"times": PoolRealArray( -0.1 )
+}
 
 [sub_resource type="CapsuleShape2D" id=47]
 radius = 43.0
@@ -237,5 +252,8 @@ shape = SubResource( 48 )
 
 [node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 7 )
+
+[node name="FlyingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
