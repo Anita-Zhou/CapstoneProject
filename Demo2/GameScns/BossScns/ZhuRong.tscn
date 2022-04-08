@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=2]
+[gd_scene load_steps=74 format=2]
 
 [ext_resource path="res://Art Src/BossArt/ZhuRong/zhurong_idle_no_fire.png" type="Texture" id=1]
 [ext_resource path="res://GameScripts/Boss Scripts/ZhuRong.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Art Src/BossArt/ZhuRong/zhurong_raise_staff_no_Fire.png" type="Texture" id=6]
 [ext_resource path="res://Art Src/BossArt/ZhuRong/zhurong_sword_fire.png" type="Texture" id=7]
 [ext_resource path="res://GameScripts/Boss Scripts/FireBall.gd" type="Script" id=8]
+[ext_resource path="res://GameScripts/Boss Scripts/LavaPond.gd" type="Script" id=9]
 
 [sub_resource type="AtlasTexture" id=18]
 flags = 4
@@ -383,7 +384,7 @@ states/MoveStaff/node = SubResource( 73 )
 states/MoveStaff/position = Vector2( 268.75, -31.9688 )
 transitions = [ "Idle", "Move", SubResource( 64 ), "Move", "Idle", SubResource( 65 ), "MoveStaff", "Idle", SubResource( 74 ), "Idle", "MoveStaff", SubResource( 75 ), "Move", "MeleeAttack", SubResource( 76 ), "MeleeAttack", "Move", SubResource( 77 ), "Move", "MoveStaff", SubResource( 78 ), "MoveStaff", "Move", SubResource( 79 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -91.3502, -110.25 )
+graph_offset = Vector2( -186.06, -90.5625 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=48]
 
@@ -435,6 +436,9 @@ shape = SubResource( 17 )
 
 [node name="FireBall" type="KinematicBody2D" parent="."]
 script = ExtResource( 8 )
+
+[node name="LavaPond" type="KinematicBody2D" parent="."]
+script = ExtResource( 9 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 

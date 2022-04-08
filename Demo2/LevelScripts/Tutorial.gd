@@ -15,6 +15,11 @@ func _ready():
 	enemy.stats.connect("no_health", self, "_handle_win")
 	enemy.stats.connect("no_health", portal, "_on_enemy_died")
 	dialogue.connect("end_dialogue", enemy, "_on_dialogue_ended")
+#	var fireBall = load("res://GameScns/BossScns/fireBall.tscn")
+#	var fb = fireBall.instance()
+#	self.add_child(fb)
+#	fb.set_global_position(Vector2(100, 100))
+
 func _unhandled_input(event):
 	if(event.is_action_pressed("pause")):
 		if(is_paused == false):

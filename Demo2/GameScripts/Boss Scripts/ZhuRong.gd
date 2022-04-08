@@ -17,6 +17,7 @@ var player = null
 var second_phase = false
 var stop_timer = 0
 var fireball_timer = 0
+var lava_timer = 0
 enum{
 	IDLE,
 	MOVE,
@@ -27,6 +28,7 @@ enum{
 	STOP
 }
 var state = IDLE
+var rng = RandomNumberGenerator.new()
 
 onready var screenSize = get_viewport().get_visible_rect().size
 onready var animationPlayer = $AnimationPlayer
@@ -43,6 +45,7 @@ onready var right_edge = Vector2.ZERO
 
 #skills
 onready var fireBall = get_node("FireBall")
+onready var lavaPond = get_node("LavaPond")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -75,7 +78,16 @@ func _physics_process(delta):
 		state = MOVE_STAFF
 		fireBall.being_cast(direction2hero)
 		fireball_timer = 300
-	
+		
+		
+	if(second_phase):
+		if(lava_timer < 60):
+			lava_timer = lava_timer + 1
+		else:
+			var lava_pos = Vector2(rng.randi_range(0,screenSize.x), rng.randi_range(240,screenSize.y))
+			lavaPond.being_cast(lava_pos)
+			lava_timer = 0
+
 	# Decide states
 	if horizontal_dist2hero > 40:
 		state = MOVE
@@ -107,7 +119,8 @@ func _physics_process(delta):
 func get_stats():
 	return self.stats
 
-
+func get_direction2hero():
+	return direction2hero
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
@@ -123,7 +136,7 @@ func _on_Hurtbox_area_entered(area):
 		take_damage(area)
 	if stats.health < stats.max_health/2:
 		second_phase = true
-#	pass # Replace with function body.
+
 
 func fix_position(check):
 	if(!check):
