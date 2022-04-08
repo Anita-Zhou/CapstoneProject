@@ -149,10 +149,10 @@ func _physics_process(delta):
 			motion = Vector2.ZERO
 			# Prepare for attack
 			animationState.travel("MoveStaff")
-			
+			print("animation moveStaff")
 			# Decide whether to cast fireball or firebeam
 			# Prioritize firebeam over firball
-			if (firebeam_timer > FRAME_RATE * 2):
+			if (firebeam_timer > FRAME_RATE * 20):
 				#TODO: firebeam check			
 				var fireBeamChoices = [2,3,4]
 				var fireBeamNum = fireBeamChoices[randi() % fireBeamChoices.size()]
@@ -173,9 +173,10 @@ func _physics_process(delta):
 				if (horizontal_dist2hero < 300):
 					fireBall.being_cast(direction2hero)
 					fireball_timer = 0
-			# Always get back to IDLE
+					
+			# Always get back to IDLE after casting magic
 			state = IDLE
-			# Reset ready_to_cast
+			# Reset ready_to_cast so that it can prepare for 
 			ready_to_cast = false
 
 		MELEE_ATK:
@@ -232,13 +233,13 @@ func get_direction2hero():
 	return direction2hero
 
 func back_to_normal():
-	# move to the mid screen position
 	# move state to idle
 	state = IDLE
 
 # Helper function that modify meleeAtk after finished boss melee attack
 func finished_melee_attack():
 	meleeAtk = true
+	
 
 func _on_Hurtbox_area_entered(area):
 	print(area.get_parent().get_name() + " entered boss")

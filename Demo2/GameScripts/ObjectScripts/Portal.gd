@@ -8,4 +8,5 @@ func _on_enemy_died():
 	
 	
 func _on_Hurtbox_area_entered(area):
+	print("Portal hurtbox entered")
 	get_tree().change_scene("res://Levels/World1.tscn")

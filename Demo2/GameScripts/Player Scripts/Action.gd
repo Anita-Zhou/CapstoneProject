@@ -135,7 +135,7 @@ func _input(ev):
 			waterskill.being_cast()
 			emit_signal("cast_water")
 			
-	if Input.is_key_pressed(KEY_I):
+	if Input.is_key_pressed(KEY_O):
 		if(stats.earth_cd == 0 && stats.num_skills > 2):
 			earthskill.being_cast()
 			emit_signal("cast_earth")
