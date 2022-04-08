@@ -4,7 +4,7 @@ extends Node2D
 var horizontal = false
 
 func _ready():
-	$AnimationPlayer.play("fireBeam_summoning")
+	$AnimationPlayer.play("firebeam")
 
 func summon_animation_finished():
 	$AnimationPlayer.stop()

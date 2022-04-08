@@ -14,24 +14,31 @@ func _ready():
 	pass
 
 func being_cast(direction):
-	var player = get_tree().current_scene.get_node("Player")
 	var boss = $"../../ZhuRong"
-	if(is_instance_valid(player)):
-		start_pos = boss.get_position() 
-		final_pos = start_pos + 4000 * boss.get_direction2hero()
-		inc = boss.get_direction2hero()
-	#	inc = (final_pos - start_pos)
-	#	inc = inc.normalized() * 60
-		spike_num = 0
-		var Skill = load("res://GameScns/BossScns/fireBall.tscn")
-		spike = Skill.instance()
-		spike.target(final_pos)
-		var world = get_tree().current_scene
-		spike.set_rotation(inc.angle())
-		spike.set_global_position(start_pos)
-		world.add_child(spike)
-	else:
-		final_pos = null
+	var Skill = load("res://GameScns/BossScns/fireBallSummoning.tscn")
+	spike = Skill.instance()
+	spike.summonFireBall(boss)
+	var world = get_tree().current_scene
+	spike.set_global_position(boss.get_position())
+	world.add_child(spike)
+#	var player = get_tree().current_scene.get_node("Player")
+#	var boss = $"../../ZhuRong"
+#	if(is_instance_valid(player)):
+#		start_pos = boss.get_position() 
+#		final_pos = start_pos + 4000 * boss.get_direction2hero()
+#		inc = boss.get_direction2hero()
+#	#	inc = (final_pos - start_pos)
+#	#	inc = inc.normalized() * 60
+#		spike_num = 0
+#		var Skill = load("res://GameScns/BossScns/fireBall.tscn")
+#		spike = Skill.instance()
+#		spike.target(final_pos)
+#		var world = get_tree().current_scene
+#		spike.set_rotation(inc.angle())
+#		spike.set_global_position(start_pos)
+#		world.add_child(spike)
+#	else:
+#		final_pos = null
 		
 
 func _process(delta):

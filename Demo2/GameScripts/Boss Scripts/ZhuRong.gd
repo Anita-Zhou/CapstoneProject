@@ -152,7 +152,7 @@ func _physics_process(delta):
 			
 			# Decide whether to cast fireball or firebeam
 			# Prioritize firebeam over firball
-			if (firebeam_timer > FRAME_RATE * 20):
+			if (firebeam_timer > FRAME_RATE * 2):
 				#TODO: firebeam check			
 				var fireBeamChoices = [2,3,4]
 				var fireBeamNum = fireBeamChoices[randi() % fireBeamChoices.size()]
