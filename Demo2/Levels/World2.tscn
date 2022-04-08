@@ -34,7 +34,7 @@ position = Vector2( 213, 468 )
 z_index = 2
 
 [node name="ZhuRong" parent="." instance=ExtResource( 5 )]
-position = Vector2( 541, 123 )
+position = Vector2( 548, 209 )
 scale = Vector2( 0.575432, 0.575432 )
 
 [node name="CanvasLayer1" type="CanvasLayer" parent="."]
