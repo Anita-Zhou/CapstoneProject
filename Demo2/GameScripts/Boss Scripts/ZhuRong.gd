@@ -152,7 +152,7 @@ func _physics_process(delta):
 			
 			# Decide whether to cast fireball or firebeam
 			# Prioritize firebeam over firball
-			if (firebeam_timer > FRAME_RATE * 2):
+			if (firebeam_timer > FRAME_RATE * 20):
 				#TODO: firebeam check			
 				var fireBeamChoices = [2,3,4]
 				var fireBeamNum = fireBeamChoices[randi() % fireBeamChoices.size()]
@@ -261,7 +261,7 @@ func fix_position(check):
 		stop_timer = stop_timer - 90
 		
 func take_damage(area):
-	stats.health -= 5
+	stats.health -= 50
 #	emit_signal("boss_damage")
 	animationPlayer.play("Hurt")
 	print("zhu rong health", stats.health)
