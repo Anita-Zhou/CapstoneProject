@@ -1,19 +1,18 @@
 extends Node2D
 
 #onready var screenSize = get_viewport().get_visible_rect().size
+var horizontal = false
 
 func _ready():
-	pass # Replace with function body.
-
-func being_cast(position):
-	# Check position left, right, up, down
-#	if position.x < screenSize.x/2:
-		#left
-		
-	# FireBall preparation
 	$AnimationPlayer.play("fireBeam_summoning")
-	
-	
+
+func summon_animation_finished():
+	$AnimationPlayer.stop()
+	$AnimationPlayer.play("firebeam")
+
+func firebeam_animation_finished():
+	queue_free()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	pass

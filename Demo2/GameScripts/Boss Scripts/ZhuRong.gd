@@ -53,6 +53,7 @@ var lava_timer = 0
 #skills
 onready var fireBall = get_node("FireBall")
 onready var lavaPond = get_node("LavaPond")
+onready var fireBeam = get_node("FireBeam")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -88,6 +89,23 @@ func _physics_process(delta):
 		fireBall.being_cast(direction2hero)
 		fireball_timer = 300
 		
+		
+	if firebeam_timer > 0:
+		firebeam_timer -= 1
+	if firebeam_timer == 0:
+		var fireBeamChoices = [2,3,4]
+		var fireBeamNum = fireBeamChoices[randi() % fireBeamChoices.size()]
+		
+		while fireBeamNum >0:
+			var dirChosen = null
+			if fireBeamNum > 1:	
+				var dirChoices = [1, 2, 3]
+				dirChosen = dirChoices[randi() % dirChoices.size()]
+			else:
+				dirChosen = 2
+			fireBeam.being_cast(dirChosen)
+			fireBeamNum -= 1
+		firebeam_timer = 300
 		
 	if(second_phase):
 		if(lava_timer < 60):
