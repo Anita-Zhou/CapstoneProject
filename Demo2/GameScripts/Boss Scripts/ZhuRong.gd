@@ -8,15 +8,14 @@ extends KinematicBody2D
 var speed = 40
 var direction2hero = Vector2(0, 0)
 var horizontal_dirc2hero = Vector2(0, 0)
-var temp_direction = Vector2(0, 0)
+var direction_to_mid = Vector2(0, 0)
 var distance2hero = float("inf")
 var horizontal_dist2hero = float("inf")
 
 var anim_sprite = null
 var player = null
 var second_phase = false
-var stop_timer = 0
-var fireball_timer = 0
+
 enum{
 	IDLE,
 	MOVE,
@@ -24,6 +23,7 @@ enum{
 	MOVE_SOWRD,
 	MOVE_STAFF, 
 	MELEE_ATK,
+	TRANSFER,
 	STOP
 }
 var state = IDLE
@@ -40,6 +40,15 @@ onready var player_pos = Vector2.ZERO
 onready var left_edge = Vector2.ZERO
 onready var right_edge = Vector2.ZERO
 
+#timers for scripts
+var timer = 0
+var stop_timer = 0 # timer for wood skill
+var fireball_timer = 0
+var firebeam_timer = 0
+var playerAway_timer = 0
+var meleeAtk_timer = 0
+var meleeAtk = false
+var arrived = false
 
 #skills
 onready var fireBall = get_node("FireBall")
