@@ -17,12 +17,17 @@ func _ready():
 func being_cast(dir):
 	var player = get_tree().current_scene.get_node("Player")
 	var fireBeam = load("res://GameScns/BossScns/fireBeam.tscn")
+	var summon = load("res://GameScns/BossScns/fireBallSummoning.tscn")
 	var world = get_tree().current_scene
 	
 	if dir == 1:
 		# start from the left
 		var pos = Vector2(LEFT_X_BEAM, rng.randi_range(260,BOTTOM_Y_BEAM))
 		var hbeam = fireBeam.instance()
+		var hsummon = summon.instance()
+		hsummon.summonFireBeam()
+		world.add_child(hsummon)
+		hsummon.global_position = Vector2(screenSize.x - pos.x - 80, pos.y - 20)
 		world.add_child(hbeam)
 		hbeam.set_rotation(Vector2(0, 1).angle())
 		hbeam.global_position = pos
@@ -31,13 +36,17 @@ func being_cast(dir):
 		# start from the right
 		var pos = Vector2(RIGHT_X_BEAM, rng.randi_range(260, BOTTOM_Y_BEAM))
 		var hbeam = fireBeam.instance()
+		var hsummon = summon.instance()
+		hsummon.summonFireBeam()
+		world.add_child(hsummon)
+		hsummon.global_position = Vector2(screenSize.x - pos.x + 80, pos.y - 20)
 		world.add_child(hbeam)
 		hbeam.set_rotation(Vector2(0, -1).angle())
 		hbeam.global_position = pos
 		
 	elif dir == 2:
 		# start from the bottom
-		var pos = Vector2(rng.randi_range(LEFT_X_BEAM, RIGHT_X_BEAM), BOTTOM_Y_BEAM)
+		var pos = Vector2(rng.randi_range(LEFT_X_BEAM + 150, RIGHT_X_BEAM - 150), BOTTOM_Y_BEAM)
 		var vbeam = fireBeam.instance()
 		world.add_child(vbeam)
 		vbeam.global_position = pos
