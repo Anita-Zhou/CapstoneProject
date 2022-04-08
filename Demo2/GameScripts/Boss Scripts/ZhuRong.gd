@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+var FRAME_RATE = 60
 
 # Sppeds
 var speed = 40
@@ -18,10 +19,8 @@ var second_phase = false
 enum{
 	IDLE,
 	MOVE,
-	MOVE_SOWRD,
 	MOVE_STAFF, 
 	MELEE_ATK,
-	TRANSFER,
 	STOP
 }
 var state = IDLE
@@ -39,16 +38,21 @@ onready var player_pos = Vector2.ZERO
 onready var left_edge = Vector2.ZERO
 onready var right_edge = Vector2.ZERO
 
-#timers for scripts
+# Timers for scripts
 var timer = 0
 var stop_timer = 0 # timer for wood skill
+# Skill timer
 var fireball_timer = 0
 var firebeam_timer = 0
-var playerAway_timer = 0
+var lava_timer = 0
 var meleeAtk_timer = 0
+var playerAway_timer = 0
+# Helper var
 var meleeAtk = false
 var arrived = false
-var lava_timer = 0
+# Combined timer check 
+var ready_to_cast = false
+var ready_to_atk = true
 
 #skills
 onready var fireBall = get_node("FireBall")
@@ -64,57 +68,47 @@ func _ready():
 	player_pos = player.global_position
 	
 
+# Debug
+var prev_state = IDLE
+
 func _physics_process(delta):
+	
+	## DEBUG! 
+	if(prev_state != state):
+		print( "State change from ", prev_state, " to ", state)
+	prev_state = state
+	
 	# If player is not dead, calculate distance and direction between boss and hero.
 	if(is_instance_valid(player)):
 		direction2hero = player.position - self.position
 		distance2hero = self.position.distance_to(player.position)
 		horizontal_dist2hero = abs(self.position.x - player.position.x)
 	direction2hero = direction2hero.normalized()
-	
+	# Decide horizontal moving direction
+	horizontal_dirc2hero = Vector2(direction2hero.x, 0).normalized()
+	# Deicide the way back 
 	direction_to_mid = (mid_scrn - self.position).normalized()
 	
-	# Decide horizontal moving direction
-	if(direction2hero.x > 0) :
-		horizontal_dirc2hero = Vector2(1, 0)
-	else:
-		horizontal_dirc2hero = Vector2(-1, 0)
+	# Combined state detect
+	if (fireball_timer > FRAME_RATE * 5 or firebeam_timer > FRAME_RATE * 20):
+		ready_to_cast = true
+	if (playerAway_timer > FRAME_RATE * 30 or meleeAtk_timer > FRAME_RATE * 40):
+		ready_to_atk = true
 	
-	# Decide when to release fireball. 
-	if fireball_timer >0:
-		fireball_timer -= 1
-	if horizontal_dist2hero < 300 and fireball_timer == 0:
-		state = MOVE_STAFF
-		fireBall.being_cast(direction2hero)
-		fireball_timer = 300
-		
-		
+	# Update timers
+	fireball_timer += 1
+	firebeam_timer += 1
+	meleeAtk_timer += 1
+	
+	# Second phase random generation of lava pools
+	# TODO: lava pools are generated random within a frame close to player's position
 	if(second_phase):
-		if(lava_timer < 60):
+		if(lava_timer < FRAME_RATE * 2):
 			lava_timer = lava_timer + 1
 		else:
 			var lava_pos = Vector2(rng.randi_range(0,screenSize.x), rng.randi_range(240,screenSize.y))
 			lavaPond.being_cast(lava_pos)
 			lava_timer = 0
-
-	# Decide states
-	if(state == IDLE):
-		if (horizontal_dist2hero > 40):
-			state = MOVE
-		elif (fireball_timer == 0 or firebeam_timer == 0):
-			state = MOVE_STAFF
-			#TODO: move staff emits a signal such that it tells 
-			# the boss to choose between skills to cast
-		elif (playerAway_timer == 0 or meleeAtk_timer == 0):
-			state = TRANSFER
-	if(state == MOVE):
-		if (fireball_timer == 0 or firebeam_timer == 0):
-			state = IDLE
-		elif (playerAway_timer == 0 or meleeAtk_timer == 0):
-			state = TRANSFER
-	if(state == TRANSFER):
-		if(arrived && !meleeAtk):
-			state = MELEE_ATK
 
 	var motion = direction2hero * speed
 	animationTree.set("parameters/Idle/blend_position", direction2hero)
@@ -123,24 +117,85 @@ func _physics_process(delta):
 	animationTree.set("parameters/MeleeAttack/blend_position", direction2hero)
 	
 	match state:
+		
 		IDLE:
-			motion = horizontal_dirc2hero * 0
-#			print("horizontal_dirc2hero:", horizontal_dirc2hero)
+			motion = Vector2.ZERO
 			animationState.travel("Idle")
+			# Prioritize melee attack when player's been away for too long
+			if (ready_to_atk):
+				# Designated to state in cahrge of throw melee attack
+				state = MELEE_ATK
+			# If able to cast skills, cast skills
+			elif (ready_to_cast):
+				state = MOVE_STAFF
+			# If player is away but not for too long, horizontally trace player
+			elif (horizontal_dist2hero > 40):
+				state = MOVE
+
+		# Horizontally move, either go for melee attack or go for idle
 		MOVE:
 			motion = horizontal_dirc2hero * 20
 			animationState.travel("Move")
+			if (ready_to_atk):
+				print("ready_to_atk")
+				state = MELEE_ATK
+			elif (ready_to_cast):
+				print("ready_to_cast")
+				state = MOVE_STAFF
+		
+		# Prepare to cast magic attack, decide on what magic attacj to do
 		MOVE_STAFF:
-			motion = horizontal_dirc2hero * 0
+			motion = Vector2.ZERO
+			# Prepare for attack
 			animationState.travel("MoveStaff")
+			
+			# Decide whether to cast fireball or firebeam
+			# Prioritize firebeam over firball
+			if (firebeam_timer > FRAME_RATE * 20):
+				#TODO: firebeam check
+				firebeam_timer = 0
+				pass
+			elif (fireball_timer > FRAME_RATE * 5):
+				if (horizontal_dist2hero < 300):
+					fireBall.being_cast(direction2hero)
+					fireball_timer = 0
+			# Always get back to IDLE
+			state = IDLE
+			# Reset ready_to_cast
+			ready_to_cast = false
+
 		MELEE_ATK:
-			animationState.travel("MeleeAttack")
-		TRANSFER: 
-			if(meleeAtk == true):
-				motion = direction_to_mid * 40
+			if (distance2hero < 30):
+				arrived = true
+			# If has neither arrived nor attacked
+			if(!arrived && !meleeAtk):
+				# Move towards player
+				motion = direction2hero * 100
+				animationState.travel("Move")
+			# If has arrived but has not attack
+			elif(arrived && !meleeAtk):
+				motion = Vector2.ZERO
+				# ATTACK!!!
+				animationState.travel("MeleeAttack")
+			# If has arrived and has attacked 
+			elif(arrived && meleeAtk):
+				# Getting back to center
+				motion = direction_to_mid * 80
+				animationState.travel("Move")
+				# If have gotten back to mid screen, change to IDLE
+				if (self.position.distance_to(mid_scrn) < 30):
+					state = IDLE
+					# Back to as if has never throw melee attack
+					arrived = false
+					meleeAtk = false
+					meleeAtk_timer = 0
+					playerAway_timer = 0
+					# Reset ready_to_atk
+					ready_to_atk = false
 			else:
-				motion = direction2hero * 40
-			animationState.travel("Move")
+				print("===== ERROR: has not arrived but attacked =====")
+
+		# Being stopped by the vines
 		STOP:
 			motion = horizontal_dirc2hero * 0
 			if stop_timer < 180:
@@ -156,20 +211,20 @@ func _physics_process(delta):
 			
 		
 		
-		
 func get_stats():
 	return self.stats
 
 func get_direction2hero():
 	return direction2hero
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
 func back_to_normal():
 	# move to the mid screen position
 	# move state to idle
 	state = IDLE
 
+# Helper function that modify meleeAtk after finished boss melee attack
+func finished_melee_attack():
+	meleeAtk = true
 
 func _on_Hurtbox_area_entered(area):
 	print(area.get_parent().get_name() + " entered boss")

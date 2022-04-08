@@ -187,6 +187,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 14, 15, 16, 17, 18, 19, 19, 18, 20, 21, 22, 23, 23 ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "finished_melee_attack"
+} ]
+}
 
 [sub_resource type="Animation" id=45]
 resource_name = "Move"
@@ -384,12 +398,12 @@ states/MoveStaff/node = SubResource( 73 )
 states/MoveStaff/position = Vector2( 268.75, -31.9688 )
 transitions = [ "Idle", "Move", SubResource( 64 ), "Move", "Idle", SubResource( 65 ), "MoveStaff", "Idle", SubResource( 74 ), "Idle", "MoveStaff", SubResource( 75 ), "Move", "MeleeAttack", SubResource( 76 ), "MeleeAttack", "Move", SubResource( 77 ), "Move", "MoveStaff", SubResource( 78 ), "MoveStaff", "Move", SubResource( 79 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -186.06, -90.5625 )
+graph_offset = Vector2( -199.11, -7.875 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=48]
 
 [sub_resource type="RectangleShape2D" id=17]
-extents = Vector2( 140, 163.75 )
+extents = Vector2( 111.5, 119.469 )
 
 [node name="ZhuRong" type="KinematicBody2D"]
 collision_layer = 8
@@ -397,7 +411,7 @@ collision_mask = 499
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -0.999992, 8 )
+position = Vector2( 4, -127 )
 scale = Vector2( 2.36719, 2.36719 )
 frames = SubResource( 7 )
 
@@ -419,7 +433,7 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 48 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
-parameters/MeleeAttack/blend_position = Vector2( 0, 0 )
+parameters/MeleeAttack/blend_position = Vector2( -1.00126, -0.00472105 )
 parameters/Move/blend_position = Vector2( 0, 0 )
 parameters/MoveStaff/blend_position = Vector2( 0, 0 )
 
@@ -429,7 +443,7 @@ max_health = 1000
 [node name="Hurtbox" parent="." instance=ExtResource( 4 )]
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2( -8, 24 )
+position = Vector2( -1.5, -102.469 )
 shape = SubResource( 17 )
 
 [node name="Hitbox" parent="." instance=ExtResource( 5 )]
@@ -438,6 +452,7 @@ shape = SubResource( 17 )
 script = ExtResource( 8 )
 
 [node name="LavaPond" type="KinematicBody2D" parent="."]
+position = Vector2( 0, -1 )
 script = ExtResource( 9 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
