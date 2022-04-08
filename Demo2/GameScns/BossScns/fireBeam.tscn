@@ -187,8 +187,8 @@ extents = Vector2( 40.25, 411.875 )
 script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -1.14441e-05, -360.75 )
-scale = Vector2( 1.70833, 1.70521 )
+position = Vector2( 0, -473.875 )
+scale = Vector2( 1.70833, 2.22031 )
 frames = SubResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -201,6 +201,7 @@ collision_layer = 1024
 collision_mask = 4
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
+visible = false
 position = Vector2( 0, -363.125 )
 shape = SubResource( 9 )
 
@@ -210,6 +211,7 @@ collision_layer = 1024
 collision_mask = 0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox"]
+visible = false
 position = Vector2( 5, -395.875 )
 shape = SubResource( 10 )
 disabled = true
