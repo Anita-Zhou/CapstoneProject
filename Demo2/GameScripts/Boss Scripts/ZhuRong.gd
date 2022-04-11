@@ -15,7 +15,7 @@ var horizontal_dist2hero = float("inf")
 
 var anim_sprite = null
 var player = null
-var second_phase = false
+var second_phase = true
 enum{
 	IDLE,
 	MOVE,
@@ -157,7 +157,7 @@ func _physics_process(delta):
 				var fireBeamChoices = [2,3,4]
 				var fireBeamNum = fireBeamChoices[randi() % fireBeamChoices.size()]
 				
-				while fireBeamNum >0:
+				while fireBeamNum > 0:
 					var dirChosen = null
 					if fireBeamNum > 1:	
 						var dirChoices = [1, 2, 3]
@@ -190,8 +190,15 @@ func _physics_process(delta):
 			# If has arrived but has not attack
 			elif(arrived && !meleeAtk):
 				motion = Vector2.ZERO
-				# ATTACK!!!
-				animationState.travel("MeleeAttack")
+				# ATTACK based on phase
+				# Phase 1
+				if (!second_phase):
+					animationState.travel("MeleeAttack")
+				else:
+					animationState.travel("RageMelee")
+				# Phase 2
+				
+			
 			# If has arrived and has attacked 
 			elif(arrived && meleeAtk):
 				# Getting back to center
@@ -262,7 +269,7 @@ func fix_position(check):
 		stop_timer = stop_timer - 90
 		
 func take_damage(area):
-	stats.health -= 50
+	stats.health -= 100
 #	emit_signal("boss_damage")
 	animationPlayer.play("Hurt")
 	print("zhu rong health", stats.health)

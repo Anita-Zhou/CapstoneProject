@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=2]
+[gd_scene load_steps=94 format=2]
 
 [ext_resource path="res://Art Src/BossArt/ZhuRong/zhurong_idle_no_fire.png" type="Texture" id=1]
 [ext_resource path="res://GameScripts/Boss Scripts/ZhuRong.gd" type="Script" id=2]
@@ -370,6 +370,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [ true, false, true ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2.9 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "finished_melee_attack"
+} ]
+}
 
 [sub_resource type="Animation" id=9]
 resource_name = "idle"
@@ -474,6 +488,30 @@ blend_point_3/pos = Vector2( 0, -1.1 )
 min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 
+[sub_resource type="AnimationNodeAnimation" id=102]
+animation = "RageMeleeAttack"
+
+[sub_resource type="AnimationNodeAnimation" id=103]
+animation = "RageMeleeAttack"
+
+[sub_resource type="AnimationNodeAnimation" id=104]
+animation = "RageMeleeAttack"
+
+[sub_resource type="AnimationNodeAnimation" id=105]
+animation = "RageMeleeAttack"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=106]
+blend_point_0/node = SubResource( 102 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 103 )
+blend_point_1/pos = Vector2( 0, 1.1 )
+blend_point_2/node = SubResource( 104 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 105 )
+blend_point_3/pos = Vector2( 0, -1.1 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=64]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=65]
@@ -491,6 +529,10 @@ max_space = Vector2( 1, 1.1 )
 [sub_resource type="AnimationNodeStateMachineTransition" id=79]
 auto_advance = true
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=107]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=108]
+
 [sub_resource type="AnimationNodeStateMachine" id=47]
 states/Idle/node = SubResource( 53 )
 states/Idle/position = Vector2( 172.5, 75 )
@@ -500,9 +542,11 @@ states/Move/node = SubResource( 55 )
 states/Move/position = Vector2( 376, 75.75 )
 states/MoveStaff/node = SubResource( 73 )
 states/MoveStaff/position = Vector2( 268.75, -31.9688 )
-transitions = [ "Idle", "Move", SubResource( 64 ), "Move", "Idle", SubResource( 65 ), "MoveStaff", "Idle", SubResource( 74 ), "Idle", "MoveStaff", SubResource( 75 ), "Move", "MeleeAttack", SubResource( 76 ), "MeleeAttack", "Move", SubResource( 77 ), "Move", "MoveStaff", SubResource( 78 ), "MoveStaff", "Move", SubResource( 79 ) ]
+states/RageMelee/node = SubResource( 106 )
+states/RageMelee/position = Vector2( 672.09, 76.4375 )
+transitions = [ "Idle", "Move", SubResource( 64 ), "Move", "Idle", SubResource( 65 ), "MoveStaff", "Idle", SubResource( 74 ), "Idle", "MoveStaff", SubResource( 75 ), "Move", "MeleeAttack", SubResource( 76 ), "MeleeAttack", "Move", SubResource( 77 ), "Move", "MoveStaff", SubResource( 78 ), "MoveStaff", "Move", SubResource( 79 ), "Move", "RageMelee", SubResource( 107 ), "RageMelee", "Move", SubResource( 108 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -199.11, -7.875 )
+graph_offset = Vector2( 114.09, -59.0625 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=48]
 
@@ -549,6 +593,7 @@ parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/MeleeAttack/blend_position = Vector2( -1.00126, -0.00472105 )
 parameters/Move/blend_position = Vector2( 0, 0 )
 parameters/MoveStaff/blend_position = Vector2( 0, 0 )
+parameters/RageMelee/blend_position = Vector2( 0, 0 )
 
 [node name="Stats" parent="." instance=ExtResource( 3 )]
 max_health = 1000
