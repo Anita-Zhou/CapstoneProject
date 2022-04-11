@@ -32,3 +32,7 @@ func _handle_win():
 	add_child(win_menu)
 #	skillUI.get_node("Earth/Sprite").visible = true
 	
+func _process(delta):
+	if $BGM.playing == false:
+		$BGM.play()
+

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/62. Fire Giant.mp3-8f2bd824e6b1c5f27acf94881b2a1630.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/62. Fire Giant.mp3"
+dest_files=[ "res://.import/62. Fire Giant.mp3-8f2bd824e6b1c5f27acf94881b2a1630.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

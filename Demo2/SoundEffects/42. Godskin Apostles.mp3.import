@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/42. Godskin Apostles.mp3-e464bdb4a502e90dd9eaa48f4956efb0.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/42. Godskin Apostles.mp3"
+dest_files=[ "res://.import/42. Godskin Apostles.mp3-e464bdb4a502e90dd9eaa48f4956efb0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
