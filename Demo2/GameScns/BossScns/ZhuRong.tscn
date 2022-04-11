@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=2]
+[gd_scene load_steps=87 format=2]
 
 [ext_resource path="res://Art Src/BossArt/ZhuRong/zhurong_idle_no_fire.png" type="Texture" id=1]
 [ext_resource path="res://GameScripts/Boss Scripts/ZhuRong.gd" type="Script" id=2]
@@ -329,6 +329,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ false ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Hitbox2/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=100]
 resource_name = "RageMeleeAttack"
@@ -345,6 +357,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 14, 15, 16, 17, 24, 25, 26, 27, 28, 29, 26, 27, 28, 29, 26, 27, 28, 29, 26, 27, 28, 29, 26, 27, 28, 29, 30, 21, 22, 23 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Hitbox2/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 2.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -489,6 +513,10 @@ extents = Vector2( 111.5, 119.469 )
 radius = 30.0
 height = 214.0
 
+[sub_resource type="CapsuleShape2D" id=101]
+radius = 134.0
+height = 122.0
+
 [node name="ZhuRong" type="KinematicBody2D"]
 collision_layer = 8
 collision_mask = 499
@@ -540,6 +568,16 @@ position = Vector2( -8, -21 )
 rotation = 1.5708
 shape = SubResource( 90 )
 
+[node name="Hitbox2" parent="." instance=ExtResource( 5 )]
+collision_layer = 1024
+collision_mask = 5
+
+[node name="CollisionShape2D" parent="Hitbox2" index="0"]
+position = Vector2( 1, -122 )
+rotation = 1.5708
+shape = SubResource( 101 )
+disabled = true
+
 [node name="FireBall" type="KinematicBody2D" parent="."]
 script = ExtResource( 8 )
 
@@ -554,3 +592,4 @@ script = ExtResource( 10 )
 
 [editable path="Hurtbox"]
 [editable path="Hitbox"]
+[editable path="Hitbox2"]
