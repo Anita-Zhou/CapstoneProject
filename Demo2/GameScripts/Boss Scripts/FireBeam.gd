@@ -49,8 +49,8 @@ func being_cast(dir):
 		var pos = Vector2(rng.randi_range(LEFT_X_BEAM + 150, RIGHT_X_BEAM - 150), BOTTOM_Y_BEAM)
 		var vbeam = fireBeam.instance()
 		# TODO: added tilting but the number need to be adjust
-		var tilt = Vector2(1,-3) if (pos.x < screenSize.x/2) else Vector2(-1, -3)
-		vbeam.set_rotation(tilt.angle())
+		# Resolved: NO TILT ADDED
+		# but need to change the length of vertical beam
 		world.add_child(vbeam)
 		vbeam.global_position = pos
 		
