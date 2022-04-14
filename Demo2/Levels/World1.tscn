@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://GameScns/StaticScns/bgTrees.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GameScns/StaticScns/Bone1.tscn" type="PackedScene" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://GameScns/UIScns/BossUI/BossUI.tscn" type="PackedScene" id=12]
 [ext_resource path="res://GameScns/PlayerScns/Player.tscn" type="PackedScene" id=13]
 [ext_resource path="res://GameScns/BossScns/Boar.tscn" type="PackedScene" id=14]
+[ext_resource path="res://GameScns/StaticScns/Portal.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Art Src/Tutorial/gate.png" type="Texture" id=16]
 
 [sub_resource type="CircleShape2D" id=16]
 radius = 45.2769
@@ -110,6 +112,23 @@ margin_left = 302.0
 margin_top = 530.0
 margin_right = 835.0
 margin_bottom = 610.0
+
+[node name="Gate" type="TextureRect" parent="."]
+margin_left = 156.0
+margin_top = 74.0
+margin_right = 333.0
+margin_bottom = 233.0
+rect_pivot_offset = Vector2( -557, 273 )
+texture = ExtResource( 16 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Portal" parent="." instance=ExtResource( 15 )]
+visible = false
+position = Vector2( 244, 161 )
+scale = Vector2( 0.27734, -0.314334 )
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 

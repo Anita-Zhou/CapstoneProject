@@ -72,13 +72,13 @@ __meta__ = {
 }
 
 [node name="MainTxtBtn" type="TextureButton" parent="ColorRect/Menu"]
-margin_right = 824.0
+margin_right = 825.0
 margin_bottom = 86.0
 texture_normal = ExtResource( 5 )
 
 [node name="ContTxtBtn" type="TextureButton" parent="ColorRect/Menu"]
 margin_top = 90.0
-margin_right = 824.0
+margin_right = 825.0
 margin_bottom = 176.0
 texture_normal = ExtResource( 5 )
 
