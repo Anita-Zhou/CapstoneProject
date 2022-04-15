@@ -16,14 +16,15 @@ func _ready():
 
 func being_cast(dir):
 	var player = get_tree().current_scene.get_node("Player")
-	var fireBeam = load("res://GameScns/BossScns/fireBeam.tscn")
+	var hfireBeam = load("res://GameScns/BossScns/hfireBeam.tscn")
+	var vfireBeam = load("res://GameScns/BossScns/vfireBeam.tscn")
 	var summon = load("res://GameScns/BossScns/fireBallSummoning.tscn")
 	var world = get_tree().current_scene
 	
 	if dir == 1:
 		# start from the left
 		var pos = Vector2(LEFT_X_BEAM, rng.randi_range(260,BOTTOM_Y_BEAM))
-		var hbeam = fireBeam.instance()
+		var hbeam = hfireBeam.instance()
 		var hsummon = summon.instance()
 		hsummon.summonFireBeam()
 		world.add_child(hsummon)
@@ -35,7 +36,7 @@ func being_cast(dir):
 	elif dir == 3:
 		# start from the right
 		var pos = Vector2(RIGHT_X_BEAM, rng.randi_range(260, BOTTOM_Y_BEAM))
-		var hbeam = fireBeam.instance()
+		var hbeam = hfireBeam.instance()
 		var hsummon = summon.instance()
 		hsummon.summonFireBeam()
 		world.add_child(hsummon)
@@ -47,7 +48,7 @@ func being_cast(dir):
 	elif dir == 2:
 		# start from the bottom
 		var pos = Vector2(rng.randi_range(LEFT_X_BEAM + 150, RIGHT_X_BEAM - 150), BOTTOM_Y_BEAM)
-		var vbeam = fireBeam.instance()
+		var vbeam = vfireBeam.instance()
 		# TODO: added tilting but the number need to be adjust
 		# Resolved: NO TILT ADDED
 		# but need to change the length of vertical beam

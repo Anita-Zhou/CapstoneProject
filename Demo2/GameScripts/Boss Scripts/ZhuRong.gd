@@ -200,9 +200,7 @@ func _physics_process(delta):
 			
 	move_and_slide(motion)
 	move_and_collide(motion * delta)
-			
-		
-		
+
 func get_stats():
 	return self.stats
 
@@ -255,7 +253,6 @@ func _on_Hurtbox_area_entered(area):
 	if stats.health < stats.max_health/2:
 		second_phase = true
 
-
 func fix_position(check):
 	if(!check):
 		stop_timer = 90
@@ -263,7 +260,7 @@ func fix_position(check):
 			state = IDLE
 	else:
 		stop_timer = stop_timer - 90
-		
+
 func take_damage(area):
 	stats.health -= 100
 #	emit_signal("boss_damage")
