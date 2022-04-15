@@ -149,36 +149,7 @@ func _physics_process(delta):
 			motion = Vector2.ZERO
 			# Prepare for attack
 			animationState.travel("MoveStaff")
-			print("animation moveStaff")
-			# Decide whether to cast fireball or firebeam
-			# Prioritize firebeam over firball
-			if (firebeam_timer > FRAME_RATE * 20):
-				#TODO: firebeam check			
-				var fireBeamChoices = [2,3,4]
-				var fireBeamNum = fireBeamChoices[randi() % fireBeamChoices.size()]
-				
-				while fireBeamNum > 0:
-					var dirChosen = null
-					if fireBeamNum > 1:	
-						var dirChoices = [1, 2, 3]
-						dirChosen = dirChoices[randi() % dirChoices.size()]
-					else:
-						dirChosen = 2
-					fireBeam.being_cast(dirChosen)
-					fireBeamNum -= 1
-					
-				firebeam_timer = 0
-				
-			elif (fireball_timer > FRAME_RATE * 5):
-				if (horizontal_dist2hero < 300):
-					fireBall.being_cast(direction2hero)
-					fireball_timer = 0
-					
-			# Always get back to IDLE after casting magic
-			state = IDLE
-			# Reset ready_to_cast so that it can prepare for 
-			ready_to_cast = false
-
+			
 		MELEE_ATK:
 			if (distance2hero < 30):
 				arrived = true
@@ -194,10 +165,9 @@ func _physics_process(delta):
 				# Phase 1
 				if (!second_phase):
 					animationState.travel("MeleeAttack")
+				# Phase 2
 				else:
 					animationState.travel("RageMelee")
-				# Phase 2
-				
 			
 			# If has arrived and has attacked 
 			elif(arrived && meleeAtk):
@@ -245,6 +215,32 @@ func back_to_normal():
 func finished_melee_attack():
 	meleeAtk = true
 	
+func handle_magic_cast():
+	# Prioritize firebeam
+	if (firebeam_timer > FRAME_RATE * 20):
+		var fireBeamChoices = [2,3,4]
+		var fireBeamNum = fireBeamChoices[randi() % fireBeamChoices.size()]
+		
+		while fireBeamNum > 0:
+			var dirChosen = null
+			if fireBeamNum > 1:	
+				var dirChoices = [1, 2, 3]
+				dirChosen = dirChoices[randi() % dirChoices.size()]
+			else:
+				dirChosen = 2
+			fireBeam.being_cast(dirChosen)
+			fireBeamNum -= 1
+		firebeam_timer = 0
+		fireball_timer = 0
+	# Then consider fireball
+	elif (fireball_timer > FRAME_RATE * 5):
+		if (horizontal_dist2hero < 300):
+			fireBall.being_cast(direction2hero)
+			fireball_timer = 0
+	# Always get back to IDLE after casting magic
+	state = IDLE
+	# Reset ready_to_cast so that it can prepare for 
+	ready_to_cast = false
 
 func _on_Hurtbox_area_entered(area):
 	print(area.get_parent().get_name() + " entered boss")
