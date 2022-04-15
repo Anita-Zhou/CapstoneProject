@@ -5,6 +5,7 @@ const PauseScn = preload("res://GameScns/UIScns/PauseUI/PauseScreen.tscn")
 const WinScn = preload("res://GameScns/UIScns/WinUI/WinScreen.tscn")
 
 var is_paused = false
+onready var portal = $Portal
 onready var enemy = $Boar
 onready var skillUI = $CanvasLayer3/SkillUI
 
@@ -32,6 +33,7 @@ func _handle_win():
 	var win_menu = WinScn.instance()
 	add_child(win_menu)
 	skillUI.get_node("Earth/Sprite").visible = true
+	portal.set_self_visible()
 	
 func _process(delta):
 	if $BGM.playing == false:
