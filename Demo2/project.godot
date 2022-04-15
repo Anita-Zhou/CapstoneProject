@@ -16,6 +16,7 @@ run/main_scene="res://Levels/SplashScreen.tscn"
 [autoload]
 
 PlayerStats="*res://GameScns/PlayerStats.tscn"
+SplashBgm="*res://GameScns/SplashBGM.tscn"
 
 [display]
 

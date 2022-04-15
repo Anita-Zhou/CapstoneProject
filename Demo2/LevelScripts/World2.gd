@@ -10,6 +10,8 @@ onready var skillUI = $CanvasLayer1/SkillUI
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	SplashBgm.stop_music()
+	PlayerStats.reset()
 	PlayerStats.connect("no_health", self, "_handle_death")
 	enemy.stats.connect("no_health", self, "_handle_win")
 
@@ -29,6 +31,7 @@ func _handle_death():
 	
 func _handle_win():
 	var win_menu = WinScn.instance()
+	enemy.queue_free()
 	add_child(win_menu)
 #	skillUI.get_node("Earth/Sprite").visible = true
 	

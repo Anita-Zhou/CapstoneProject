@@ -47,6 +47,8 @@ func _ready():
 		enemy = $"../Boar"
 	elif (SceneName == "Tutorial"):
 		enemy = $"../Dummy"
+	elif(SceneName == "World2"):
+		enemy = $"../ZhuRong"
 
 func AnimationLoop():
 	var face_direction = "E"
