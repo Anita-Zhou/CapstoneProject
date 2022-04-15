@@ -546,7 +546,7 @@ states/RageMelee/node = SubResource( 106 )
 states/RageMelee/position = Vector2( 672.09, 76.4375 )
 transitions = [ "Idle", "Move", SubResource( 64 ), "Move", "Idle", SubResource( 65 ), "MoveStaff", "Idle", SubResource( 74 ), "Idle", "MoveStaff", SubResource( 75 ), "Move", "MeleeAttack", SubResource( 76 ), "MeleeAttack", "Move", SubResource( 77 ), "Move", "MoveStaff", SubResource( 78 ), "MoveStaff", "Move", SubResource( 79 ), "Move", "RageMelee", SubResource( 107 ), "RageMelee", "Move", SubResource( 108 ) ]
 start_node = "Idle"
-graph_offset = Vector2( 114.09, -59.0625 )
+graph_offset = Vector2( -87.6225, -66.9375 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=48]
 
