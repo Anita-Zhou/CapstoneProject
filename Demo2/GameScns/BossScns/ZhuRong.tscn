@@ -285,6 +285,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 6, 7, 8, 9, 10, 10, 10, 10, 11, 11, 12, 13 ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "handle_magic_cast"
+} ]
+}
 
 [sub_resource type="Animation" id=34]
 resource_name = "MoveSword"
@@ -527,7 +541,6 @@ max_space = Vector2( 1, 1.1 )
 [sub_resource type="AnimationNodeStateMachineTransition" id=78]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=79]
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=107]
 
@@ -546,7 +559,7 @@ states/RageMelee/node = SubResource( 106 )
 states/RageMelee/position = Vector2( 672.09, 76.4375 )
 transitions = [ "Idle", "Move", SubResource( 64 ), "Move", "Idle", SubResource( 65 ), "MoveStaff", "Idle", SubResource( 74 ), "Idle", "MoveStaff", SubResource( 75 ), "Move", "MeleeAttack", SubResource( 76 ), "MeleeAttack", "Move", SubResource( 77 ), "Move", "MoveStaff", SubResource( 78 ), "MoveStaff", "Move", SubResource( 79 ), "Move", "RageMelee", SubResource( 107 ), "RageMelee", "Move", SubResource( 108 ) ]
 start_node = "Idle"
-graph_offset = Vector2( 114.09, -59.0625 )
+graph_offset = Vector2( -81.66, -59.0625 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=48]
 
