@@ -54,6 +54,8 @@ var arrived = false
 var ready_to_cast = false
 var ready_to_atk = true
 
+var rageFire = null
+
 #skills
 onready var fireBall = get_node("FireBall")
 onready var lavaPond = get_node("LavaPond")
@@ -104,6 +106,13 @@ func _physics_process(delta):
 	# Second phase random generation of lava pools
 	# TODO: lava pools are generated random within a frame close to player's position
 	if(second_phase):
+		if rageFire == null:
+			var RageFire = load("res://GameScns/BossScns/RageFire.tscn")
+			rageFire = RageFire.instance()
+			var boss = get_tree().current_scene.get_node("ZhuRong")
+			boss.add_child(rageFire)
+			# TODO: index
+		
 		if(lava_timer < FRAME_RATE * 2):
 			lava_timer = lava_timer + 1
 		else:

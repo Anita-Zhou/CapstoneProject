@@ -52,7 +52,9 @@ func _on_ReTxtBtn_pressed():
 	if(SceneName == "World1"):
 		get_tree().change_scene("res://Levels/World1.tscn")
 	elif (SceneName == "Tutorial"):
-			get_tree().change_scene("res://Levels/Tutorial.tscn")
+		get_tree().change_scene("res://Levels/Tutorial.tscn")
+	elif (SceneName == "World2"):
+		get_tree().change_scene("res://Levels/World2.tscn")
 
 # This is quit button section
 #
