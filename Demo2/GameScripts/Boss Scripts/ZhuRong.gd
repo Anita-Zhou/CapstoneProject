@@ -185,7 +185,7 @@ func _physics_process(delta):
 			# If has arrived and has attacked 
 			elif(arrived && meleeAtk):
 				# Getting back to center
-				motion = direction_to_mid * 80
+				motion = direction_to_mid * 90
 				animationState.travel("Move")
 				# If have gotten back to mid screen, change to IDLE
 				if (self.position.distance_to(mid_scrn) < 30):
