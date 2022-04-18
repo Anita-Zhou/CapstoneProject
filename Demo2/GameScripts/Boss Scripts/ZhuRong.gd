@@ -22,6 +22,7 @@ enum{
 	MOVE,
 	MOVE_STAFF, 
 	MELEE_ATK,
+	ENRAGE,
 	STOP
 }
 var state = IDLE
@@ -115,10 +116,10 @@ func _physics_process(delta):
 			var boss = get_tree().current_scene.get_node("ZhuRong")
 			boss.add_child(rageFire)
 			
-			# TODO: index
-		if second_phase_sound_played == false:
-			$Second_phase.play()
-			second_phase_sound_played = true
+#			# TODO: index
+#		if second_phase_sound_played == false:
+#			$Second_phase.play()
+#			second_phase_sound_played = true
 		
 		if(lava_timer < FRAME_RATE * 2):
 			lava_timer = lava_timer + 1
@@ -166,6 +167,11 @@ func _physics_process(delta):
 			# Prepare for attack
 			animationState.travel("MoveStaff")
 			
+		ENRAGE:
+			# Display rage melee right after enraged
+			$Second_phase.play()
+			state = MELEE_ATK
+			
 		MELEE_ATK:
 			if (distance2hero < 30 || chase_timer > FRAME_RATE * 6):
 				arrived = true
@@ -186,7 +192,6 @@ func _physics_process(delta):
 				# Phase 2
 				else:
 					animationState.travel("RageMelee")
-				
 			# If has arrived and has attacked 
 			elif(arrived && meleeAtk):
 				# Getting back to center
@@ -235,7 +240,7 @@ func finished_melee_attack():
 	
 func handle_magic_cast():
 	# Prioritize firebeam
-	if (firebeam_timer > FRAME_RATE * 20):
+	if (firebeam_timer > FRAME_RATE * 14):
 		var fireBeamChoices = [2,3,4]
 		var fireBeamNum = fireBeamChoices[randi() % fireBeamChoices.size()]
 		
@@ -280,7 +285,16 @@ func fix_position(check):
 		stop_timer = stop_timer - 90
 
 func take_damage(area):
-	stats.health -= 100
+	#TODO: distinguish area 
+	stats.health -= 70
 #	emit_signal("boss_damage")
 	animationPlayer.play("Hurt")
 	print("zhu rong health", stats.health)
+
+
+func _on_Stats_no_health():
+	queue_free()
+
+
+func _on_Stats_half_health():
+	state = ENRAGE

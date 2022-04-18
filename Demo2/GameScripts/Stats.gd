@@ -10,6 +10,7 @@ var dec_dmg = 0.5
 var num_skills = 2
 
 signal no_health
+signal half_health
 signal health_changed(value)
 
 # Elemental skill cool downs are treated as critical section
@@ -37,6 +38,8 @@ func reset():
 func set_health(value):
 	health = value
 	emit_signal("health_changed", health)
+	if (health <= max_health/2):
+		emit_signal("half_health")
 	if health <= 0:
 		emit_signal("no_health")
 		
