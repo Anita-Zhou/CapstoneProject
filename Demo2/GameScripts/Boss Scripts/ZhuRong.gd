@@ -15,7 +15,7 @@ var horizontal_dist2hero = float("inf")
 
 var anim_sprite = null
 var player = null
-var second_phase = false
+var second_phase = true
 enum{
 	IDLE,
 	MOVE,

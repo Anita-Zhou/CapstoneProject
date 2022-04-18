@@ -59,15 +59,15 @@ func _physics_process(delta):
 		
 
 func _on_wood_cast():
-	wood_cd = 300
+	wood_cd = 360
 	emit_signal("wood_block")
 
 func _on_water_cast():
-	water_cd = 420
+	water_cd = 480
 	emit_signal("water_block")
 	
 func _on_earth_cast():
-	earth_cd = 150
+	earth_cd = 560
 	emit_signal("earth_block")
 	
 ##

@@ -18,11 +18,16 @@ func _ready():
 			print("skill is wood")
 			block_sig = "wood_block"
 			unblock_sig = "wood_unblock"
-			full_cd = 300.0
+			full_cd = 360.0
 		"Water":
 			block_sig = "water_block"
 			unblock_sig = "water_unblock"
-			full_cd = 420.0
+			full_cd = 480.0
+		"Earth":
+			print("skill is earth")
+			block_sig = "earth_block"
+			unblock_sig = "earth_unblock"
+			full_cd = 560.0
 	PlayerStats.connect(block_sig, self, "_draw")
 	PlayerStats.connect(unblock_sig, self, "_erase")
 	
