@@ -32,7 +32,6 @@ func _handle_death():
 	
 func _handle_win():
 	var win_menu = WinScn.instance()
-	enemy.queue_free()
 	add_child(win_menu)
 #	skillUI.get_node("Earth/Sprite").visible = true
 	

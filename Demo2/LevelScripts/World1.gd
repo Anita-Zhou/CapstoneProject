@@ -13,7 +13,8 @@ onready var skillUI = $CanvasLayer3/SkillUI
 func _ready():
 	SplashBgm.stop_music()
 	PlayerStats.connect("no_health", self, "_handle_death")
-	enemy.stats.connect("no_health", self, "_handle_win")
+	enemy.stats.connect("nos_health", self, "_handle_win")
+	enemy.stats.connect("no_health", portal, "_on_enemy_died")
 
 func _unhandled_input(event):
 	if(event.is_action_pressed("pause")):

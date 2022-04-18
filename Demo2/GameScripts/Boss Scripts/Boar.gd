@@ -67,6 +67,7 @@ func _physics_process(delta):
 				animationState.travel("Walk")
 			else:
 				state = CHARGE_PREP
+				$PrepSound.play()
 		CHARGE_PREP:
 			motion = direction * 0
 			if timer < 100:
