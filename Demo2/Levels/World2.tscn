@@ -15,7 +15,11 @@
 z_index = -10
 script = ExtResource( 8 )
 
-[node name="skybg" type="TextureRect" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
+z_index = -20
+z_as_relative = false
+
+[node name="skybg" type="TextureRect" parent="Node2D"]
 margin_left = -19.0
 margin_top = -14.0
 margin_right = 1005.0
@@ -26,7 +30,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="bgGround" parent="skybg" instance=ExtResource( 3 )]
+[node name="bgGround" parent="Node2D/skybg" instance=ExtResource( 3 )]
 position = Vector2( 484.466, 323.916 )
 scale = Vector2( 1.00149, 1.00149 )
 

@@ -11,6 +11,7 @@ onready var skillUI = $CanvasLayer1/SkillUI
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SplashBgm.stop_music()
+	PlayerStats.num_skills = 3
 	PlayerStats.reset()
 	PlayerStats.connect("no_health", self, "_handle_death")
 	enemy.stats.connect("no_health", self, "_handle_win")
