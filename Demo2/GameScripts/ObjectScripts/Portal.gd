@@ -2,9 +2,13 @@ extends Node2D
 
 onready var animPlayer = $AnimationPlayer
 
+func _ready():
+	$Hurtbox/CollisionShape2D.disabled = true
+
 func _on_enemy_died():
 	animPlayer.play("active")
 	self.visible = true
+	$Hurtbox/CollisionShape2D.disabled = false
 	
 func set_self_visible():
 	animPlayer.play("active")
@@ -18,5 +22,5 @@ func _on_Hurtbox_area_entered(area):
 	elif (SceneName == "Tutorial"):
 		get_tree().change_scene("res://Levels/World1.tscn")
 
-
+	
 

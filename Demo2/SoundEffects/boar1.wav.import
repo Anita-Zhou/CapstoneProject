@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/boar1.wav-296443d0c6290b2b6e46584c8d0aef5b.sample"
+
+[deps]
+
+source_file="res://SoundEffects/boar1.wav"
+dest_files=[ "res://.import/boar1.wav-296443d0c6290b2b6e46584c8d0aef5b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -8,12 +8,14 @@ var is_paused = false
 onready var enemy = $Dummy
 onready var portal = $Portal
 onready var dialogue = $TutorialDialogue
+onready var arrow = $Arrow
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	PlayerStats.connect("no_health", self, "_handle_death")
 	enemy.stats.connect("no_health", self, "_handle_win")
 	enemy.stats.connect("no_health", portal, "_on_enemy_died")
+	enemy.stats.connect("no_health", arrow, "_on_enemy_died")
 	dialogue.connect("end_dialogue", enemy, "_on_dialogue_ended")
 #	var fireBall = load("res://GameScns/BossScns/fireBall.tscn")
 #	var fb = fireBall.instance()

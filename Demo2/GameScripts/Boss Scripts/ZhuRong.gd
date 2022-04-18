@@ -15,7 +15,8 @@ var horizontal_dist2hero = float("inf")
 
 var anim_sprite = null
 var player = null
-var second_phase = true
+var second_phase = false
+var second_phase_sound_played = false
 enum{
 	IDLE,
 	MOVE,
@@ -113,7 +114,11 @@ func _physics_process(delta):
 			rageFire = RageFire.instance()
 			var boss = get_tree().current_scene.get_node("ZhuRong")
 			boss.add_child(rageFire)
+			
 			# TODO: index
+		if second_phase_sound_played == false:
+			$Second_phase.play()
+			second_phase_sound_played = true
 		
 		if(lava_timer < FRAME_RATE * 2):
 			lava_timer = lava_timer + 1

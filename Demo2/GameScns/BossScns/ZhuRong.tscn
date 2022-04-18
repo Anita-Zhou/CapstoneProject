@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=2]
+[gd_scene load_steps=95 format=2]
 
 [ext_resource path="res://Art Src/BossArt/ZhuRong/zhurong_idle_no_fire.png" type="Texture" id=1]
 [ext_resource path="res://GameScripts/Boss Scripts/ZhuRong.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://GameScripts/Boss Scripts/FireBeam.gd" type="Script" id=10]
 [ext_resource path="res://Art Src/BossArt/ZhuRong/zhurong_move_sword_down.png" type="Texture" id=11]
 [ext_resource path="res://Art Src/BossArt/ZhuRong/zhurong_swing_sword.png" type="Texture" id=12]
+[ext_resource path="res://SoundEffects/ZhuRong_second_phase.wav" type="AudioStream" id=13]
 
 [sub_resource type="AtlasTexture" id=18]
 flags = 4
@@ -645,6 +646,9 @@ script = ExtResource( 9 )
 
 [node name="FireBeam" type="KinematicBody2D" parent="."]
 script = ExtResource( 10 )
+
+[node name="Second_phase" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ZhuRong_second_phase.wav-0c67300824e793f5cb9fa85e94bcfe0d.sample"
+
+[deps]
+
+source_file="res://SoundEffects/ZhuRong_second_phase.wav"
+dest_files=[ "res://.import/ZhuRong_second_phase.wav-0c67300824e793f5cb9fa85e94bcfe0d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
