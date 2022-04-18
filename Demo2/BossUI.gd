@@ -21,10 +21,10 @@ func _ready():
 		boss = $"../../Boar"
 	elif (SceneName == "Tutorial"):
 		boss = $"../../Dummy"
-		label.text = "Dummy"
+		label.text = "Scarecrow"
 	elif (SceneName == "World2"):
 		boss = $"../../ZhuRong"
-		label.text = "Pyrodude, the God of Fire"
+		label.text = "Pyrolord, the God of Fire"
 		
 		
 	print("boss:", boss)

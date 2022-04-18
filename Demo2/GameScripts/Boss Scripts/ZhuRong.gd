@@ -47,6 +47,8 @@ var firebeam_timer = 0
 var lava_timer = 0
 var meleeAtk_timer = 0
 var playerAway_timer = 0
+var chase_timer = 0
+
 # Helper var
 var meleeAtk = false
 var arrived = false
@@ -160,13 +162,15 @@ func _physics_process(delta):
 			animationState.travel("MoveStaff")
 			
 		MELEE_ATK:
-			if (distance2hero < 30):
+			if (distance2hero < 30 || chase_timer > FRAME_RATE * 6):
 				arrived = true
+				chase_timer = 0
 			# If has neither arrived nor attacked
 			if(!arrived && !meleeAtk):
 				# Move towards player
 				motion = direction2hero * 100
 				animationState.travel("Move")
+				chase_timer += 1
 			# If has arrived but has not attack
 			elif(arrived && !meleeAtk):
 				motion = Vector2.ZERO
@@ -177,7 +181,7 @@ func _physics_process(delta):
 				# Phase 2
 				else:
 					animationState.travel("RageMelee")
-			
+				
 			# If has arrived and has attacked 
 			elif(arrived && meleeAtk):
 				# Getting back to center
