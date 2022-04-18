@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Art Src/GUIArt/pixil-frame-0 (1).png" type="Texture" id=1]
 [ext_resource path="res://Art Src/splash_updated.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Art Src/GUIArt/map.png" type="Texture" id=10]
 [ext_resource path="res://Fonts/Perfect DOS VGA 437.ttf" type="DynamicFontData" id=11]
 [ext_resource path="res://Art Src/BossArt/ZhuRong/ZhuRong_icon.png" type="Texture" id=12]
+[ext_resource path="res://LevelScripts/LevelSelect/ZhuRongButton.gd" type="Script" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 26
@@ -130,13 +131,13 @@ __meta__ = {
 }
 
 [node name="ZhuRongButton" type="TextureButton" parent="."]
-margin_left = 313.0
-margin_top = 105.0
+margin_left = 309.0
+margin_top = 91.0
 margin_right = 385.0
-margin_bottom = 168.0
+margin_bottom = 162.0
 texture_normal = ExtResource( 12 )
 expand = true
-script = ExtResource( 3 )
+script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -144,4 +145,4 @@ __meta__ = {
 [connection signal="button_up" from="DummyButton" to="DummyButton" method="_on_TextureButton_up"]
 [connection signal="button_up" from="BoarButton" to="BoarButton" method="_on_BoarButton_up"]
 [connection signal="button_up" from="MainTxtBtn" to="MainTxtBtn" method="_on_MainTxtBtn_button_up"]
-[connection signal="button_up" from="ZhuRongButton" to="ZhuRongButton" method="_on_TextureButton_up"]
+[connection signal="button_up" from="ZhuRongButton" to="ZhuRongButton" method="_on_ZhuRongButton_up"]
