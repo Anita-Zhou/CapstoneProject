@@ -35,4 +35,8 @@ func _process(delta):
 #			shadow_freed = true
 
 func animation_finished():
-	queue_free()
+	animationPlayer.play("lava_persist")
+	
+func _on_Hurtbox_area_entered(area):
+	print(area.collision_layer)
+	

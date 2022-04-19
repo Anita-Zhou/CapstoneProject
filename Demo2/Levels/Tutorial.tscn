@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Art Src/Tutorial/gate.png" type="Texture" id=1]
 [ext_resource path="res://Art Src/GUIArt/WASD.png" type="Texture" id=2]
@@ -14,7 +14,6 @@
 [ext_resource path="res://GameScns/StaticScns/Portal.tscn" type="PackedScene" id=12]
 [ext_resource path="res://GameScns/UIScns/BossUI/BossUI.tscn" type="PackedScene" id=13]
 [ext_resource path="res://GameScns/DialogueScns/TutorialDialogue.tscn" type="PackedScene" id=14]
-[ext_resource path="res://GameScns/StaticScns/Arrow.tscn" type="PackedScene" id=15]
 
 [node name="Tutorial" type="YSort"]
 script = ExtResource( 7 )
@@ -224,8 +223,3 @@ margin_bottom = 625.0
 visible = false
 position = Vector2( 487, 92 )
 scale = Vector2( 0.332913, 0.373023 )
-
-[node name="Arrow" parent="." instance=ExtResource( 15 )]
-visible = false
-position = Vector2( 395, 128 )
-rotation = 0.0663225
