@@ -12,6 +12,7 @@ onready var dialogue = $TutorialDialogue
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	SplashBgm.stop_music()
 	PlayerStats.connect("no_health", self, "_handle_death")
 	enemy.stats.connect("no_health", self, "_handle_win")
 	enemy.stats.connect("no_health", portal, "_on_enemy_died")
@@ -39,3 +40,8 @@ func _handle_death():
 func _handle_win():
 	var win_menu = WinScn.instance()
 	add_child(win_menu)
+
+func _process(delta):
+	if $BGM.playing == false:
+		$BGM.play()
+

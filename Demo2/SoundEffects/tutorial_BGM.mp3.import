@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/tutorial_BGM.mp3-d82b1f5f8f38a1b55fcdf24b7dd60390.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/tutorial_BGM.mp3"
+dest_files=[ "res://.import/tutorial_BGM.mp3-d82b1f5f8f38a1b55fcdf24b7dd60390.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
