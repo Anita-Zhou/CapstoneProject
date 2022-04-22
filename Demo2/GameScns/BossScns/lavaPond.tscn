@@ -245,3 +245,5 @@ shape = SubResource( 31 )
 disabled = true
 
 [node name="LavaSound" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

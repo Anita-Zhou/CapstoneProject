@@ -36,3 +36,9 @@ func _process(delta):
 
 func animation_finished():
 	queue_free()
+
+
+func _on_Hurtbox_area_entered(area):
+	# Check the area entered
+	print( )
+	pass # Replace with function body.

@@ -115,12 +115,6 @@ func _physics_process(delta):
 			rageFire = RageFire.instance()
 			var boss = get_tree().current_scene.get_node("ZhuRong")
 			boss.add_child(rageFire)
-			
-#			# TODO: index
-#		if second_phase_sound_played == false:
-#			$Second_phase.play()
-#			second_phase_sound_played = true
-		
 		if(lava_timer < FRAME_RATE * 2):
 			lava_timer = lava_timer + 1
 		else:
