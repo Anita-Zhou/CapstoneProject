@@ -161,4 +161,9 @@ func _on_Hurtbox_area_entered(area):
 	if(state != DASH && invincibleCounter == 0):
 		self.take_damage(area)
 #	hurtbox.create_hit_effect()
+#	if get_tree().current_scene.get_name() == "World2":
+#		var Flame = load("res://GameScns/BossScns/OnFire.tscn")
+#		var flame = Flame.instance()
+#		var player = get_tree().current_scene.get_node("Player")
+#		player.add_child(flame)
 	print("player health: ", stats.health)

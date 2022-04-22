@@ -914,6 +914,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=54]
 resource_name = "WalkLeft"
 length = 0.8
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("player:frame")
 tracks/0/interp = 1

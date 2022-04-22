@@ -14,7 +14,7 @@
 [ext_resource path="res://GameScns/StaticScns/Portal.tscn" type="PackedScene" id=12]
 [ext_resource path="res://GameScns/UIScns/BossUI/BossUI.tscn" type="PackedScene" id=13]
 [ext_resource path="res://GameScns/DialogueScns/TutorialDialogue.tscn" type="PackedScene" id=14]
-[ext_resource path="res://GameScns/StaticScns/Arrow.tscn" type="PackedScene" id=15]
+[ext_resource path="res://SoundEffects/tutorial_BGM.mp3" type="AudioStream" id=15]
 
 [node name="Tutorial" type="YSort"]
 script = ExtResource( 7 )
@@ -225,7 +225,6 @@ visible = false
 position = Vector2( 487, 92 )
 scale = Vector2( 0.332913, 0.373023 )
 
-[node name="Arrow" parent="." instance=ExtResource( 15 )]
-visible = false
-position = Vector2( 395, 128 )
-rotation = 0.0663225
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+volume_db = -5.0

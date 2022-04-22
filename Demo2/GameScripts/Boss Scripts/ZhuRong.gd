@@ -118,7 +118,9 @@ func _physics_process(delta):
 		if(lava_timer < FRAME_RATE * 2):
 			lava_timer = lava_timer + 1
 		else:
-			var lava_pos = Vector2(rng.randi_range(0,screenSize.x), rng.randi_range(240,screenSize.y))
+
+			var lava_pos = Vector2(rng.randi_range(0,screenSize.x), rng.randi_range(250,screenSize.y-100))
+
 			lavaPond.being_cast(lava_pos)
 			lava_timer = 0
 

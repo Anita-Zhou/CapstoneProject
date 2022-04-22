@@ -233,10 +233,10 @@ anims/fireball_flying = SubResource( 46 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 6 )]
 collision_layer = 1024
-collision_mask = 4
+collision_mask = 36
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2( -82, 7 )
+position = Vector2( -82, 10 )
 rotation = 1.5708
 shape = SubResource( 47 )
 
