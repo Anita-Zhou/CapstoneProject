@@ -38,5 +38,6 @@ func animation_finished():
 	animationPlayer.play("lava_persist")
 	
 func _on_Hurtbox_area_entered(area):
+	print("lava area entered")
 	print(area.collision_layer)
 	
