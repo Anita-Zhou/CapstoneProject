@@ -17,8 +17,8 @@ var horizontal_dist2hero = float("inf")
 var anim_sprite = null
 var player = null
 var second_phase = false
+#var second_phase_sound_played = false
 
-var second_phase_sound_played = false
 enum{
 	IDLE,
 	AVOID, 
@@ -47,6 +47,7 @@ onready var right_edge = Vector2.ZERO
 # Timers for scripts
 var timer = 0
 var stop_timer = 0 # timer for wood skill
+
 # Skill timer
 var fireball_timer = 0
 var fireball_timer2 = 0
@@ -55,18 +56,21 @@ var lava_timer = 0
 var meleeAtk_timer = 0
 var playerAway_timer = 0
 var chase_timer = 0
-var restrained_timer = 0
 
+# State timer
+var restrained_timer = 0
+# =========
 var avoiding = false 
+var should_avoid = false
 var before_avoid = 0
 var after_avoid = 0
-
+# =========
 var hurt_timer = 0 
+var hurt_cnt = 0
 
 # Helper var
 var meleeAtk = false
 var arrived = false
-
 var rageMelee = true
 
 # Combined timer check 
@@ -87,7 +91,7 @@ func _ready():
 	# Can only be set once by this, indicating the center of the screen
 	#  where all casting os spells happneing 
 	mid_scrn = self.global_position
-	abv_plat = mid_scrn + Vector2(0, -60)
+	abv_plat = mid_scrn + Vector2(0, -100)
 	player_pos = player.global_position
 	
 
@@ -118,7 +122,12 @@ func _physics_process(delta):
 		ready_to_cast = true
 	if (playerAway_timer > FRAME_RATE * 20 or meleeAtk_timer > FRAME_RATE * 15):
 		ready_to_atk = true
-
+	# If get hurt, start counting how many times of hurt taken
+	# within limited time range
+	if (hurt_timer > 0):
+		hurt_timer -= 1
+		
+	# 
 	if restrained_timer > FRAME_RATE * 5:
 		rageMelee = true
 	else:
@@ -133,22 +142,24 @@ func _physics_process(delta):
 	# Second phase random generation of lava pools
 	# TODO: lava pools are generated random within a frame close to player's position
 	if(second_phase):
+		# Create the rage fire once into second ohase and only once
 		if rageFire == null:
 			var RageFire = load("res://GameScns/BossScns/RageFire.tscn")
 			rageFire = RageFire.instance()
 			var boss = get_tree().current_scene.get_node("ZhuRong")
 			boss.add_child(rageFire)
-			
+		# Cast consecutive fireballs
 		if horizontal_dist2hero < 300 and fireball_timer2 > FRAME_RATE * 5:
 			fireBall.being_cast(direction2hero)
 			fireBall.being_cast(direction2hero)
 			fireBall.being_cast(direction2hero)
 			fireball_timer2 = 0
 		fireball_timer2 += 1
-#			# TODO: index
-		if second_phase_sound_played == false:
-			$Second_phase.play()
-			second_phase_sound_played = true
+		
+##		# I don't think this is needed 
+#		if second_phase_sound_played == false:
+#			$Second_phase.play()
+#			second_phase_sound_played = true
 		
 		if(lava_timer < FRAME_RATE * 2):
 			lava_timer = lava_timer + 1
@@ -166,19 +177,23 @@ func _physics_process(delta):
 	match state:
 		
 		IDLE:
-			if (avoiding):
-				after_avoid += 1
-			else:
-				before_avoid += 1
+			
 			motion = Vector2.ZERO
 			animationState.travel("Idle")
+			# Since we can be avoiding while doing other works
+			# have to check whether if is avoiding and deduce timer
+			if (after_avoid < 0):
+				state = AVOID
+			elif (avoiding):
+				after_avoid -= 1
+				
+			# Prioritize avoiding too much attack from player 
+			if (should_avoid):
+				state = AVOID
 			# Prioritize melee attack when player's been away for too long
 			if (ready_to_atk):
 				# Designated to state in cahrge of throw melee attack
 				state = MELEE_ATK
-			# If time is up, be away from the platform for some time
-			elif (before_avoid > FRAME_RATE * 8 || after_avoid > FRAME_RATE * 8):
-				state = AVOID
 			# If able to cast skills, cast skills
 			elif (ready_to_cast):
 				state = MOVE_STAFF
@@ -186,32 +201,32 @@ func _physics_process(delta):
 			elif (horizontal_dist2hero > 40):
 				state = MOVE
 				
-		# Avoid attack by getting way from the platform	
-		# Also responsible for getting out of AVOID if hide for long enough
+#		# Avoid attack by getting way from the platform	
+#		# Also responsible for getting out of AVOID if hide for long enough
 		AVOID:
-			if(not avoiding):
+			if (not avoiding):
 				# Start to avoid attack
 				motion = direction_to_avoid * 90
-				# If have gotten back to mid screen, change to IDLE
-				if (self.position.distance_to(abv_plat) < 30):
+				# If have gotten to escape place, change to IDLE
+				if (self.position.distance_to(abv_plat) < 10):
 					state = IDLE
 					avoiding = true
-					after_avoid = 0
+					after_avoid = FRAME_RATE * 8
 			else:
-				# Getting back to center
 				motion = direction_to_mid * 90
 				if (self.position.distance_to(mid_scrn) < 30):
 					state = IDLE
 					avoiding = false
-					before_avoid = 0
+					after_avoid = 0
 			animationState.travel("Move")
 				
 		# Horizontally move, either go for melee attack or go for idle
 		MOVE:
-			if (avoiding):
-				after_avoid += 1
-			else:
-				before_avoid += 1
+			if (after_avoid < 0):
+				state = AVOID
+			elif (avoiding):
+				after_avoid -= 1
+				
 			motion = horizontal_dirc2hero * 20
 			animationState.travel("Move")
 			if (ready_to_atk):
@@ -223,10 +238,11 @@ func _physics_process(delta):
 		
 		# Prepare to cast magic attack, decide on what magic attacj to do
 		MOVE_STAFF:
-			if (avoiding):
-				after_avoid += 1
-			else:
-				before_avoid += 1
+			if (after_avoid < 0):
+				state = AVOID
+			elif (avoiding):
+				after_avoid -= 1
+				
 			motion = Vector2.ZERO
 			# Prepare for attack
 			animationState.travel("MoveStaff")
@@ -238,13 +254,15 @@ func _physics_process(delta):
 			state = MELEE_ATK
 			
 		MELEE_ATK:
-			avoiding = false
-			before_avoid = 0
-			after_avoid = 0
 			
+			# If chase for too long or if player is close, indicate arrived
 			if (distance2hero < 30 || chase_timer > FRAME_RATE * 6):
 				arrived = true
 				chase_timer = 0
+			##
+			# melee attack is separated into three states:
+			# before attack, while attack, and after attatck
+			#
 			# If has neither arrived nor attacked
 			if(!arrived && !meleeAtk):
 				# Move towards player
@@ -293,7 +311,6 @@ func _physics_process(delta):
 				state = MOVE
 				timer = 0
 			
-
 	move_and_slide(motion)
 	move_and_collide(motion * delta)
 
@@ -363,6 +380,19 @@ func fix_position(check):
 func take_damage(area):
 	#TODO: distinguish area 
 	stats.health -= 35
+	# Activate hurt_timer count down
+	hurt_timer = FRAME_RATE * 3
+	# If the timer is activated, count how many hurts is taken within the count down
+	if (hurt_timer > 0):
+		hurt_cnt += 1
+		# If taking 3 damages within 3 seconds, avoid attack
+		if (hurt_cnt > 2):
+			should_avoid = true
+			state = IDLE
+			# Default hurt count and hurt timer
+			hurt_cnt = 0
+			hurt_timer = 0
+		
 #	emit_signal("boss_damage")
 	animationPlayer.play("Hurt")
 	print("zhu rong health", stats.health)
