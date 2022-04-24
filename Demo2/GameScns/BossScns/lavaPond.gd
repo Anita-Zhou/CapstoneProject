@@ -40,4 +40,7 @@ func animation_finished():
 func _on_Hurtbox_area_entered(area):
 	print("lava area entered")
 	print(area.collision_layer)
+	print("lava hurtbox entered")
+	queue_free()
 	
+

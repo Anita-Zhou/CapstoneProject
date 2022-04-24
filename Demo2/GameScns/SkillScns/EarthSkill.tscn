@@ -242,6 +242,7 @@ anims/EarthSkill = SubResource( 12 )
 anims/RESET = SubResource( 13 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 2 )]
+collision_mask = 434
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
