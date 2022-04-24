@@ -17,6 +17,7 @@ var horizontal_dist2hero = float("inf")
 var anim_sprite = null
 var player = null
 var second_phase = false
+
 var second_phase_sound_played = false
 enum{
 	IDLE,
@@ -54,6 +55,7 @@ var lava_timer = 0
 var meleeAtk_timer = 0
 var playerAway_timer = 0
 var chase_timer = 0
+var restrained_timer = 0
 
 var avoiding = false 
 var before_avoid = 0
@@ -64,6 +66,9 @@ var hurt_timer = 0
 # Helper var
 var meleeAtk = false
 var arrived = false
+
+var rageMelee = true
+
 # Combined timer check 
 var ready_to_cast = false
 var ready_to_atk = true
@@ -113,12 +118,18 @@ func _physics_process(delta):
 		ready_to_cast = true
 	if (playerAway_timer > FRAME_RATE * 20 or meleeAtk_timer > FRAME_RATE * 15):
 		ready_to_atk = true
+
+	if restrained_timer > FRAME_RATE * 5:
+		rageMelee = true
+	else:
+		rageMelee = false
 	
 	# Update timers
 	fireball_timer += 1
 	firebeam_timer += 1
 	meleeAtk_timer += 1
-	
+	restrained_timer += 1
+
 	# Second phase random generation of lava pools
 	# TODO: lava pools are generated random within a frame close to player's position
 	if(second_phase):
@@ -135,9 +146,9 @@ func _physics_process(delta):
 			fireball_timer2 = 0
 		fireball_timer2 += 1
 #			# TODO: index
-#		if second_phase_sound_played == false:
-#			$Second_phase.play()
-#			second_phase_sound_played = true
+		if second_phase_sound_played == false:
+			$Second_phase.play()
+			second_phase_sound_played = true
 		
 		if(lava_timer < FRAME_RATE * 2):
 			lava_timer = lava_timer + 1
@@ -223,7 +234,7 @@ func _physics_process(delta):
 		ENRAGE:
 			print("is in state enrage")
 			# Display rage melee right after enraged
-			$Second_phase.play()
+#			$Second_phase.play()
 			state = MELEE_ATK
 			
 		MELEE_ATK:
@@ -251,7 +262,8 @@ func _physics_process(delta):
 				else:
 					if(distance2hero > 30):
 						motion = direction2hero * 70
-					animationState.travel("RageMelee")
+					if rageMelee:
+						animationState.travel("RageMelee")
 			# If has arrived and has attacked 
 			elif(arrived && meleeAtk):
 				# Getting back to center
@@ -281,6 +293,7 @@ func _physics_process(delta):
 				state = MOVE
 				timer = 0
 			
+
 	move_and_slide(motion)
 	move_and_collide(motion * delta)
 
@@ -331,6 +344,9 @@ func _on_Hurtbox_area_entered(area):
 		fix_position(false)
 	elif("WoodSkill" in area.get_parent().get_name()):
 		fix_position(true)
+	elif area.get_parent().get_name() == "WaterSkill":
+		restrained_timer = 0
+		
 	else:
 		take_damage(area)
 	if stats.health < stats.max_health/2:
@@ -354,7 +370,6 @@ func take_damage(area):
 
 func _on_Stats_no_health():
 	queue_free()
-
 
 func _on_Stats_half_health():
 	state = ENRAGE

@@ -1,6 +1,5 @@
 extends Node2D
 
-
 var fireball = false
 var firebeam = null
 var fireballinstance = null
@@ -18,11 +17,11 @@ func _ready():
 func summonFireBall(boss_instance):
 	$AnimationPlayer.play("summoning")
 	boss = boss_instance
-	fireball = true;
+	fireball = true
 	
 func summonFireBeam():
 	$AnimationPlayer.play("summoning")
-	firebeam = true;
+	firebeam = true
 
 
 func animation_finished():
