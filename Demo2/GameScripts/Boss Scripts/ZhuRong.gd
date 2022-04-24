@@ -91,7 +91,7 @@ func _ready():
 	# Can only be set once by this, indicating the center of the screen
 	#  where all casting os spells happneing 
 	mid_scrn = self.global_position
-	abv_plat = mid_scrn + Vector2(0, -100)
+	abv_plat = mid_scrn + Vector2(0, -90)
 	player_pos = player.global_position
 	
 
