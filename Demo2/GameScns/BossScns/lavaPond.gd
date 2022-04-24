@@ -38,9 +38,7 @@ func animation_finished():
 	animationPlayer.play("lava_persist")
 	
 func _on_Hurtbox_area_entered(area):
-	print("lava area entered")
-	print(area.collision_layer)
-	print("lava hurtbox entered")
-	queue_free()
+	if area.get_parent().get_name() == "WaterSkill":
+		queue_free()
 	
 
