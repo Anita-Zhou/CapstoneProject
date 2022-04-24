@@ -45,6 +45,7 @@ var timer = 0
 var stop_timer = 0 # timer for wood skill
 # Skill timer
 var fireball_timer = 0
+var fireball_timer2 = 0
 var firebeam_timer = 0
 var lava_timer = 0
 var meleeAtk_timer = 0
@@ -116,6 +117,12 @@ func _physics_process(delta):
 			var boss = get_tree().current_scene.get_node("ZhuRong")
 			boss.add_child(rageFire)
 			
+		if horizontal_dist2hero < 300 and fireball_timer2 > FRAME_RATE * 5:
+			fireBall.being_cast(direction2hero)
+			fireBall.being_cast(direction2hero)
+			fireBall.being_cast(direction2hero)
+			fireball_timer2 = 0
+		fireball_timer2 += 1
 #			# TODO: index
 #		if second_phase_sound_played == false:
 #			$Second_phase.play()
