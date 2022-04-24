@@ -4,6 +4,7 @@ extends KinematicBody2D
 
 var lava = null
 #var pos_buff = null
+onready var Lava = load("res://GameScns/BossScns/lavaPond.tscn")
 
 
 func _ready():
@@ -12,8 +13,8 @@ func _ready():
 func being_cast(position):
 #	var player = $"../../Player"
 	var player = get_tree().current_scene.get_node("Player")
-	var FireSkill = load("res://GameScns/BossScns/lavaPond.tscn")
-	lava = FireSkill.instance()
+#	var Lava = load("res://GameScns/BossScns/lavaPond.tscn")
+	lava = Lava.instance()
 	var world = get_tree().current_scene
 	world.add_child(lava)
 #	pos_buff = Vector2(position.x, 0)

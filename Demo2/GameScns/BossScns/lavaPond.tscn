@@ -243,13 +243,8 @@ anims/lavaPond = SubResource( 30 )
 anims/lava_persist = SubResource( 32 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 2 )]
-<<<<<<< HEAD
-collision_layer = 1025
-collision_mask = 1012
-=======
 collision_layer = 64
 collision_mask = 32
->>>>>>> 03541c1bb87ff33e73d4c09266850da17c45406c
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2( -3, 3 )
