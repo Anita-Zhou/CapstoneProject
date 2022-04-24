@@ -8,6 +8,7 @@ var speed = 40
 var direction2hero = Vector2(0, 0)
 var horizontal_dirc2hero = Vector2(0, 0)
 var direction_to_mid = Vector2(0, 0)
+var direction_to_avoid = Vector2(0, 0)
 var temp_direction = Vector2(0, 0)
 # Distances
 var distance2hero = float("inf")
@@ -19,6 +20,7 @@ var second_phase = false
 var second_phase_sound_played = false
 enum{
 	IDLE,
+	AVOID, 
 	MOVE,
 	MOVE_STAFF, 
 	MELEE_ATK,
@@ -36,6 +38,7 @@ onready var stats = $Stats
 
 #fixed point
 onready var mid_scrn = Vector2.ZERO
+onready var abv_plat = Vector2.ZERO
 onready var player_pos = Vector2.ZERO
 onready var left_edge = Vector2.ZERO
 onready var right_edge = Vector2.ZERO
@@ -51,6 +54,12 @@ var lava_timer = 0
 var meleeAtk_timer = 0
 var playerAway_timer = 0
 var chase_timer = 0
+
+var avoiding = false 
+var before_avoid = 0
+var after_avoid = 0
+
+var hurt_timer = 0 
 
 # Helper var
 var meleeAtk = false
@@ -73,6 +82,7 @@ func _ready():
 	# Can only be set once by this, indicating the center of the screen
 	#  where all casting os spells happneing 
 	mid_scrn = self.global_position
+	abv_plat = mid_scrn + Vector2(0, -60)
 	player_pos = player.global_position
 	
 
@@ -96,11 +106,12 @@ func _physics_process(delta):
 	horizontal_dirc2hero = Vector2(direction2hero.x, 0).normalized()
 	# Deicide the way back 
 	direction_to_mid = (mid_scrn - self.position).normalized()
+	direction_to_avoid = (abv_plat - self.position).normalized()
 	
 	# Combined state detect
-	if (fireball_timer > FRAME_RATE * 5 or firebeam_timer > FRAME_RATE * 15):
+	if (fireball_timer > FRAME_RATE * 5 or firebeam_timer > FRAME_RATE * 12):
 		ready_to_cast = true
-	if (playerAway_timer > FRAME_RATE * 20 or meleeAtk_timer > FRAME_RATE * 20):
+	if (playerAway_timer > FRAME_RATE * 20 or meleeAtk_timer > FRAME_RATE * 15):
 		ready_to_atk = true
 	
 	# Update timers
@@ -144,21 +155,52 @@ func _physics_process(delta):
 	match state:
 		
 		IDLE:
+			if (avoiding):
+				after_avoid += 1
+			else:
+				before_avoid += 1
 			motion = Vector2.ZERO
 			animationState.travel("Idle")
 			# Prioritize melee attack when player's been away for too long
 			if (ready_to_atk):
 				# Designated to state in cahrge of throw melee attack
 				state = MELEE_ATK
+			# If time is up, be away from the platform for some time
+			elif (before_avoid > FRAME_RATE * 8 || after_avoid > FRAME_RATE * 8):
+				state = AVOID
 			# If able to cast skills, cast skills
 			elif (ready_to_cast):
 				state = MOVE_STAFF
 			# If player is away but not for too long, horizontally trace player
 			elif (horizontal_dist2hero > 40):
 				state = MOVE
-
+				
+		# Avoid attack by getting way from the platform	
+		# Also responsible for getting out of AVOID if hide for long enough
+		AVOID:
+			if(not avoiding):
+				# Start to avoid attack
+				motion = direction_to_avoid * 90
+				# If have gotten back to mid screen, change to IDLE
+				if (self.position.distance_to(abv_plat) < 30):
+					state = IDLE
+					avoiding = true
+					after_avoid = 0
+			else:
+				# Getting back to center
+				motion = direction_to_mid * 90
+				if (self.position.distance_to(mid_scrn) < 30):
+					state = IDLE
+					avoiding = false
+					before_avoid = 0
+			animationState.travel("Move")
+				
 		# Horizontally move, either go for melee attack or go for idle
 		MOVE:
+			if (avoiding):
+				after_avoid += 1
+			else:
+				before_avoid += 1
 			motion = horizontal_dirc2hero * 20
 			animationState.travel("Move")
 			if (ready_to_atk):
@@ -170,6 +212,10 @@ func _physics_process(delta):
 		
 		# Prepare to cast magic attack, decide on what magic attacj to do
 		MOVE_STAFF:
+			if (avoiding):
+				after_avoid += 1
+			else:
+				before_avoid += 1
 			motion = Vector2.ZERO
 			# Prepare for attack
 			animationState.travel("MoveStaff")
@@ -181,6 +227,10 @@ func _physics_process(delta):
 			state = MELEE_ATK
 			
 		MELEE_ATK:
+			avoiding = false
+			before_avoid = 0
+			after_avoid = 0
+			
 			if (distance2hero < 30 || chase_timer > FRAME_RATE * 6):
 				arrived = true
 				chase_timer = 0
@@ -220,7 +270,7 @@ func _physics_process(delta):
 			else:
 				print("===== ERROR: has not arrived but attacked =====")
 
-		# Being stopped by the vines
+		# Being stopped by the vines (is it useful?)
 		STOP:
 			motion = horizontal_dirc2hero * 0
 			if stop_timer < 180:
@@ -296,7 +346,7 @@ func fix_position(check):
 
 func take_damage(area):
 	#TODO: distinguish area 
-	stats.health -= 50
+	stats.health -= 35
 #	emit_signal("boss_damage")
 	animationPlayer.play("Hurt")
 	print("zhu rong health", stats.health)

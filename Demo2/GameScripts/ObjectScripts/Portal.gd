@@ -16,6 +16,7 @@ func set_self_visible():
 
 func _on_Hurtbox_area_entered(area):
 	print("Portal hurtbox entered")
+	PlayerStats.reset()
 	var SceneName = get_tree().current_scene.get_name()
 	if(SceneName == "World1"):
 		get_tree().change_scene("res://Levels/World2.tscn")
