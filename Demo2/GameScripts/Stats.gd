@@ -2,6 +2,7 @@ extends Node
 
 export(int) var max_health = 100
 onready var health = max_health setget set_health
+var prev_health
 
 var crit_t = 0.2
 var crit_atk = 1.2
@@ -31,14 +32,17 @@ var earth_cd = 0
 func _ready():
 #	health = 40
 	num_skills = 2
+	prev_health = health
 
 func reset():
 	health = max_health
+	prev_health = health
 	
 func set_health(value):
+	prev_health = health
 	health = value
 	emit_signal("health_changed", health)
-	if (health <= max_health/2):
+	if (prev_health > max_health/2 && health <= max_health/2):
 		emit_signal("half_health")
 	if health <= 0:
 		emit_signal("no_health")

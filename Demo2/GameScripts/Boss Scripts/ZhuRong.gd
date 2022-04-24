@@ -186,6 +186,7 @@ func _physics_process(delta):
 			animationState.travel("MoveStaff")
 			
 		ENRAGE:
+			print("is in state enrage")
 			# Display rage melee right after enraged
 #			$Second_phase.play()
 			state = MELEE_ATK
