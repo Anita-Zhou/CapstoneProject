@@ -153,7 +153,7 @@ func get_player2enemy_dir():
 
 func take_damage(area):
 	invincibleCounter = 30
-	stats.health -= 10
+	stats.health -= 10 * stats.dec_dmg
 	print("what hurt player:", area.get_name())
 	animationPlayer.play("Hurt")
 

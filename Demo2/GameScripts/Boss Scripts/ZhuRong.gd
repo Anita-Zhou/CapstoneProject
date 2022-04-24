@@ -98,9 +98,9 @@ func _physics_process(delta):
 	direction_to_mid = (mid_scrn - self.position).normalized()
 	
 	# Combined state detect
-	if (fireball_timer > FRAME_RATE * 5 or firebeam_timer > FRAME_RATE * 20):
+	if (fireball_timer > FRAME_RATE * 5 or firebeam_timer > FRAME_RATE * 15):
 		ready_to_cast = true
-	if (playerAway_timer > FRAME_RATE * 30 or meleeAtk_timer > FRAME_RATE * 40):
+	if (playerAway_timer > FRAME_RATE * 20 or meleeAtk_timer > FRAME_RATE * 20):
 		ready_to_atk = true
 	
 	# Update timers
@@ -198,6 +198,8 @@ func _physics_process(delta):
 					animationState.travel("MeleeAttack")
 				# Phase 2
 				else:
+					if(distance2hero > 30):
+						motion = direction2hero * 70
 					animationState.travel("RageMelee")
 			# If has arrived and has attacked 
 			elif(arrived && meleeAtk):
@@ -293,7 +295,7 @@ func fix_position(check):
 
 func take_damage(area):
 	#TODO: distinguish area 
-	stats.health -= 70
+	stats.health -= 50
 #	emit_signal("boss_damage")
 	animationPlayer.play("Hurt")
 	print("zhu rong health", stats.health)

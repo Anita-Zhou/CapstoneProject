@@ -5,7 +5,7 @@ onready var health = max_health setget set_health
 
 var crit_t = 0.2
 var crit_atk = 1.2
-var dec_dmg = 0.5
+var dec_dmg = 1
 
 var num_skills = 2
 

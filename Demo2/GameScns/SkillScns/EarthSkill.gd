@@ -12,6 +12,7 @@ func _ready():
 	anim_player.play("EarthSkill")
 	
 func earth_finished():
+	PlayerStats.dec_dmg = 1
 	queue_free()
 
 
