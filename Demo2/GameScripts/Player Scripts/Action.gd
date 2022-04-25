@@ -154,7 +154,8 @@ func get_player2enemy_dir():
 func take_damage(area):
 	invincibleCounter = 20
 	stats.health -= 10 * stats.dec_dmg
-	print("what hurt player:", area.get_name())
+	print("===== what hurt player ========")
+	print(area.get_parent().get_name())
 	animationPlayer.play("Hurt")
 
 func _on_Hurtbox_area_entered(area):
@@ -166,6 +167,6 @@ func _on_Hurtbox_area_entered(area):
 #		var flame = Flame.instance()
 #		var player = get_tree().current_scene.get_node("Player")
 #		player.add_child(flame)
-	print("state: ", state)
-	print("invincibleCounter:", invincibleCounter)
+#	print("state: ", state)
+#	print("invincibleCounter:", invincibleCounter)
 	print("player health: ", stats.health)
