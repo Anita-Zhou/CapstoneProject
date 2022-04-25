@@ -210,13 +210,14 @@ func _physics_process(delta):
 #		# Also responsible for getting out of AVOID if hide for long enough
 		AVOID:
 			if (not avoiding):
+				should_avoid = false
 				# Start to avoid attack
 				motion = direction_to_avoid * 80
 				# If have gotten to escape place, change to IDLE
 				if (self.position.distance_to(abv_plat) < 5):
 					print("======AVOID========  Avoiding at above\n")
 					avoiding = true
-					after_avoid = FRAME_RATE * 8
+					after_avoid = FRAME_RATE * 5
 					state = IDLE
 			else:
 				motion = direction_to_mid * 80
@@ -400,7 +401,7 @@ func take_damage(area):
 	if (hurt_timer > 0):
 		hurt_cnt += 1
 		# If taking 3 damages within 3 seconds, avoid attack
-		if (hurt_cnt > 2):
+		if (hurt_cnt > 3):
 			should_avoid = true
 			state = IDLE
 			# Default hurt count and hurt timer
