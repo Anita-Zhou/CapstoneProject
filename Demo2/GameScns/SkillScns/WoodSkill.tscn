@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://GameScns/SkillScns/WoodSkill.gd" type="Script" id=1]
 [ext_resource path="res://Art Src/Attack/wood spell-vine.png" type="Texture" id=2]
 [ext_resource path="res://GameScns/Hitboxes&Hurtboxes/HitBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GameScns/Hitboxes&Hurtboxes/HurtBox.tscn" type="PackedScene" id=4]
 
 [sub_resource type="AtlasTexture" id=20]
 flags = 4
@@ -117,6 +118,35 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
+[sub_resource type="Animation" id=27]
+resource_name = "burned"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_on_animation_finished"
+} ]
+}
+
 [sub_resource type="Animation" id=16]
 resource_name = "partial"
 length = 3.0
@@ -160,6 +190,10 @@ tracks/2/keys = {
 } ]
 }
 
+[sub_resource type="CapsuleShape2D" id=28]
+radius = 87.0
+height = 44.0
+
 [sub_resource type="CircleShape2D" id=18]
 radius = 77.1622
 
@@ -175,7 +209,16 @@ animation = "Animate"
 [node name="GrowPlayer" type="AnimationPlayer" parent="."]
 anims/Animate = SubResource( 19 )
 anims/RESET = SubResource( 17 )
+anims/burned = SubResource( 27 )
 anims/partial = SubResource( 16 )
+
+[node name="Hurtbox" parent="." instance=ExtResource( 4 )]
+collision_layer = 1024
+collision_mask = 64
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2( -4, 79 )
+shape = SubResource( 28 )
 
 [node name="Hitbox" parent="." instance=ExtResource( 3 )]
 collision_layer = 16
@@ -185,5 +228,7 @@ collision_mask = 8
 position = Vector2( -3, 45 )
 shape = SubResource( 18 )
 disabled = true
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 
 [editable path="Hitbox"]
