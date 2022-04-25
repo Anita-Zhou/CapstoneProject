@@ -7,6 +7,8 @@ const WinScn = preload("res://GameScns/UIScns/WinUI/WinScreen.tscn")
 var is_paused = false
 onready var enemy = $ZhuRong
 onready var skillUI = $CanvasLayer1/SkillUI
+#TODO: change this to BGM1
+onready var bgm = $BGM
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,6 +37,11 @@ func _handle_win():
 #	skillUI.get_node("Earth/Sprite").visible = true
 	
 func _process(delta):
-	if $BGM.playing == false:
-		$BGM.play()
+	if bgm.playing == false:
+		bgm.play()
+		
+func change_bgm():
+	print("is changing bgm")
+	#TODO: change BGM1 to BGM 2
+#	pass
 

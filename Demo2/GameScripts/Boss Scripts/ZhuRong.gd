@@ -89,6 +89,9 @@ onready var fireBall = get_node("FireBall")
 onready var lavaPond = get_node("LavaPond")
 onready var fireBeam = get_node("FireBeam")
 
+#world 
+onready var world = get_tree().current_scene
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	anim_sprite = get_node("AnimatedSprite")
@@ -269,8 +272,11 @@ func _physics_process(delta):
 			print("!!!!! Is in state ENRAGE !!!!!")
 			# Display rage melee right after enraged
 			$Second_phase.play()
-			state = MELEE_ATK
 			melee_thd = FRAME_RATE * 8
+			world.change_bgm()
+			state = MELEE_ATK
+			
+			
 			
 		MELEE_ATK:
 			should_avoid = false
@@ -370,10 +376,10 @@ func handle_magic_cast():
 		if (horizontal_dist2hero < 300):
 			fireBall.being_cast(direction2hero)
 			fireball_timer = 0
-	# Always get back to IDLE after casting magic
-	state = IDLE
 	# Reset ready_to_cast so that it can prepare for 
 	ready_to_cast = false
+	# Always get back to IDLE after casting magic
+	state = IDLE
 
 func _on_Hurtbox_area_entered(area):
 	print(area.get_parent().get_name() + " entered boss")
