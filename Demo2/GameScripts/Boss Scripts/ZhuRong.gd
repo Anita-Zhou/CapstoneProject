@@ -346,18 +346,18 @@ func finished_melee_attack():
 func handle_magic_cast():
 	# Prioritize firebeam
 	if (firebeam_timer > FRAME_RATE * 14):
-		var fireBeamChoices = [2,3,4]
-		var fireBeamNum = fireBeamChoices[randi() % fireBeamChoices.size()]
-		
-		while fireBeamNum > 0:
-			var dirChosen = null
-			if fireBeamNum > 1:	
-				var dirChoices = [1, 2, 3]
-				dirChosen = dirChoices[randi() % dirChoices.size()]
-			else:
-				dirChosen = 2
-			fireBeam.being_cast(dirChosen)
-			fireBeamNum -= 1
+#		var fireBeamChoices = [2,3,4]
+#		var fireBeamNum = fireBeamChoices[randi() % fireBeamChoices.size()]
+#
+#		while fireBeamNum > 0:
+#			var dirChosen = null
+#			if fireBeamNum > 1:	
+#				var dirChoices = [1, 2, 3]
+#				dirChosen = dirChoices[randi() % dirChoices.size()]
+#			else:
+#				dirChosen = 2
+		fireBeam.being_cast()
+#			fireBeamNum -= 1
 		firebeam_timer = 0
 		fireball_timer = 0
 	# Then consider fireball

@@ -14,48 +14,49 @@ func _ready():
 	print("======screen size", screenSize)
 	pass # Replace with function body.
 
-func being_cast(dir):
+func being_cast():
 	var player = get_tree().current_scene.get_node("Player")
 	var hfireBeam = load("res://GameScns/BossScns/hfireBeam.tscn")
 	var vfireBeam = load("res://GameScns/BossScns/vfireBeam.tscn")
 	var summon = load("res://GameScns/BossScns/fireBallSummoning.tscn")
 	var world = get_tree().current_scene
 	
-	if dir == 1:
+#	if dir == 1:
 		# start from the left
-		var pos = Vector2(LEFT_X_BEAM, rng.randi_range(260,BOTTOM_Y_BEAM))
-		var hbeam = hfireBeam.instance()
-		var hsummon = summon.instance()
-		hsummon.summonFireBeam()
-		world.add_child(hsummon)
-		hsummon.global_position = Vector2(screenSize.x - pos.x - 80, pos.y - 20)
-		world.add_child(hbeam)
-		hbeam.set_rotation(Vector2(0, 1).angle())
-		hbeam.global_position = pos
+	var pos = Vector2(LEFT_X_BEAM, rng.randi_range(260,BOTTOM_Y_BEAM))
+	var hbeam = hfireBeam.instance()
+	var hsummon = summon.instance()
+	hsummon.summonFireBeam()
+	world.add_child(hsummon)
+	hsummon.global_position = Vector2(screenSize.x - pos.x - 80, pos.y - 20)
+	world.add_child(hbeam)
+	hbeam.set_rotation(Vector2(0, 1).angle())
+	hbeam.global_position = pos
 	
-	elif dir == 3:
+#	elif dir == 3:
 		# start from the right
-		var pos = Vector2(RIGHT_X_BEAM, rng.randi_range(260, BOTTOM_Y_BEAM))
-		var hbeam = hfireBeam.instance()
-		var hsummon = summon.instance()
-		hsummon.summonFireBeam()
-		world.add_child(hsummon)
-		hsummon.global_position = Vector2(screenSize.x - pos.x + 80, pos.y - 20)
-		world.add_child(hbeam)
-		hbeam.set_rotation(Vector2(0, -1).angle())
-		hbeam.global_position = pos
+	var pos1 = Vector2(RIGHT_X_BEAM, rng.randi_range(260, BOTTOM_Y_BEAM))
+	var hbeam1 = hfireBeam.instance()
+	var hsummon1 = summon.instance()
+	hsummon1.summonFireBeam()
+	world.add_child(hsummon)
+	hsummon1.global_position = Vector2(screenSize.x - pos1.x + 80, pos1.y - 20)
+	world.add_child(hbeam1)
+	hbeam1.set_rotation(Vector2(0, -1).angle())
+	hbeam1.global_position = pos1
 		
-	elif dir == 2:
+#	elif dir == 2:
 		# start from the bottom
-		var pos = Vector2(rng.randi_range(LEFT_X_BEAM + 150, RIGHT_X_BEAM - 150), BOTTOM_Y_BEAM)
-		var vbeam = vfireBeam.instance()
-		# TODO: added tilting but the number need to be adjust
-		# Resolved: NO TILT ADDED
-		# but need to change the length of vertical beam
-		world.add_child(vbeam)
-		vbeam.global_position = pos
+	var pos2 = Vector2(rng.randi_range(LEFT_X_BEAM + 150, RIGHT_X_BEAM - 150), BOTTOM_Y_BEAM)
+	var vbeam = vfireBeam.instance()
+	world.add_child(vbeam)
+	vbeam.global_position = pos2
 		
-
+	var pos3 = Vector2(rng.randi_range(LEFT_X_BEAM + 150, RIGHT_X_BEAM - 150), BOTTOM_Y_BEAM)
+	var vbeam1 = vfireBeam.instance()
+	world.add_child(vbeam1)
+	vbeam1.global_position = pos3
+	
 #	var player = get_tree().current_scene.get_node("Player")
 #	var FireSkill = load("res://GameScns/BossScns/lavaPond.tscn")
 #	lava = FireSkill.instance()
