@@ -61,21 +61,6 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=12]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 1 ]
-}
-
 [sub_resource type="Animation" id=13]
 resource_name = "fire"
 loop = true
@@ -92,6 +77,22 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 }
 
+[sub_resource type="Animation" id=14]
+resource_name = "restrained"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
 [node name="RageFire" type="Node2D"]
 script = ExtResource( 2 )
 
@@ -100,8 +101,7 @@ position = Vector2( -1.72853e-06, -108 )
 scale = Vector2( 2.28889, 2.49 )
 z_index = -5
 frames = SubResource( 11 )
-frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 12 )
 anims/fire = SubResource( 13 )
+anims/restrained = SubResource( 14 )

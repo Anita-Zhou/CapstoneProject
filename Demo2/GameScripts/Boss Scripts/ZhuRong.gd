@@ -119,18 +119,21 @@ func _physics_process(delta):
 	# Combined state detect
 	if (fireball_timer > FRAME_RATE * 5 or firebeam_timer > FRAME_RATE * 12):
 		ready_to_cast = true
-	if (playerAway_timer > FRAME_RATE * 20 or meleeAtk_timer > FRAME_RATE * 15):
+	if (playerAway_timer > FRAME_RATE * 20 or meleeAtk_timer > FRAME_RATE * 10):
 		ready_to_atk = true
 	# If get hurt, start counting how many times of hurt taken
 	# within limited time range
 	if (hurt_timer > 0):
 		hurt_timer -= 1
 		
-	# 
-	if restrained_timer > FRAME_RATE * 5:
-		rageMelee = true
-	else:
-		rageMelee = false
+#	# TODO: explain
+#	if restrained_timer > FRAME_RATE * 5:
+#		rageMelee = true
+#	if restrained_timer < FRAME_RATE * 3 and second_phase:
+#		state = IDLE
+#		rageFire.restrained()
+#	else:
+#		state = MELEE_ATK
 	
 	# Update timers
 	fireball_timer += 1
