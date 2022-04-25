@@ -62,7 +62,6 @@ var restrained_timer = 0
 # =========
 var avoiding = false 
 var should_avoid = false
-var before_avoid = 0
 var after_avoid = 0
 # =========
 var hurt_timer = 0 
@@ -91,7 +90,7 @@ func _ready():
 	# Can only be set once by this, indicating the center of the screen
 	#  where all casting os spells happneing 
 	mid_scrn = self.global_position
-	abv_plat = mid_scrn + Vector2(0, -90)
+	abv_plat = mid_scrn + Vector2(0, -80)
 	player_pos = player.global_position
 	
 
@@ -175,17 +174,20 @@ func _physics_process(delta):
 	animationTree.set("parameters/MeleeAttack/blend_position", direction2hero)
 	
 	match state:
-		
 		IDLE:
-			
 			motion = Vector2.ZERO
 			animationState.travel("Idle")
 			# Since we can be avoiding while doing other works
 			# have to check whether if is avoiding and deduce timer
-			if (after_avoid < 0):
-				state = AVOID
-			elif (avoiding):
-				after_avoid -= 1
+			if (avoiding):
+				if (after_avoid < 0):
+					print("idle but is AVOID and finish avoiding")
+					print(after_avoid)
+					state = AVOID
+				else:
+					after_avoid -= 1
+					if(after_avoid % FRAME_RATE == 0):
+						print("after_avoid: ", after_avoid / FRAME_RATE)
 				
 			# Prioritize avoiding too much attack from player 
 			if (should_avoid):
@@ -206,26 +208,32 @@ func _physics_process(delta):
 		AVOID:
 			if (not avoiding):
 				# Start to avoid attack
-				motion = direction_to_avoid * 90
+				motion = direction_to_avoid * 80
 				# If have gotten to escape place, change to IDLE
-				if (self.position.distance_to(abv_plat) < 10):
-					state = IDLE
+				if (self.position.distance_to(abv_plat) < 5):
+					print("======AVOID========  Avoiding at above\n")
 					avoiding = true
 					after_avoid = FRAME_RATE * 8
-			else:
-				motion = direction_to_mid * 90
-				if (self.position.distance_to(mid_scrn) < 30):
 					state = IDLE
+			else:
+				motion = direction_to_mid * 80
+				if (self.position.distance_to(mid_scrn) < 5):
+					print("======AVOID========  Avoiding back at\n")
 					avoiding = false
 					after_avoid = 0
+					state = IDLE
 			animationState.travel("Move")
 				
 		# Horizontally move, either go for melee attack or go for idle
 		MOVE:
-			if (after_avoid < 0):
-				state = AVOID
-			elif (avoiding):
-				after_avoid -= 1
+			if (avoiding):
+				if (after_avoid < 0):
+					state = AVOID
+				else:
+					after_avoid -= 1
+					# DEBUG
+					if(after_avoid % FRAME_RATE == 0):
+						print("after_avoid: ", after_avoid / FRAME_RATE)
 				
 			motion = horizontal_dirc2hero * 20
 			animationState.travel("Move")
@@ -238,10 +246,13 @@ func _physics_process(delta):
 		
 		# Prepare to cast magic attack, decide on what magic attacj to do
 		MOVE_STAFF:
-			if (after_avoid < 0):
-				state = AVOID
-			elif (avoiding):
-				after_avoid -= 1
+			if (avoiding):
+				if (after_avoid < 0):
+					state = AVOID
+				else:
+					after_avoid -= 1
+					if(after_avoid % FRAME_RATE == 0):
+						print("after_avoid: ", after_avoid / FRAME_RATE)
 				
 			motion = Vector2.ZERO
 			# Prepare for attack
@@ -260,7 +271,7 @@ func _physics_process(delta):
 				arrived = true
 				chase_timer = 0
 			##
-			# melee attack is separated into three states:
+			# Melee attack is separated into three states:
 			# before attack, while attack, and after attatck
 			#
 			# If has neither arrived nor attacked
