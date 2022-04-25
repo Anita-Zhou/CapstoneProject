@@ -90,7 +90,7 @@ func _ready():
 	# Can only be set once by this, indicating the center of the screen
 	#  where all casting os spells happneing 
 	mid_scrn = self.global_position
-	abv_plat = mid_scrn + Vector2(0, -80)
+	abv_plat = mid_scrn + Vector2(0, -70)
 	player_pos = player.global_position
 	
 
@@ -184,13 +184,11 @@ func _physics_process(delta):
 			# have to check whether if is avoiding and deduce timer
 			if (avoiding):
 				if (after_avoid < 0):
-					print("idle but is AVOID and finish avoiding")
-					print(after_avoid)
 					state = AVOID
 				else:
 					after_avoid -= 1
-					if(after_avoid % FRAME_RATE == 0):
-						print("after_avoid: ", after_avoid / FRAME_RATE)
+#					if(after_avoid % FRAME_RATE == 0):
+#						print("after_avoid: ", after_avoid / FRAME_RATE)
 				
 			# Prioritize avoiding too much attack from player 
 			if (should_avoid):
@@ -215,14 +213,14 @@ func _physics_process(delta):
 				motion = direction_to_avoid * 80
 				# If have gotten to escape place, change to IDLE
 				if (self.position.distance_to(abv_plat) < 5):
-					print("======AVOID========  Avoiding at above\n")
+#					print("======AVOID========  Avoiding at above\n")
 					avoiding = true
 					after_avoid = FRAME_RATE * 5
 					state = IDLE
 			else:
 				motion = direction_to_mid * 80
 				if (self.position.distance_to(mid_scrn) < 5):
-					print("======AVOID========  Avoiding back at\n")
+#					print("======AVOID========  Avoiding back at\n")
 					avoiding = false
 					after_avoid = 0
 					state = IDLE
@@ -235,29 +233,28 @@ func _physics_process(delta):
 					state = AVOID
 				else:
 					after_avoid -= 1
-					# DEBUG
-					if(after_avoid % FRAME_RATE == 0):
-						print("after_avoid: ", after_avoid / FRAME_RATE)
+#					# DEBUG
+#					if(after_avoid % FRAME_RATE == 0):
+#						print("after_avoid: ", after_avoid / FRAME_RATE)
 				
 			motion = horizontal_dirc2hero * 20
 			animationState.travel("Move")
 			if (ready_to_atk):
-				print("ready_to_atk")
+#				print("ready_to_atk")
 				state = MELEE_ATK
 			elif (ready_to_cast):
-				print("ready_to_cast")
+#				print("ready_to_cast")
 				state = MOVE_STAFF
 		
-		# Prepare to cast magic attack, decide on what magic attacj to do
+		# Prepare to cast magic attack, decide on what magic attack to do
 		MOVE_STAFF:
 			if (avoiding):
 				if (after_avoid < 0):
 					state = AVOID
 				else:
 					after_avoid -= 1
-					if(after_avoid % FRAME_RATE == 0):
-						print("after_avoid: ", after_avoid / FRAME_RATE)
-				
+#					if(after_avoid % FRAME_RATE == 0):
+#						print("after_avoid: ", after_avoid / FRAME_RATE)
 			motion = Vector2.ZERO
 			# Prepare for attack
 			animationState.travel("MoveStaff")
@@ -269,6 +266,7 @@ func _physics_process(delta):
 			state = MELEE_ATK
 			
 		MELEE_ATK:
+			should_avoid = false
 			
 			# If chase for too long or if player is close, indicate arrived
 			if (distance2hero < 30 || chase_timer > FRAME_RATE * 6):
