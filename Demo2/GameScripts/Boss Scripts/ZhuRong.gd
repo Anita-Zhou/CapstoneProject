@@ -224,7 +224,7 @@ func _physics_process(delta):
 				if (self.position.distance_to(abv_plat) < 5):
 #					print("======AVOID========  Avoiding at above\n")
 					avoiding = true
-					after_avoid = FRAME_RATE * 5
+					after_avoid = FRAME_RATE * 4
 					state = IDLE
 			else:
 				motion = direction_to_mid * 80
