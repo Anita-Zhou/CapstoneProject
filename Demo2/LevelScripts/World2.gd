@@ -35,6 +35,6 @@ func _handle_win():
 #	skillUI.get_node("Earth/Sprite").visible = true
 	
 func _process(delta):
-	if $BGM.playing == false:
-		$BGM.play()
+	if $BGM1.playing == false:
+		$BGM1.play()
 
