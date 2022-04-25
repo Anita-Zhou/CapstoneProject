@@ -78,6 +78,12 @@ var ready_to_atk = true
 
 var rageFire = null
 
+# Thresholds
+var melee_thd = FRAME_RATE * 12
+
+# Signals
+signal zr_half_health
+
 #skills
 onready var fireBall = get_node("FireBall")
 onready var lavaPond = get_node("LavaPond")
@@ -119,7 +125,7 @@ func _physics_process(delta):
 	# Combined state detect
 	if (fireball_timer > FRAME_RATE * 5 or firebeam_timer > FRAME_RATE * 12):
 		ready_to_cast = true
-	if (playerAway_timer > FRAME_RATE * 20 or meleeAtk_timer > FRAME_RATE * 10):
+	if (playerAway_timer > FRAME_RATE * 20 or meleeAtk_timer > melee_thd):
 		ready_to_atk = true
 	# If get hurt, start counting how many times of hurt taken
 	# within limited time range
@@ -260,10 +266,11 @@ func _physics_process(delta):
 			animationState.travel("MoveStaff")
 			
 		ENRAGE:
-			print("is in state enrage")
+			print("!!!!! Is in state ENRAGE !!!!!")
 			# Display rage melee right after enraged
-#			$Second_phase.play()
+			$Second_phase.play()
 			state = MELEE_ATK
+			melee_thd = FRAME_RATE * 8
 			
 		MELEE_ATK:
 			should_avoid = false

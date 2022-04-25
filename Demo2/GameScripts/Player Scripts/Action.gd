@@ -153,7 +153,12 @@ func get_player2enemy_dir():
 
 func take_damage(area):
 	invincibleCounter = 20
-	stats.health -= 10 * stats.dec_dmg
+	# Hard Code, TODO: CHANGEEEEEEa
+	var SceneName = get_tree().current_scene.get_name()
+	if(SceneName == "World2"):
+		stats.health -= 8 * stats.dec_dmg
+	else:
+		stats.health -= 10 * stats.dec_dmg
 	print("===== what hurt player ========")
 	print(area.get_parent().get_name())
 	animationPlayer.play("Hurt")
