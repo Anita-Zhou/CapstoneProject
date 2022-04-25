@@ -116,10 +116,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 1, 1.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 1, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ false, true ]
+"values": [ true, false, true ]
 }
 
 [sub_resource type="CapsuleShape2D" id=18]
@@ -150,6 +150,7 @@ collision_mask = 0
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, 106 )
 shape = SubResource( 18 )
+disabled = true
 
 [node name="Hitbox" parent="." instance=ExtResource( 3 )]
 collision_layer = 1024

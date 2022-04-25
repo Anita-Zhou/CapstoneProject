@@ -153,3 +153,4 @@ volume_db = -20.0
 [editable path="Background/bgTrees"]
 [editable path="Stone1/Hurtbox"]
 [editable path="CanvasLayer/HealthUI"]
+[editable path="CanvasLayer3/SkillUI"]
