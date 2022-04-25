@@ -31,7 +31,7 @@ func animation_finished():
 		if(is_instance_valid(player)):
 			start_pos = boss.get_position() 
 			final_pos = start_pos + 4000 * boss.get_direction2hero()
-			var Skill = load("res://GameScns/BossScns/fireBall.tscn")
+			var Skill = load("res://GameScns/BossScns/ZhuRongSkill/fireBall.tscn")
 			inc = boss.get_direction2hero()
 			fireballinstance = Skill.instance()
 			fireballinstance.target(final_pos)

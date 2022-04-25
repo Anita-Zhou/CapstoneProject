@@ -15,7 +15,7 @@ func _ready():
 
 func being_cast(direction):
 	var boss = $"../../ZhuRong"
-	var Skill = load("res://GameScns/BossScns/fireBallSummoning.tscn")
+	var Skill = load("res://GameScns/BossScns/ZhuRongSkill/fireBallSummoning.tscn")
 	spike = Skill.instance()
 	spike.summonFireBall(boss)
 	var world = get_tree().current_scene

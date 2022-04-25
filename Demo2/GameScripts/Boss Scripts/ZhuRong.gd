@@ -146,7 +146,7 @@ func _physics_process(delta):
 	if(second_phase):
 		# Create the rage fire once into second ohase and only once
 		if rageFire == null:
-			var RageFire = load("res://GameScns/BossScns/RageFire.tscn")
+			var RageFire = load("res://GameScns/BossScns/ZhuRongSkill/RageFire.tscn")
 			rageFire = RageFire.instance()
 			var boss = get_tree().current_scene.get_node("ZhuRong")
 			boss.add_child(rageFire)

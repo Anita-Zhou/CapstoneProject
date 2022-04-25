@@ -1,62 +1,62 @@
 [gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://GameScns/BossScns/hfireBeam.gd" type="Script" id=1]
+[ext_resource path="res://Art Src/BossArt/ZhuRong/fire_beam_vertical.png" type="Texture" id=1]
 [ext_resource path="res://SoundEffects/fire_beam.wav" type="AudioStream" id=2]
-[ext_resource path="res://Art Src/BossArt/ZhuRong/fire_beam_vertical.png" type="Texture" id=4]
-[ext_resource path="res://Art Src/Attack/fire-skill/fireball-summoning.png" type="Texture" id=5]
-[ext_resource path="res://GameScns/Hitboxes&Hurtboxes/HitBox.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Art Src/Attack/fire-skill/fireball-summoning.png" type="Texture" id=3]
+[ext_resource path="res://GameScns/BossScns/ZhuRongSkill/vfireBeam.gd" type="Script" id=4]
+[ext_resource path="res://GameScns/Hitboxes&Hurtboxes/HitBox.tscn" type="PackedScene" id=5]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
-atlas = ExtResource( 4 )
+atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 144, 480 )
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
-atlas = ExtResource( 4 )
+atlas = ExtResource( 1 )
 region = Rect2( 144, 0, 144, 480 )
 
 [sub_resource type="AtlasTexture" id=3]
 flags = 4
-atlas = ExtResource( 4 )
+atlas = ExtResource( 1 )
 region = Rect2( 288, 0, 144, 480 )
 
 [sub_resource type="AtlasTexture" id=4]
 flags = 4
-atlas = ExtResource( 4 )
+atlas = ExtResource( 1 )
 region = Rect2( 432, 0, 144, 480 )
 
 [sub_resource type="AtlasTexture" id=5]
 flags = 4
-atlas = ExtResource( 4 )
+atlas = ExtResource( 1 )
 region = Rect2( 576, 0, 144, 480 )
 
 [sub_resource type="AtlasTexture" id=11]
 flags = 4
-atlas = ExtResource( 5 )
+atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 432, 432 )
 
 [sub_resource type="AtlasTexture" id=12]
 flags = 4
-atlas = ExtResource( 5 )
+atlas = ExtResource( 3 )
 region = Rect2( 432, 0, 432, 432 )
 
 [sub_resource type="AtlasTexture" id=13]
 flags = 4
-atlas = ExtResource( 5 )
+atlas = ExtResource( 3 )
 region = Rect2( 864, 0, 432, 432 )
 
 [sub_resource type="AtlasTexture" id=14]
 flags = 4
-atlas = ExtResource( 5 )
+atlas = ExtResource( 3 )
 region = Rect2( 1296, 0, 432, 432 )
 
 [sub_resource type="AtlasTexture" id=15]
 flags = 4
-atlas = ExtResource( 5 )
+atlas = ExtResource( 3 )
 region = Rect2( 1728, 0, 432, 432 )
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=16]
 animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
 "loop": true,
@@ -64,7 +64,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=17]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:frame")
@@ -91,7 +91,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=18]
 resource_name = "fireBeam_summoning"
 length = 0.6
 tracks/0/type = "value"
@@ -133,7 +133,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=19]
 resource_name = "firebeam"
 length = 1.3
 loop = true
@@ -169,7 +169,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 1.26 ),
+"times": PoolRealArray( 1.3 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -191,30 +191,30 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 40.25, 411.875 )
 
-[node name="fireBeam" type="Node2D"]
-script = ExtResource( 1 )
+[node name="vfireBeam" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 1, -485 )
-scale = Vector2( 1.28125, 2.22031 )
-frames = SubResource( 6 )
+position = Vector2( 1, -145.563 )
+scale = Vector2( 1.28125, 0.805988 )
+frames = SubResource( 16 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 7 )
-anims/fireBeam_summoning = SubResource( 16 )
-anims/firebeam = SubResource( 8 )
+anims/RESET = SubResource( 17 )
+anims/fireBeam_summoning = SubResource( 18 )
+anims/firebeam = SubResource( 19 )
 
-[node name="Hitbox" parent="." instance=ExtResource( 6 )]
+[node name="Hitbox" parent="." instance=ExtResource( 5 )]
 position = Vector2( -6, 30 )
 collision_layer = 1024
 collision_mask = 0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2( 5, -395.875 )
-shape = SubResource( 10 )
+shape = SubResource( 21 )
 disabled = true
 
 [node name="FireBeamSound" type="AudioStreamPlayer" parent="."]

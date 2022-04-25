@@ -16,9 +16,9 @@ func _ready():
 
 func being_cast():
 	var player = get_tree().current_scene.get_node("Player")
-	var hfireBeam = load("res://GameScns/BossScns/hfireBeam.tscn")
-	var vfireBeam = load("res://GameScns/BossScns/vfireBeam.tscn")
-	var summon = load("res://GameScns/BossScns/fireBallSummoning.tscn")
+	var hfireBeam = load("res://GameScns/BossScns/ZhuRongSkill/hfireBeam.tscn")
+	var vfireBeam = load("res://GameScns/BossScns/ZhuRongSkill/vfireBeam.tscn")
+	var summon = load("res://GameScns/BossScns/ZhuRongSkill/fireBallSummoning.tscn")
 	var world = get_tree().current_scene
 	
 #	if dir == 1:

@@ -4,7 +4,7 @@ extends KinematicBody2D
 
 var lava = null
 #var pos_buff = null
-onready var Lava = load("res://GameScns/BossScns/lavaPond.tscn")
+onready var Lava = load("res://GameScns/BossScns/ZhuRongSkill/lavaPond.tscn")
 
 
 func _ready():
