@@ -37,11 +37,15 @@ func _handle_win():
 #	skillUI.get_node("Earth/Sprite").visible = true
 	
 func _process(delta):
-	if bgm.playing == false:
-		bgm.play()
+	if $BGM1.playing == false:
+		$BGM1.play()
 		
 func change_bgm():
 	print("is changing bgm")
+	if $BGM1.playing:
+		$BGM1.stop()
+	if $BGM2.playing == false:
+		$BGM2.play()
 	#TODO: change BGM1 to BGM 2
 #	pass
 
